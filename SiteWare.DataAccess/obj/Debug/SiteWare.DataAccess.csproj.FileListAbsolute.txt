@@ -1,0 +1,48 @@
+D:\KiranTFSProject\KHF_V01\KHF\SiteWare.DataAccess\bin\Debug\SiteWare.DataAccess.dll
+D:\KiranTFSProject\KHF_V01\KHF\SiteWare.DataAccess\bin\Debug\SiteWare.DataAccess.pdb
+D:\KiranTFSProject\KHF_V01\KHF\SiteWare.DataAccess\bin\Debug\SiteWare.Entity.dll
+D:\KiranTFSProject\KHF_V01\KHF\SiteWare.DataAccess\bin\Debug\SiteWare.Entity.pdb
+D:\KiranTFSProject\KHF_V01\KHF\SiteWare.DataAccess\obj\Debug\SiteWare.DataAccess.csprojResolveAssemblyReference.cache
+D:\KiranTFSProject\KHF_V01\KHF\SiteWare.DataAccess\obj\Debug\SiteWare.DataAccess.dll
+D:\KiranTFSProject\KHF_V01\KHF\SiteWare.DataAccess\obj\Debug\SiteWare.DataAccess.pdb
+D:\KiranTFSProject\JEPCO\JEPCO\SiteWare.DataAccess\bin\Debug\SiteWare.DataAccess.dll
+D:\KiranTFSProject\JEPCO\JEPCO\SiteWare.DataAccess\bin\Debug\SiteWare.DataAccess.pdb
+D:\KiranTFSProject\JEPCO\JEPCO\SiteWare.DataAccess\bin\Debug\SiteWare.Entity.dll
+D:\KiranTFSProject\JEPCO\JEPCO\SiteWare.DataAccess\bin\Debug\SiteWare.Entity.pdb
+D:\KiranTFSProject\JEPCO\JEPCO\SiteWare.DataAccess\obj\Debug\SiteWare.DataAccess.csprojResolveAssemblyReference.cache
+D:\KiranTFSProject\JEPCO\JEPCO\SiteWare.DataAccess\obj\Debug\SiteWare.DataAccess.dll
+D:\KiranTFSProject\JEPCO\JEPCO\SiteWare.DataAccess\obj\Debug\SiteWare.DataAccess.pdb
+D:\AJAYPatel(2019)\JEPCO\JEPCO\SiteWare.DataAccess\bin\Debug\SiteWare.DataAccess.dll
+D:\AJAYPatel(2019)\JEPCO\JEPCO\SiteWare.DataAccess\bin\Debug\SiteWare.DataAccess.pdb
+D:\AJAYPatel(2019)\JEPCO\JEPCO\SiteWare.DataAccess\bin\Debug\SiteWare.Entity.dll
+D:\AJAYPatel(2019)\JEPCO\JEPCO\SiteWare.DataAccess\bin\Debug\SiteWare.Entity.pdb
+D:\AJAYPatel(2019)\JEPCO\JEPCO\SiteWare.DataAccess\obj\Debug\SiteWare.DataAccess.csprojAssemblyReference.cache
+D:\AJAYPatel(2019)\JEPCO\JEPCO\SiteWare.DataAccess\obj\Debug\SiteWare.DataAccess.csproj.CopyComplete
+D:\AJAYPatel(2019)\JEPCO\JEPCO\SiteWare.DataAccess\obj\Debug\SiteWare.DataAccess.dll
+D:\AJAYPatel(2019)\JEPCO\JEPCO\SiteWare.DataAccess\obj\Debug\SiteWare.DataAccess.pdb
+D:\AJAYPatel(2019)\JepcoPortal\JepcoPortal\JepcoPortal\SiteWare.DataAccess\bin\Debug\SiteWare.DataAccess.dll
+D:\AJAYPatel(2019)\JepcoPortal\JepcoPortal\JepcoPortal\SiteWare.DataAccess\bin\Debug\SiteWare.DataAccess.pdb
+D:\AJAYPatel(2019)\JepcoPortal\JepcoPortal\JepcoPortal\SiteWare.DataAccess\bin\Debug\SiteWare.Entity.dll
+D:\AJAYPatel(2019)\JepcoPortal\JepcoPortal\JepcoPortal\SiteWare.DataAccess\bin\Debug\SiteWare.Entity.pdb
+D:\AJAYPatel(2019)\JepcoPortal\JepcoPortal\JepcoPortal\SiteWare.DataAccess\obj\Debug\SiteWare.DataAccess.csprojAssemblyReference.cache
+D:\AJAYPatel(2019)\JepcoPortal\JepcoPortal\JepcoPortal\SiteWare.DataAccess\obj\Debug\SiteWare.DataAccess.csproj.CopyComplete
+D:\AJAYPatel(2019)\JepcoPortal\JepcoPortal\JepcoPortal\SiteWare.DataAccess\obj\Debug\SiteWare.DataAccess.dll
+D:\AJAYPatel(2019)\JepcoPortal\JepcoPortal\JepcoPortal\SiteWare.DataAccess\obj\Debug\SiteWare.DataAccess.pdb
+D:\AJAYPatel(2019)\JepcoPortal\JepcoPortal\JepcoPortal\SiteWare.DataAccess\obj\Debug\SiteWare.DataAccess.csproj.CoreCompileInputs.cache
+E:\TejasPatel\Map Projects\Jepco_Portal\JepcoPortal\SiteWare.DataAccess\bin\Debug\SiteWare.DataAccess.dll
+E:\TejasPatel\Map Projects\Jepco_Portal\JepcoPortal\SiteWare.DataAccess\bin\Debug\SiteWare.DataAccess.pdb
+E:\TejasPatel\Map Projects\Jepco_Portal\JepcoPortal\SiteWare.DataAccess\bin\Debug\SiteWare.Entity.dll
+E:\TejasPatel\Map Projects\Jepco_Portal\JepcoPortal\SiteWare.DataAccess\bin\Debug\SiteWare.Entity.pdb
+E:\TejasPatel\Map Projects\Jepco_Portal\JepcoPortal\SiteWare.DataAccess\obj\Debug\SiteWare.DataAccess.csprojAssemblyReference.cache
+E:\TejasPatel\Map Projects\Jepco_Portal\JepcoPortal\SiteWare.DataAccess\obj\Debug\SiteWare.DataAccess.csproj.CopyComplete
+E:\TejasPatel\Map Projects\Jepco_Portal\JepcoPortal\SiteWare.DataAccess\obj\Debug\SiteWare.DataAccess.dll
+E:\TejasPatel\Map Projects\Jepco_Portal\JepcoPortal\SiteWare.DataAccess\obj\Debug\SiteWare.DataAccess.pdb
+D:\KiranTFS2021\JepcoPortal\SiteWare.DataAccess\bin\Debug\SiteWare.DataAccess.dll
+D:\KiranTFS2021\JepcoPortal\SiteWare.DataAccess\bin\Debug\SiteWare.DataAccess.pdb
+D:\KiranTFS2021\JepcoPortal\SiteWare.DataAccess\bin\Debug\SiteWare.Entity.dll
+D:\KiranTFS2021\JepcoPortal\SiteWare.DataAccess\bin\Debug\SiteWare.Entity.pdb
+D:\KiranTFS2021\JepcoPortal\SiteWare.DataAccess\obj\Debug\SiteWare.DataAccess.csprojAssemblyReference.cache
+D:\KiranTFS2021\JepcoPortal\SiteWare.DataAccess\obj\Debug\SiteWare.DataAccess.csproj.CoreCompileInputs.cache
+D:\KiranTFS2021\JepcoPortal\SiteWare.DataAccess\obj\Debug\SiteWare.DataAccess.csproj.CopyComplete
+D:\KiranTFS2021\JepcoPortal\SiteWare.DataAccess\obj\Debug\SiteWare.DataAccess.dll
+D:\KiranTFS2021\JepcoPortal\SiteWare.DataAccess\obj\Debug\SiteWare.DataAccess.pdb

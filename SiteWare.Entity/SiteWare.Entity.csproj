@@ -1,0 +1,375 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E6DDAFD8-3AC5-403C-BA00-6C5840629FF2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SiteWare.Entity</RootNamespace>
+    <AssemblyName>SiteWare.Entity</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\Entities\ResultEntity.cs" />
+    <Compile Include="Common\Entities\ResultList.cs" />
+    <Compile Include="Common\Enums\EnumAuthenticationResults.cs" />
+    <Compile Include="Common\Enums\EnumLanguage.cs" />
+    <Compile Include="Common\Enums\ErrorEnums.cs" />
+    <Compile Include="Common\Enums\InsuranceServiceEnum.cs" />
+    <Compile Include="Constants\Entity\CarInsuranceFormEntityConstants.cs" />
+    <Compile Include="Constants\Entity\CMS_PropertyKeywordEntityConstants.cs" />
+    <Compile Include="Constants\Entity\CMS_WorkFlow_SettingsEntityConstants.cs" />
+    <Compile Include="Constants\Entity\ContactUsFormEntityConstants.cs" />
+    <Compile Include="Constants\Entity\CountryLanguageEntityConstants.cs" />
+    <Compile Include="Constants\Entity\DepartmentLanguageEntityConstants.cs" />
+    <Compile Include="Constants\Entity\E_Lookup_ServiceCategoryEntityConstants.cs" />
+    <Compile Include="Constants\Entity\E_Plugin_ElectronicServiceCatalogEntityConstants.cs" />
+    <Compile Include="Constants\Entity\E_Plugin_ServiceInformationEntityConstants.cs" />
+    <Compile Include="Constants\Entity\E_Plugin_ServiceStepEntityConstants.cs" />
+    <Compile Include="Constants\Entity\E_Plugin_ServiceTypeEntityConstants.cs" />
+    <Compile Include="Constants\Entity\E_Plugin_UserTypeEntityConstants.cs" />
+    <Compile Include="Constants\Entity\FAQEntityConstants.cs" />
+    <Compile Include="Constants\Entity\GenderLanguageEntityConstants.cs" />
+    <Compile Include="Constants\Entity\InsuranceFormEntityConstants.cs" />
+    <Compile Include="Constants\Entity\LanguageEntityConstants.cs" />
+    <Compile Include="Constants\Entity\BannerTypeEntityConstants.cs" />
+    <Compile Include="Constants\Entity\CalendarEntityConstants.cs" />
+    <Compile Include="Constants\Entity\FooterNavigationEntityConstants.cs" />
+    <Compile Include="Constants\Entity\LastLoginTimeEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Lookup_AreaEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Lookup_AreaOneEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Lookup_AreaTwoEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Lookup_CertificationTypeEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Lookup_CityEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Lookup_CompamyClassificationEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Lookup_ComplainTypeEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Lookup_DocumentTypeEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Lookup_IdentityTypeEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Lookup_JobNameEntityConstants  .cs" />
+    <Compile Include="Constants\Entity\Lookup_JobTypeEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Lookup_LicenceTypeEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Lookup_LicenceYearEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Lookup_NationalityEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Lookup_PropertyTypeEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Lookup_CountryEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Lookup_ProvenanceEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Lookup_QualificationEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Lookup_ServiceUserTypeEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Lookup_SurveyAnswerConstants.cs" />
+    <Compile Include="Constants\Entity\Lookup_UsageStatusEntityConstant.cs" />
+    <Compile Include="Constants\Entity\MarineInsuranceFormEntityConstants.cs" />
+    <Compile Include="Constants\Entity\MartialStatusEntityConstatnts.cs" />
+    <Compile Include="Constants\Entity\MessagesAndNotificationsEntityConstants.cs" />
+    <Compile Include="Constants\Entity\MobileRegistationEntityConstants.cs" />
+    <Compile Include="Constants\Entity\NewsTickerEntityConstants.cs" />
+    <Compile Include="Constants\Entity\NewSub_Lookup_NationalityEntityConstants.cs" />
+    <Compile Include="Constants\Entity\PluginAnnouncementEntityConstants.cs" />
+    <Compile Include="Constants\Entity\PluginDataPointEntityConstants.cs" />
+    <Compile Include="Constants\Entity\PluginPartnerEntityConstants.cs" />
+    <Compile Include="Constants\Entity\PluginProvider_ActingManager_EntityConstants.cs" />
+    <Compile Include="Constants\Entity\PluginProvider_Partner_EntityConstants.cs" />
+    <Compile Include="Constants\Entity\PluginSchoolProgramsEntityConstants.cs" />
+    <Compile Include="Constants\Entity\PluginServiceEntityConstants.cs" />
+    <Compile Include="Constants\Entity\PluginServiceTabEntityConstants.cs" />
+    <Compile Include="Constants\Entity\PluginSurveyEntityConstants.cs" />
+    <Compile Include="Constants\Entity\PluginValueEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Plugin_AboutCompanyEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Plugin_AboutUsEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Plugin_CMS_WorkFlow_EntityConstants.cs" />
+    <Compile Include="Constants\Entity\Plugin_CMS_WorkFlow_Users_EntityConstants.cs" />
+    <Compile Include="Constants\Entity\Plugin_CMS_WorkFlow_Users_Reuests_StepsEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Plugin_CMS_WorkFlow_Users_Reuests_Steps_Value_HistoryEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Plugin_Core_ValueEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Plugin_CVTrainingEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Plugin_DailyAdviseEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Plugin_EventYearMonthEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Plugin_Facility_EntityConstants.cs" />
+    <Compile Include="Constants\Entity\Plugin_FA_EntitiesEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Plugin_FinancePerformanceEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Plugin_Focus_AreaEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Plugin_JobApplicationEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Plugin_NewsYearMonthEntityConstant.cs" />
+    <Compile Include="Constants\Entity\Plugin_NotificationEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Plugin_PositionEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Plugin_PreviuesExperianceEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Plugin_PriceEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Plugin_Project_EntityConstants.cs" />
+    <Compile Include="Constants\Entity\Plugin_PropertyAlbumDetailEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Plugin_PropertyAlbumEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Plugin_PropertyEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Plugin_ProviderDocumentationEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Plugin_ProviderEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Plugin_Provider_CategoryEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Plugin_GovernateEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Plugin_Provider_RegionEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Plugin_Provider_SubCategoryEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Plugin_QualificationEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Plugin_RenwabaleEnergyCompanyEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Plugin_SecondSliderEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Plugin_ServiceNoteEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Plugin_ServiceProviderEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Plugin_ServiceUserEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Plugin_SubmitCVEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Plugin_TimelineEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Plugin_TrainingEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Plugin_UserComplainEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Plugin_Video_EntityConstants.cs" />
+    <Compile Include="Constants\Entity\Plugin_VotingEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Plugin_WelcomeNote_BtnEntityConstant.cs" />
+    <Compile Include="Constants\Entity\Plugin_CVContactEntityConstants.cs" />
+    <Compile Include="Constants\Entity\RenewableEnergyCompanyDeviceEntityConstants.cs" />
+    <Compile Include="Constants\Entity\RenewableEnergyCompanySolarCellEntityConstants.cs" />
+    <Compile Include="Constants\Entity\RenewableEnergyCompanyUserEntityConstants.cs" />
+    <Compile Include="Constants\Entity\RenewableEnergyUserRequestsDetailsDevicesEntityConstants.cs" />
+    <Compile Include="Constants\Entity\RenewableEnergyUserRequestsDetailsEntityConstants.cs" />
+    <Compile Include="Constants\Entity\RenewableEnergyUserRequestsDetailsSollarsEntityConstants.cs" />
+    <Compile Include="Constants\Entity\RenewableEnergyUserRequestsDetails_TokenEntityConstants.cs" />
+    <Compile Include="Constants\Entity\RenewableEnergyUserRequestsEntityConstants.cs" />
+    <Compile Include="Constants\Entity\RenwableEnergyType3Phase1AttachmentsEntityConstants.cs" />
+    <Compile Include="Constants\Entity\RenwableEnergyType3Phase1DetailsEntityConstants.cs" />
+    <Compile Include="Constants\Entity\RenwableEnergyType3Phase1LocationsEntityConstants.cs" />
+    <Compile Include="Constants\Entity\RenwableEnergyType3Phase1MetersDataEntityConstants.cs" />
+    <Compile Include="Constants\Entity\RenwableEnergyType3Phase2DetailsAttechmentEntityConstants.cs" />
+    <Compile Include="Constants\Entity\RenwableEnergyType3Phase2DetailsDevicesEntityConstants.cs" />
+    <Compile Include="Constants\Entity\RenwableEnergyType3Phase2DetailsEntityConstants.cs" />
+    <Compile Include="Constants\Entity\RenwableEnergyType3Phase2DetailsOthersEntityConstants.cs" />
+    <Compile Include="Constants\Entity\RenwableEnergyType3Phase2DetailsSollarsEntityConstants.cs" />
+    <Compile Include="Constants\Entity\SectionLanguageEntityConstants.cs" />
+    <Compile Include="Constants\Entity\SecurityUserPluginEntityConstants.cs" />
+    <Compile Include="Constants\Entity\CustomerSatisfactionEntityConstants.cs" />
+    <Compile Include="Constants\Entity\InnerLinkEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Plugin_News_LetterEntityConstants.cs" />
+    <Compile Include="Constants\Entity\MenuFooterEntityConstants.cs" />
+    <Compile Include="Constants\Entity\Plugin_CarrerEntityConstants.cs" />
+    <Compile Include="Constants\Entity\SendNotificationEntityConstants.cs" />
+    <Compile Include="Constants\Entity\DirectNoteEntityConstants.cs" />
+    <Compile Include="Constants\Entity\ServicesStepsEntityConstants.cs" />
+    <Compile Include="Constants\Entity\ServicesStepsValuesEntityConstant.cs" />
+    <Compile Include="Constants\Entity\StatisticNoteEntityConstants.cs" />
+    <Compile Include="Constants\Entity\UsefullinksEntityConstants.cs" />
+    <Compile Include="Constants\Entity\TypeusefullinksEntityConstants.cs" />
+    <Compile Include="Constants\Entity\CarrerLanguageEntityConstants.cs" />
+    <Compile Include="Constants\Entity\CalendarEventEntityConstants.cs" />
+    <Compile Include="Constants\Entity\CountryEntityConstants.cs" />
+    <Compile Include="Constants\Entity\PluginAlbumDetailEntityConstants.cs" />
+    <Compile Include="Constants\Entity\PluginAlbumEntityConstants.cs" />
+    <Compile Include="Constants\Entity\PluginLogoEntityConstants.cs" />
+    <Compile Include="Constants\Entity\PluginSocialIconEntityConstants.cs" />
+    <Compile Include="Constants\Entity\PluginContactUsEntityConstants.cs" />
+    <Compile Include="Constants\Entity\SecondNavigationEntityConstants.cs" />
+    <Compile Include="Constants\Entity\NavigationEntityConstants.cs" />
+    <Compile Include="Constants\Entity\NewsEntityConstants.cs" />
+    <Compile Include="Constants\Entity\PagesEntityConstants.cs" />
+    <Compile Include="Constants\Entity\PagesKeywordEntityConstants.cs" />
+    <Compile Include="Constants\Entity\PluginBannerEntityConstants.cs" />
+    <Compile Include="Constants\Entity\PluginSliderEntityConstants.cs" />
+    <Compile Include="Constants\Entity\SectionEntityConstants.cs" />
+    <Compile Include="Constants\Entity\SettingEntityConstants.cs" />
+    <Compile Include="Constants\Entity\UsersEntityConstants.cs" />
+    <Compile Include="Constants\Entity\User_Login_IntranetEntityConstants.cs" />
+    <Compile Include="Constants\Entity\VideoSliderEntityConstants.cs" />
+    <Compile Include="Constants\Entity\WelcomeNoteEntityConstants.cs" />
+    <Compile Include="Constants\Entity\WelcomeNote_ImageEntityConstants.cs" />
+    <Compile Include="Entities\CMS_PropertyKeywordEntity.cs" />
+    <Compile Include="Entities\CMS_WorkFlow_SettingsEntity.cs" />
+    <Compile Include="Entities\ContactUsFormEntity.cs" />
+    <Compile Include="Entities\CountryLanguageEntity.cs" />
+    <Compile Include="Entities\DepartmentLanguageEntity.cs" />
+    <Compile Include="Entities\E_Lookup_ServiceCategoryEntity.cs" />
+    <Compile Include="Entities\E_Plugin_ElectronicServiceCatalogEntity.cs" />
+    <Compile Include="Entities\E_Plugin_ServiceInformationEntity.cs" />
+    <Compile Include="Entities\E_Plugin_ServiceStepEntity.cs" />
+    <Compile Include="Entities\E_Plugin_ServiceTypeEntity.cs" />
+    <Compile Include="Entities\E_Plugin_UserTypeEntity.cs" />
+    <Compile Include="Entities\FAQEntity.cs" />
+    <Compile Include="Entities\GenderLanguageEntity.cs" />
+    <Compile Include="Entities\LanguageEntity.cs" />
+    <Compile Include="Entities\BannerTypeEntity.cs" />
+    <Compile Include="Entities\Carrer_ReferenceEntity.cs" />
+    <Compile Include="Entities\FooterNavigationEntity.cs" />
+    <Compile Include="Entities\LastLoginTimeEntity.cs" />
+    <Compile Include="Entities\Lookup_AreaEntity.cs" />
+    <Compile Include="Entities\Lookup_AreaOneEntity.cs" />
+    <Compile Include="Entities\Lookup_AreaTwoEntity.cs" />
+    <Compile Include="Entities\Lookup_CertificationTypeEntity.cs" />
+    <Compile Include="Entities\Lookup_CityEntity.cs" />
+    <Compile Include="Entities\Lookup_CompamyClassificationEntity.cs" />
+    <Compile Include="Entities\Lookup_ComplainTypeEntity.cs" />
+    <Compile Include="Entities\Lookup_DocumentTypeEntity.cs" />
+    <Compile Include="Entities\Lookup_IdentityTypeEntity.cs" />
+    <Compile Include="Entities\Lookup_JobNameEntity.cs" />
+    <Compile Include="Entities\Lookup_JobTypeEntity.cs" />
+    <Compile Include="Entities\Lookup_LicenceTypeEntity.cs" />
+    <Compile Include="Entities\Lookup_LicenceYearEntity.cs" />
+    <Compile Include="Entities\Lookup_NationalityEntity.cs" />
+    <Compile Include="Entities\Lookup_PropertyTypeEntity.cs" />
+    <Compile Include="Entities\Lookup_CountryEntity.cs" />
+    <Compile Include="Entities\Lookup_ProvenanceEntity.cs" />
+    <Compile Include="Entities\Lookup_QualificationEntity.cs" />
+    <Compile Include="Entities\Lookup_ServiceUserTypeEntity.cs" />
+    <Compile Include="Entities\Lookup_SurveyAnswerEntity.cs" />
+    <Compile Include="Entities\Lookup_UsageStatusEntity.cs" />
+    <Compile Include="Entities\MarineInsuranceFormEntity.cs" />
+    <Compile Include="Entities\MessagesAndNotificationsEntity.cs" />
+    <Compile Include="Entities\MobileRegistationEntity.cs" />
+    <Compile Include="Entities\NewSub_Lookup_NationalityEntity.cs" />
+    <Compile Include="Entities\PluginAnnouncementEntity.cs" />
+    <Compile Include="Entities\PluginDataPointEntity.cs" />
+    <Compile Include="Entities\PluginPartnerEntity.cs" />
+    <Compile Include="Entities\PluginProvider_ActingManagerEntity.cs" />
+    <Compile Include="Entities\PluginProvider_Partner_Entity.cs" />
+    <Compile Include="Entities\PluginSchoolProgramsEntity.cs" />
+    <Compile Include="Entities\PluginServiceEntity.cs" />
+    <Compile Include="Entities\PluginServiceTabEntity.cs" />
+    <Compile Include="Entities\PluginSurveyEntity.cs" />
+    <Compile Include="Entities\PluginValueEntity.cs" />
+    <Compile Include="Entities\Plugin_AboutCompanyEntity.cs" />
+    <Compile Include="Entities\Plugin_AboutUsEntity.cs" />
+    <Compile Include="Entities\Plugin_CandidateEntity.cs" />
+    <Compile Include="Entities\Plugin_CMS_WorkFlow_Entity.cs" />
+    <Compile Include="Entities\Plugin_CMS_WorkFlow_Users_Entity.cs" />
+    <Compile Include="Entities\Plugin_CMS_WorkFlow_Users_Reuests_StepsEntity.cs" />
+    <Compile Include="Entities\Plugin_CMS_WorkFlow_Users_Reuests_Steps_Value_HistoryEntity.cs" />
+    <Compile Include="Entities\Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueEntity.cs" />
+    <Compile Include="Entities\Plugin_Core_ValueEntity.cs" />
+    <Compile Include="Entities\Plugin_CVTrainingEntity.cs" />
+    <Compile Include="Entities\Plugin_DailyAdviseEntity.cs" />
+    <Compile Include="Entities\Plugin_Department.cs" />
+    <Compile Include="Entities\Plugin_EventYearMonthEntity.cs" />
+    <Compile Include="Entities\Plugin_Facility_Entity.cs" />
+    <Compile Include="Entities\Plugin_FA_EntitiesEntity.cs" />
+    <Compile Include="Entities\Plugin_FinancePerformanceEntity.cs" />
+    <Compile Include="Entities\Plugin_Focus_AreaEntity.cs" />
+    <Compile Include="Entities\Plugin_InsuranceServiceEntity.cs" />
+    <Compile Include="Entities\Plugin_JobApplicationEntity.cs" />
+    <Compile Include="Entities\Plugin_NewsYearMonthEntity.cs" />
+    <Compile Include="Entities\Plugin_NotificationEntity.cs" />
+    <Compile Include="Entities\Plugin_PreviuesExperianceEntity.cs" />
+    <Compile Include="Entities\Plugin_PriceEntity.cs" />
+    <Compile Include="Entities\Plugin_ProjectEntities.cs" />
+    <Compile Include="Entities\Plugin_PropertyAlbumDetailEntity.cs" />
+    <Compile Include="Entities\Plugin_PropertyAlbumEntity.cs" />
+    <Compile Include="Entities\Plugin_PropertyEntity.cs" />
+    <Compile Include="Entities\Plugin_ProviderDocumentationEntity.cs" />
+    <Compile Include="Entities\Plugin_ProviderEntity.cs" />
+    <Compile Include="Entities\Plugin_Provider_CategoryEntity.cs" />
+    <Compile Include="Entities\Plugin_GovernateEntity.cs" />
+    <Compile Include="Entities\Plugin_Provider_RegionEntity.cs" />
+    <Compile Include="Entities\Plugin_Provider_SubCategoryEntity.cs" />
+    <Compile Include="Entities\Plugin_QualificationEntity.cs" />
+    <Compile Include="Entities\Plugin_RenwabaleEnergyCompanyEntity.cs" />
+    <Compile Include="Entities\Plugin_SecondSliderEntity.cs" />
+    <Compile Include="Entities\Plugin_ServiceNoteEntity.cs" />
+    <Compile Include="Entities\Plugin_ServiceProviderEntity.cs" />
+    <Compile Include="Entities\Plugin_ServiceUserEntity.cs" />
+    <Compile Include="Entities\Plugin_SubmitCVEntity.cs" />
+    <Compile Include="Entities\Plugin_TimelineEntity.cs" />
+    <Compile Include="Entities\Plugin_TrainingEntity.cs" />
+    <Compile Include="Entities\Plugin_UserComplainEntity.cs" />
+    <Compile Include="Entities\Plugin_VideoEntity.cs" />
+    <Compile Include="Entities\Plugin_VotingEntity.cs" />
+    <Compile Include="Entities\Plugin_WelcomeNote_BtnEntity.cs" />
+    <Compile Include="Entities\Plugin_CVContactEntity.cs" />
+    <Compile Include="Entities\ProviderMailEntity.cs" />
+    <Compile Include="Entities\RenewableEnergyCompanyDeviceEntity.cs" />
+    <Compile Include="Entities\RenewableEnergyCompanySolarCellEntity.cs" />
+    <Compile Include="Entities\RenewableEnergyCompanyUserEntity.cs" />
+    <Compile Include="Entities\RenewableEnergyUserRequestsDetailsDevicesEntity.cs" />
+    <Compile Include="Entities\RenewableEnergyUserRequestsDetailsEntity.cs" />
+    <Compile Include="Entities\RenewableEnergyUserRequestsDetailsSollarsEntity.cs" />
+    <Compile Include="Entities\RenewableEnergyUserRequestsDetails_TokenEntity.cs" />
+    <Compile Include="Entities\RenewableEnergyUserRequestsEntity.cs" />
+    <Compile Include="Entities\RenwableEnergyType3Phase1AttachmentsEntity.cs" />
+    <Compile Include="Entities\RenwableEnergyType3Phase1DetailsEntity.cs" />
+    <Compile Include="Entities\RenwableEnergyType3Phase1LocationsEntity.cs" />
+    <Compile Include="Entities\RenwableEnergyType3Phase1MetersDataEntity.cs" />
+    <Compile Include="Entities\RenwableEnergyType3Phase2DetailsAttechmentEntity.cs" />
+    <Compile Include="Entities\RenwableEnergyType3Phase2DetailsDevicesEntity.cs" />
+    <Compile Include="Entities\RenwableEnergyType3Phase2DetailsEntity.cs" />
+    <Compile Include="Entities\RenwableEnergyType3Phase2DetailsOthersEntity.cs" />
+    <Compile Include="Entities\RenwableEnergyType3Phase2DetailsSollarsEntity.cs" />
+    <Compile Include="Entities\SectionLanguageEntity.cs" />
+    <Compile Include="Entities\SecurityUserPluginEntity.cs" />
+    <Compile Include="Entities\InnerLinkEntity.cs" />
+    <Compile Include="Entities\Plugin_News_LetterEntity.cs" />
+    <Compile Include="Entities\MenuFooterEntity.cs" />
+    <Compile Include="Entities\Plugin_CarrerEntity.cs" />
+    <Compile Include="Entities\SendNotificationEntity.cs" />
+    <Compile Include="Entities\ServicesStepsEntity.cs" />
+    <Compile Include="Entities\ServicesStepsValuesEntity.cs" />
+    <Compile Include="Entities\StatisticNoteEntity.cs" />
+    <Compile Include="Entities\UsefullinksEntity.cs" />
+    <Compile Include="Entities\TypeusefullinksEntity.cs" />
+    <Compile Include="Entities\CalendarEntity.cs" />
+    <Compile Include="Entities\CalendarEventEntity.cs" />
+    <Compile Include="Entities\MartialStatusEntity.cs" />
+    <Compile Include="Entities\PluginAlbumEntity.cs" />
+    <Compile Include="Entities\PluginAlbumDetailEntity.cs" />
+    <Compile Include="Entities\PluginLogoEntity.cs" />
+    <Compile Include="Entities\PluginSocialIconEntity.cs" />
+    <Compile Include="Entities\PluginContactUsEntity.cs" />
+    <Compile Include="Entities\SecondNavigationEntity.cs" />
+    <Compile Include="Entities\NavigationEntity.cs" />
+    <Compile Include="Entities\NewsEntity.cs" />
+    <Compile Include="Entities\NewsTickerEntity.cs" />
+    <Compile Include="Entities\PagesEntity.cs" />
+    <Compile Include="Entities\PagesKeywordEntity.cs" />
+    <Compile Include="Entities\PluginBannerEntity.cs" />
+    <Compile Include="Entities\PluginSliderEntity.cs" />
+    <Compile Include="Entities\SettingEntity.cs" />
+    <Compile Include="Entities\UserEntity.cs" />
+    <Compile Include="Entities\User_Login_IntranetEntity.cs" />
+    <Compile Include="Entities\VideoSliderEntity.cs" />
+    <Compile Include="Entities\VMSearchEntity.cs" />
+    <Compile Include="Entities\DirectNoteEntity.cs" />
+    <Compile Include="Entities\WelcomeNoteEntity.cs" />
+    <Compile Include="Entities\WelcomeNote_ImageEntity.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

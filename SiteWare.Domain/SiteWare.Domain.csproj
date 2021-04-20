@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BAF7A53F-E92D-4B36-9B88-FD7188C0969E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SiteWare.Domain</RootNamespace>
+    <AssemblyName>SiteWare.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\CommonDomainMessages.cs" />
+    <Compile Include="Common\CommonFunctions.cs" />
+    <Compile Include="Common\DomainCommonConstants.cs" />
+    <Compile Include="Domains\CMS_PropertyKeywordDomain.cs" />
+    <Compile Include="Domains\CMS_WorkFlow_SettingsDomain.cs" />
+    <Compile Include="Domains\ContactUsFromDomain.cs" />
+    <Compile Include="Domains\CountryLanguageDomain.cs" />
+    <Compile Include="Domains\DepartmentLanguageDomain.cs" />
+    <Compile Include="Domains\E_Lookup_ServiceCategoryDomain.cs" />
+    <Compile Include="Domains\E_Plugin_ElectronicServiceCatalogDomain.cs" />
+    <Compile Include="Domains\E_Plugin_ServiceInformationDomain.cs" />
+    <Compile Include="Domains\E_Plugin_ServiceStepDomain.cs" />
+    <Compile Include="Domains\E_Plugin_ServiceTypeDomain.cs" />
+    <Compile Include="Domains\E_Plugin_UserTypeDomain.cs" />
+    <Compile Include="Domains\FAQDomain.cs" />
+    <Compile Include="Domains\GenderLanguageDomain.cs" />
+    <Compile Include="Domains\LanguageDomain.cs" />
+    <Compile Include="Domains\BannerTypeDomain.cs" />
+    <Compile Include="Domains\CalendarDomain.cs" />
+    <Compile Include="Domains\FooterNavigationDomain.cs" />
+    <Compile Include="Domains\LastLoginTimeDomain.cs" />
+    <Compile Include="Domains\Lookup_AreaDomain.cs" />
+    <Compile Include="Domains\Lookup_AreaOneDomain.cs" />
+    <Compile Include="Domains\Lookup_AreaTwoDomain.cs" />
+    <Compile Include="Domains\Lookup_CertificationType_Domain.cs" />
+    <Compile Include="Domains\Lookup_CityDomain.cs" />
+    <Compile Include="Domains\Lookup_CompamyClassificationDomain.cs" />
+    <Compile Include="Domains\Lookup_ComplainTypeDomain.cs" />
+    <Compile Include="Domains\Lookup_countryDomain.cs" />
+    <Compile Include="Domains\Lookup_DocumentTypeDomain.cs" />
+    <Compile Include="Domains\Lookup_IdentityTypeDomain.cs" />
+    <Compile Include="Domains\Lookup_JobNameDomain.cs" />
+    <Compile Include="Domains\Lookup_JobTypeDomain.cs" />
+    <Compile Include="Domains\Lookup_LicenceTypeDomain.cs" />
+    <Compile Include="Domains\Lookup_LicenceYearDomain.cs" />
+    <Compile Include="Domains\Lookup_LicenceYear_Domain.cs" />
+    <Compile Include="Domains\Lookup_NationalityDomain.cs" />
+    <Compile Include="Domains\Lookup_PropertyTypeDomain.cs" />
+    <Compile Include="Domains\Lookup_ProvenanceDomain.cs" />
+    <Compile Include="Domains\Lookup_QualificationDomain.cs" />
+    <Compile Include="Domains\Lookup_ServiceUserTypeDomain.cs" />
+    <Compile Include="Domains\Lookup_SurveyAnswerDomain.cs" />
+    <Compile Include="Domains\Lookup_UsageStatusDomain.cs" />
+    <Compile Include="Domains\MartialStatusDomain.cs" />
+    <Compile Include="Domains\MessagesAndNotificationsDomain.cs" />
+    <Compile Include="Domains\MobileRegistationDomain.cs" />
+    <Compile Include="Domains\NewsTickerDomain.cs" />
+    <Compile Include="Domains\NewSub_Lookup_NationalityDomain.cs" />
+    <Compile Include="Domains\PluginAnnouncementDomain.cs" />
+    <Compile Include="Domains\PluginDataPointDomain.cs" />
+    <Compile Include="Domains\PluginLogoDomain.cs" />
+    <Compile Include="Domains\PluginPartnerDomain.cs" />
+    <Compile Include="Domains\PluginProvider_ActingManager_Domain.cs" />
+    <Compile Include="Domains\PluginProvider_Partner_Domain.cs" />
+    <Compile Include="Domains\PluginSchoolProgramsDomain.cs" />
+    <Compile Include="Domains\PluginServiceDomain.cs" />
+    <Compile Include="Domains\PluginServiceTabDomain.cs" />
+    <Compile Include="Domains\PluginSurveyDomain.cs" />
+    <Compile Include="Domains\PluginValueDomain.cs" />
+    <Compile Include="Domains\Plugin_AboutCompanyDomain.cs" />
+    <Compile Include="Domains\Plugin_AboutUsDomain.cs" />
+    <Compile Include="Domains\Plugin_CMS_WorkFlow_Domain.cs" />
+    <Compile Include="Domains\Plugin_CMS_WorkFlow_Users_Domain.cs" />
+    <Compile Include="Domains\Plugin_CMS_WorkFlow_Users_Reuests_StepsDomain.cs" />
+    <Compile Include="Domains\Plugin_CMS_WorkFlow_Users_Reuests_Steps_Value_HistoryDomain.cs" />
+    <Compile Include="Domains\Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueDomain.cs" />
+    <Compile Include="Domains\Plugin_Core_ValueDomain.cs" />
+    <Compile Include="Domains\Plugin_CVContactDomain.cs" />
+    <Compile Include="Domains\Plugin_CVTrainingDomain.cs" />
+    <Compile Include="Domains\Plugin_DailyAdviseDomain.cs" />
+    <Compile Include="Domains\Plugin_Facility_Domain.cs" />
+    <Compile Include="Domains\Plugin_FA_EntitiesDomain.cs" />
+    <Compile Include="Domains\Plugin_FinancePerformanceDomain.cs" />
+    <Compile Include="Domains\Plugin_Focus_AreaDomain.cs" />
+    <Compile Include="Domains\Plugin_JobApplicationDomain.cs" />
+    <Compile Include="Domains\Plugin_NOtificationDomain.cs" />
+    <Compile Include="Domains\Plugin_PoviderDomain.cs" />
+    <Compile Include="Domains\Plugin_PreviuesExperianceDomain.cs" />
+    <Compile Include="Domains\Plugin_PriceDomain.cs" />
+    <Compile Include="Domains\Plugin_Project_Domain.cs" />
+    <Compile Include="Domains\Plugin_PropertyAlbumDetailDomain.cs" />
+    <Compile Include="Domains\Plugin_PropertyAlbumDomain.cs" />
+    <Compile Include="Domains\Plugin_PropertyDomain.cs" />
+    <Compile Include="Domains\Plugin_Provider_CategoryDomain.cs" />
+    <Compile Include="Domains\Plugin_Provider_DocumentationDomain.cs" />
+    <Compile Include="Domains\Plugin_Provider_GovernateDomain.cs" />
+    <Compile Include="Domains\Plugin_Provider_RegionDomain.cs" />
+    <Compile Include="Domains\Plugin_Provider_SubCategoryDomain.cs" />
+    <Compile Include="Domains\Plugin_QualificationDomain.cs" />
+    <Compile Include="Domains\Plugin_RenwabaleEnergyCompanyDomain.cs" />
+    <Compile Include="Domains\Plugin_SecondSliderDomain.cs" />
+    <Compile Include="Domains\Plugin_ServiceNoteDomain.cs" />
+    <Compile Include="Domains\Plugin_ServiceProviderDomain.cs" />
+    <Compile Include="Domains\Plugin_ServiceUserDomain.cs" />
+    <Compile Include="Domains\Plugin_SubmitCVDomain.cs" />
+    <Compile Include="Domains\Plugin_TimelineDomain.cs" />
+    <Compile Include="Domains\Plugin_TrainingDomain.cs" />
+    <Compile Include="Domains\Plugin_UserComplainDomain.cs" />
+    <Compile Include="Domains\Plugin_VideoDomain.cs" />
+    <Compile Include="Domains\Plugin_VotingDomain.cs" />
+    <Compile Include="Domains\RenewableEnergyCompanyDeviceDomain.cs" />
+    <Compile Include="Domains\RenewableEnergyCompanySolarCellDomain.cs" />
+    <Compile Include="Domains\RenewableEnergyCompanyUserDomain.cs" />
+    <Compile Include="Domains\RenewableEnergyUserRequestsDetailsDevicesDomain.cs" />
+    <Compile Include="Domains\RenewableEnergyUserRequestsDetailsDomain.cs" />
+    <Compile Include="Domains\RenewableEnergyUserRequestsDetailsSollarsDomain.cs" />
+    <Compile Include="Domains\RenewableEnergyUserRequestsDetails_TokenDomain.cs" />
+    <Compile Include="Domains\RenewableEnergyUserRequestsDomain.cs" />
+    <Compile Include="Domains\RenwableEnergyType3Phase1AttachmentsDomain.cs" />
+    <Compile Include="Domains\RenwableEnergyType3Phase1DetailsDomain.cs" />
+    <Compile Include="Domains\RenwableEnergyType3Phase1LocationsDomain.cs" />
+    <Compile Include="Domains\RenwableEnergyType3Phase1MetersDomain.cs" />
+    <Compile Include="Domains\RenwableEnergyType3Phase2DetailsAttechmentDomain.cs" />
+    <Compile Include="Domains\RenwableEnergyType3Phase2DetailsDevicesDomain.cs" />
+    <Compile Include="Domains\RenwableEnergyType3Phase2DetailsDomain.cs" />
+    <Compile Include="Domains\RenwableEnergyType3Phase2DetailsOthersDomain.cs" />
+    <Compile Include="Domains\RenwableEnergyType3Phase2DetailsSollarsDomain.cs" />
+    <Compile Include="Domains\SectionLanguageDomain.cs" />
+    <Compile Include="Domains\SecurityUserPluginDomain.cs" />
+    <Compile Include="Domains\InnerLinkDomain.cs" />
+    <Compile Include="Domains\Plugin_News_LetterDomain.cs" />
+    <Compile Include="Domains\MenuFooterDomain.cs" />
+    <Compile Include="Domains\Plugin_CarrerDomain.cs" />
+    <Compile Include="Domains\SendNotificationDomain.cs" />
+    <Compile Include="Domains\DirectNoteDomain.cs" />
+    <Compile Include="Domains\ServicesStepsDomain.cs" />
+    <Compile Include="Domains\ServicesStepsValuesDomain.cs" />
+    <Compile Include="Domains\TypeusefullinksDomain.cs" />
+    <Compile Include="Domains\UsefullinksDomain.cs" />
+    <Compile Include="Domains\CalendarEventDomain.cs" />
+    <Compile Include="Domains\PluginAlbumDetailDomain.cs" />
+    <Compile Include="Domains\PluginAlbumDomain.cs" />
+    <Compile Include="Domains\PluginContactUsDomain.cs" />
+    <Compile Include="Domains\PluginSocialIconDomain.cs" />
+    <Compile Include="Domains\SecondNavigationDomain.cs" />
+    <Compile Include="Domains\NavigationDomain.cs" />
+    <Compile Include="Domains\NewsDomain.cs" />
+    <Compile Include="Domains\PagesDomain.cs" />
+    <Compile Include="Domains\PagesKeywordDomain.cs" />
+    <Compile Include="Domains\PluginBannerDomain.cs" />
+    <Compile Include="Domains\PluginSliderDomain.cs" />
+    <Compile Include="Domains\SettingDomain.cs" />
+    <Compile Include="Domains\UsersDomain.cs" />
+    <Compile Include="Domains\User_Login_IntranetDomain.cs" />
+    <Compile Include="Domains\VideoSliderDomain.cs" />
+    <Compile Include="Domains\StatisticNoteDomain.cs" />
+    <Compile Include="Domains\WelcomeNoteDomain.cs" />
+    <Compile Include="Domains\WelcomeNote_ImageDomain.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\SiteWare.DataAccess\SiteWare.DataAccess.csproj">
+      <Project>{023bfcde-06b0-4fc9-b520-b88926952041}</Project>
+      <Name>SiteWare.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SiteWare.Entity\SiteWare.Entity.csproj">
+      <Project>{e6ddafd8-3ac5-403c-ba00-6c5840629ff2}</Project>
+      <Name>SiteWare.Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

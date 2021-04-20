@@ -1,0 +1,97 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29326.143
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiteWare.Entity", "SiteWare.Entity\SiteWare.Entity.csproj", "{E6DDAFD8-3AC5-403C-BA00-6C5840629FF2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiteWare.DataAccess", "SiteWare.DataAccess\SiteWare.DataAccess.csproj", "{023BFCDE-06B0-4FC9-B520-B88926952041}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiteWare.Domain", "SiteWare.Domain\SiteWare.Domain.csproj", "{BAF7A53F-E92D-4B36-9B88-FD7188C0969E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Siteware.Web", "Siteware.Web\Siteware.Web.csproj", "{1E237627-C90B-43A1-9D62-B490935DA91E}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "JepcoPortal(1)", "JepcoPortal", "{63C3CD89-F0C9-4BCB-8EE5-2B6C6ACB33A7}"
+	ProjectSection(WebsiteProperties) = preProject
+		SccProjectName = "SAK"
+		SccAuxPath = "SAK"
+		SccLocalPath = "SAK"
+		SccProvider = "SAK"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.2"
+		ProjectReferences = "{023bfcde-06b0-4fc9-b520-b88926952041}|SiteWare.DataAccess.dll;{E6DDAFD8-3AC5-403C-BA00-6C5840629FF2}|SiteWare.Entity.dll;{baf7a53f-e92d-4b36-9b88-fd7188c0969e}|SiteWare.Domain.dll;{1e237627-c90b-43a1-9d62-b490935da91e}|Siteware.Web.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_58842"
+		Debug.AspNetCompiler.PhysicalPath = "JepcoPortal\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_58842\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_58842"
+		Release.AspNetCompiler.PhysicalPath = "JepcoPortal\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_58842\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "58842"
+		SlnRelativePath = "JepcoPortal\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E6DDAFD8-3AC5-403C-BA00-6C5840629FF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6DDAFD8-3AC5-403C-BA00-6C5840629FF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6DDAFD8-3AC5-403C-BA00-6C5840629FF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6DDAFD8-3AC5-403C-BA00-6C5840629FF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{023BFCDE-06B0-4FC9-B520-B88926952041}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{023BFCDE-06B0-4FC9-B520-B88926952041}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{023BFCDE-06B0-4FC9-B520-B88926952041}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{023BFCDE-06B0-4FC9-B520-B88926952041}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAF7A53F-E92D-4B36-9B88-FD7188C0969E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAF7A53F-E92D-4B36-9B88-FD7188C0969E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAF7A53F-E92D-4B36-9B88-FD7188C0969E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAF7A53F-E92D-4B36-9B88-FD7188C0969E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E237627-C90B-43A1-9D62-B490935DA91E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E237627-C90B-43A1-9D62-B490935DA91E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E237627-C90B-43A1-9D62-B490935DA91E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E237627-C90B-43A1-9D62-B490935DA91E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63C3CD89-F0C9-4BCB-8EE5-2B6C6ACB33A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63C3CD89-F0C9-4BCB-8EE5-2B6C6ACB33A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63C3CD89-F0C9-4BCB-8EE5-2B6C6ACB33A7}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{63C3CD89-F0C9-4BCB-8EE5-2B6C6ACB33A7}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {064C4B50-39DB-466A-AF1D-483CF27FA61F}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://ws-srv-net:8080/tfs/webmyne%20systems%20tfs%20collection
+		SccLocalPath0 = .
+		SccWebProject1 = true
+		SccProjectUniqueName1 = JepcoPortal
+		SccProjectName1 = JepcoPortal
+		SccLocalPath1 = JepcoPortal
+		SccProjectEnlistmentChoice1 = 2
+		SccProjectUniqueName2 = SiteWare.DataAccess\\SiteWare.DataAccess.csproj
+		SccProjectName2 = SiteWare.DataAccess
+		SccLocalPath2 = SiteWare.DataAccess
+		SccProjectUniqueName3 = SiteWare.Domain\\SiteWare.Domain.csproj
+		SccProjectName3 = SiteWare.Domain
+		SccLocalPath3 = SiteWare.Domain
+		SccProjectUniqueName4 = SiteWare.Entity\\SiteWare.Entity.csproj
+		SccProjectName4 = SiteWare.Entity
+		SccLocalPath4 = SiteWare.Entity
+		SccProjectUniqueName5 = Siteware.Web\\Siteware.Web.csproj
+		SccProjectName5 = Siteware.Web
+		SccLocalPath5 = Siteware.Web
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,509 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="Siteware.Web.MasterPage" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Siteware - CMS</title>
+
+    <link rel="stylesheet" href="AppTheme/css/style.default.css" />
+
+    <link rel="stylesheet" href="AppTheme/css/responsive-tables.css" />
+    <style>
+        .wrapper-content {
+            min-height: 355px;
+        }
+    </style>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+    <script src='<%= ResolveUrl("~/AppTheme/ScriptDataTable/jquery-2.1.1.js") %>' type="text/javascript"></script>
+    <%--<script src="AppTheme/Script/jquery-1.10.2.min.js"></script>--%>
+    <script src='<%= ResolveUrl("~/AppTheme/Script/jquery-migrate-1.2.1.min.js") %>' type="text/javascript"></script>
+    <script src='<%= ResolveUrl("~/AppTheme/Script/jquery-ui-1.10.3.min.js") %>' type="text/javascript"></script>
+
+    <script src='<%= ResolveUrl("~/AppTheme/Script/bootstrap.min.js") %>' type="text/javascript"></script>
+
+    <script src='<%= ResolveUrl("~/AppTheme/Script/modernizr.min.js") %>' type="text/javascript"></script>
+    <script src='<%= ResolveUrl("~/AppTheme/Script/jquery.cookies.js") %>' type="text/javascript"></script>
+    <script src='<%= ResolveUrl("~/AppTheme/Script/jquery.uniform.min.js") %>' type="text/javascript"></script>
+    <script src='<%= ResolveUrl("~/AppTheme/Script/flot/jquery.flot.min.js") %>' type="text/javascript"></script>
+    <script src='<%= ResolveUrl("~/AppTheme/Script/flot/jquery.flot.resize.min.js") %>' type="text/javascript"></script>
+    <script src='<%= ResolveUrl("~/AppTheme/Script/responsive-tables.js") %>' type="text/javascript"></script>
+    <script src='<%= ResolveUrl("~/AppTheme/Script/jquery.slimscroll.js") %>' type="text/javascript"></script>
+
+    <script src='<%= ResolveUrl("~/AppTheme/Script/custom.js") %>' type="text/javascript"></script>
+
+
+    <!--[if lte IE 8]>
+<script src="js/excanvas.min.js"></script>
+<![endif]-->
+
+    <script type="text/javascript" lang="javascript">
+
+
+        $(document).ready(function () {
+            $("ul").on("click", "li", function () {
+                $('ul li').removeAttr('active');
+                $(this).addClass('active');
+            });
+        });
+        function handleHyperLinkClick(hyperlink) {
+            //alert('ok');
+            ////return confirm("Do you want to navigate to " + hyperlink.href + " ?");
+            ////document.getElementById("hfClickMenuName").value = hyperlink;
+            ////alert(document.getElementById("hfClickMenuName").value);
+            //var txtxt = hyperlink;
+            ////document.getElementById("ctl00_btnSaveMenuName").click();
+            ////$('#ctl00_btnSaveMenuName').click(function myfunction() {
+            ////    alert('ok');
+            ////});
+
+        }
+    </script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <cc1:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server"></cc1:ToolkitScriptManager>
+        <div id="mainwrapper" class="mainwrapper">
+
+            <div class="header">
+                <div class="logo">
+                    <a href="<%= ResolveUrl("~/")%>Dashboard.aspx">
+                        <%-- <img src="AppTheme/images/logo.png" alt="" />--%>
+                        <img src="<%= ResolveUrl("~/")%>AppTheme/Images/SiteWare/SW_lastet.png" />
+                        <%--<img src="AppTheme/Images/SiteWare/SW_lastet.png" alt="" />--%> 
+                    </a>
+                </div>
+                <div class="headerinner">
+                    <ul class="headmenu">
+                        <li class="odd" id="HeaderPluginsNews" runat="server" style="display: none">
+                            <a class="dropdown-toggle" data-toggle="dropdown" data-target="<%= ResolveUrl("~/")%>Plugins/News/ManageNews.aspx" href="<%= ResolveUrl("~/")%>Plugins/News/ManageNews.aspx">
+                                <span class="count">
+                                    <asp:Label ID="lblNewsNumber" runat="server"></asp:Label>
+                                </span>
+                                <span class="head-icon head-message"></span>
+                                <span class="headmenu-label">News</span>
+                            </a>
+
+                        </li>
+                        <li id="HeaderPages" runat="server" style="display: none">
+                            <a class="dropdown-toggle" data-toggle="dropdown" data-target="<%= ResolveUrl("~/")%>Pages/ManagePages.aspx" href="<%= ResolveUrl("~/")%>Pages/ManagePages.aspx">
+                                <span class="count">
+                                    <asp:Label ID="lblPageNumber" runat="server"></asp:Label>
+                                </span>
+                                <span class="head-icon head-users"></span>
+                                <span class="headmenu-label">Pages</span>
+                            </a>
+
+                        </li>
+                        <li class="odd">
+                            <a class="dropdown-toggle" href="#FileBrowserModal" data-toggle="modal">
+                                <span class="count"></span>
+                                <span class="head-icon head-bar"></span>
+                                <span class="headmenu-label">File Manager</span>
+                            </a>
+                        </li>
+                        <li class="right" style="width: 32%;">
+                            <div class="userloggedinfo" style="float: right; width: 85%;">
+                                <asp:Image ID="ImageUser" runat="server" alt="" Style="min-height: 91px;" />
+                                <div class="userinfo">
+                                    <h5>
+                                        <asp:Label ID="lblName" runat="server"></asp:Label>
+                                        <br />
+                                        <small>
+                                            <asp:Label ID="lblUser_Email" runat="server"></asp:Label>
+                                        </small>
+
+                                    </h5>
+                                    <ul>
+                                        <li>
+                                            <asp:HyperLink runat="server" NavigateUrl="~/EditProfile/EditProfile.aspx">Edit Profile</asp:HyperLink></li>
+                                        <%--<li><a href="">Account Settings</a></li>--%>
+                                        <li>
+                                            <asp:LinkButton ID="lnkLogout" runat="server" OnClick="lnkLogout_Click">Sign Out</asp:LinkButton></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <!--headmenu-->
+                </div>
+            </div>
+
+            <div class="leftpanel">
+
+                <div class="leftmenu">
+
+                    <%--                    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>--%>
+                    <ul class="nav nav-tabs nav-stacked">
+                        <li class="nav-header">Navigation</li>
+
+                        <asp:ListView ID="lstViewMainMenu" runat="server" OnItemDataBound="lstViewMainMenu_ItemDataBound">
+                            <ItemTemplate>
+                                <li id="liPlugins" runat="server">
+                                    <asp:HiddenField runat="server" ID="lblPluginID" Value='<%# Bind("PluginID") %>' />
+
+                                    <asp:HyperLink ID="linkMenu" runat="server" NavigateUrl='<%# Bind("URL") %>'>
+                                        <%--<span runat="server" id="logo" class='<%# Bind("Logo") %>'></span>--%>
+                                        <asp:Label ID="LinkButton1" runat="server" CssClass='<%# Bind("Logo") %>'></asp:Label>
+
+                                        <asp:Label ID="lblName" runat="server" Text='<%# Bind("PluginName") %>'></asp:Label>
+                                    </asp:HyperLink>
+
+                                    <ul id="ulPlugins" runat="server" calss="classMenuNav" onclick="">
+                                        <asp:ListView ID="lstViewMainMenuSup" runat="server">
+                                            <ItemTemplate>
+                                                <li>
+
+                                                    <asp:HyperLink ID="linkMenuSup" runat="server" NavigateUrl='<%# Bind("URL") %>' onclick='return handleHyperLinkClick(this)'>
+
+                                                        <asp:Label ID="lblNameSup" runat="server" Text='<%# Bind("PluginName") %>'></asp:Label>
+                                                    </asp:HyperLink>
+                                                </li>
+
+                                            </ItemTemplate>
+
+
+                                        </asp:ListView>
+
+                                        <asp:Menu ID="Menu1" runat="server">
+                                        </asp:Menu>
+                                    </ul>
+                                </li>
+                            </ItemTemplate>
+                        </asp:ListView>
+
+
+
+                        <asp:HiddenField ID="hfClickMenuName" runat="server" />
+
+                    </ul>
+
+
+
+
+
+                </div>
+                <!--leftmenu-->
+            </div>
+            <!-- leftpanel -->
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            <!--rightpanel-->
+
+        </div>
+
+
+        <div class="modal fade" id="FileBrowserModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg" style="width: 80%; height: 90%;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span aria-hidden="true">×</span><span
+                                class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="H1">File browser</h4>
+                    </div>
+                    <div class="modal-body">
+                        <iframe style="width: 100%; height: 90%;" id="FB_frame"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="FileBrowserModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg" style="width: 80%; height: 90%;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span aria-hidden="true">×</span><span
+                                class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="H2">File browser</h4>
+                    </div>
+                    <div class="modal-body">
+                        <iframe style="width: 100%; height: 90%;" id="FB_frame23"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="FileBrowserModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg" style="width: 80%; height: 90%;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span aria-hidden="true">×</span><span
+                                class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="H3">File browser</h4>
+                    </div>
+                    <div class="modal-body">
+                        <iframe style="width: 100%; height: 90%;" id="FB_frame3"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="FileBrowserModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel4"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg" style="width: 80%; height: 90%;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span aria-hidden="true">×</span><span
+                                class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="H4">File browser</h4>
+                    </div>
+                    <div class="modal-body">
+                        <iframe style="width: 100%; height: 90%;" id="FB_frame4"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="FileBrowserModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel5"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg" style="width: 80%; height: 90%;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span aria-hidden="true">×</span><span
+                                class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="H5">File browser</h4>
+                    </div>
+                    <div class="modal-body">
+                        <iframe style="width: 100%; height: 90%;" id="FB_frame5"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="FileBrowserModal6" tabindex="-1" role="dialog" aria-labelledby="myModalLabel6"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg" style="width: 80%; height: 90%;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span aria-hidden="true">×</span><span
+                                class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="H6">File browser</h4>
+                    </div>
+                    <div class="modal-body">
+                        <iframe style="width: 100%; height: 90%;" id="FB_frame6"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            //function fileBrowserCallBack(fileurl) {
+            //    //  $('#modalField').val(fileurl);
+            //    $('#FileBrowserModal').modal('hide');
+            //} 
+            // Loading of iframe content is postposed to not slow down page loading
+            $(function () {
+                $(window).on('load', function () {
+                   // $('#FB_frame').attr('src', '/Siteware/FileBrowser/NewBros.aspx?caller=parent&fn=fileBrowserCallBack&langCode=en');
+                    $('#FB_frame').attr('src', '/FileBrowser/NewBros.aspx?caller=parent&fn=fileBrowserCallBack&langCode=en');
+                    //$('#FB_frame').attr('src', '/Applications/RIIFS/Admin/FileBrowser/NewBros.aspx?caller=parent&fn=fileBrowserCallBack&langCode=en');
+                });
+            });
+
+            $(function () {
+                $(window).on('load', function () {
+                 //  $('#FB_frame23').attr('src', '/Siteware/FileBrowser/NewBros.aspx?caller=parent&fn=fileBrowserCallBack2&langCode=en');
+                    $('#FB_frame23').attr('src', '/FileBrowser/NewBros.aspx?caller=parent&fn=fileBrowserCallBack2&langCode=en');
+                    //$('#FB_frame23').attr('src', '/Applications/RIIFS/Admin/FileBrowser/NewBros.aspx?caller=parent&fn=fileBrowserCallBack2&langCode=en');
+                });
+            });
+            $(function () {
+                $(window).on('load', function () {                
+                    $('#FB_frame3').attr('src', '/FileBrowser/NewBros.aspx?caller=parent&fn=fileBrowserCallBack3&langCode=en');                  
+                });
+            });
+            $(function () {
+                $(window).on('load', function () {                
+                    $('#FB_frame4').attr('src', '/FileBrowser/NewBros.aspx?caller=parent&fn=fileBrowserCallBack4&langCode=en');                  
+                });
+            });
+            $(function () {
+                $(window).on('load', function () {                
+                    $('#FB_frame5').attr('src', '/FileBrowser/NewBros.aspx?caller=parent&fn=fileBrowserCallBack5&langCode=en');                  
+                });
+            });
+            $(function () {
+                $(window).on('load', function () {                
+                    $('#FB_frame6').attr('src', '/FileBrowser/NewBros.aspx?caller=parent&fn=fileBrowserCallBack6&langCode=en');                  
+                });
+            });
+        </script>
+    </form>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+
+            // simple chart
+            var flash = [[0, 11], [1, 9], [2, 12], [3, 8], [4, 7], [5, 3], [6, 1]];
+            var html5 = [[0, 5], [1, 4], [2, 4], [3, 1], [4, 9], [5, 10], [6, 13]];
+            var css3 = [[0, 6], [1, 1], [2, 9], [3, 12], [4, 10], [5, 12], [6, 11]];
+
+            function showTooltip(x, y, contents) {
+                jQuery('<div id="tooltip" class="tooltipflot">' + contents + '</div>').css({
+                    position: 'absolute',
+                    display: 'none',
+                    top: y + 5,
+                    left: x + 5
+                }).appendTo("body").fadeIn(200);
+            }
+
+
+            var plot = jQuery.plot(jQuery("#chartplace"),
+                [{ data: flash, label: "Flash(x)", color: "#6fad04" },
+                { data: html5, label: "HTML5(x)", color: "#06c" },
+                { data: css3, label: "CSS3", color: "#666" }], {
+                    series: {
+                        lines: { show: true, fill: true, fillColor: { colors: [{ opacity: 0.05 }, { opacity: 0.15 }] } },
+                        points: { show: true }
+                    },
+                    legend: { position: 'nw' },
+                    grid: { hoverable: true, clickable: true, borderColor: '#666', borderWidth: 2, labelMargin: 10 },
+                    yaxis: { min: 0, max: 15 }
+                });
+
+            var previousPoint = null;
+            jQuery("#chartplace").bind("plothover", function (event, pos, item) {
+                jQuery("#x").text(pos.x.toFixed(2));
+                jQuery("#y").text(pos.y.toFixed(2));
+
+                if (item) {
+                    if (previousPoint !== item.dataIndex) {
+                        previousPoint = item.dataIndex;
+
+                        jQuery("#tooltip").remove();
+                        var x = item.datapoint[0].toFixed(2),
+                            y = item.datapoint[1].toFixed(2);
+
+                        showTooltip(item.pageX, item.pageY,
+                            item.series.label + " of " + x + " = " + y);
+                    }
+
+                } else {
+                    jQuery("#tooltip").remove();
+                    previousPoint = null;
+                }
+
+            });
+
+            jQuery("#chartplace").bind("plotclick", function (event, pos, item) {
+                if (item) {
+                    jQuery("#clickdata").text("You clicked point " + item.dataIndex + " in " + item.series.label + ".");
+                    plot.highlight(item.series, item.datapoint);
+                }
+            });
+
+
+            //datepicker
+            jQuery('#datepicker').datepicker();
+
+            // tabbed widget
+            jQuery('.tabbedwidget').tabs();
+
+        });
+
+
+
+        jQuery(document).ready(function () {
+            $('ul li ').click(function () {
+                //$('ul li.active').removeClass('active');
+                //$('.liPlugins').addClass('active');
+                //$(this).css('display', 'block');
+                //$('.classMenuNav').css('display', 'block');
+
+                //$('ul li ul').click(function myfunction() {
+                $(this).css('display', 'block');
+                $(this).addClass('active');
+                alert('ok');
+                //});
+                //alert('ol');
+            });
+        });
+
+
+
+
+        //active
+
+        //$(document).ready(function () {
+        //    $(window).load(function () {
+        //        var x = window.location.href;
+        //        $('ul a[href="' + x + '"]').each(function () {
+        //            if (x == window.location.href) {
+        //                $('ul li').removeClass('active');
+        //                $(this).parent('li').addClass('active');
+        //            }
+        //        });
+        //    });
+        //});
+
+        //$(window).load(function () {
+        //    var x = window.location.href;
+        //    $('ul a[href="' + x + '"]').each(function () {
+        //        if (x == window.location.href) {
+        //            $('ul li').removeClass('active');
+        //            $(this).parent('ul').addClass('active');
+        //            $('ul a[href="' + x + '"]').addClass('active');
+        //        }
+        //    });
+        //    alert(x);
+        //});
+
+    </script>
+    <script>
+        $(".form-mobile").keypress(function (e) {
+
+            //if the letter is not digit then display error and don't type anything
+            if (e.which !== 8 && e.which !== 0 && (e.which < 48 || e.which > 57)) {
+                //display error message
+                //$("#errmsg").html("Digits Only").show().fadeOut("slow");
+
+                return false;
+            }
+            else {
+                var len = $(".form-mobile").val().length;
+                //if (len > 10)
+                //{
+                //    return false;
+                //}
+            }
+
+        });
+    </script>
+      <script>
+          $(".form-mobile").keypress(function (e) {
+
+              //if the letter is not digit then display error and don't type anything
+              if (e.which !== 8 && e.which !== 0 && (e.which < 48 || e.which > 57)) {
+                  //display error message
+                  //$("#errmsg").html("Digits Only").show().fadeOut("slow");
+
+                  return false;
+              }
+              else {
+                  var len = $(".form-mobile").val().length;
+                  //if (len > 10)
+                  //{
+                  //    return false;
+                  //}
+              }
+
+          });
+    </script>
+</body>
+</html>

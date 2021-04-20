@@ -1,0 +1,60 @@
+D:\AJAYPatel(2019)\JEPCO\JEPCO\Siteware.Web\bin\Siteware.Web.dll.config
+D:\AJAYPatel(2019)\JEPCO\JEPCO\Siteware.Web\bin\Siteware.Web.dll
+D:\AJAYPatel(2019)\JEPCO\JEPCO\Siteware.Web\bin\Siteware.Web.pdb
+D:\AJAYPatel(2019)\JEPCO\JEPCO\Siteware.Web\bin\SiteWare.DataAccess.dll
+D:\AJAYPatel(2019)\JEPCO\JEPCO\Siteware.Web\bin\SiteWare.Domain.dll
+D:\AJAYPatel(2019)\JEPCO\JEPCO\Siteware.Web\bin\SiteWare.Entity.dll
+D:\AJAYPatel(2019)\JEPCO\JEPCO\Siteware.Web\bin\SiteWare.DataAccess.pdb
+D:\AJAYPatel(2019)\JEPCO\JEPCO\Siteware.Web\bin\SiteWare.Domain.pdb
+D:\AJAYPatel(2019)\JEPCO\JEPCO\Siteware.Web\bin\SiteWare.Entity.pdb
+D:\AJAYPatel(2019)\JEPCO\JEPCO\Siteware.Web\obj\Release\Siteware.Web.csprojAssemblyReference.cache
+D:\AJAYPatel(2019)\JEPCO\JEPCO\Siteware.Web\obj\Release\Siteware.Web.csproj.CopyComplete
+D:\AJAYPatel(2019)\JEPCO\JEPCO\Siteware.Web\obj\Release\Siteware.Web.dll
+D:\AJAYPatel(2019)\JEPCO\JEPCO\Siteware.Web\obj\Release\Siteware.Web.pdb
+D:\AJAYPatel(2019)\JepcoPortal\JepcoPortal\JepcoPortal\Siteware.Web\bin\Siteware.Web.dll.config
+D:\AJAYPatel(2019)\JepcoPortal\JepcoPortal\JepcoPortal\Siteware.Web\bin\Siteware.Web.dll
+D:\AJAYPatel(2019)\JepcoPortal\JepcoPortal\JepcoPortal\Siteware.Web\bin\Siteware.Web.pdb
+D:\AJAYPatel(2019)\JepcoPortal\JepcoPortal\JepcoPortal\Siteware.Web\bin\SiteWare.DataAccess.dll
+D:\AJAYPatel(2019)\JepcoPortal\JepcoPortal\JepcoPortal\Siteware.Web\bin\SiteWare.Domain.dll
+D:\AJAYPatel(2019)\JepcoPortal\JepcoPortal\JepcoPortal\Siteware.Web\bin\SiteWare.Entity.dll
+D:\AJAYPatel(2019)\JepcoPortal\JepcoPortal\JepcoPortal\Siteware.Web\bin\SiteWare.DataAccess.pdb
+D:\AJAYPatel(2019)\JepcoPortal\JepcoPortal\JepcoPortal\Siteware.Web\bin\SiteWare.Domain.pdb
+D:\AJAYPatel(2019)\JepcoPortal\JepcoPortal\JepcoPortal\Siteware.Web\bin\SiteWare.Entity.pdb
+D:\AJAYPatel(2019)\JepcoPortal\JepcoPortal\JepcoPortal\Siteware.Web\obj\Release\Siteware.Web.csprojAssemblyReference.cache
+D:\AJAYPatel(2019)\JepcoPortal\JepcoPortal\JepcoPortal\Siteware.Web\obj\Release\Siteware.Web.csproj.CopyComplete
+D:\AJAYPatel(2019)\JepcoPortal\JepcoPortal\JepcoPortal\Siteware.Web\obj\Release\Siteware.Web.dll
+D:\AJAYPatel(2019)\JepcoPortal\JepcoPortal\JepcoPortal\Siteware.Web\obj\Release\Siteware.Web.pdb
+D:\AJAYPatel(2019)\JepcoPortal\JepcoPortal\JepcoPortal\Siteware.Web\bin\IZ.WebFileManager.dll
+D:\AJAYPatel(2019)\JepcoPortal\JepcoPortal\JepcoPortal\Siteware.Web\bin\Newtonsoft.Json.dll
+D:\AJAYPatel(2019)\JepcoPortal\JepcoPortal\JepcoPortal\Siteware.Web\obj\Release\Siteware.Web.csproj.CoreCompileInputs.cache
+E:\TejasPatel\Map Projects\Jepco_Portal\JepcoPortal\Siteware.Web\bin\Siteware.Web.dll.config
+E:\TejasPatel\Map Projects\Jepco_Portal\JepcoPortal\Siteware.Web\bin\Siteware.Web.dll
+E:\TejasPatel\Map Projects\Jepco_Portal\JepcoPortal\Siteware.Web\bin\Siteware.Web.pdb
+E:\TejasPatel\Map Projects\Jepco_Portal\JepcoPortal\Siteware.Web\bin\IZ.WebFileManager.dll
+E:\TejasPatel\Map Projects\Jepco_Portal\JepcoPortal\Siteware.Web\bin\Newtonsoft.Json.dll
+E:\TejasPatel\Map Projects\Jepco_Portal\JepcoPortal\Siteware.Web\bin\SiteWare.DataAccess.dll
+E:\TejasPatel\Map Projects\Jepco_Portal\JepcoPortal\Siteware.Web\bin\SiteWare.Domain.dll
+E:\TejasPatel\Map Projects\Jepco_Portal\JepcoPortal\Siteware.Web\bin\SiteWare.Entity.dll
+E:\TejasPatel\Map Projects\Jepco_Portal\JepcoPortal\Siteware.Web\bin\SiteWare.DataAccess.pdb
+E:\TejasPatel\Map Projects\Jepco_Portal\JepcoPortal\Siteware.Web\bin\SiteWare.Domain.pdb
+E:\TejasPatel\Map Projects\Jepco_Portal\JepcoPortal\Siteware.Web\bin\SiteWare.Entity.pdb
+E:\TejasPatel\Map Projects\Jepco_Portal\JepcoPortal\Siteware.Web\obj\Release\Siteware.Web.csprojAssemblyReference.cache
+E:\TejasPatel\Map Projects\Jepco_Portal\JepcoPortal\Siteware.Web\obj\Release\Siteware.Web.csproj.CopyComplete
+E:\TejasPatel\Map Projects\Jepco_Portal\JepcoPortal\Siteware.Web\obj\Release\Siteware.Web.dll
+E:\TejasPatel\Map Projects\Jepco_Portal\JepcoPortal\Siteware.Web\obj\Release\Siteware.Web.pdb
+D:\KiranTFS2021\JepcoPortal\Siteware.Web\bin\Siteware.Web.dll.config
+D:\KiranTFS2021\JepcoPortal\Siteware.Web\bin\Siteware.Web.dll
+D:\KiranTFS2021\JepcoPortal\Siteware.Web\bin\Siteware.Web.pdb
+D:\KiranTFS2021\JepcoPortal\Siteware.Web\bin\IZ.WebFileManager.dll
+D:\KiranTFS2021\JepcoPortal\Siteware.Web\bin\Newtonsoft.Json.dll
+D:\KiranTFS2021\JepcoPortal\Siteware.Web\bin\SiteWare.DataAccess.dll
+D:\KiranTFS2021\JepcoPortal\Siteware.Web\bin\SiteWare.Domain.dll
+D:\KiranTFS2021\JepcoPortal\Siteware.Web\bin\SiteWare.Entity.dll
+D:\KiranTFS2021\JepcoPortal\Siteware.Web\bin\SiteWare.DataAccess.pdb
+D:\KiranTFS2021\JepcoPortal\Siteware.Web\bin\SiteWare.Domain.pdb
+D:\KiranTFS2021\JepcoPortal\Siteware.Web\bin\SiteWare.Entity.pdb
+D:\KiranTFS2021\JepcoPortal\Siteware.Web\obj\Release\Siteware.Web.csprojAssemblyReference.cache
+D:\KiranTFS2021\JepcoPortal\Siteware.Web\obj\Release\Siteware.Web.csproj.CoreCompileInputs.cache
+D:\KiranTFS2021\JepcoPortal\Siteware.Web\obj\Release\Siteware.Web.csproj.CopyComplete
+D:\KiranTFS2021\JepcoPortal\Siteware.Web\obj\Release\Siteware.Web.dll
+D:\KiranTFS2021\JepcoPortal\Siteware.Web\obj\Release\Siteware.Web.pdb

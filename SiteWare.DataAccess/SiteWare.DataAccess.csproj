@@ -1,0 +1,359 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{023BFCDE-06B0-4FC9-B520-B88926952041}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SiteWare.DataAccess</RootNamespace>
+    <AssemblyName>SiteWare.DataAccess</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\Constants\CommonRepositoryConstants.cs" />
+    <Compile Include="Common\Constants\MessageConstants.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepositorieConstants\CMS_PropertyKeywordRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\CMS_WorkFlow_SettingsRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\ContactUsFormRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\CountryLanguageRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\DepartmentLanguageRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\E_Lookup_ServiceCategoryRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\E_Plugin_ElectronicServiceCatalogRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\E_Plugin_ServiceInformationRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\E_Plugin_ServiceStepRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\E_Plugin_ServiceTypeRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\E_Plugin_UserTypeRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\FAQRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\GenderLanguageRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\LanguageRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\BannerTypeRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\FooterNavigationRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\LastLoginTimeRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Lookup_AreaOneRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Lookup_AreaRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Lookup_AreaTwoRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Lookup_CertificationType_RepositoryConstatnts.cs" />
+    <Compile Include="RepositorieConstants\Lookup_CityRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Lookup_CompamyClassificationRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Lookup_ComplainTypeRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Lookup_CountryRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Lookup_DocumentTypeRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Lookup_IdentityTypeRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Lookup_JobNameRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Lookup_JobTypeRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Lookup_LicenceTypeRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Lookup_LicenceYearRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Lookup_NationalityRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Lookup_PropertyTypeRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Lookup_ProvenanceRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Lookup_QualificationRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Lookup_ServiceUserTypeRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Lookup_SurveyAnswerRepositoryConstant.cs" />
+    <Compile Include="RepositorieConstants\Lookup_UsageStatusRepositoryConstant.cs" />
+    <Compile Include="RepositorieConstants\MarineInsuranceFormRepositoryConstant.cs" />
+    <Compile Include="RepositorieConstants\MartialStatusRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\MessagesAndNotificationsRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\MobileRegistationRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\NewsTickerRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\NewSub_Lookup_NationalityRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\PluginAnnouncementRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\PluginDataPointRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\PluginPartnerRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\PluginProvider_ActingManager_RepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\PluginProvider_Partner_RepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\PluginSchoolProgramsRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\PluginServiceRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\PluginServiceTabRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\PluginSurveyRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\PluginValueRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Plugin_AboutCompanyRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Plugin_AboutUsRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Plugin_CMS_WorkFlow_RepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Plugin_CMS_WorkFlow_Users_RepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Plugin_CMS_WorkFlow_Users_Reuests_StepsRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Plugin_CMS_WorkFlow_Users_Reuests_Steps_Value_HistoryRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Plugin_Core_ValueRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Plugin_CVTrainingRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Plugin_DailyAdviseRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Plugin_Facility_RepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Plugin_FA_EntitiesRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Plugin_FinancePerformanceRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Plugin_Focus_AreaRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Plugin_JobApplicationRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Plugin_Notification_RepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Plugin_PreviuesExperianceRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Plugin_PriceRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Plugin_Project_RepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Plugin_PropertyAlbumDetailRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Plugin_PropertyAlbumRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Plugin_PropertyRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Plugin_ProviderDocumentationRepositoryConstant.cs" />
+    <Compile Include="RepositorieConstants\Plugin_ProviderRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Plugin_Provider_CategoryRepositoryConstant.cs" />
+    <Compile Include="RepositorieConstants\Plugin_Provider_GovernateRepositoryConstant.cs" />
+    <Compile Include="RepositorieConstants\Plugin_Provider_RegionRepositoryConstant.cs" />
+    <Compile Include="RepositorieConstants\Plugin_Provider_SubCategoryRepositoryConstant.cs" />
+    <Compile Include="RepositorieConstants\Plugin_QualificationRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Plugin_RenwabaleEnergyCompanyRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Plugin_SecondSliderRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Plugin_ServiceNoteRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Plugin_ServiceProviderRepositoryConstant.cs" />
+    <Compile Include="RepositorieConstants\Plugin_ServiceUserRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Plugin_SubmitCVRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Plugin_TimelineRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Plugin_TrainingRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Plugin_UserComplainRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Plugin_Video_RepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Plugin_VotingRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Plugin_CVContactRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\RenewableEnergyCompanyDeviceRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\RenewableEnergyCompanySolarCellRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\RenewableEnergyCompanyUserRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\RenewableEnergyUserRequestsDetailsDevicesRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\RenewableEnergyUserRequestsDetailsRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\RenewableEnergyUserRequestsDetailsSollarsRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\RenewableEnergyUserRequestsDetails_TokenRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\RenewableEnergyUserRequestsRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\RenwableEnergyType3Phase1AttachmentsRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\RenwableEnergyType3Phase1DetailsRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\RenwableEnergyType3Phase1LocationsRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\RenwableEnergyType3Phase1MetersDataRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\RenwableEnergyType3Phase2DetailsAttechmentRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\RenwableEnergyType3Phase2DetailsDevicesRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\RenwableEnergyType3Phase2DetailsOthersRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\RenwableEnergyType3Phase2DetailsRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\RenwableEnergyType3Phase2DetailsSollarsRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\SectionLanguageRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\SecurityUserPluginRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\InnerLinkRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Plugin_News_LetterRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\MenuFooterRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\Plugin_CarrerRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\SendNotificationRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\DirectNoteRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\ServicesStepsRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\ServicesStepsValuesRepositoryConstant.cs" />
+    <Compile Include="RepositorieConstants\UsefullinksRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\TypeusefullinksRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\CalendarEventRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\CalendarRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\PluginAlbumDetailRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\PluginAlbumRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\PluginLogoRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\PluginSocialIconRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\PluginContactUsRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\SecondNavigationRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\NavigationRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\NewsRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\PagesKeywordRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\PagesRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\PluginBannerRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\PluginSliderRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\SettingRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\UserRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\User_Login_IntranetRepositoryConstant.cs" />
+    <Compile Include="RepositorieConstants\VideoSliderRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\StatisticNoteRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\WelcomeNoteRepositoryConstants.cs" />
+    <Compile Include="RepositorieConstants\WelcomeNote_ImageRepositoryConstant.cs" />
+    <Compile Include="Repositories\CMS_PropertyKeywordRepository.cs" />
+    <Compile Include="Repositories\CMS_WorkFlow_SettingsRepository.cs" />
+    <Compile Include="Repositories\ContactUsFormRepository.cs" />
+    <Compile Include="Repositories\CountryLanguageRepository.cs" />
+    <Compile Include="Repositories\DepartmentLanguageRepository.cs" />
+    <Compile Include="Repositories\E_Lookup_ServiceCategoryRepository.cs" />
+    <Compile Include="Repositories\E_Plugin_ElectronicServiceCatalogRepository.cs" />
+    <Compile Include="Repositories\E_Plugin_ServiceInformationRepository.cs" />
+    <Compile Include="Repositories\E_Plugin_ServiceStepRepository.cs" />
+    <Compile Include="Repositories\E_Plugin_ServiceTypeRepository.cs" />
+    <Compile Include="Repositories\E_Plugin_UserTypeRepository.cs" />
+    <Compile Include="Repositories\FAQRepository.cs" />
+    <Compile Include="Repositories\GenderLanguageRepository.cs" />
+    <Compile Include="Repositories\LanguageRepository.cs" />
+    <Compile Include="Repositories\BannerTypeRepository.cs" />
+    <Compile Include="Repositories\FooterNavigationRepository.cs" />
+    <Compile Include="Repositories\LastLoginTimeRepository.cs" />
+    <Compile Include="Repositories\Lookup_AreaOneRepository.cs" />
+    <Compile Include="Repositories\Lookup_AreaRepository.cs" />
+    <Compile Include="Repositories\Lookup_AreaTwoRepository.cs" />
+    <Compile Include="Repositories\Lookup_CertficationType_Repository.cs" />
+    <Compile Include="Repositories\Lookup_CityRepository.cs" />
+    <Compile Include="Repositories\Lookup_CompamyClassificationRepository.cs" />
+    <Compile Include="Repositories\Lookup_ComplainTypeRepository.cs" />
+    <Compile Include="Repositories\Lookup_CountryRepository.cs" />
+    <Compile Include="Repositories\Lookup_DocumentTypeRepository.cs" />
+    <Compile Include="Repositories\Lookup_IdentityTypeRepository.cs" />
+    <Compile Include="Repositories\Lookup_JobNameRepository.cs" />
+    <Compile Include="Repositories\Lookup_JobTypeRepository.cs" />
+    <Compile Include="Repositories\Lookup_LicenceTypeRepository.cs" />
+    <Compile Include="Repositories\Lookup_LicenceYearDomain.cs" />
+    <Compile Include="Repositories\Lookup_LicenceYearRepository.cs" />
+    <Compile Include="Repositories\Lookup_NationalityRepository.cs" />
+    <Compile Include="Repositories\Lookup_PropertyTypeRepository.cs" />
+    <Compile Include="Repositories\Lookup_ProvenanceRepository.cs" />
+    <Compile Include="Repositories\Lookup_QualificationRepository.cs" />
+    <Compile Include="Repositories\Lookup_ServiceUserTypeRepository.cs" />
+    <Compile Include="Repositories\Lookup_SurveyAnswerRespository.cs" />
+    <Compile Include="Repositories\Lookup_UsageStatusRepository.cs" />
+    <Compile Include="Repositories\MartialStatusRepository.cs" />
+    <Compile Include="Repositories\MessagesAndNotificationsRepository.cs" />
+    <Compile Include="Repositories\MobileRegistationRepository.cs" />
+    <Compile Include="Repositories\NewsTickerRepository.cs" />
+    <Compile Include="Repositories\NewSub_Lookup_NationalityRepository.cs" />
+    <Compile Include="Repositories\PluginAnnouncementRepository.cs" />
+    <Compile Include="Repositories\PluginDataPointRepository.cs" />
+    <Compile Include="Repositories\PluginLogoRepository.cs" />
+    <Compile Include="Repositories\PluginPartnerRepository.cs" />
+    <Compile Include="Repositories\PluginProvider_ActingManager_Repository.cs" />
+    <Compile Include="Repositories\PluginProvider_Partner_Repository.cs" />
+    <Compile Include="Repositories\PluginSchoolProgramsRepository.cs" />
+    <Compile Include="Repositories\PluginServiceRepository.cs" />
+    <Compile Include="Repositories\PluginServiceTabRepository.cs" />
+    <Compile Include="Repositories\PluginSurveyRepository.cs" />
+    <Compile Include="Repositories\PluginValueRepository.cs" />
+    <Compile Include="Repositories\Plugin_AboutCompanyRepository.cs" />
+    <Compile Include="Repositories\Plugin_AboutUsRepository.cs" />
+    <Compile Include="Repositories\Plugin_CMS_WorkFlow_Repository.cs" />
+    <Compile Include="Repositories\Plugin_CMS_WorkFlow_Users_Repository.cs" />
+    <Compile Include="Repositories\Plugin_CMS_WorkFlow_Users_Reuests_StepsRepository.cs" />
+    <Compile Include="Repositories\Plugin_CMS_WorkFlow_Users_Reuests_Steps_Value_HistoryRepository.cs" />
+    <Compile Include="Repositories\Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueRepository.cs" />
+    <Compile Include="Repositories\Plugin_Core_ValueRepository.cs" />
+    <Compile Include="Repositories\Plugin_CVTrainingRepository.cs" />
+    <Compile Include="Repositories\Plugin_DailyAdviseRepository.cs" />
+    <Compile Include="Repositories\Plugin_Facility_Repository.cs" />
+    <Compile Include="Repositories\Plugin_FA_EntitiesRepository.cs" />
+    <Compile Include="Repositories\Plugin_FinancePerformanceRepository.cs" />
+    <Compile Include="Repositories\Plugin_Focus_AreaRepository.cs" />
+    <Compile Include="Repositories\Plugin_JobApplicationRepository.cs" />
+    <Compile Include="Repositories\Plugin_News_LetterRepository.cs" />
+    <Compile Include="Repositories\Plugin_NotificationRepository.cs" />
+    <Compile Include="Repositories\Plugin_PreviuesExperianceRepository.cs" />
+    <Compile Include="Repositories\Plugin_PriceRepository.cs" />
+    <Compile Include="Repositories\Plugin_Project_Repository.cs" />
+    <Compile Include="Repositories\Plugin_PropertyAlbumDetailRepository.cs" />
+    <Compile Include="Repositories\Plugin_PropertyAlbumRepository.cs" />
+    <Compile Include="Repositories\Plugin_PropertyRepository.cs" />
+    <Compile Include="Repositories\Plugin_ProviderRepository.cs" />
+    <Compile Include="Repositories\Plugin_Provider_CategoryRepository.cs" />
+    <Compile Include="Repositories\Plugin_Provider_DocumentationRepository.cs" />
+    <Compile Include="Repositories\Plugin_Provider_DocumentRepository.cs" />
+    <Compile Include="Repositories\Plugin_Provider_GovernateRepository.cs" />
+    <Compile Include="Repositories\Plugin_Provider_RegionRepository.cs" />
+    <Compile Include="Repositories\Plugin_Provider_SubCategoryRepository.cs" />
+    <Compile Include="Repositories\Plugin_QualificationRepository.cs" />
+    <Compile Include="Repositories\Plugin_RenwabaleEnergyCompanyRepository.cs" />
+    <Compile Include="Repositories\Plugin_SecondSliderRepository.cs" />
+    <Compile Include="Repositories\Plugin_ServiceNoteRepository.cs" />
+    <Compile Include="Repositories\Plugin_ServiceProviderRepository.cs" />
+    <Compile Include="Repositories\Plugin_ServiceUserRepository.cs" />
+    <Compile Include="Repositories\Plugin_SubmitCVRepository.cs" />
+    <Compile Include="Repositories\Plugin_TimelineRepository.cs" />
+    <Compile Include="Repositories\Plugin_TrainingRepository.cs" />
+    <Compile Include="Repositories\Plugin_UserComplainRepository.cs" />
+    <Compile Include="Repositories\Plugin_Video_Repository.cs" />
+    <Compile Include="Repositories\Plugin_VotingRepository.cs" />
+    <Compile Include="Repositories\Plugin_CVContactRepository.cs" />
+    <Compile Include="Repositories\RenewableEnergyCompanyDeviceRepository.cs" />
+    <Compile Include="Repositories\RenewableEnergyCompanySolarCellRepository.cs" />
+    <Compile Include="Repositories\RenewableEnergyCompanyUserRepository.cs" />
+    <Compile Include="Repositories\RenewableEnergyUserRequestsDetailsDevicesRepository.cs" />
+    <Compile Include="Repositories\RenewableEnergyUserRequestsDetailsRepository.cs" />
+    <Compile Include="Repositories\RenewableEnergyUserRequestsDetailsSollarsRepository.cs" />
+    <Compile Include="Repositories\RenewableEnergyUserRequestsDetails_TokenRepository.cs" />
+    <Compile Include="Repositories\RenewableEnergyUserRequestsRepository.cs" />
+    <Compile Include="Repositories\RenwableEnergyType3Phase1AttachmentsRepository.cs" />
+    <Compile Include="Repositories\RenwableEnergyType3Phase1DetailsRepository.cs" />
+    <Compile Include="Repositories\RenwableEnergyType3Phase1LocationsRepository.cs" />
+    <Compile Include="Repositories\RenwableEnergyType3Phase1MetersDataRepository.cs" />
+    <Compile Include="Repositories\RenwableEnergyType3Phase2DetailsAttechmentRepository.cs" />
+    <Compile Include="Repositories\RenwableEnergyType3Phase2DetailsDevicesRepository.cs" />
+    <Compile Include="Repositories\RenwableEnergyType3Phase2DetailsOthersRepository.cs" />
+    <Compile Include="Repositories\RenwableEnergyType3Phase2DetailsRepository.cs" />
+    <Compile Include="Repositories\RenwableEnergyType3Phase2DetailsSollarsRepository.cs" />
+    <Compile Include="Repositories\SectionLanguageRepository.cs" />
+    <Compile Include="Repositories\SecurityUserPluginRepository.cs" />
+    <Compile Include="Repositories\InnerLinkRepository.cs" />
+    <Compile Include="Repositories\MenuFooterRepository.cs" />
+    <Compile Include="Repositories\Plugin_CarrerRepository.cs" />
+    <Compile Include="Repositories\SendNotificationRepository.cs" />
+    <Compile Include="Repositories\DirectNoteRepository.cs" />
+    <Compile Include="Repositories\ServicesStepsRepository.cs" />
+    <Compile Include="Repositories\ServicesStepsValuesRepository.cs" />
+    <Compile Include="Repositories\UsefullinksRepository.cs" />
+    <Compile Include="Repositories\TypeusefullinksRepository.cs" />
+    <Compile Include="Repositories\CalendarEventRepository.cs" />
+    <Compile Include="Repositories\CalendarRepository.cs" />
+    <Compile Include="Repositories\PluginAlbumDetailRepository.cs" />
+    <Compile Include="Repositories\PluginAlbumRepository.cs" />
+    <Compile Include="Repositories\PluginSocialIconRepository.cs" />
+    <Compile Include="Repositories\PluginContactUsRepository.cs" />
+    <Compile Include="Repositories\SecondNavigationRepository.cs" />
+    <Compile Include="Repositories\NavigationRepository.cs" />
+    <Compile Include="Repositories\NewsRepository.cs" />
+    <Compile Include="Repositories\PagesKeywordRepository.cs" />
+    <Compile Include="Repositories\PagesRepository.cs" />
+    <Compile Include="Repositories\PluginBannerRepository.cs" />
+    <Compile Include="Repositories\PluginSliderRepository.cs" />
+    <Compile Include="Repositories\SettingRepository.cs" />
+    <Compile Include="Repositories\UsersRepository.cs" />
+    <Compile Include="Repositories\User_Login_IntranetRepository.cs" />
+    <Compile Include="Repositories\VideoSliderRepository.cs" />
+    <Compile Include="Repositories\StatisticNoteRepository.cs" />
+    <Compile Include="Repositories\WelcomeNoteRepository.cs" />
+    <Compile Include="Repositories\WelcomeNote_ImageRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SiteWare.Entity\SiteWare.Entity.csproj">
+      <Project>{e6ddafd8-3ac5-403c-ba00-6c5840629ff2}</Project>
+      <Name>SiteWare.Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
