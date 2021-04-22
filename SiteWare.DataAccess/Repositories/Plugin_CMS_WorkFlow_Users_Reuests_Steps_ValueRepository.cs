@@ -268,6 +268,7 @@ namespace SiteWare.DataAccess.Repositories
                 sqlCommand.Parameters.AddWithValue(Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueRepositoryConstants.IsDelete, entity.IsDelete);
                 sqlCommand.Parameters.AddWithValue(Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueRepositoryConstants.EditDate, entity.EditDate);
                 sqlCommand.Parameters.AddWithValue(Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueRepositoryConstants.StepStatus, entity.StepStatus);
+                sqlCommand.Parameters.AddWithValue(Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueRepositoryConstants.CompletedDate, entity.CompletedDate);
                 sqlCommand.Parameters.Add(Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueRepositoryConstants.ID, SqlDbType.Int).Direction = ParameterDirection.Output;
 
                 sqlCommand.Parameters.AddWithValue(Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueRepositoryConstants.ID, entity.ID);
@@ -313,6 +314,7 @@ namespace SiteWare.DataAccess.Repositories
                 sqlCommand.Parameters.AddWithValue(Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueRepositoryConstants.IsDelete, entity.IsDelete);
                 sqlCommand.Parameters.AddWithValue(Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueRepositoryConstants.EditDate, entity.EditDate);
                 sqlCommand.Parameters.AddWithValue(Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueRepositoryConstants.StepStatus, entity.StepStatus);
+                sqlCommand.Parameters.AddWithValue(Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueRepositoryConstants.CompletedDate, entity.CompletedDate);
                 sqlCommand.Parameters.Add(Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueRepositoryConstants.ID, SqlDbType.Int).Direction = ParameterDirection.Output;
                 sqlCommand.Parameters.AddWithValue(Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueRepositoryConstants.ID, entity.ID);
 
@@ -355,6 +357,7 @@ namespace SiteWare.DataAccess.Repositories
                 sqlCommand.Parameters.AddWithValue(Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueRepositoryConstants.EditDate, entity.EditDate);
                 sqlCommand.Parameters.AddWithValue(Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueRepositoryConstants.EditUser, entity.EditUser);
                 sqlCommand.Parameters.AddWithValue(Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueRepositoryConstants.StepStatus, entity.StepStatus);
+                sqlCommand.Parameters.AddWithValue(Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueRepositoryConstants.CompletedDate, entity.CompletedDate);
                 //sqlCommand.Parameters.Add(Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueRepositoryConstants.ID, SqlDbType.Int).Direction = ParameterDirection.Output;
                 sqlCommand.Parameters.AddWithValue(Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueRepositoryConstants.ID, entity.ID);
 
@@ -405,6 +408,7 @@ namespace SiteWare.DataAccess.Repositories
                 sqlCommand.Parameters.AddWithValue(Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueRepositoryConstants.Attachment, entity.Attachment);
                 sqlCommand.Parameters.AddWithValue(Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueRepositoryConstants.Attachment2, entity.Attachment2);
                 sqlCommand.Parameters.AddWithValue(Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueRepositoryConstants.Attachment3, entity.Attachment3);
+                sqlCommand.Parameters.AddWithValue(Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueRepositoryConstants.CompletedDate, entity.CompletedDate);
                 sqlCommand.Parameters.Add(Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueRepositoryConstants.ID, SqlDbType.Int).Direction = ParameterDirection.Output;
                 SqlDataReader reader = await sqlCommand.ExecuteReaderAsync();
                 result.Entity = entity;
@@ -452,6 +456,7 @@ namespace SiteWare.DataAccess.Repositories
                 sqlCommand.Parameters.AddWithValue(Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueRepositoryConstants.Attachment, entity.Attachment);
                 sqlCommand.Parameters.AddWithValue(Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueRepositoryConstants.Attachment2, entity.Attachment2);
                 sqlCommand.Parameters.AddWithValue(Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueRepositoryConstants.Attachment3, entity.Attachment3);
+                sqlCommand.Parameters.AddWithValue(Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueRepositoryConstants.CompletedDate, entity.CompletedDate);
                 sqlCommand.Parameters.Add(Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueRepositoryConstants.ID, SqlDbType.Int).Direction = ParameterDirection.Output;
                 SqlDataReader reader = sqlCommand.ExecuteReader();
                 result.Entity = entity;
@@ -559,7 +564,7 @@ namespace SiteWare.DataAccess.Repositories
             entity.AddUser = reader[Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueEntityConstants.AddUser] == DBNull.Value ? string.Empty : Convert.ToString(reader[Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueEntityConstants.AddUser]);
             entity.EditUser = reader[Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueEntityConstants.EditUser] == DBNull.Value ? string.Empty : Convert.ToString(reader[Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueEntityConstants.EditUser]);
             entity.AddUserName = reader[Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueEntityConstants.AddUserName] == DBNull.Value ? string.Empty : Convert.ToString(reader[Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueEntityConstants.AddUserName]);
-            entity.StepStatus = reader[Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueEntityConstants.StepStatus] == DBNull.Value ? string.Empty : Convert.ToString(reader[Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueEntityConstants.StepStatus]);
+            entity.StepStatus = reader[Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueEntityConstants.StepStatus] == DBNull.Value ? string.Empty : Convert.ToString(reader[Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueEntityConstants.StepStatus]);            
 
             bool ColumnExists = false;
             try
@@ -632,6 +637,21 @@ namespace SiteWare.DataAccess.Repositories
             if (ColumnExists)
             {
                 entity.Attachment3 = reader[Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueEntityConstants.Attachment3] == DBNull.Value ? string.Empty : Convert.ToString(reader[Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueEntityConstants.Attachment3].ToString());
+            }
+
+            try
+            {
+                int columnOrdinal = reader.GetOrdinal("CompletedDate");
+                ColumnExists = true;
+            }
+            catch (IndexOutOfRangeException)
+            {
+                ColumnExists = false;
+            }
+
+            if (ColumnExists)
+            {
+                entity.CompletedDate = reader[Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueEntityConstants.CompletedDate] == DBNull.Value ? DateTime.Now : Convert.ToDateTime(reader[Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueEntityConstants.CompletedDate].ToString());
             }
 
 

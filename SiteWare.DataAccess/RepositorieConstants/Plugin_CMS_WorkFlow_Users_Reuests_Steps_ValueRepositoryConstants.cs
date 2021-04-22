@@ -24,6 +24,7 @@ namespace SiteWare.DataAccess.RepositorieConstants
         public const string Attachment = CommonRepositoryConstants.PreSQLParameter + Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueEntityConstants.Attachment;
         public const string Attachment2 = CommonRepositoryConstants.PreSQLParameter + Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueEntityConstants.Attachment2;
         public const string Attachment3 = CommonRepositoryConstants.PreSQLParameter + Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueEntityConstants.Attachment3;
+        public const string CompletedDate = CommonRepositoryConstants.PreSQLParameter + Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueEntityConstants.CompletedDate;
 
 
         public const string SP_Insert = "Plugin_CMS_WorkFlow_Users_Reuests_Steps_Value_Insert";

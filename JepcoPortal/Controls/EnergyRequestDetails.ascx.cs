@@ -68,13 +68,15 @@ public partial class Controls_EnergyRequestDetails : System.Web.UI.UserControl
                     lbldate.Text = DetailsEntity.Entity.AddDate.ToString();
                     txtACPower.Text = DetailsEntity.Entity.ACPower;
                     txtDCPower.Text = DetailsEntity.Entity.DCPower;
-                    lblDate2.Text = DetailsEntity.Entity.AddDate.ToString();
+                    //lblDate2.Text = DetailsEntity.Entity.AddDate.ToString();
+                    lblDate2.Text = DetailsEntity.Entity.PublishDate.ToString("dd-MM-yyyy");
                     long CompanyUser = Convert.ToInt64(DetailsEntity.Entity.AddUser);                   
                     ResultEntity<Plugin_RenwabaleEnergyCompanyEntity> CompanyEntity = new ResultEntity<Plugin_RenwabaleEnergyCompanyEntity>();
                     CompanyEntity = Plugin_RenwabaleEnergyCompanyDomain.GetByIDNotAsync(CompanyUser);
                     if(CompanyEntity.Status == ErrorEnums.Success)
                     {
                         //lblName.Text = CompanyEntity.Entity.CompanyName;
+                        lblUSerName.Text = CompanyEntity.Entity.CompanyName;
                     }
                     //AddUser
                     ResultList<RenewableEnergyUserRequestsDetailsDevicesEntity> DetailsDevicesList = new ResultList<RenewableEnergyUserRequestsDetailsDevicesEntity>();
@@ -142,26 +144,42 @@ public partial class Controls_EnergyRequestDetails : System.Web.UI.UserControl
                             txtFirstNAme.Text = ServiceUserEntity.Entity.FirstName + ServiceUserEntity.Entity.SecondName + ServiceUserEntity.Entity.FamilyName;
                             txtMobileNo.Text = ServiceUserEntity.Entity.MobileNumber;
                             txtemail.Text = ServiceUserEntity.Entity.Email;
-                            lblUSerName.Text = ServiceUserEntity.Entity.FirstName + ServiceUserEntity.Entity.SecondName + ServiceUserEntity.Entity.FamilyName;
+                            //lblUSerName.Text = ServiceUserEntity.Entity.FirstName + ServiceUserEntity.Entity.SecondName + ServiceUserEntity.Entity.FamilyName;
                         }
                     }
-                }
-                ResultEntity<ServicesStepsEntity> StepsEntity = new ResultEntity<ServicesStepsEntity>();
-                StepsEntity = ServicesStepsDomain.GetByServiceIDNotAsync(Session["DetailsIDSessionID"].ToString());
-                if(StepsEntity.Status == ErrorEnums.Success)
-                {
-                    long Stepid = StepsEntity.Entity.StepID;
 
-                    ResultList<ServicesStepsValuesEntity> StepsValuesEntity = new ResultList<ServicesStepsValuesEntity>();
-                    StepsValuesEntity = ServicesStepsValuesDomain.GetAllNotAsync();
-                    if (StepsValuesEntity.Status == ErrorEnums.Success)
-                    {                        
-                        StpeValueUnDone.DataSource = StepsValuesEntity.List.Where(s => s.StepID == Stepid && s.IsDone == false).ToList();
-                        StpeValueUnDone.DataBind();
-                        StpeValueDone.DataSource = StepsValuesEntity.List.Where(s => s.StepID == Stepid && s.IsDone == true).ToList();
-                        StpeValueDone.DataBind();
+                    #region Plugin_CMS_WorkFlow_Users_Reuests_Steps_Value
+
+                    try
+                    {
+                        ResultList<Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueEntity> stepsValueResult = new ResultList<Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueEntity>();
+                        stepsValueResult = Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueDomain.GetAllByRequestIDNotAsync(DetailsEntity.Entity.UserRequestID);
+                        if (stepsValueResult.Status == ErrorEnums.Success)
+                        {
+                            lstStepsValue.DataSource = stepsValueResult.List.Where(x => x.IsDelete == false).OrderBy(y => y.ID).ToList();
+                            lstStepsValue.DataBind();
+                        }
                     }
+                    catch { }
+
+                    #endregion
                 }
+                //ResultEntity<ServicesStepsEntity> StepsEntity = new ResultEntity<ServicesStepsEntity>();
+                //StepsEntity = ServicesStepsDomain.GetByServiceIDNotAsync(Session["DetailsIDSessionID"].ToString());
+                //if(StepsEntity.Status == ErrorEnums.Success)
+                //{
+                //    long Stepid = StepsEntity.Entity.StepID;
+
+                //    ResultList<ServicesStepsValuesEntity> StepsValuesEntity = new ResultList<ServicesStepsValuesEntity>();
+                //    StepsValuesEntity = ServicesStepsValuesDomain.GetAllNotAsync();
+                //    if (StepsValuesEntity.Status == ErrorEnums.Success)
+                //    {                        
+                //        StpeValueUnDone.DataSource = StepsValuesEntity.List.Where(s => s.StepID == Stepid && s.IsDone == false).ToList();
+                //        StpeValueUnDone.DataBind();
+                //        StpeValueDone.DataSource = StepsValuesEntity.List.Where(s => s.StepID == Stepid && s.IsDone == true).ToList();
+                //        StpeValueDone.DataBind();
+                //    }
+                //}
 
                 long DetailID = Convert.ToInt64(Session["DetailsIDSessionID"]);
                 ResultList<RenewableEnergyUserRequestsDetails_TokenEntity> TokenEntity = new ResultList<RenewableEnergyUserRequestsDetails_TokenEntity>();
@@ -213,5 +231,53 @@ public partial class Controls_EnergyRequestDetails : System.Web.UI.UserControl
         }
     }
 
-    
+
+
+    protected void lstStepsValue_ItemDataBound(object sender, ListViewItemEventArgs e)
+    {
+        if (e.Item.ItemType == ListViewItemType.DataItem)
+        {
+            try
+            {
+                string ImageUrl = ConfigurationManager.AppSettings["ImagePath"];
+                HyperLink Attachment = (HyperLink)e.Item.FindControl("Attachment");
+                HyperLink Attachment2 = (HyperLink)e.Item.FindControl("Attachment2");
+                HyperLink Attachment3 = (HyperLink)e.Item.FindControl("Attachment3");               
+
+                if (!string.IsNullOrEmpty(Attachment.NavigateUrl))
+                {
+                    Attachment.NavigateUrl = ImageUrl + Attachment.NavigateUrl;
+                    string abcd = Attachment.NavigateUrl;
+                    string Cutted = abcd.Split('/').Last();
+
+                    Attachment.Text = "مرفق 1";
+                }
+                if (!string.IsNullOrEmpty(Attachment2.NavigateUrl))
+                {
+                    Attachment2.NavigateUrl = ImageUrl + Attachment2.NavigateUrl;
+                    string abcd = Attachment2.NavigateUrl;
+                    string Cutted = abcd.Split('/').Last();
+
+                    Attachment2.Text = "مرفق 2";
+                }
+                if (!string.IsNullOrEmpty(Attachment3.NavigateUrl))
+                {
+                    Attachment3.NavigateUrl = ImageUrl + Attachment3.NavigateUrl;
+                    string abcd = Attachment3.NavigateUrl;
+                    string Cutted = abcd.Split('/').Last();
+
+                    Attachment3.Text = "مرفق 3";
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+    }
+
+    protected void btnsave_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("/ar/Home/RenewableEnergyRequestsList", false);
+    }
 }

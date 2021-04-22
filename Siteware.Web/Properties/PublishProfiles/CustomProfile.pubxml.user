@@ -6,7 +6,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>D:\Publish\Hasan Siteware Project\Jepco Portal\12042021</_PublishTargetUrl>
+    <_PublishTargetUrl>D:\Publish\Hasan Siteware Project\Jepco Portal\21042021\SiteWare</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Account/AddPhoneNumber.aspx">
@@ -2149,28 +2149,28 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/04/2018 10:39:40</publishTime>
     </File>
     <File Include="bin/SiteWare.DataAccess.dll">
-      <publishTime>04/12/2021 17:49:07</publishTime>
+      <publishTime>04/21/2021 17:59:04</publishTime>
     </File>
     <File Include="bin/SiteWare.DataAccess.pdb">
-      <publishTime>04/12/2021 17:49:07</publishTime>
+      <publishTime>04/21/2021 17:59:04</publishTime>
     </File>
     <File Include="bin/SiteWare.Domain.dll">
-      <publishTime>04/12/2021 17:49:08</publishTime>
+      <publishTime>04/21/2021 17:59:05</publishTime>
     </File>
     <File Include="bin/SiteWare.Domain.pdb">
-      <publishTime>04/12/2021 17:49:08</publishTime>
+      <publishTime>04/21/2021 17:59:05</publishTime>
     </File>
     <File Include="bin/SiteWare.Entity.dll">
-      <publishTime>04/12/2021 17:49:06</publishTime>
+      <publishTime>04/21/2021 17:59:01</publishTime>
     </File>
     <File Include="bin/SiteWare.Entity.pdb">
-      <publishTime>04/12/2021 17:49:06</publishTime>
+      <publishTime>04/21/2021 17:59:01</publishTime>
     </File>
     <File Include="bin/Siteware.Web.dll">
-      <publishTime>04/12/2021 17:49:09</publishTime>
+      <publishTime>04/21/2021 17:59:07</publishTime>
     </File>
     <File Include="bin/Siteware.Web.pdb">
-      <publishTime>04/12/2021 17:49:09</publishTime>
+      <publishTime>04/21/2021 17:59:07</publishTime>
     </File>
     <File Include="bin/System.Web.Optimization.dll">
       <publishTime>01/04/2018 10:39:38</publishTime>
@@ -4162,7 +4162,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/12/2021 09:47:24</publishTime>
     </File>
     <File Include="Plugins/RenewableEnergyUserRequests/ViewRenewableEnergyUserRequests.aspx">
-      <publishTime>04/12/2021 17:22:22</publishTime>
+      <publishTime>04/21/2021 17:16:23</publishTime>
     </File>
     <File Include="Plugins/RenwabaleEnergyCompany/EditRenwabaleEnergyCompany.aspx">
       <publishTime>08/21/2020 17:16:16</publishTime>
@@ -5083,7 +5083,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/22/2020 10:46:43</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>04/02/2021 19:11:05</publishTime>
+      <publishTime>04/21/2021 17:59:09</publishTime>
     </File>
   </ItemGroup>
 </Project>

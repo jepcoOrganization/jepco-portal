@@ -46,3 +46,12 @@ D:\KiranTFS2021\JepcoPortal\SiteWare.DataAccess\obj\Debug\SiteWare.DataAccess.cs
 D:\KiranTFS2021\JepcoPortal\SiteWare.DataAccess\obj\Debug\SiteWare.DataAccess.csproj.CopyComplete
 D:\KiranTFS2021\JepcoPortal\SiteWare.DataAccess\obj\Debug\SiteWare.DataAccess.dll
 D:\KiranTFS2021\JepcoPortal\SiteWare.DataAccess\obj\Debug\SiteWare.DataAccess.pdb
+D:\KiranTFS2020\Hasan_Git\JepcoPortal\jepco-portal\SiteWare.DataAccess\bin\Debug\SiteWare.DataAccess.dll
+D:\KiranTFS2020\Hasan_Git\JepcoPortal\jepco-portal\SiteWare.DataAccess\bin\Debug\SiteWare.DataAccess.pdb
+D:\KiranTFS2020\Hasan_Git\JepcoPortal\jepco-portal\SiteWare.DataAccess\bin\Debug\SiteWare.Entity.dll
+D:\KiranTFS2020\Hasan_Git\JepcoPortal\jepco-portal\SiteWare.DataAccess\bin\Debug\SiteWare.Entity.pdb
+D:\KiranTFS2020\Hasan_Git\JepcoPortal\jepco-portal\SiteWare.DataAccess\obj\Debug\SiteWare.DataAccess.csprojAssemblyReference.cache
+D:\KiranTFS2020\Hasan_Git\JepcoPortal\jepco-portal\SiteWare.DataAccess\obj\Debug\SiteWare.DataAccess.csproj.CoreCompileInputs.cache
+D:\KiranTFS2020\Hasan_Git\JepcoPortal\jepco-portal\SiteWare.DataAccess\obj\Debug\SiteWare.DataAccess.csproj.CopyComplete
+D:\KiranTFS2020\Hasan_Git\JepcoPortal\jepco-portal\SiteWare.DataAccess\obj\Debug\SiteWare.DataAccess.dll
+D:\KiranTFS2020\Hasan_Git\JepcoPortal\jepco-portal\SiteWare.DataAccess\obj\Debug\SiteWare.DataAccess.pdb

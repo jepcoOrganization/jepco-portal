@@ -58,3 +58,14 @@ D:\KiranTFS2021\JepcoPortal\SiteWare.Domain\obj\Debug\SiteWare.Domain.csproj.Cor
 D:\KiranTFS2021\JepcoPortal\SiteWare.Domain\obj\Debug\SiteWare.Domain.csproj.CopyComplete
 D:\KiranTFS2021\JepcoPortal\SiteWare.Domain\obj\Debug\SiteWare.Domain.dll
 D:\KiranTFS2021\JepcoPortal\SiteWare.Domain\obj\Debug\SiteWare.Domain.pdb
+D:\KiranTFS2020\Hasan_Git\JepcoPortal\jepco-portal\SiteWare.Domain\bin\Debug\SiteWare.Domain.dll
+D:\KiranTFS2020\Hasan_Git\JepcoPortal\jepco-portal\SiteWare.Domain\bin\Debug\SiteWare.Domain.pdb
+D:\KiranTFS2020\Hasan_Git\JepcoPortal\jepco-portal\SiteWare.Domain\bin\Debug\SiteWare.DataAccess.dll
+D:\KiranTFS2020\Hasan_Git\JepcoPortal\jepco-portal\SiteWare.Domain\bin\Debug\SiteWare.Entity.dll
+D:\KiranTFS2020\Hasan_Git\JepcoPortal\jepco-portal\SiteWare.Domain\bin\Debug\SiteWare.DataAccess.pdb
+D:\KiranTFS2020\Hasan_Git\JepcoPortal\jepco-portal\SiteWare.Domain\bin\Debug\SiteWare.Entity.pdb
+D:\KiranTFS2020\Hasan_Git\JepcoPortal\jepco-portal\SiteWare.Domain\obj\Debug\SiteWare.Domain.csprojAssemblyReference.cache
+D:\KiranTFS2020\Hasan_Git\JepcoPortal\jepco-portal\SiteWare.Domain\obj\Debug\SiteWare.Domain.csproj.CoreCompileInputs.cache
+D:\KiranTFS2020\Hasan_Git\JepcoPortal\jepco-portal\SiteWare.Domain\obj\Debug\SiteWare.Domain.csproj.CopyComplete
+D:\KiranTFS2020\Hasan_Git\JepcoPortal\jepco-portal\SiteWare.Domain\obj\Debug\SiteWare.Domain.dll
+D:\KiranTFS2020\Hasan_Git\JepcoPortal\jepco-portal\SiteWare.Domain\obj\Debug\SiteWare.Domain.pdb

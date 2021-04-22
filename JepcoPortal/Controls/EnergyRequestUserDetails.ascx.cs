@@ -13,6 +13,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Text.RegularExpressions;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
@@ -21,6 +22,7 @@ public partial class Controls_EnergyRequestUserDetails : System.Web.UI.UserContr
 {
     int LangCount = 1;
     int SolarCount = 1;
+   
     protected void Page_Load(object sender, EventArgs e)
     {
         try
@@ -130,10 +132,10 @@ public partial class Controls_EnergyRequestUserDetails : System.Web.UI.UserContr
                         txtNatinalNo.Text = CompanyEntity.Entity.CompanyNationalID;
                         txtMobileNo.Text = CompanyEntity.Entity.MobileNumber;
                         txtemail.Text = CompanyEntity.Entity.EmailAddress;
-
+                        lblUSerName.Text = CompanyEntity.Entity.CompanyName;                        
 
                     }
-
+                    lblDate2.Text = UserRequestsEntity.Entity.PublishDate.ToString("dd-MM-yyyy");
 
                     ResultList<RenewableEnergyUserRequestsDetailsEntity> DetialList = new ResultList<RenewableEnergyUserRequestsDetailsEntity>();
                     DetialList = RenewableEnergyUserRequestsDetailsDomain.GetAllNotAsync();
@@ -183,7 +185,21 @@ public partial class Controls_EnergyRequestUserDetails : System.Web.UI.UserContr
                         lblName.Text = "غير محدد";
                     }
 
+                    #region Plugin_CMS_WorkFlow_Users_Reuests_Steps_Value
 
+                    try
+                    {
+                        ResultList<Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueEntity> stepsValueResult = new ResultList<Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueEntity>();
+                        stepsValueResult = Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueDomain.GetAllByRequestIDNotAsync(RequuestId);
+                        if (stepsValueResult.Status == ErrorEnums.Success)
+                        {
+                            lstStepsValue.DataSource = stepsValueResult.List.Where(x => x.IsDelete == false).OrderBy(y => y.ID).ToList();
+                            lstStepsValue.DataBind();
+                        }
+                    }
+                    catch { }
+
+                    #endregion
 
 
                     //ResultList<RenewableEnergyUserRequestsDetailsEntity> DetailsList = new ResultList<RenewableEnergyUserRequestsDetailsEntity>();
@@ -334,5 +350,58 @@ public partial class Controls_EnergyRequestUserDetails : System.Web.UI.UserContr
         catch (Exception ex)
         {
         }
+    }
+    
+    protected void lstStepsValue_ItemDataBound(object sender, ListViewItemEventArgs e)
+    {
+        if (e.Item.ItemType == ListViewItemType.DataItem)
+        {
+            try
+            {
+                string ImageUrl = ConfigurationManager.AppSettings["ImagePath"];               
+                HyperLink Attachment = (HyperLink)e.Item.FindControl("Attachment");
+                HyperLink Attachment2 = (HyperLink)e.Item.FindControl("Attachment2");
+                HyperLink Attachment3 = (HyperLink)e.Item.FindControl("Attachment3");
+
+                //HiddenField hndStepStatus = (HiddenField)e.Item.FindControl("hndStepStatus");
+                //Image hndStepStatus = (HiddenField)e.Item.FindControl("imgDone");
+                //HiddenField hndStepStatus = (HiddenField)e.Item.FindControl("imgpending");
+
+                if (!string.IsNullOrEmpty(Attachment.NavigateUrl))
+                {
+                    Attachment.NavigateUrl = ImageUrl + Attachment.NavigateUrl;
+                    string abcd = Attachment.NavigateUrl;
+                    string Cutted = abcd.Split('/').Last();
+
+                    Attachment.Text = "مرفق 1";
+                }
+                if (!string.IsNullOrEmpty(Attachment2.NavigateUrl))
+                {
+                    Attachment2.NavigateUrl = ImageUrl + Attachment2.NavigateUrl;
+                    string abcd = Attachment2.NavigateUrl;
+                    string Cutted = abcd.Split('/').Last();
+
+                    Attachment2.Text = "مرفق 2";
+                }
+                if (!string.IsNullOrEmpty(Attachment3.NavigateUrl))
+                {
+                    Attachment3.NavigateUrl = ImageUrl + Attachment3.NavigateUrl;
+                    string abcd = Attachment3.NavigateUrl;
+                    string Cutted = abcd.Split('/').Last();
+
+                    Attachment3.Text = "مرفق 3";
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+    } 
+
+    protected void btnsave_Click(object sender, EventArgs e)
+    {
+        //Response.Redirect("http://localhost:58842/ar/Home/RenewableEnergyUserRequestsList");
+        Response.Redirect("/ar/Home/RenewableEnergyUserRequestsList", false);
     }
 }

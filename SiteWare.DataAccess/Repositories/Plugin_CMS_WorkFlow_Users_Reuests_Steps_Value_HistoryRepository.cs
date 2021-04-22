@@ -43,6 +43,7 @@ namespace SiteWare.DataAccess.Repositories
                 sqlCommand.Parameters.AddWithValue(Plugin_CMS_WorkFlow_Users_Reuests_Steps_Value_HistoryRepositoryConstants.Attachment, entity.Attachment);
                 sqlCommand.Parameters.AddWithValue(Plugin_CMS_WorkFlow_Users_Reuests_Steps_Value_HistoryRepositoryConstants.Attachment2, entity.Attachment2);
                 sqlCommand.Parameters.AddWithValue(Plugin_CMS_WorkFlow_Users_Reuests_Steps_Value_HistoryRepositoryConstants.Attachment3, entity.Attachment3);
+                sqlCommand.Parameters.AddWithValue(Plugin_CMS_WorkFlow_Users_Reuests_Steps_Value_HistoryRepositoryConstants.CompletedDate, entity.CompletedDate);
                 sqlCommand.Parameters.Add(Plugin_CMS_WorkFlow_Users_Reuests_Steps_Value_HistoryRepositoryConstants.ID, SqlDbType.Int).Direction = ParameterDirection.Output;
                 SqlDataReader reader = await sqlCommand.ExecuteReaderAsync();
                 result.Entity = entity;
@@ -91,6 +92,7 @@ namespace SiteWare.DataAccess.Repositories
                 sqlCommand.Parameters.AddWithValue(Plugin_CMS_WorkFlow_Users_Reuests_Steps_Value_HistoryRepositoryConstants.Attachment, entity.Attachment);
                 sqlCommand.Parameters.AddWithValue(Plugin_CMS_WorkFlow_Users_Reuests_Steps_Value_HistoryRepositoryConstants.Attachment2, entity.Attachment2);
                 sqlCommand.Parameters.AddWithValue(Plugin_CMS_WorkFlow_Users_Reuests_Steps_Value_HistoryRepositoryConstants.Attachment3, entity.Attachment3);
+                sqlCommand.Parameters.AddWithValue(Plugin_CMS_WorkFlow_Users_Reuests_Steps_Value_HistoryRepositoryConstants.CompletedDate, entity.CompletedDate);
                 sqlCommand.Parameters.Add(Plugin_CMS_WorkFlow_Users_Reuests_Steps_Value_HistoryRepositoryConstants.ID, SqlDbType.Int).Direction = ParameterDirection.Output;
                 SqlDataReader reader = sqlCommand.ExecuteReader();
                 result.Entity = entity;

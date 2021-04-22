@@ -29,3 +29,8 @@ D:\KiranTFS2021\JepcoPortal\SiteWare.Entity\obj\Debug\SiteWare.Entity.csprojAsse
 D:\KiranTFS2021\JepcoPortal\SiteWare.Entity\obj\Debug\SiteWare.Entity.csproj.CoreCompileInputs.cache
 D:\KiranTFS2021\JepcoPortal\SiteWare.Entity\obj\Debug\SiteWare.Entity.dll
 D:\KiranTFS2021\JepcoPortal\SiteWare.Entity\obj\Debug\SiteWare.Entity.pdb
+D:\KiranTFS2020\Hasan_Git\JepcoPortal\jepco-portal\SiteWare.Entity\bin\Debug\SiteWare.Entity.dll
+D:\KiranTFS2020\Hasan_Git\JepcoPortal\jepco-portal\SiteWare.Entity\bin\Debug\SiteWare.Entity.pdb
+D:\KiranTFS2020\Hasan_Git\JepcoPortal\jepco-portal\SiteWare.Entity\obj\Debug\SiteWare.Entity.csproj.CoreCompileInputs.cache
+D:\KiranTFS2020\Hasan_Git\JepcoPortal\jepco-portal\SiteWare.Entity\obj\Debug\SiteWare.Entity.dll
+D:\KiranTFS2020\Hasan_Git\JepcoPortal\jepco-portal\SiteWare.Entity\obj\Debug\SiteWare.Entity.pdb

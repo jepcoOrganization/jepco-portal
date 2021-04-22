@@ -28,6 +28,7 @@ namespace SiteWare.Entity.Entities
         public string Attachment2 { get; set; }
         [DataMember]
         public string Attachment3 { get; set; }
+        [DataMember] public Nullable<DateTime> CompletedDate { get; set; }
 
 
     }

@@ -578,13 +578,14 @@
                                                 <table class="table-responsive table-bordered paddt">
                                                     <thead>
                                                         <tr>
-                                                            <th>Request ID</th>
-                                                            <%--<th>Step ID</th>--%>
+                                                            <%--<th>Request ID</th>--%>
+                                                            <th>Step ID</th>
                                                             <th>Step Name</th>
                                                             <th>Date and Time</th>
                                                             <th>Notes</th>
                                                             <th>Step Status</th>
                                                             <th>Add By</th>
+                                                            <th>Comp. Date</th>
                                                             <th>Attachment1</th>
                                                             <th>Attachment 2</th>
                                                             <th>Attachment 3</th>
@@ -597,20 +598,22 @@
                                             </LayoutTemplate>
                                             <ItemTemplate>
                                                 <tr>
-                                                    <td>
+                                                  <%--  <td>
                                                         <asp:Label ID="lblFromUser1" runat="server" Text='<%# Bind("RequestID") %>'></asp:Label>
-                                                    </td>
-                                                    <%--<td>
-                                                        <asp:Label ID="lblToUser1" runat="server" Text='<%# Bind("RequestUserStepID") %>'></asp:Label>
                                                     </td>--%>
+                                                    <td>
+                                                        <asp:Label ID="lblToUser1" runat="server" Text='<%# Bind("RequestUserStepID") %>'></asp:Label>
+                                                    </td>
                                                     <td><%# Eval("StepName") %></td>
                                                     <td>
                                                         <asp:Label ID="lblAddDate" runat="server" Text=' <%# Eval("Adddate") %>'></asp:Label>
                                                         <asp:HiddenField runat="server" ID="hndadduser" Value='<%# Eval("AddUser") %>' />
                                                     </td>
                                                     <td><%# Eval("StepNotes") %></td>
-                                                    <td><%# Eval("StepStatus") %></td>
+                                                    <td><asp:Label ID="lblStepStatus" runat="server" Text='<%# Eval("StepStatus")%>'></asp:Label></td>
                                                     <td><%# Eval("AddUserName") %></td>
+                                                     <td>
+                                                         <asp:Label ID="lblCompletedDate" runat="server" Text=' <%# Eval("CompletedDate") %>' visible='<%# Convert.ToString(Eval("StepStatus")) == "Done"? true:false %>'></asp:Label>                                                        
                                                     <td>
                                                         <asp:HyperLink runat="server" ID="Attachment" Target="_blank" NavigateUrl='<%# Eval("Attachment") %>'></asp:HyperLink></td>
                                                     <td>

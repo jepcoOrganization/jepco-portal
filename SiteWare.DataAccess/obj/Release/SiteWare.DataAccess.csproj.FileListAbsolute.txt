@@ -32,3 +32,12 @@ D:\KiranTFS2021\JepcoPortal\SiteWare.DataAccess\obj\Release\SiteWare.DataAccess.
 D:\KiranTFS2021\JepcoPortal\SiteWare.DataAccess\obj\Release\SiteWare.DataAccess.csproj.CopyComplete
 D:\KiranTFS2021\JepcoPortal\SiteWare.DataAccess\obj\Release\SiteWare.DataAccess.dll
 D:\KiranTFS2021\JepcoPortal\SiteWare.DataAccess\obj\Release\SiteWare.DataAccess.pdb
+D:\KiranTFS2020\Hasan_Git\JepcoPortal\jepco-portal\SiteWare.DataAccess\bin\Release\SiteWare.DataAccess.dll
+D:\KiranTFS2020\Hasan_Git\JepcoPortal\jepco-portal\SiteWare.DataAccess\bin\Release\SiteWare.DataAccess.pdb
+D:\KiranTFS2020\Hasan_Git\JepcoPortal\jepco-portal\SiteWare.DataAccess\bin\Release\SiteWare.Entity.dll
+D:\KiranTFS2020\Hasan_Git\JepcoPortal\jepco-portal\SiteWare.DataAccess\bin\Release\SiteWare.Entity.pdb
+D:\KiranTFS2020\Hasan_Git\JepcoPortal\jepco-portal\SiteWare.DataAccess\obj\Release\SiteWare.DataAccess.csprojAssemblyReference.cache
+D:\KiranTFS2020\Hasan_Git\JepcoPortal\jepco-portal\SiteWare.DataAccess\obj\Release\SiteWare.DataAccess.csproj.CoreCompileInputs.cache
+D:\KiranTFS2020\Hasan_Git\JepcoPortal\jepco-portal\SiteWare.DataAccess\obj\Release\SiteWare.DataAccess.csproj.CopyComplete
+D:\KiranTFS2020\Hasan_Git\JepcoPortal\jepco-portal\SiteWare.DataAccess\obj\Release\SiteWare.DataAccess.dll
+D:\KiranTFS2020\Hasan_Git\JepcoPortal\jepco-portal\SiteWare.DataAccess\obj\Release\SiteWare.DataAccess.pdb

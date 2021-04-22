@@ -1127,6 +1127,10 @@ namespace Siteware.Web.Plugins.RenewableEnergyUserRequests
                         valueEntity.Attachment = fileuplaod4;
                         valueEntity.Attachment2 = fileuplaod5;
                         valueEntity.Attachment3 = fileuplaod6;
+                        if (ddlstepstatus1.SelectedItem.Text.ToString() == "Done")
+                        {
+                            valueEntity.CompletedDate = Convert.ToDateTime(DateTime.Now);
+                        }
 
                         var result = Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueDomain.InsertNotAsync(valueEntity);
                         if (result.Status == ErrorEnums.Success)
@@ -1150,6 +1154,11 @@ namespace Siteware.Web.Plugins.RenewableEnergyUserRequests
                                 historyEntity.Attachment = fileuplaod4;
                                 historyEntity.Attachment2 = fileuplaod5;
                                 historyEntity.Attachment3 = fileuplaod6;
+                                if (ddlstepstatus1.SelectedItem.Text.ToString() == "Done")
+                                {
+                                    historyEntity.CompletedDate = Convert.ToDateTime(DateTime.Now);
+                                }
+
                                 var DetailsInsert = Plugin_CMS_WorkFlow_Users_Reuests_Steps_Value_HistoryDomain.InsertNotAsync(historyEntity);
 
                                 if (DetailsInsert.Status == ErrorEnums.Success)
@@ -1245,11 +1254,11 @@ namespace Siteware.Web.Plugins.RenewableEnergyUserRequests
                     Attachment3.Text = Cutted;
                 }
 
-                //Label lblAddDate = e.Item.FindControl("lblAddDate") as Label;
+                Label lblStepStatus = e.Item.FindControl("lblStepStatus") as Label;
                 //lblAddDate.Text = Convert.ToDateTime(lblAddDate.Text).ToString("dd-MM-yyyy");
                 HiddenField UserID = e.Item.FindControl("hndadduser") as HiddenField;
                 LinkButton btneditStep = e.Item.FindControl("btneditStep") as LinkButton;
-                if (SessionManager.GetInstance.Users.UserID.ToString() == UserID.Value.ToString())
+                if ((SessionManager.GetInstance.Users.UserID.ToString() == UserID.Value.ToString()) && lblStepStatus.Text != "Done")
                 {
                     btneditStep.Enabled = true;
                 }
@@ -1332,6 +1341,10 @@ namespace Siteware.Web.Plugins.RenewableEnergyUserRequests
                         valueEntity.EditDate = Convert.ToDateTime(DateTime.Now);
                         valueEntity.EditUser = SessionManager.GetInstance.Users.UserID.ToString();
                         valueEntity.StepStatus = ddlstepstatus1.SelectedItem.Text.ToString();
+                        if (ddlstepstatus1.SelectedItem.Text.ToString() == "Done")
+                        {
+                            valueEntity.CompletedDate = Convert.ToDateTime(DateTime.Now);
+                        }
 
                         var result = Plugin_CMS_WorkFlow_Users_Reuests_Steps_ValueDomain.UpdateStatusNotAsync(valueEntity);
                         if (result.Status == ErrorEnums.Success)
@@ -1367,6 +1380,10 @@ namespace Siteware.Web.Plugins.RenewableEnergyUserRequests
                                             historyEntity.Attachment = data.Attachment;
                                             historyEntity.Attachment2 = data.Attachment2;
                                             historyEntity.Attachment3 = data.Attachment3;
+                                            if (ddlstepstatus1.SelectedItem.Text.ToString() == "Done")
+                                            {
+                                                historyEntity.CompletedDate = Convert.ToDateTime(DateTime.Now);
+                                            }
                                             var DetailsInsert = Plugin_CMS_WorkFlow_Users_Reuests_Steps_Value_HistoryDomain.InsertNotAsync(historyEntity);
 
                                             if (DetailsInsert.Status == ErrorEnums.Success)

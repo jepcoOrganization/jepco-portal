@@ -2428,17 +2428,17 @@ a.download {
 }
 
 .panel-body {
-    border-bottom: 20px solid #eff7fb;
-    background: #fff;
-    border-top: none;
-    border-left: 20px solid #eff7fb;
-    border-right: 20px solid #eff7fb;
+    border-bottom: 20px solid #eff7fb !important;
+    background: #fff !important;
+    border-top: none !important;
+    border-left: 20px solid #eff7fb !important;
+    border-right: 20px solid #eff7fb !important;
 }
 
 .panel-default > .panel-heading + .panel-collapse > .panel-body {
-    border-top-color: transparent;
-    padding: 25px;
-    min-height: 150px;
+    border-top-color: transparent !important;
+    padding: 25px !important;
+    min-height: 150px !important;
 }
 
 .time {
@@ -2514,4 +2514,24 @@ a.download {
     margin-bottom: 5px;
 }
 
+[class^="lni-"], [class*=" lni-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'LineIcons' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 
+.lni-minus:before {
+    content: "\e957";
+}
+
+.lni-plus:before {
+    content: "\e959";
+}

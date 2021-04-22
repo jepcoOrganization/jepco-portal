@@ -23,6 +23,7 @@ namespace SiteWare.Entity.Constants.Entity
         public const string Attachment = "Attachment";
         public const string Attachment2 = "Attachment2";
         public const string Attachment3 = "Attachment3";
+        public const string CompletedDate = "CompletedDate";
 
     }
 }

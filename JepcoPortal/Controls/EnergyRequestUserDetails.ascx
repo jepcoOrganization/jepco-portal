@@ -4,7 +4,7 @@
     <!-- Nav tabs -->
     <ul class="nav nav-tabs energyrequest_tab" role="tablist">
         <li role="presentation" class="active"><a href="#Order_details" aria-controls="Order_details" role="tab" data-toggle="tab">تفاصيل الطلب</a></li>
-        <%--<li role="presentation"><a href="#Working_procedures" aria-controls="Working_procedures" role="tab" data-toggle="tab">اجراءات العمل</a></li>--%>
+        <li role="presentation"><a href="#Working_procedures" aria-controls="Working_procedures" role="tab" data-toggle="tab">اجراءات العمل</a></li>
 
     </ul>
 
@@ -21,27 +21,27 @@
                 </li>
                 <li>
                     <strong>نوع الطلب</strong>
-                   <%-- <span>الجبيهة - شفابدران</span>--%>
-                     <asp:Label ID="lblENGType" runat="server"></asp:Label>
+                    <%-- <span>الجبيهة - شفابدران</span>--%>
+                    <asp:Label ID="lblENGType" runat="server"></asp:Label>
                 </li>
-                 <li>
+                <li>
                     <strong>رقم الطلب / رقم العداد</strong>
-                   <%-- <span class="LTR"><b>2798564398222</b></span>--%>
+                    <%-- <span class="LTR"><b>2798564398222</b></span>--%>
                     <asp:Label ID="lblRefenceNo" runat="server"></asp:Label>
                 </li>
 
-                 <li id="liMeterStatus" runat="server">
+                <li id="liMeterStatus" runat="server">
                     <strong>حالة العداد</strong>
-                   <%-- <span class="LTR"><b>2798564398222</b></span>--%>
+                    <%-- <span class="LTR"><b>2798564398222</b></span>--%>
                     <asp:Label ID="lblMeterStus" runat="server"></asp:Label>
                 </li>
 
-               
-               
 
-                 <li>
+
+
+                <li>
                     <strong>الرقم المرجعي للطلب</strong>
-                   <%-- <span class="LTR"><b>2798564398222</b></span>--%>
+                    <%-- <span class="LTR"><b>2798564398222</b></span>--%>
                     <asp:Label ID="lblName" runat="server"></asp:Label>
                 </li>
             </ul>
@@ -58,7 +58,7 @@
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="form-group">
                         <label>الرقم الوطني لصاحب الطلب </label>
-                       <%-- <input type="text" placeholder="2798564398222" class="input_number">--%>
+                        <%-- <input type="text" placeholder="2798564398222" class="input_number">--%>
                         <asp:TextBox ID="txtNatinalNo" runat="server" PlaceHolder="رقم هاتف الشركة " disabled="disabled"></asp:TextBox>
                     </div>
                 </div>
@@ -100,43 +100,44 @@
                 <ItemTemplate>
 
                     <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <div class="form-group">
-                        <label>نوع جهاز العكس </label>
-                        <%--<a href="javascript:void" class="download">--%>
-                           <%-- <strong>جهاز العكس ١</strong>--%>
-                             <asp:HyperLink runat="server" ID="lnkSecondNav" NavigateUrl='<%# Bind("DeviceDocument") %>' Target="_blank" class="download">
-                             <strong><asp:Label runat="server" ID="lblname" Text='<%# Bind("DeviceName") %>'></asp:Label></strong>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="form-group">
+                                <label>نوع جهاز العكس </label>
+                                <%--<a href="javascript:void" class="download">--%>
+                                <%-- <strong>جهاز العكس ١</strong>--%>
+                                <asp:HyperLink runat="server" ID="lnkSecondNav" NavigateUrl='<%# Bind("DeviceDocument") %>' Target="_blank" class="download">
+                                    <strong>
+                                        <asp:Label runat="server" ID="lblname" Text='<%# Bind("DeviceName") %>'></asp:Label></strong>
 
-                            
-                                   <img src=" <%=ResolveUrl("~/") %>App_Themes/ThemeAr/img/pdf.png" alt="">
-                                                        </asp:HyperLink>
-                           
-                       <%-- </a>--%>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-6">
-                            <div class="form-group">
-                                <label>قدرة جهاز العكس </label>
-                                
-                                  <asp:textbox ID="Label2" runat="server" Text='<%# Bind("DevicePower") %>'></asp:textbox>
-                               <%-- <input type="text" placeholder="623 KW" class="input_number">--%>
+
+                                    <img src=" <%=ResolveUrl("~/") %>App_Themes/ThemeAr/img/pdf.png" alt="">
+                                </asp:HyperLink>
+
+                                <%-- </a>--%>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6">
-                            <div class="form-group">
-                                <label>عدد أجهزة العكس </label>
-                                  <asp:textbox ID="Textbox1" runat="server" Text='<%# Bind("NumberofUnits") %>'></asp:textbox>
-                                 
-                                <%--<input type="text" placeholder="١٨ جهاز">--%>
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="form-group">
+                                        <label>قدرة جهاز العكس </label>
+
+                                        <asp:TextBox ID="Label2" runat="server" Text='<%# Bind("DevicePower") %>'></asp:TextBox>
+                                        <%-- <input type="text" placeholder="623 KW" class="input_number">--%>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="form-group">
+                                        <label>عدد أجهزة العكس </label>
+                                        <asp:TextBox ID="Textbox1" runat="server" Text='<%# Bind("NumberofUnits") %>'></asp:TextBox>
+
+                                        <%--<input type="text" placeholder="١٨ جهاز">--%>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-                  
+
                 </ItemTemplate>
 
             </asp:ListView>
@@ -145,42 +146,43 @@
                 <ItemTemplate>
 
                     <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <div class="form-group">
-                        <label>نوع الخلايا</label>
-                       <%-- <a href="javascript:void" class="download">--%>
-                         <asp:HyperLink runat="server" ID="lnkSecondNav" NavigateUrl='<%# Bind("SollarCellDocument") %>' Target="_blank" class="download">
-                           <%-- <strong>الخلايا الشمسية</strong>--%>
-                             <strong><asp:Label runat="server" ID="Label1" Text='<%# Bind("SollarCellName") %>'></asp:Label></strong>
-                            <img src=" <%=ResolveUrl("~/") %>App_Themes/ThemeAr/img/pdf.png" alt="">
-                             </asp:HyperLink>
-                       <%-- </a>--%>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6">
                             <div class="form-group">
-                                <label>قدرة الخلايا </label>
-                                 <asp:textbox ID="Label2" runat="server" Text='<%# Bind("SollarCellPower") %>'></asp:textbox>
-                                <%--<input type="text" placeholder="223 KW" class="input_number">--%>
+                                <label>نوع الخلايا</label>
+                                <%-- <a href="javascript:void" class="download">--%>
+                                <asp:HyperLink runat="server" ID="lnkSecondNav" NavigateUrl='<%# Bind("SollarCellDocument") %>' Target="_blank" class="download">
+                                    <%-- <strong>الخلايا الشمسية</strong>--%>
+                                    <strong>
+                                        <asp:Label runat="server" ID="Label1" Text='<%# Bind("SollarCellName") %>'></asp:Label></strong>
+                                    <img src=" <%=ResolveUrl("~/") %>App_Themes/ThemeAr/img/pdf.png" alt="">
+                                </asp:HyperLink>
+                                <%-- </a>--%>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6">
-                            <div class="form-group">
-                                <label>عدد الخلايا </label>
-                                 <asp:textbox ID="Textbox2" runat="server" Text='<%# Bind("NumberofUnits") %>'></asp:textbox>
-                               <%-- <input type="text" placeholder="١٢٥ خلية">--%>
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="form-group">
+                                        <label>قدرة الخلايا </label>
+                                        <asp:TextBox ID="Label2" runat="server" Text='<%# Bind("SollarCellPower") %>'></asp:TextBox>
+                                        <%--<input type="text" placeholder="223 KW" class="input_number">--%>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="form-group">
+                                        <label>عدد الخلايا </label>
+                                        <asp:TextBox ID="Textbox2" runat="server" Text='<%# Bind("NumberofUnits") %>'></asp:TextBox>
+                                        <%-- <input type="text" placeholder="١٢٥ خلية">--%>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-                  
+
                 </ItemTemplate>
 
             </asp:ListView>
-          <%--  <div class="row">
+            <%--  <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="form-group">
                         <label>نوع جهاز العكس</label>
@@ -266,7 +268,7 @@
             </div>--%>
 
 
-           <%-- <h4 class="extitle">نوع الخلايا</h4>
+            <%-- <h4 class="extitle">نوع الخلايا</h4>
 
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6">
@@ -319,199 +321,93 @@
             <ul class="list-unstyled">
                 <li>
                     <strong>تاريخ الطلب</strong>
-                   <%-- <span>٢٥ نيسان ٢٠٢٠</span>--%>
-                     <asp:Literal ID="lblDate2" runat="server"></asp:Literal>
+                    <%-- <span>٢٥ نيسان ٢٠٢٠</span>--%>
+                    <asp:Literal ID="lblDate2" runat="server"></asp:Literal>
                 </li>
                 <li>
                     <strong>اسم الشركة</strong>
-                   <%-- <span>شركة الافاق المتجددة للتكنولوجيا</span>--%>
+                    <%-- <span>شركة الافاق المتجددة للتكنولوجيا</span>--%>
                     <asp:Literal ID="lblUSerName" runat="server"></asp:Literal>
                 </li>
-                <li>
+                <li style="display: none;">
                     <strong>رقم الطلب / رقم العداد</strong>
-                     <asp:Literal ID="lblName2" runat="server"></asp:Literal>
-                   <%-- <span class="LTR"><b>2798564398222</b></span>--%>
+                    <asp:Literal ID="lblName2" runat="server"></asp:Literal>
                 </li>
-                <li>
+                <li style="display: none;">
                     <strong>المنطقة</strong>
-                    <%--<span>الجبيهة - شفابدران</span>--%>
-                     <asp:Literal ID="lblENGType2" runat="server"></asp:Literal>
+                    <asp:Literal ID="lblENGType2" runat="server"></asp:Literal>
                 </li>
             </ul>
 
             <div class="EnergyRequest_Accordion">
 
                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                    <%--<div class="panel panel-default">
-                        <div class="panel-heading" role="tab" id="headingOne">
-                            <h4 class="panel-title">
-                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    <div class="headingtext">
-                                        <i class="more-less lni lni-minus"></i>
-                                        <h5>تم استلام الطلب من قبل قسم الطاقة المتجددة</h5>
-                                    </div>
-                                    <div class="check_date_time">
-                                        <img src=" <%=ResolveUrl("~/") %>App_Themes/ThemeAr/img/small-check.png" alt="">
-                                        <span class="time">07:35 AM</span>
-                                        <span class="date">٢٥ نيسان ٢٠٢٠</span>
-                                    </div>
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                            <div class="panel-body">
-                                <strong>ملاحظات</strong>
-                                <p>تم استلام الطلب من قبل قسم الطاقة المتجددة والتأكد من مطابقتة </p>
-                            </div>
-                        </div>
-                    </div>
-                   <div class="panel panel-default">
-                        <div class="panel-heading" role="tab" id="headingTwo">
-                            <h4 class="panel-title">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    <div class="headingtext">
-                                        <i class="more-less lni lni-plus"></i>
-                                        <h5>تم استلام الطلب من قبل قسم الطاقة المتجددة</h5>
-                                    </div>
-                                    <div class="check_date_time">
-                                        <img src=" <%=ResolveUrl("~/") %>App_Themes/ThemeAr/img/small-check.png" alt="">
-                                        <span class="time">07:35 AM</span>
-                                        <span class="date">٢٥ نيسان ٢٠٢٠</span>
-                                    </div>
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                            <div class="panel-body">
-                                <strong>ملاحظات</strong>
-                                <p>تم استلام الطلب من قبل قسم الطاقة المتجددة والتأكد من مطابقتة </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading" role="tab" id="headingThree">
-                            <h4 class="panel-title">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    <div class="headingtext">
-                                        <i class="more-less lni lni-plus"></i>
-                                        <h5>تم استلام الطلب من قبل قسم الطاقة المتجددة</h5>
-                                    </div>
-                                    <div class="check_date_time">
-                                        <img src=" <%=ResolveUrl("~/") %>App_Themes/ThemeAr/img/small-check.png" alt="">
-                                        <span class="time">07:35 AM</span>
-                                        <span class="date">٢٥ نيسان ٢٠٢٠</span>
-                                    </div>
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                            <div class="panel-body">
-                                <strong>ملاحظات</strong>
-                                <p>تم استلام الطلب من قبل قسم الطاقة المتجددة والتأكد من مطابقتة </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading" role="tab" id="headingfour">
-                            <h4 class="panel-title">
-                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsefour" aria-expanded="true" aria-controls="collapsefour">
-                                    <div class="headingtext">
-                                        <i class="more-less lni lni-plus"></i>
-                                        <h5>تم استلام الطلب من قبل قسم الطاقة المتجددة</h5>
-                                    </div>
-                                    <div class="check_date_time">
-                                        <img src=" <%=ResolveUrl("~/") %>App_Themes/ThemeAr/img/small-check.png" alt="">
-                                        <span class="time">07:35 AM</span>
-                                        <span class="date">٢٥ نيسان ٢٠٢٠</span>
-                                    </div>
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="collapsefour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingfour">
-                            <div class="panel-body">
-                                <strong>ملاحظات</strong>
-                                <p>تم استلام الطلب من قبل قسم الطاقة المتجددة والتأكد من مطابقتة </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading" role="tab" id="headingfive">
-                            <h4 class="panel-title">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsefive" aria-expanded="false" aria-controls="collapsefive">
-                                    <div class="headingtext">
-                                        <i class="more-less lni lni-plus"></i>
-                                        <h5>تم استلام الطلب من قبل قسم الطاقة المتجددة</h5>
-                                    </div>
-                                    <div class="check_date_time">
-                                        <img src=" <%=ResolveUrl("~/") %>App_Themes/ThemeAr/img/small-check.png" alt="">
-                                        <span class="time">07:35 AM</span>
-                                        <span class="date">٢٥ نيسان ٢٠٢٠</span>
-                                    </div>
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="collapsefive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingfive">
-                            <div class="panel-body">
-                                <strong>ملاحظات</strong>
-                                <p>تم استلام الطلب من قبل قسم الطاقة المتجددة والتأكد من مطابقتة </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading" role="tab" id="headingsix">
-                            <h4 class="panel-title">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesix" aria-expanded="false" aria-controls="collapsesix">
-                                    <div class="headingtext">
-                                        <i class="more-less lni lni-plus"></i>
-                                        <h5>تم استلام الطلب من قبل قسم الطاقة المتجددة</h5>
-                                    </div>
-                                    <div class="check_date_time">
-                                        <img src=" <%=ResolveUrl("~/") %>App_Themes/ThemeAr/img/small-check.png" alt="">
-                                        <span class="time">07:35 AM</span>
-                                        <span class="date">٢٥ نيسان ٢٠٢٠</span>
-                                    </div>
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="collapsesix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingsix">
-                            <div class="panel-body">
-                                <strong>ملاحظات</strong>
-                                <p>تم استلام الطلب من قبل قسم الطاقة المتجددة والتأكد من مطابقتة </p>
-                            </div>
-                        </div>
-                    </div>--%>
 
-                   
-
-                     <asp:ListView ID="StpeValueUnDone" runat="server" >
-                                        <ItemTemplate>
-
-<div class="panel panel-default">
-                        <div class="panel-heading" role="tab" id="headingTwo">
-                            <h4 class="panel-title">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    <div class="headingtext">
-                                        <i class="more-less lni lni-plus"></i>
-                                        <h5>تم استلام الطلب من قبل قسم الطاقة المتجددة</h5>
+                    <asp:ListView ID="lstStepsValue" runat="server" OnItemDataBound="lstStepsValue_ItemDataBound">
+                        <ItemTemplate>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id='heading<%# Eval("ID") %>'>
+                                    <h4 class="panel-title">
+                                        <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href='#collapse<%# Eval("ID") %>' aria-expanded="false" aria-controls='collapse<%# Eval("ID") %>'>
+                                            <div class="headingtext">
+                                                <i class="more-less lni lni-plus"></i>
+                                                <asp:Label ID="lblStepName" runat="server" Text=' <%# Eval("StepName") %>'></asp:Label>
+                                            </div>
+                                            <div class="check_date_time">
+                                                <asp:HiddenField ID="hndStepStatus" runat="server" Value='<%#Eval("StepStatus") %>' />
+                                                <img runat="server" id="imgDone" src="http://jepcoportal.aura-techs.com/App_Themes/ThemeAr/img/small-check.png" alt="" visible='<%# Convert.ToString(Eval("StepStatus")) == "Done"? true:false %>'>
+                                                <img runat="server" id="imgpending" src="http://jepcoportal.aura-techs.com/App_Themes/ThemeAr/img/small-check-01.png" alt="" visible='<%# Convert.ToString(Eval("StepStatus")) != "Done"? true:false %>'>
+                                                <asp:Label ID="lblTime" CssClass="time" runat="server" Text=' <%# Eval("Adddate","{0:hh:mm tt}") %>'></asp:Label>
+                                                <asp:Label ID="lblDate" runat="server" CssClass="date" Text=' <%# Eval("Adddate","{0:dd-MM-yyyy}") %>'></asp:Label>
+                                            </div>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id='collapse<%# Eval("ID") %>' class="panel-collapse collapse" role="tabpanel" aria-labelledby='heading<%# Eval("ID") %>'>
+                                    <div class="panel-body">
+                                        <asp:Label ID="lblStepNotes" runat="server" Text=' <%# Eval("StepNotes") %>'></asp:Label><br />
+                                         <asp:HyperLink runat="server" ID="Attachment" Target="_blank" NavigateUrl='<%# Eval("Attachment") %>'></asp:HyperLink><br />
+                                         <asp:HyperLink runat="server" ID="Attachment2" Target="_blank" NavigateUrl='<%# Eval("Attachment2") %>'></asp:HyperLink><br />
+                                         <asp:HyperLink runat="server" ID="Attachment3" Target="_blank" NavigateUrl='<%# Eval("Attachment3") %>'></asp:HyperLink><br />
                                     </div>
-                                    <div class="check_date_time">
-                                        <img src=" <%=ResolveUrl("~/") %>App_Themes/ThemeAr/img/small-check.png" alt="">
-                                        <span class="time">07:35 AM</span>
-                                        <span class="date">٢٥ نيسان ٢٠٢٠</span>
-                                    </div>
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                            <div class="panel-body">
-                                <strong>ملاحظات</strong>
-                                <p>تم استلام الطلب من قبل قسم الطاقة المتجددة والتأكد من مطابقتة </p>
+                                </div>
                             </div>
-                        </div>
-                    </div>
+                        </ItemTemplate>
+                        <EmptyDataTemplate>
+                            <h3>No Records!</h3>
+                        </EmptyDataTemplate>
+                    </asp:ListView>
 
-                                        </ItemTemplate>
-                     </asp:ListView>
+
+                    <asp:ListView ID="StpeValueUnDone" runat="server">
+                        <ItemTemplate>
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingTwo">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            <div class="headingtext">
+                                                <i class="more-less lni lni-plus"></i>
+                                                <h5>تم استلام الطلب من قبل قسم الطاقة المتجددة</h5>
+                                            </div>
+                                            <div class="check_date_time">
+                                                <img src=" <%=ResolveUrl("~/") %>App_Themes/ThemeAr/img/small-check.png" alt="">
+                                                <span class="time">07:35 AM</span>
+                                                <span class="date">٢٥ نيسان ٢٠٢٠</span>
+                                            </div>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                    <div class="panel-body">
+                                        <strong>ملاحظات</strong>
+                                        <p>تم استلام الطلب من قبل قسم الطاقة المتجددة والتأكد من مطابقتة </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </ItemTemplate>
+                    </asp:ListView>
 
 
                 </div>
@@ -520,33 +416,34 @@
             <div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
 
 
-                  <asp:ListView ID="StpeValueDone" runat="server" >
-                                        <ItemTemplate>
-                                            <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingseven">
-                        <h4 class="panel-title">
-                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseseven" aria-expanded="true" aria-controls="collapseseven">
-                                <div class="headingtext">
-                                    <i class="more-less lni lni-plus"></i>
-                                    <h5>تم استلام الطلب من قبل قسم الطاقة المتجددة</h5>
+                <asp:ListView ID="StpeValueDone" runat="server">
+                    <ItemTemplate>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingseven">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseseven" aria-expanded="true" aria-controls="collapseseven">
+                                        <div class="headingtext">
+                                            <i class="more-less lni lni-plus"></i>
+                                            <h5>تم استلام الطلب من قبل قسم الطاقة المتجددة</h5>
+                                        </div>
+                                        <div class="check_date_time">
+                                            <img src=" <%=ResolveUrl("~/") %>App_Themes/ThemeAr/img/duration.png" alt="">
+                                            <span class="time">07:35 AM</span>
+                                            <span class="date">٢٥ نيسان ٢٠٢٠</span>
+                                        </div>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseseven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingseven">
+                                <div class="panel-body">
+                                    <strong>ملاحظات</strong>
+                                    <p>تم استلام الطلب من قبل قسم الطاقة المتجددة والتأكد من مطابقتة </p>
                                 </div>
-                                <div class="check_date_time">
-                                    <img src=" <%=ResolveUrl("~/") %>App_Themes/ThemeAr/img/duration.png" alt="">
-                                    <span class="time">07:35 AM</span>
-                                    <span class="date">٢٥ نيسان ٢٠٢٠</span>
-                                </div>
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="collapseseven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingseven">
-                        <div class="panel-body">
-                            <strong>ملاحظات</strong>
-                            <p>تم استلام الطلب من قبل قسم الطاقة المتجددة والتأكد من مطابقتة </p>
+                            </div>
                         </div>
-                    </div>
-                </div>
 
-                                        </ItemTemplate></asp:ListView>
+                    </ItemTemplate>
+                </asp:ListView>
 
                 <%--<div class="panel panel-default">
                     <div class="panel-heading" role="tab" id="headingseven">
@@ -577,7 +474,8 @@
 
 
 
-            <button class="backBTN">عودة</button>
+            <%--<button class="backBTN">عودة</button>--%>
+            <asp:Button class="backBTN" OnClick="btnsave_Click" ID="btnsave" runat="server" Text="عودة"/>         
             <div class="clearfix"></div>
 
 
@@ -634,9 +532,8 @@
     }
 
     #Order_details li {
-    width: 19%;
-    display: inline-block;
-    padding-left: 8px;
-}
-
+        width: 19%;
+        display: inline-block;
+        padding-left: 8px;
+    }
 </style>
