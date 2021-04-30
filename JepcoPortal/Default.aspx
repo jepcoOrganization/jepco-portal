@@ -1029,7 +1029,7 @@ Thank you for Subscription.
         <script>
             $("document").ready(function () {
 
-
+                debugger;
 
                 $.ajax({
                     type: "GET",
@@ -1072,7 +1072,7 @@ Thank you for Subscription.
                 var apiConfiguUrl = '<%= System.Configuration.ConfigurationManager.AppSettings["MobileAPIurl"].ToString() %>';
                 //var ApiURLprofile = apiConfiguUrl + "profile/+962790121435";
                 var ApiURLprofile = apiConfiguUrl + "profile/" + MobileNoURL;
-
+                debugger;
                 $.ajax({
                     type: "GET",
                     //contentType: "application/json; charset=utf-8",
@@ -1081,7 +1081,8 @@ Thank you for Subscription.
                     dataType: "json",
                     async: false,
                     success: function (data) {
-
+                        debugger;
+                        alert(data.status);
                         if (data.status == "success") {
 
                             var GetAllFile = data.body.customerSubAccountList;
