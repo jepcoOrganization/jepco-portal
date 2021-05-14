@@ -44,6 +44,14 @@ namespace SiteWare.Domain.Domains
 
             return result;
         }
+        public static ResultList<RenewableEnergyUserRequestsDetailsDevicesEntity> GetByUserRequestsDetailsIDNotAsync(long ID)
+        {
+            ResultList<RenewableEnergyUserRequestsDetailsDevicesEntity> result = new ResultList<RenewableEnergyUserRequestsDetailsDevicesEntity>();
+
+            result = RenewableEnergyUserRequestsDetailsDevicesRepository.SelectByUserRequestsDetailsIDNotAsync(ID);
+
+            return result;
+        }
 
         public async static Task<ResultEntity<RenewableEnergyUserRequestsDetailsDevicesEntity>> InsertRecord(RenewableEnergyUserRequestsDetailsDevicesEntity entity)
         {

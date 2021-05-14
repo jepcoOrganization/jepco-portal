@@ -41,6 +41,7 @@ namespace SiteWare.Entity.Entities
         [DataMember] public string Attachemnt5 { get; set; }
 
         [DataMember] public string GUID { get; set; }
+        [DataMember] public string TokenNo { get; set; }
 
 
 

@@ -4,6 +4,7 @@ using SiteWare.Entity.Common.Entities;
 using SiteWare.Entity.Common.Enums;
 using SiteWare.Entity.Entities;
 using System;
+using System.Configuration;
 using System.Globalization;
 using System.Linq;
 using System.Net.Mail;
@@ -76,6 +77,7 @@ namespace Siteware.Web.Plugins.RenewableEnergyUserRequests
                         {
                             DetailsEntity.List = DetailsEntity.List.Where(s => s.IsDeleted == false && s.UserRequestID == Convert.ToInt64(ResultEntity.Entity.RenwableEnergyID)).OrderByDescending(s => s.DetailsID).ToList();
                             long ThisDatailID = DetailsEntity.List[0].DetailsID;
+                           
                             ResultList<RenwableEnergyType3Phase1DetailsEntity> Type3Phase1DetailsList = new ResultList<RenwableEnergyType3Phase1DetailsEntity>();
                             Type3Phase1DetailsList = RenwableEnergyType3Phase1DetailsDomain.GetAllNotAsync();
                             if (Type3Phase1DetailsList.Status == ErrorEnums.Success)
@@ -268,6 +270,77 @@ namespace Siteware.Web.Plugins.RenewableEnergyUserRequests
                         Type3AcceptDiv.Visible = false;
                     }
 
+                    #region Add By Kiran || 11-05-2021
+                    try
+                    {
+                        ResultList<RenewableEnergyUserRequestsDetailsEntity> DetailsEntity = new ResultList<RenewableEnergyUserRequestsDetailsEntity>();
+                        DetailsEntity = RenewableEnergyUserRequestsDetailsDomain.GetAllNotAsync();
+                        if (DetailsEntity.Status == ErrorEnums.Success)
+                        {
+                            DetailsEntity.List = DetailsEntity.List.Where(s => s.IsDeleted == false && s.UserRequestID == Convert.ToInt64(ResultEntity.Entity.RenwableEnergyID)).OrderByDescending(s => s.DetailsID).ToList();
+
+                            txtACVal.Text = DetailsEntity.List[0].ACPower;
+                            txtDCVal.Text = DetailsEntity.List[0].DCPower;
+                            if (DetailsEntity.List[0].Attachment1 != string.Empty)
+                            {
+                                string abcd = DetailsEntity.List[0].Attachment1.ToString();
+                                string Cutted = abcd.Split('/').Last();
+
+                                inkDetail1.NavigateUrl = DetailsEntity.List[0].Attachment1;
+                                inkDetail1.Text = Cutted;
+
+                            }
+                            if (DetailsEntity.List[0].Attachment2 != string.Empty)
+                            {
+                                string abcd = DetailsEntity.List[0].Attachment2.ToString();
+                                string Cutted = abcd.Split('/').Last();
+
+                                inkDetail2.NavigateUrl = DetailsEntity.List[0].Attachment2;
+                                inkDetail2.Text = Cutted;
+
+                            }
+                            if (DetailsEntity.List[0].Attachment3 != string.Empty)
+                            {
+                                string abcd = DetailsEntity.List[0].Attachment3.ToString();
+                                string Cutted = abcd.Split('/').Last();
+
+                                inkDetail3.NavigateUrl = DetailsEntity.List[0].Attachment3;
+                                inkDetail3.Text = Cutted;
+
+                            }
+                            if (DetailsEntity.List[0].Attachment4 != string.Empty)
+                            {
+                                string abcd = DetailsEntity.List[0].Attachment4.ToString();
+                                string Cutted = abcd.Split('/').Last();
+
+                                inkDetail4.NavigateUrl = DetailsEntity.List[0].Attachment4;
+                                inkDetail4.Text = Cutted;
+
+                            }
+                            var DevicesResult = RenewableEnergyUserRequestsDetailsDevicesDomain.GetByUserRequestsDetailsIDNotAsync(DetailsEntity.List[0].DetailsID);
+                            if (DevicesResult.Status == ErrorEnums.Success)
+                            {
+                                lstdevice_information.DataSource = DevicesResult.List.ToList();
+                                lstdevice_information.DataBind();
+                            }
+
+                            var SollerDevicesResult = RenewableEnergyUserRequestsDetailsSollarsDomain.GetAllByUserRequestsDetailsIDNotAsync(DetailsEntity.List[0].DetailsID);
+                            if (SollerDevicesResult.Status == ErrorEnums.Success)
+                            {
+                                lstSollerDevice.DataSource = SollerDevicesResult.List.ToList();
+                                lstSollerDevice.DataBind();
+                            }
+
+                            fillUserDataDropdown(ResultEntity.Entity.CompanyID);
+                            ddlUSerType.SelectedValue = Convert.ToString(DetailsEntity.List[0].CompanyUserID);
+                            UserTypeDetailByUserType(DetailsEntity.List[0].CompanyUserID);
+                        }
+
+                    }
+                    catch
+                    { }
+                    #endregion
+
                     rblMeterStatus.SelectedValue = ResultEntity.Entity.MeterStatus;
                     if (rblMeterStatus.SelectedValue == "1")
                     {
@@ -332,7 +405,7 @@ namespace Siteware.Web.Plugins.RenewableEnergyUserRequests
                     txtStatusDate.Value = ResultEntity.Entity.AcceptStatusDate.ToString("MM/dd/yyyy", CultureInfo.InvariantCulture);
                     chkStatus.Checked = ResultEntity.Entity.CompanyAcceptedStatus;
                     ddlCompanyName.SelectedValue = ResultEntity.Entity.CompanyID.ToString();
-                    FillCompanyData(ResultEntity.Entity.CompanyID);
+                    FillCompanyData(ResultEntity.Entity.CompanyID);                    
                     #region UserDetails 
 
                     ResultEntity<Plugin_ServiceUserEntity> ServiceUserEntity = new ResultEntity<Plugin_ServiceUserEntity>();
@@ -342,6 +415,8 @@ namespace Siteware.Web.Plugins.RenewableEnergyUserRequests
                         txtSecondName.Text = ServiceUserEntity.Entity.SecondName;
                         txtThirdName.Text = ServiceUserEntity.Entity.ThirdName;
                         txtFamilyName.Text = ServiceUserEntity.Entity.FamilyName;
+                        txtUserTelephone.Text = ServiceUserEntity.Entity.TelephoneNumber;
+                        txtUserEmail.Text = ServiceUserEntity.Entity.Email;
                         hdnUSerEmailId.Value = ServiceUserEntity.Entity.Email;
                         int cityId = ServiceUserEntity.Entity.City;
                         int area1id = ServiceUserEntity.Entity.Area1;
@@ -505,7 +580,7 @@ namespace Siteware.Web.Plugins.RenewableEnergyUserRequests
                 Plugin_CMS_WorkFlow_Entity entity1 = new Plugin_CMS_WorkFlow_Entity();
 
 
-                string fileuplaod = newWinField.Value.ToString();               
+                string fileuplaod = newWinField.Value.ToString();
                 string fileuplaod2 = newWinField2.Value.ToString();
                 string fileuplaod3 = newWinField3.Value.ToString();
 
@@ -836,8 +911,9 @@ namespace Siteware.Web.Plugins.RenewableEnergyUserRequests
                     txtMobileNo.Text = RenwabaleEnergyCompany.Entity.MobileNumber;
                     txtNationalNo.Text = RenwabaleEnergyCompany.Entity.CompanyNationalID;
                     txtEmail.Text = RenwabaleEnergyCompany.Entity.EmailAddress;
-
+                    
                 }
+                
             }
             catch { }
 
@@ -1399,7 +1475,7 @@ namespace Siteware.Web.Plugins.RenewableEnergyUserRequests
                             {
 
                             }
-                            
+
                             #endregion
 
                             mpeSuccess1.Show();
@@ -1417,6 +1493,139 @@ namespace Siteware.Web.Plugins.RenewableEnergyUserRequests
                 {
                     txtStepsNote.Style.Add("border", "1px solid red");
                 }
+            }
+        }
+
+        protected void lstUSerData_ItemDataBound(object sender, ListViewItemEventArgs e)
+        {
+            try
+            {
+                if (e.Item.ItemType == ListViewItemType.DataItem)
+                {
+
+                    HyperLink lnkSecondNav = (HyperLink)e.Item.FindControl("lnkSecondNav");
+                    //Image imgProfileimge = (Image)e.Item.FindControl("imgProfileimge");
+
+
+                    //if (!string.IsNullOrEmpty(lnkSecondNav.NavigateUrl))
+                    //    lnkSecondNav.NavigateUrl = (ConfigurationManager.AppSettings["ImagePath"]).ToString().Trim() + lnkSecondNav.NavigateUrl.Replace("~/", "~/Siteware/");
+
+                    if (!string.IsNullOrEmpty(lnkSecondNav.NavigateUrl))
+                    {
+                        string abcd = lnkSecondNav.NavigateUrl;
+                        string Cutted = abcd.Split('/').Last();
+
+                        lnkSecondNav.Text = Cutted;
+                    }                    
+
+                    //if (!string.IsNullOrEmpty(imgProfileimge.ImageUrl)) { imgProfileimge.ImageUrl = (ConfigurationManager.AppSettings["ImagePath"]).ToString().Trim() + imgProfileimge.ImageUrl.Replace("~/", "~/Siteware/"); }
+                    //else { imgProfileimge.ImageUrl = (ConfigurationManager.AppSettings["ImagePath"]).ToString().Trim() + "/Siteware/Siteware_File/image/JEPCO//Profile_pic.png"; }
+
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+
+        public void UserTypeDetailByUserType(long UserTypeID)
+        {
+            try
+            {
+                long USerTypeID = UserTypeID;
+
+
+                ResultList<RenewableEnergyCompanyUserEntity> CompanyUserEntity = new ResultList<RenewableEnergyCompanyUserEntity>();
+                CompanyUserEntity = RenewableEnergyCompanyUserDomain.GetAllNotAsync();
+                if (CompanyUserEntity.Status == ErrorEnums.Success)
+                {
+                    lstUSerData.DataSource = CompanyUserEntity.List.Where(s => s.RenewableEnergyCompanyUserID == USerTypeID).ToList();
+                    lstUSerData.DataBind();
+                }
+            }
+            catch
+            { }
+        }
+        protected void fillUserDataDropdown(long CompanyId)
+        {
+            try
+            {
+
+                ddlUSerType.Items.Insert(0, new ListItem("اختيار المفوض", "0"));
+
+
+                long companyId = CompanyId;
+
+                ResultList<RenewableEnergyCompanyUserEntity> res = new ResultList<RenewableEnergyCompanyUserEntity>();
+                res = RenewableEnergyCompanyUserDomain.GetAllNotAsync();
+                if (res.Status == ErrorEnums.Success)
+                {
+
+                    var CompanyUSerList = res.List.Where(s => !s.IsDeleted && s.IsPublished && s.CompanyID == companyId).OrderByDescending(s => s.RenewableEnergyCompanyUserID).ToList();
+
+                    foreach (var item in CompanyUSerList)
+                    {
+                        ddlUSerType.Items.Add(new ListItem(item.FirstName.ToString() + " " + item.FatherName.ToString() + " " + item.FamilyName.ToString(), item.RenewableEnergyCompanyUserID.ToString()));
+                    }
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+
+        protected void lstdevice_information_ItemDataBound(object sender, ListViewItemEventArgs e)
+        {
+            try
+            {
+                if (e.Item.ItemType == ListViewItemType.DataItem)
+                {
+
+                    HyperLink lnkSecondNav = (HyperLink)e.Item.FindControl("lnkDeviceDocument");                   
+
+                    if (!string.IsNullOrEmpty(lnkSecondNav.NavigateUrl))
+                    {
+                        string abcd = lnkSecondNav.NavigateUrl;
+                        string Cutted = abcd.Split('/').Last();
+
+                        lnkSecondNav.Text = Cutted;
+                    }
+                    //if (!string.IsNullOrEmpty(lnkSecondNav.NavigateUrl))
+                    //    lnkSecondNav.NavigateUrl = (ConfigurationManager.AppSettings["ImagePath"]).ToString().Trim() + lnkSecondNav.NavigateUrl.Replace("~/", "~/Siteware/");                  
+
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+
+        protected void lstSollerDevice_ItemDataBound(object sender, ListViewItemEventArgs e)
+        {
+            try
+            {
+                if (e.Item.ItemType == ListViewItemType.DataItem)
+                {
+
+                    HyperLink lnkSecondNav = (HyperLink)e.Item.FindControl("lnkDeviceDocument");
+
+                    if (!string.IsNullOrEmpty(lnkSecondNav.NavigateUrl))
+                    {
+                        string abcd = lnkSecondNav.NavigateUrl;
+                        string Cutted = abcd.Split('/').Last();
+
+                        lnkSecondNav.Text = Cutted;
+                    }
+
+                    //if (!string.IsNullOrEmpty(lnkSecondNav.NavigateUrl))
+                    //    lnkSecondNav.NavigateUrl = (ConfigurationManager.AppSettings["ImagePath"]).ToString().Trim() + lnkSecondNav.NavigateUrl.Replace("~/", "~/Siteware/");
+
+                }
+            }
+            catch (Exception ex)
+            {
             }
         }
     }

@@ -9,8 +9,6 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace SiteWare.DataAccess.Repositories
@@ -158,6 +156,57 @@ namespace SiteWare.DataAccess.Repositories
             {
                 sqlConnection.Open();
 
+                SqlDataReader reader = sqlCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    RenewableEnergyUserRequestsDetailsSollarsEntity entity = EntityHelper(reader, false);
+                    list.Add(entity);
+                }
+
+                if (list.Count > 0)
+                {
+                    reader.Close();
+
+                    result.List = list;
+
+                }
+                else
+                {
+                    result.Status = ErrorEnums.Information;
+                    result.Details = MessageConstants.CannotFindAllMessage;
+                    result.Message = MessageConstants.CannotFindAllDetails;
+                }
+            }
+            catch (Exception ex)
+            {
+                result.Status = ErrorEnums.Exception;
+                result.Details = ex.Message + Environment.NewLine + ex.StackTrace;
+                result.Message = ex.Message;
+            }
+            finally
+            {
+                sqlConnection.Close();
+                sqlConnection.Dispose();
+                sqlCommand.Dispose();
+            }
+
+            return result;
+        }
+
+        public static ResultList<RenewableEnergyUserRequestsDetailsSollarsEntity> GetAllByUserRequestsDetailsIDNotAsync(long ID)
+        {
+            ResultList<RenewableEnergyUserRequestsDetailsSollarsEntity> result = new ResultList<RenewableEnergyUserRequestsDetailsSollarsEntity>();
+
+            SqlConnection sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings[CommonRepositoryConstants.SQLDBConnection].ConnectionString);
+            SqlCommand sqlCommand = new SqlCommand(RenewableEnergyUserRequestsDetailsSollarsRepositoryConstants.SP_SelectByUserRequestsDetailsID, sqlConnection);
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            List<RenewableEnergyUserRequestsDetailsSollarsEntity> list = new List<RenewableEnergyUserRequestsDetailsSollarsEntity>();
+
+            try
+            {
+                sqlConnection.Open();
+                sqlCommand.Parameters.Add(new SqlParameter(RenewableEnergyUserRequestsDetailsSollarsRepositoryConstants.RenewableEnergyUserRequestsDetailsID, ID));
                 SqlDataReader reader = sqlCommand.ExecuteReader();
 
                 while (reader.Read())

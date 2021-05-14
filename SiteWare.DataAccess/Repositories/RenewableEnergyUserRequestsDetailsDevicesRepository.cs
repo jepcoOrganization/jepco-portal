@@ -95,6 +95,58 @@ namespace SiteWare.DataAccess.Repositories
 
             return result;
         }
+
+        public static ResultList<RenewableEnergyUserRequestsDetailsDevicesEntity> SelectByUserRequestsDetailsIDNotAsync(long ID)
+        {
+            ResultList<RenewableEnergyUserRequestsDetailsDevicesEntity> result = new ResultList<RenewableEnergyUserRequestsDetailsDevicesEntity>();
+
+            SqlConnection sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings[CommonRepositoryConstants.SQLDBConnection].ConnectionString);
+            SqlCommand sqlCommand = new SqlCommand(RenewableEnergyUserRequestsDetailsDevicesRepositoryConstants.SP_SelectByUserRequestsDetailID, sqlConnection);
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            List<RenewableEnergyUserRequestsDetailsDevicesEntity> list = new List<RenewableEnergyUserRequestsDetailsDevicesEntity>();
+
+            try
+            {
+                sqlConnection.Open();
+                sqlCommand.Parameters.Add(new SqlParameter(RenewableEnergyUserRequestsDetailsDevicesRepositoryConstants.RenewableEnergyUserRequestsDetailsID, ID));
+                SqlDataReader reader = sqlCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    RenewableEnergyUserRequestsDetailsDevicesEntity entity = EntityHelper(reader, false);
+                    list.Add(entity);
+                }
+
+                if (list.Count > 0)
+                {
+                    reader.Close();
+
+                    result.List = list;
+
+                }
+                else
+                {
+                    result.Status = ErrorEnums.Information;
+                    result.Details = MessageConstants.CannotFindAllMessage;
+                    result.Message = MessageConstants.CannotFindAllDetails;
+                }
+            }
+            catch (Exception ex)
+            {
+                result.Status = ErrorEnums.Exception;
+                result.Details = ex.Message + Environment.NewLine + ex.StackTrace;
+                result.Message = ex.Message;
+            }
+            finally
+            {
+                sqlConnection.Close();
+                sqlConnection.Dispose();
+                sqlCommand.Dispose();
+            }
+
+            return result;
+        }
+
         public async static Task<ResultList<RenewableEnergyUserRequestsDetailsDevicesEntity>> SelectAll()
         {
             ResultList<RenewableEnergyUserRequestsDetailsDevicesEntity> result = new ResultList<RenewableEnergyUserRequestsDetailsDevicesEntity>();

@@ -37,7 +37,7 @@
 
     <div class="row custom_radio" id="referncediv">
         <div class="col-lg-3 col-md-3 col-sm-12">
-            <label class ="referncNolblClass">الرقم المرجعي</label>
+            <label class="referncNolblClass">الرقم المرجعي</label>
         </div>
 
         <div class="col-lg-6 col-md-6 col-sm-12">
@@ -48,7 +48,7 @@
 
                 </asp:RadioButtonList>
                 <asp:TextBox ID="txtRefernceNumber" runat="server" PlaceHolder="رقم العداد" class="enter_number"></asp:TextBox>
-               <%-- <asp:TextBox ID="txtRefernceNumber" runat="server" PlaceHolder="رقم الملف" class="enter_number"></asp:TextBox>--%>
+                <%-- <asp:TextBox ID="txtRefernceNumber" runat="server" PlaceHolder="رقم الملف" class="enter_number"></asp:TextBox>--%>
             </div>
         </div>
 
@@ -212,9 +212,9 @@
                 <div class="deviceflie" id="fiUploadDiv4">
                     <div class="Device_description">
                         <label>
-                            <label id="blboffile4">  وصل رسوم تركيب عداد جديد</label>
-                          
-						</br>
+                            <label id="blboffile4">وصل رسوم تركيب عداد جديد</label>
+
+                            </br>
                                 <small><span>*</span>بحجم أقصى 2 ميجابايت</small></label>
                     </div>
                     <div class="file-upload">
@@ -351,7 +351,7 @@
     BackgroundCssClass="modalBackground" PopupControlID="panelInquiry"
     CancelControlID="btnClose">
 </cc1:ModalPopupExtender>
-<asp:Panel ID="panelInquiry" runat="server" CssClass="modalPopup d_model_popup l_modelpopup welcome in" Style="display: none; position: fixed; top: 0px; right: 0px; bottom: 0px; left: 0.5px; z-index: 1000001; overflow: hidden; outline: 0px;background:rgb(194 194 194 / 72%);">
+<asp:Panel ID="panelInquiry" runat="server" CssClass="modalPopup d_model_popup l_modelpopup welcome in" Style="display: none; position: fixed; top: 0px; right: 0px; bottom: 0px; left: 0.5px; z-index: 1000001; overflow: hidden; outline: 0px; background: rgb(194 194 194 / 72%);">
     <div class="modal-dialog modal-md">
         <!-- Modal content-->
         <div class="modal-content">
@@ -467,7 +467,7 @@
             if ($(this).val() == '3') {
                 $('#referncediv').hide();
                 $('#fiUploadDiv4').show();
-                
+
                 $('#fiUploadDiv5').hide();
                 $("#blboffile4").text("صورة عن دراسة ايصال تيار");
 
@@ -480,7 +480,7 @@
             return false;
         });
 
-       
+
 
 
     });
@@ -490,7 +490,7 @@
         debugger;
 
         var asdasd = $('#<%=rblRenwableEnergyType.ClientID %> input:checked').val();
-        
+
 
         if (asdasd == '3') {
 
@@ -504,10 +504,10 @@
         }
         else {
 
+            $('#divMeterStatu').show();
+            $('#referncediv').show();
+            $('#fiUploadDiv3').show();
             GetOthers();
-            //$('#divMeterStatu').show();
-            //$('#referncediv').show();
-            //$('#fiUploadDiv3').show();
         }
 
     });
@@ -518,9 +518,9 @@
         var asdasd = $('#<%=rblMeterStatus.ClientID %> input:checked').val();
         if (asdasd == '1') {
             $('#<%= txtRefernceNumber.ClientID %>').attr("placeholder", " رقم العداد");
-                $('#fiUploadDiv4').hide();
-                $('#fiUploadDiv5').hide();
-            }
+            $('#fiUploadDiv4').hide();
+            $('#fiUploadDiv5').hide();
+        }
         else if (asdasd == '2') {
             $('#<%= txtRefernceNumber.ClientID %>').attr("placeholder", " رقم طلب اشتراك جديد");
             $('#fiUploadDiv4').show();
@@ -556,7 +556,7 @@
         }
 
     });
-    
+
 </script>
 <script type="text/javascript">
     $("document").ready(function () {
@@ -709,7 +709,7 @@
         var FileUpload5 = false;
 
 
-      
+
 
         if ($('#<%= ddlCompnay.ClientID %> option:selected').val() == "0") {
             $('#<%= ddlCompnay.ClientID %>').css('border', '1px solid red');
@@ -864,7 +864,7 @@
         if (asdasd == "3") {
             FileUpload3 = true;
             FileUpload4 = true;
-            RefernceNumberVal = true; 
+            RefernceNumberVal = true;
         }
 
 
@@ -872,7 +872,7 @@
             FileUpload1 == true &&
             FileUpload2 == true &&
             FileUpload3 == true &&
-            FileUpload4 == true &&            
+            FileUpload4 == true &&
             RefernceNumberVal == true
         ) {
             $("[id*=<%=btnSubmit.ClientID %>]").click();
@@ -888,10 +888,9 @@
 </script>
 
 <style>
-
     label.referncNolblClass {
-    margin-top: 22px;
-}
+        margin-top: 22px;
+    }
 
     .radio td {
         width: 21%;
@@ -977,6 +976,4 @@
     .Device_description {
         padding-bottom: 22px;
     }
-
-   
 </style>

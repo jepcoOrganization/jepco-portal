@@ -156,7 +156,7 @@ public partial class Controls_RenewableEnergyUserRequestsAdd : System.Web.UI.Use
             #region 15-10-2020
 
             //    //---******* (For Local) ******-------------------------
-            // string uploadPath1 = ConfigurationManager.AppSettings["UploadPath"].ToString();
+            //string uploadPath1 = ConfigurationManager.AppSettings["UploadPath"].ToString();
             //string uploadPath1 = ConfigurationManager.AppSettings["UploadPathRenewableEnergyRequest"].ToString();
 
             //    //---------------******* (For Live) ******-------------------------

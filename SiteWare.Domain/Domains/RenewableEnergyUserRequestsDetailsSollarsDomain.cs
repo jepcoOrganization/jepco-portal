@@ -27,6 +27,14 @@ namespace SiteWare.Domain.Domains
 
             return result;
         }
+        public static ResultList<RenewableEnergyUserRequestsDetailsSollarsEntity> GetAllByUserRequestsDetailsIDNotAsync(long ID)
+        {
+            ResultList<RenewableEnergyUserRequestsDetailsSollarsEntity> result = new ResultList<RenewableEnergyUserRequestsDetailsSollarsEntity>();
+
+            result = RenewableEnergyUserRequestsDetailsSollarsRepository.GetAllByUserRequestsDetailsIDNotAsync(ID);
+
+            return result;
+        }
 
         public async static Task<ResultEntity<RenewableEnergyUserRequestsDetailsSollarsEntity>> GetByID(long ID)
         {

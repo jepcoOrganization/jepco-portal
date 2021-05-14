@@ -410,6 +410,21 @@ namespace SiteWare.DataAccess.Repositories
                     entity.GUID = reader[RenewableEnergyUserRequestsEntityConstants.GUID] == DBNull.Value ? string.Empty : reader[RenewableEnergyUserRequestsEntityConstants.GUID].ToString();
                 }
 
+                try
+                {
+                    int columnOrdinal = reader.GetOrdinal("TokenNo");
+                    ColumnExists = true;
+                }
+                catch (IndexOutOfRangeException)
+                {
+                    ColumnExists = false;
+                }
+
+                if (ColumnExists)
+                {
+                    entity.TokenNo = reader[RenewableEnergyUserRequestsEntityConstants.TokenNo] == DBNull.Value ? string.Empty : reader[RenewableEnergyUserRequestsEntityConstants.TokenNo].ToString();
+                }
+
 
             }
             catch (Exception ex)

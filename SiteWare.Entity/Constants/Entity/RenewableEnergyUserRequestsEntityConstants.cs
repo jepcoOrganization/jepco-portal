@@ -36,6 +36,7 @@ namespace SiteWare.Entity.Constants.Entity
 
         public const string Attachemnt5 = "Attachemnt5";
         public const string GUID = "GUID";
+        public const string TokenNo = "TokenNo";
 
 
     }

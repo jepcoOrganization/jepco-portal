@@ -25,7 +25,8 @@ namespace SiteWare.DataAccess.RepositorieConstants
         public const string SP_SelectByID = "RenewableEnergyUserRequestsDetailsDevices_SelectByID";
         public const string SP_SelectAll = "RenewableEnergyUserRequestsDetailsDevices_SelectAll";
         public const string SP_Insert = "RenewableEnergyUserRequestsDetailsDevices_Insert";
-           
+        public const string SP_SelectByUserRequestsDetailID = "RenewableEnergyUserRequestsDetailsDevices_SelectByUserRequestsDetailsID";
+
 
     }
 }

@@ -104,6 +104,7 @@
                                     <li><a href="#a-1" style="font-size: 14px;">Renwabale Energy User Request Information</a></li>
                                     <li><a href="#a-3" style="font-size: 14px;">Company Information </a></li>
                                     <li><a href="#a-2" style="font-size: 14px;">Attachments </a></li>
+                                    <li><a href="#a-8" style="font-size: 14px;">Request Details </a></li>
                                     <li><a href="#a-4" style="font-size: 14px;" runat="server" id="li4" visible="false">Phase 1 Attahment </a></li>
                                     <li><a href="#a-5" style="font-size: 14px;" runat="server" id="li5" visible="false">Phase 2 Attahment </a></li>
                                     <li><a href="#a-6" style="font-size: 14px;">Workflow </a></li>
@@ -205,6 +206,25 @@
                                     <div class="row">
                                         <div class="col-md-6 col-lg-6 col-sm-12">
                                             <div class="form-group" style="height: 42px">
+                                                <label class="col-md-2 control-label" style="text-align: left; width: 15%; padding-left: 1.2%;">Telephone:</label>
+                                                <div class="col-md-10" style="width: 22.9%;">
+                                                    <asp:TextBox ID="txtUserTelephone" runat="server" PlaceHolder="هاتف" Style="width: 273px;" class="form-control" disabled="disabled"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-6 col-sm-12">
+                                            <div class="form-group" style="height: 42px">
+                                                <label class="col-md-2 control-label" style="text-align: left; width: 15%; padding-left: 1.2%;">Email:</label>
+                                                <div class="col-md-10" style="width: 22.9%;">
+                                                    <asp:TextBox ID="txtUserEmail" runat="server" PlaceHolder="بريد إلكتروني" Style="width: 273px;" class="form-control" disabled="disabled"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 col-lg-6 col-sm-12">
+                                            <div class="form-group" style="height: 42px">
                                                 <label class="col-md-2 control-label" style="text-align: left; width: 15%; padding-left: 1.2%;">Accept Status Date:</label>
                                                 <div class="col-md-10" style="width: 22.9%;">
                                                     <input id="txtStatusDate" runat="server" type="text" style="width: 273px;" placeholder="mm/dd/yyyy" name="date" class="Dateeee form-control" />
@@ -284,6 +304,55 @@
                                             <asp:TextBox ID="txtEmail" runat="server" PlaceHolder="البريد الالكتروني " Style="width: 273px;" class="form-control" disabled="disabled"></asp:TextBox>
                                         </div>
                                     </div>
+                                    <div class="form-group" style="height: 42px">
+                                        <label class="col-md-4 control-label" style="text-align: left; width: 15%; padding-left: 1.2%;">قم بتحديد المفوض لهذا الطلب:</label>
+                                        <div class="col-md-8" style="width: 22.9%;">
+                                            <asp:DropDownList ID="ddlUSerType" runat="server" class="chzn-select" TabIndex="2" Width="100%" disabled="disabled">
+                                            </asp:DropDownList>
+                                        </div>
+                                    </div>
+                                    <div class="container" style="display: grid;">
+
+                                        <asp:ListView ID="lstUSerData" runat="server" OnItemDataBound="lstUSerData_ItemDataBound">
+                                            <LayoutTemplate>
+
+                                                <table class="table-responsive table-bordered paddt">
+                                                    <thead>
+                                                        <tr>
+
+                                                            <th>اسم المفوض</th>
+                                                            <th>رقم الهاتف</th>
+                                                            <th>البريد الالكتروني</th>
+                                                            <th>هوية احوال مدنية</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="itemPlaceholder" runat="server"></tbody>
+                                                </table>
+
+                                            </LayoutTemplate>
+                                            <ItemTemplate>
+                                                <tr>
+
+                                                    <td>
+                                                       <%-- <asp:Image ID="imgProfileimge" runat="server" ImageUrl='<%# Bind("DocumentUploadPhoto") %>' />--%>
+                                                        <asp:Literal runat="server" ID="lblname" Text='<%# Eval("FirstName") + " " + Eval("FatherName") + " " + Eval("FamilyName") %>'></asp:Literal></td>
+                                                    <td>
+                                                        <asp:Literal runat="server" ID="lblTelePhone" Text='<%# Bind("MobileNo") %>'></asp:Literal></span></td>
+                                                    <td>
+                                                        <asp:Literal runat="server" ID="lblEmail" Text='<%# Bind("EmailID") %>'></asp:Literal></span></td>
+                                                    <td>
+                                                        <asp:HyperLink runat="server" ID="lnkSecondNav" NavigateUrl='<%# Bind("DocumentUpload") %>' Target="_blank">                                  
+                                                        </asp:HyperLink>
+
+                                                    </td>
+                                                </tr>
+                                            </ItemTemplate>
+                                            <EmptyDataTemplate>
+                                                <h3>No Records!</h3>
+                                            </EmptyDataTemplate>
+                                        </asp:ListView>
+
+                                    </div>
                                 </div>
                                 <div id="a-2" style="min-height: 283px;">
                                     <div class="row">
@@ -315,17 +384,17 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row" style="display: none">
+                                    <div class="row">
                                         <div class="form-group" style="height: 42px">
-                                            <label class="col-md-2 control-label" style="text-align: left; width: 11%; padding-left: 1.2%;">Attachment 3 :</label>
+                                            <label class="col-md-2 control-label" style="text-align: left; width: 11%; padding-left: 1.2%;">مخطط أراضي:</label>
                                             <div class="col-md-10">
                                                 <asp:HyperLink runat="server" ID="lnkA3" Target="_blank"></asp:HyperLink>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row" style="display: none">
+                                    <div class="row">
                                         <div class="form-group" style="height: 42px">
-                                            <label class="col-md-2 control-label" style="text-align: left; width: 11%; padding-left: 1.2%;">Attachment 4:</label>
+                                            <label class="col-md-2 control-label" style="text-align: left; width: 11%; padding-left: 1.2%;">صورة سند قبض رسوم عداد جديد:</label>
                                             <div class="col-md-10">
                                                 <asp:HyperLink runat="server" ID="lnkA4" Target="_blank"></asp:HyperLink>
                                             </div>
@@ -336,6 +405,164 @@
                                             <label class="col-md-2 control-label" style="text-align: left; width: 11%; padding-left: 1.2%;">Attachment 5 :</label>
                                             <div class="col-md-10">
                                                 <asp:HyperLink runat="server" ID="lnkA5" Target="_blank"></asp:HyperLink>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="a-8" style="min-height: 283px;">
+                                    <div class="row">
+
+                                        <div class="form-group" style="height: 42px">
+                                            <label class="col-md-2 control-label" style="text-align: left; width: 11%; padding-left: 1.2%;">قدرة النظام AC  (KW):</label>
+                                            <div class="col-md-10" style="width: 22.9%;">
+                                                <asp:TextBox ID="txtACVal" runat="server" PlaceHolder="ادخل قدرة النظام" Style="width: 273px;" class="form-control" disabled="disabled"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                        <div class="form-group" style="height: 42px">
+                                            <label class="col-md-2 control-label" style="text-align: left; width: 11%; padding-left: 1.2%;">قدرة النظام DC  (KW):</label>
+                                            <div class="col-md-10" style="width: 22.9%;">
+                                                <asp:TextBox ID="txtDCVal" runat="server" PlaceHolder="ادخل قدرة النظام" Style="width: 273px;" class="form-control" disabled="disabled"></asp:TextBox>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group" style="height: 42px">
+                                            <label class="col-md-2 control-label" style="text-align: left; width: 11%; padding-left: 1.2%;">صورة مخطط أحادي:</label>
+                                            <div class="col-md-10">
+                                                <asp:HyperLink runat="server" ID="inkDetail1" Target="_blank"></asp:HyperLink>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group" style="height: 42px">
+                                            <label class="col-md-2 control-label" style="text-align: left; width: 11%; padding-left: 1.2%;">دراسة تصميمية:</label>
+                                            <div class="col-md-10">
+                                                <asp:HyperLink runat="server" ID="inkDetail2" Target="_blank"></asp:HyperLink>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group" style="height: 42px">
+                                            <label class="col-md-2 control-label" style="text-align: left; width: 11%; padding-left: 1.2%;">صورة مخطط أراضي:</label>
+                                            <div class="col-md-10">
+                                                <asp:HyperLink runat="server" ID="inkDetail3" Target="_blank"></asp:HyperLink>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group" style="height: 42px">
+                                            <label class="col-md-2 control-label" style="text-align: left; width: 11%; padding-left: 1.2%;">شهادة سلامة عامة للخلايا والعكس:</label>
+                                            <div class="col-md-10">
+                                                <asp:HyperLink runat="server" ID="inkDetail4" Target="_blank"></asp:HyperLink>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <label class="col-md-6 control-label" style="text-align: left; padding-left: 1.2%;">معلومات جهاز العكس:</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div class="container" style="display: grid;">
+                                                <asp:ListView ID="lstdevice_information" runat="server" OnItemDataBound="lstdevice_information_ItemDataBound">
+                                                    <LayoutTemplate>
+
+                                                        <table class="table-responsive table-bordered paddt">
+                                                            <thead>
+                                                                <tr>
+
+                                                                    <th>Device ID</th>
+                                                                    <th>Device Name</th>
+                                                                    <th>Device Power</th>
+                                                                    <th>Number of Units</th>
+                                                                    <th>Device Document</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody id="itemPlaceholder" runat="server"></tbody>
+                                                        </table>
+
+                                                    </LayoutTemplate>
+                                                    <ItemTemplate>
+                                                        <tr>
+                                                            <td>
+                                                                <asp:Literal runat="server" ID="lblDeviceID" Text='<%# Bind("DeviceID") %>'></asp:Literal></span>
+                                                            </td>
+                                                            <td>
+                                                                <asp:Literal runat="server" ID="lblDeviceName" Text='<%# Bind("DeviceName") %>'></asp:Literal></span>
+                                                            </td>
+                                                            <td>
+                                                                <asp:Literal runat="server" ID="lblDevicePower" Text='<%# Bind("DevicePower") %>'></asp:Literal></span>
+                                                            </td>
+                                                            <td>
+                                                                <asp:Literal runat="server" ID="lblNumberofUnits" Text='<%# Bind("NumberofUnits") %>'></asp:Literal></span>
+                                                            </td>
+                                                            <td>
+                                                                <asp:HyperLink runat="server" ID="lnkDeviceDocument" NavigateUrl='<%# Bind("DeviceDocument") %>' Target="_blank">                                  
+                                                                </asp:HyperLink>
+                                                            </td>
+                                                        </tr>
+                                                    </ItemTemplate>
+                                                    <EmptyDataTemplate>
+                                                        <h3>No Records!</h3>
+                                                    </EmptyDataTemplate>
+                                                </asp:ListView>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <label class="col-md-6 control-label" style="text-align: left; padding-left: 1.2%;">معلومات الخلايا الشمسية:</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group" style="height: 42px">                                            
+                                            <div class="container" style="display: grid;">
+                                                <asp:ListView ID="lstSollerDevice" runat="server" OnItemDataBound="lstSollerDevice_ItemDataBound">
+                                                    <LayoutTemplate>
+
+                                                        <table class="table-responsive table-bordered paddt">
+                                                            <thead>
+                                                                <tr>
+
+                                                                    <th>Sollar Cell ID</th>
+                                                                    <th>Sollar Cell Name</th>
+                                                                    <th>Sollar Cell Power</th>
+                                                                    <th>Number of Units</th>
+                                                                    <th>Device Document</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody id="itemPlaceholder" runat="server"></tbody>
+                                                        </table>
+
+                                                    </LayoutTemplate>
+                                                    <ItemTemplate>
+                                                        <tr>
+                                                            <td>
+                                                                <asp:Literal runat="server" ID="lblSollarCellID" Text='<%# Bind("SollarCellID") %>'></asp:Literal></span>
+                                                            </td>
+                                                            <td>
+                                                                <asp:Literal runat="server" ID="lblSollarCellName" Text='<%# Bind("SollarCellName") %>'></asp:Literal></span>
+                                                            </td>
+                                                            <td>
+                                                                <asp:Literal runat="server" ID="lblSollarCellPower" Text='<%# Bind("SollarCellPower") %>'></asp:Literal></span>
+                                                            </td>
+                                                            <td>
+                                                                <asp:Literal runat="server" ID="lblNumberofUnits" Text='<%# Bind("NumberofUnits") %>'></asp:Literal></span>
+                                                            </td>
+                                                            <td>
+                                                                <asp:HyperLink runat="server" ID="lnkDeviceDocument" NavigateUrl='<%# Bind("SollarCellDocument") %>' Target="_blank">                                  
+                                                                </asp:HyperLink>
+                                                            </td>
+                                                        </tr>
+                                                    </ItemTemplate>
+                                                    <EmptyDataTemplate>
+                                                        <h3>No Records!</h3>
+                                                    </EmptyDataTemplate>
+                                                </asp:ListView>
+
                                             </div>
                                         </div>
                                     </div>
@@ -598,7 +825,7 @@
                                             </LayoutTemplate>
                                             <ItemTemplate>
                                                 <tr>
-                                                  <%--  <td>
+                                                    <%--  <td>
                                                         <asp:Label ID="lblFromUser1" runat="server" Text='<%# Bind("RequestID") %>'></asp:Label>
                                                     </td>--%>
                                                     <td>
@@ -610,10 +837,11 @@
                                                         <asp:HiddenField runat="server" ID="hndadduser" Value='<%# Eval("AddUser") %>' />
                                                     </td>
                                                     <td><%# Eval("StepNotes") %></td>
-                                                    <td><asp:Label ID="lblStepStatus" runat="server" Text='<%# Eval("StepStatus")%>'></asp:Label></td>
+                                                    <td>
+                                                        <asp:Label ID="lblStepStatus" runat="server" Text='<%# Eval("StepStatus")%>'></asp:Label></td>
                                                     <td><%# Eval("AddUserName") %></td>
-                                                     <td>
-                                                         <asp:Label ID="lblCompletedDate" runat="server" Text=' <%# Eval("CompletedDate") %>' visible='<%# Convert.ToString(Eval("StepStatus")) == "Done"? true:false %>'></asp:Label>                                                        
+                                                    <td>
+                                                        <asp:Label ID="lblCompletedDate" runat="server" Text=' <%# Eval("CompletedDate") %>' Visible='<%# Convert.ToString(Eval("StepStatus")) == "Done"? true:false %>'></asp:Label>
                                                     <td>
                                                         <asp:HyperLink runat="server" ID="Attachment" Target="_blank" NavigateUrl='<%# Eval("Attachment") %>'></asp:HyperLink></td>
                                                     <td>

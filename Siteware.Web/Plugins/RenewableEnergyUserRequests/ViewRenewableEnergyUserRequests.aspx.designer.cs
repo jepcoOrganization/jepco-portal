@@ -202,6 +202,24 @@ namespace Siteware.Web.Plugins.RenewableEnergyUserRequests {
         protected global::System.Web.UI.WebControls.TextBox txtFamilyName;
         
         /// <summary>
+        /// txtUserTelephone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtUserTelephone;
+        
+        /// <summary>
+        /// txtUserEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtUserEmail;
+        
+        /// <summary>
         /// txtStatusDate control.
         /// </summary>
         /// <remarks>
@@ -292,6 +310,24 @@ namespace Siteware.Web.Plugins.RenewableEnergyUserRequests {
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
         
         /// <summary>
+        /// ddlUSerType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlUSerType;
+        
+        /// <summary>
+        /// lstUSerData control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView lstUSerData;
+        
+        /// <summary>
         /// lblguid control.
         /// </summary>
         /// <remarks>
@@ -344,6 +380,78 @@ namespace Siteware.Web.Plugins.RenewableEnergyUserRequests {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink lnkA5;
+        
+        /// <summary>
+        /// txtACVal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtACVal;
+        
+        /// <summary>
+        /// txtDCVal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDCVal;
+        
+        /// <summary>
+        /// inkDetail1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink inkDetail1;
+        
+        /// <summary>
+        /// inkDetail2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink inkDetail2;
+        
+        /// <summary>
+        /// inkDetail3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink inkDetail3;
+        
+        /// <summary>
+        /// inkDetail4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink inkDetail4;
+        
+        /// <summary>
+        /// lstdevice_information control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView lstdevice_information;
+        
+        /// <summary>
+        /// lstSollerDevice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView lstSollerDevice;
         
         /// <summary>
         /// updt1 control.
