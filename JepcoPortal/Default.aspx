@@ -87,16 +87,16 @@
                             <i class="fa fa-search"></i>
                         </span>
                         <span class="noti">
-                             <a href="/ar/Home/MessagesAndNotificationsList">
-                            <span class="uncheckmail">
-                                <small>
-                                   
-                                    <asp:Label ID="unReadMSGCount" runat="server"></asp:Label>
-                                      
-                                </small>
-                                <i class="fa fa-envelope-o"></i>
-                            </span>
-                                   </a>
+                            <a href="/ar/Home/MessagesAndNotificationsList">
+                                <span class="uncheckmail">
+                                    <small>
+
+                                        <asp:Label ID="unReadMSGCount" runat="server"></asp:Label>
+
+                                    </small>
+                                    <i class="fa fa-envelope-o"></i>
+                                </span>
+                            </a>
                             <i class="fa fa-bell-o bell"></i>
                         </span>
                         <div class="clearfix"></div>
@@ -121,7 +121,7 @@
                                         <asp:HyperLink runat="server" ID="lnkNav" NavigateUrl='<%# Bind("URL") %>' Target='<%# Bind("TargetID") %>'>
 
                                             <aside>
-                                               <asp:Literal runat="server" ID="unReadMSgMenu"> </asp:Literal>
+                                                <asp:Literal runat="server" ID="unReadMSgMenu"> </asp:Literal>
                                                 <asp:Image ID="img" runat="server" ImageUrl='<%# Bind("MenuImage") %>' />
                                             </aside>
 
@@ -150,9 +150,9 @@
                             <asp:ListView runat="server" ID="lstMobileNavigation" OnItemDataBound="lstNavigation_ItemDataBound">
                                 <ItemTemplate>
                                     <li>
-                                         <asp:HiddenField ID="hdnid" runat="server" Value='<%# Bind("ID") %>' />
+                                        <asp:HiddenField ID="hdnid" runat="server" Value='<%# Bind("ID") %>' />
                                         <asp:HyperLink runat="server" ID="lnkNav" NavigateUrl='<%# Bind("URL") %>' Target='<%# Bind("TargetID") %>'>
-                                             <asp:Literal runat="server" ID="unReadMSgMenu"> </asp:Literal>
+                                            <asp:Literal runat="server" ID="unReadMSgMenu"> </asp:Literal>
                                             <asp:Image ID="img" runat="server" ImageUrl='<%# Bind("MenuImage") %>' />
                                             <span>
                                                 <asp:Literal ID="lblTitle" runat="server" Text='<%# Bind("MenuName") %>'></asp:Literal>
@@ -380,14 +380,14 @@
 
                             <div id="Mytabs"></div>
 
-                            
+
 
                             <!-- Tab panes -->
 
                             <div id="MyFileData" class="tab-content emptyfilecls">
                             </div>
 
-                            
+
                         </div>
 
                         <div class="row">
@@ -403,7 +403,7 @@
 
 
                                             <p>
-                                                <strong>رقم العداد</strong>
+                                                <strong>رقم الملف</strong>
                                                 <span class="LTR">
                                                     <label id="lblfileNo"></label>
                                                 </span>
@@ -420,6 +420,7 @@
 
                                         </div>
                                     </div>
+                                    <%-- sss --%>
                                     <div id="grpnulldiv" class="emptyfilecls" style="display: none">
                                         <img src=" <%=ResolveUrl("~/") %>App_Themes/ThemeAr/img/Step-Icon-4.png" alt="">
 
@@ -455,35 +456,36 @@
 
                                         <%--<ul class="list-unstyled">--%>
 
-                                        
-                                        <div class='tab-pane fade in active'><div class='residential_sector'>
 
-                                            <div class="content demo-y">
-                                         
-                                        <ul class="nav nav-tabs">
-                                           
+                                        <div class='tab-pane fade in active'>
+                                            <div class='residential_sector'>
 
-                                            <asp:ListView runat="server" ID="lstComplain" OnItemDataBound="lstComplain_ItemDataBound">
-                                                <ItemTemplate>
+                                                <div class="content demo-y">
 
-                                                    <li>
-                                                        <p>
-                                                            <asp:Literal runat="server" ID="lblComplainType" Text='<%# Bind("ComplainType") %>'></asp:Literal>
-                                                            <asp:Literal runat="server" ID="lblCompainDate" Text='<%# Bind("PublishedDate") %>'></asp:Literal>
-                                                            <asp:HiddenField runat="server" ID="hdnCoplianStatusResult" Value='<%# Bind("IssueResultNo") %>' />
-                                                            <asp:HiddenField runat="server" ID="hdnBranchID" Value='<%# Bind("Governate") %>' />
-                                                            <%-- <small><span class="LTR">14</span> نيسان  <span class="LTR">2020</span></small>--%>
-                                                        </p>
-                                                        <div class="btndiv" id="ComplaiStatusbtndiv" runat="server">
-                                                            <%--<button style="background: #f9db32; color: #007fc3;">قيد التنفيذ</button>--%>
-                                                            <%--<button>التفاصيل</button>--%>
-                                                        </div>
-                                                    </li>
+                                                    <ul class="nav nav-tabs">
 
-                                                </ItemTemplate>
-                                            </asp:ListView>
 
-                                            <%--<li>
+                                                        <asp:ListView runat="server" ID="lstComplain" OnItemDataBound="lstComplain_ItemDataBound">
+                                                            <ItemTemplate>
+
+                                                                <li>
+                                                                    <p>
+                                                                        <asp:Literal runat="server" ID="lblComplainType" Text='<%# Bind("ComplainType") %>'></asp:Literal>
+                                                                        <asp:Literal runat="server" ID="lblCompainDate" Text='<%# Bind("PublishedDate") %>'></asp:Literal>
+                                                                        <asp:HiddenField runat="server" ID="hdnCoplianStatusResult" Value='<%# Bind("IssueResultNo") %>' />
+                                                                        <asp:HiddenField runat="server" ID="hdnBranchID" Value='<%# Bind("Governate") %>' />
+                                                                        <%-- <small><span class="LTR">14</span> نيسان  <span class="LTR">2020</span></small>--%>
+                                                                    </p>
+                                                                    <div class="btndiv" id="ComplaiStatusbtndiv" runat="server">
+                                                                        <%--<button style="background: #f9db32; color: #007fc3;">قيد التنفيذ</button>--%>
+                                                                        <%--<button>التفاصيل</button>--%>
+                                                                    </div>
+                                                                </li>
+
+                                                            </ItemTemplate>
+                                                        </asp:ListView>
+
+                                                        <%--<li>
                                                 <p>
                                                     وصل التيار الكهربائي
                     <small><span class="LTR">14</span> نيسان  <span class="LTR">2020</span></small>
@@ -513,13 +515,12 @@
                                                     <button>التفاصيل</button>
                                                 </div>
                                             </li>--%>
-
-                                                
-
-                                        </ul>
+                                                    </ul>
 
 
-                                        </div></div></div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
 
                                 </div>
@@ -829,7 +830,7 @@ Thank you for Subscription.
 
 
 
-        <div class="modal fade welcome" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal fade welcome" id="myModal spModel ModalInput" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"  >
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -846,9 +847,10 @@ Thank you for Subscription.
                                 <div class="col-lg-12 col-md-12 col-sm-12">
                                     <div class="form-group">
                                         <label style="float: right">الرقم المرجعي </label>
-                                        <input type="text" id="fileadddata" style="font-family: Montserrat" />
+                                        <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"type = "number" maxlength = "13" id="fileadddata"  />
                                     </div>
                                 </div>
+                                <p id="hidden-validation"></p>
 
                             </div>
 
@@ -938,7 +940,8 @@ Thank you for Subscription.
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span class="fa fa-close"></span>
                         </button>
-                        <h4 class="modal-title">قائمة العدادات المضافة</h4>
+                        <h4 class="modal-title">قائمة العدادات المضافة
+                        </h4>
                     </div>
                     <div class="modal-body">
                         <div id="filegraph" class="protal_tabs"></div>
@@ -1024,12 +1027,39 @@ Thank you for Subscription.
         <%--For Chart--%>
 
 
+        <%-- Call Api Url And Token Middleware --%>
+
+        <script>
+            // Global Varibale :
+            var APIUrl = '<%= System.Configuration.ConfigurationManager.AppSettings["APIurl"].ToString() %>';
+            var userNameMiddlewareToken = '<%= System.Configuration.ConfigurationManager.AppSettings["usernameMiddleware"].ToString() %>';
+            var passwordMiddlewareToken = '<%= System.Configuration.ConfigurationManager.AppSettings["passwordMiddleware"].ToString() %>';
+            var MiddlewareToken = "";
+            $.ajax({
+                url: APIUrl + 'LoginController/Login',
+                type: 'POST',
+                data: JSON.stringify(
+                    {
+                        username: userNameMiddlewareToken,
+                        password: passwordMiddlewareToken
+                    }),
+                dataType: "json",
+                contentType: "application/json",
+                async: false,
+                success: function (res) {
+                    MiddlewareToken = res.body.token;
+                    localStorage.setItem("MiddlewareToken", MiddlewareToken);
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+        </script>
 
 
         <script>
             $("document").ready(function () {
 
-                debugger;
 
                 $.ajax({
                     type: "GET",
@@ -1070,25 +1100,29 @@ Thank you for Subscription.
                 var DesingAllFileForGraph = "";
                 //var apiConfiguUrl = '@System.Configuration.ConfigurationManager.AppSettings["MobileAPIurl"]';
                 var apiConfiguUrl = '<%= System.Configuration.ConfigurationManager.AppSettings["MobileAPIurl"].ToString() %>';
-                //var ApiURLprofile = apiConfiguUrl + "profile/+962790121435";
-                var ApiURLprofile = apiConfiguUrl + "profile/" + MobileNoURL;
-                debugger;
+                ;
+                //debugger;
                 $.ajax({
-                    type: "GET",
+                    type: "POST",
                     //contentType: "application/json; charset=utf-8",
-                    //url: "https://mobile.jepco.com.jo:8443/JepcoMobApiProd/profile/+962790121435",    
-                    url: ApiURLprofile,
-                    dataType: "json",
+                    // tess
+                    url: APIUrl + "CustomerInfo/GetCustomerInfoDataForWebsite",
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("MiddlewareToken"));
+                    },
+                    data: JSON.stringify({
+                        MobileNumber: MobileNoURL,
+                        LanguageId: "AR"
+                    }),
+                    //type: "GET",
+                    contentType: "application/json; charset=utf-8",
                     async: false,
                     success: function (data) {
-                        debugger;
-                        alert(data.status);
-                        if (data.status == "success") {
+                        if (data.statusCode == "Success") {
 
-                            var GetAllFile = data.body.customerSubAccountList;
+                            var GetAllFile = data.body.customerInfoResult;
 
-
-                            if (GetAllFile.length > 0) {
+                            if (data.body.customerStatus == "1") {
 
                             }
                             else {
@@ -1119,57 +1153,58 @@ Thank you for Subscription.
                         var EndStringUI123_pop = "</ul>";
                         var ENDtab_Pop = "</div>";
 
+                        // loop in File Customer ------------------------------
+                        if (data.body.customerStatus == "1") {
+                            $.each(GetAllFile.customerInformationDetails, function (key, value) {
 
-                        $.each(GetAllFile, function (key, value) {
-
-                            var FileData = {};
-                            var id = value.id;
-                            var alias = value.alias;
-                            var fileNumber = value.fileNumber;
-                            var meterNumber = value.meterNumber;
-                            var FileStusus = value.status;
-
-
-                            FileData.id = id;
-                            FileData.alias = alias;
-                            FileData.fileNumber = fileNumber;
-                            FileData.meterNumber = meterNumber;
-
-
-                            AllcustomerSubAccountList.push(FileData);
-
-                            var FileGrpData = {};
-                            FileGrpData.fileNumber = fileNumber;
-
-                            //if (value.status == "success") {
-                            var HTMLLI_pop = "<li>";
-                            var HTMLDiv1_pop = "<div><strong>التعريف</strong><span>" + alias + "</span></div>";
-                            var HTMLDiv2_pop = "<div><strong> الرقم المرجعي</strong><p> " + fileNumber + " </p></div>"
-
-                            var HTMLa_pop = "<a href='#' data-filename=" + fileNumber + " class='fileGraphChangecls' >عرض التفاصيل </a >";
-                            var EndHTMLLI_pop = "</li>";
+                                var FileData = {};
+                                var id = value.id;
+                                var alias = value.aliasName;
+                                var fileNumber = value.fileNumber;
+                                var meterNumber = value.meterNumber;
+                                var FileStusus = value.status;
+                                if (value.objBillsReturnDto.billsHeader != undefined) {
+                                    var areaName = value.objBillsReturnDto.billsHeader.officeDescription;
+                                }
+                                //var area = value.fileNumberAddressesDetail.areaName;
+                                FileData.id = id;
+                                FileData.alias = alias;
+                                FileData.fileNumber = fileNumber;
+                                FileData.meterNumber = meterNumber;
+                                if (areaName != undefined) FileData.areaName = areaName;
+                                else FileData.areaName = "";
 
 
-                            //var HTMLmyFileName = "<a  data-filename=" + fileNumber + " class='fileGraphChangecls'> " + fileNumber + "</a><br />";
-                            var HTMLmyFileName = HTMLLI_pop + HTMLDiv1_pop + HTMLDiv2_pop + HTMLa_pop + EndHTMLLI_pop;
 
-                            AllFileForGraph = AllFileForGraph + HTMLmyFileName;
-                            //}
+                                AllcustomerSubAccountList.push(FileData);
+
+                                var FileGrpData = {};
+                                FileGrpData.fileNumber = fileNumber;
+
+                                //if (value.status == "success") {
+                                var HTMLLI_pop = "<li>";
+                                var HTMLDiv1_pop = "<div><strong>التعريف</strong><span>" + alias + "</span></div>";
+                                var HTMLDiv2_pop = "<div><strong> الرقم المرجعي</strong><p> " + fileNumber + " </p></div>"
+
+                                var HTMLa_pop = "<a href='#' data-filename=" + fileNumber + " class='fileGraphChangecls' >عرض التفاصيل </a >";
+                                var EndHTMLLI_pop = "</li>";
 
 
-                            //console.log("FileNo is " + value.fileNumber);
+                                //var HTMLmyFileName = "<a  data-filename=" + fileNumber + " class='fileGraphChangecls'> " + fileNumber + "</a><br />";
+                                var HTMLmyFileName = HTMLLI_pop + HTMLDiv1_pop + HTMLDiv2_pop + HTMLa_pop + EndHTMLLI_pop;
+
+                                AllFileForGraph = AllFileForGraph + HTMLmyFileName;
+                                //}
 
 
-                        });
 
+
+                            });
+                        }
                         DesingAllFileForGraph = tab_Pop + StringUI123_pop + HtmlScroolingdivHRD_pop + AllFileForGraph + ENDHtmlScroolingdivHRD123_pop + EndStringUI123_pop + ENDtab_Pop;
-                        //console.log("Last Array Data " + AllcustomerSubAccountList);
 
                     },
                     error: function (result) {
-
-
-
                         var imageofdiv2this = "<img src='<%=ResolveUrl("~/") %>App_Themes/ThemeAr/img/house1.png' class='backimg'>";
                         var Stringh5this = "<strong> <a class='aheffuncation'>اضافة/ تعديل رقم عداد</a></strong>";
                         var thisData = imageofdiv2this + Stringh5this;
@@ -1198,7 +1233,6 @@ Thank you for Subscription.
 
                 //AllcustomerSubAccountList.reverse();
                 $.each(AllcustomerSubAccountList, function (key, value) {
-
                     var FilecustomerData = {};
                     var GetFileNo = value.fileNumber;
 
@@ -1222,47 +1256,64 @@ Thank you for Subscription.
                     var UnpaidBillTabData = "";
                     var BillAreas = "";
                     var Fillstatus = "";
+                    var x = 0;
 
-
-
+                    //debugger;
                     $.ajax({
-                        type: "GET",
-                        //contentType: "application/json; charset=utf-8",
-                        url: callURl,
+
+                        type: "POST",
+                        url: APIUrl + "MobileBills/GetBills",
+                        beforeSend: function (xhr) {
+                            xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("MiddlewareToken"));
+                        },
+                        data: JSON.stringify({
+                            FileNumber: fileNumber,
+                            LanguageId: "AR"
+                        }),
+                        contentType: "application/json; charset=utf-8",
                         dataType: "json",
                         async: false,
                         success: function (data) {
 
-                            if (data.status == "success") {
+                            if (data.statusCode == "Success") {
 
+                                //type: "GET",
+                                ////contentType: "application/json; charset=utf-8",
+                                //// tess
+                                //url: callURl,
+                                //dataType: "json",
+                                //async: false,
+                                //success: function (data) {
+                                //    if (data.status == "success") {
                                 Fillstatus = "success";
                                 // For Totol Unpaid Bill Amout Start ------------------------------------
-                                SumOfUnPaidBill = parseFloat(SumOfUnPaidBill) + parseFloat(data.body.fileNumberInfo.mConBalance);
-                                UnpaidBillvalue = parseFloat(data.body.fileNumberInfo.mConBalance);
-                                UnpaidBillTabData = data.body.allBills[0].billHTMLData.values[3];
-                                BillAreas = data.body.allBills[0].billHTMLData.values[1];
+                                SumOfUnPaidBill = parseFloat(SumOfUnPaidBill) + parseFloat(data.body.billsHeader.receivableAmount);
+                                UnpaidBillvalue = parseFloat(data.body.billsHeader.receivableAmount);
+                                UnpaidBillTabData = data.body.billsHeader.subscriptionDescription; // اي قطاع
+                                BillAreas = data.body.billsHeader.officeDescription; // المكان
+
                                 // For Totol Unpaid Bill Amout End  ------------------------------------
 
                                 // For Totol Unpaid Bill Count Start  ------------------------------------                            
-                                CountOfUnPaidBill = CountOfUnPaidBill + parseFloat(data.body.unpaidBills.length);
-                                UnpaidBillCount = parseFloat(data.body.unpaidBills.length);
+                                CountOfUnPaidBill = CountOfUnPaidBill + parseFloat(data.body.unClearedBillsDetails.length);
+                                UnpaidBillCount = parseFloat(data.body.unClearedBillsDetails.length);
                                 // For Totol Unpaid Bill Count End  ------------------------------------
 
-                                // For All Bill consumptionQty Start  ------------------------------------
-                                var GetAllBillconsumptionQty = data.body.allBills;
+                                //// For All Bill consumptionQty Start  ------------------------------------
+                                var GetAllBillconsumptionQty = data.body.allBillsDetails;
                                 var FileCountloop = 1;
                                 var GraphMonthLoop = 1;
 
                                 $.each(GetAllBillconsumptionQty, function (key, value) {
-                                    var consQty = value.consumptionQty;
-                                    var consMonth = value.readDate;
+                                    var consQty = value.ibillingQuantity;
+                                    var consMonth = value.billPeriod;
                                     //AllBillconsumptionQty = AllBillconsumptionQty + parseFloat(consQty);
                                     //For Tabs Start  ------------------------------------
 
                                     var TabFileData = {};
 
 
-                                    var tabNAme = value.billHTMLData.values[3];
+                                    var tabNAme = value.subscriptionDescription;
 
                                     TabFileData.tabNAme = tabNAme;
 
@@ -1290,7 +1341,7 @@ Thank you for Subscription.
                                             ALLGraphdata.push(Graphdata);
                                             GraphMonthLoop++;
                                         }
-                                        var AreasNAme = value.billHTMLData.values[1];
+                                        var AreasNAme = BillAreas;
                                         $("#lblAreaGrapgh").text(AreasNAme);
 
 
@@ -1302,15 +1353,15 @@ Thank you for Subscription.
                                 // For All Bill consumptionQty End ------------------------------------
 
 
-                                //var HtmlScroolingdivHRD123 = "<div class='content demo-y'>";
-                                //var StringUI123 = "<ul class='list-unstyled'>";
-                                //var EndStringUI123 = "</ul>";
-                                //var ENDHtmlScroolingdivHRD123 = "</div>";
+                                var HtmlScroolingdivHRD123 = "<div class='content demo-y'>";
+                                var StringUI123 = "<ul class='list-unstyled'>";
+                                var EndStringUI123 = "</ul>";
+                                var ENDHtmlScroolingdivHRD123 = "</div>";
 
                                 //$.each(GetAllBillconsumptionQty, function (key, value) {
 
                                 //    var PFileName = value.fileNumber;
-                                //    var PFileAlea = value.billHTMLData.values[1];
+                                //    var PFileAlea = BillAreas;
 
 
 
@@ -1324,7 +1375,7 @@ Thank you for Subscription.
 
                                 //});
 
-                                //var getPopupFileDetails = HtmlScroolingdivHRD123 + StringUI123 + EndStringUI123 + ENDHtmlScroolingdivHRD123;
+                                var getPopupFileDetails = HtmlScroolingdivHRD123 + StringUI123 + EndStringUI123 + ENDHtmlScroolingdivHRD123;
 
 
                                 FileCount++;
@@ -1465,12 +1516,11 @@ Thank you for Subscription.
                     var AllLiContalt = "";
 
                     $.each(GetAllcustomerSubAccountList, function (key, SubAccountListValue) {
-
                         if (SubAccountListValue.Fillstatus == "success") {
 
                             if (value === SubAccountListValue.UnpaidBillTabData) {
                                 var HTMLLI = "<li>";
-                                var HTMLDiv1 = "<div><strong>رقم العداد</strong><span class='LTR'>" + SubAccountListValue.fileNumber + "</span><p>المنطقة: " + SubAccountListValue.area + " </p></div>";
+                                var HTMLDiv1 = "<div><strong>رقم الملف</strong><span class='LTR'>" + SubAccountListValue.fileNumber + "</span><p>المنطقة: " + SubAccountListValue.area + " </p></div>";
                                 var HTMLDiv2 = "<div><strong>الفواتير الغير مسددة</strong><p>لديك عدد " + SubAccountListValue.UnpaidBillCount + " فواتير غير مسددة</p></div>"
                                 var HTMLDiv3 = "<div><strong>القيمة المطلوبة</strong><p>اجمالي المبلغ المطلوب " + SubAccountListValue.UnpaidBillvalue + "</p></div>"
                                 var HTMLa = "<a href='#' data-filename=" + SubAccountListValue.fileNumber + " class='GoFileDetails' >التفاصيل </a >";
@@ -1494,13 +1544,14 @@ Thank you for Subscription.
                     //return DetialList;
                 }
 
-                $(".aheffuncation").click(function () {
-
+                $(".aheffuncation").click(() => {
+                    console.log('اضافة/ تعديل رقم عداد')
                     $('#myModal').modal('show');
+                    
+                    //$('#myModal').show();
+
+
                 });
-
-
-
 
                 $(".ahrefcallGraph").click(function () {
 
@@ -1520,10 +1571,12 @@ Thank you for Subscription.
                     $.ajax({
                         type: "POST",
                         contentType: "application/json; charset=utf-8",
-                        url: "https://mobile.jepco.com.jo:8443/JepcoMobApiProd/sub/create",
-
+                        url: APIUrl + "CustomerInformationDetails/AddCustomerInformationDetails",
+                        beforeSend: function (xhr) {
+                            xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("MiddlewareToken"));
+                        },
                         // data: JSON.stringify({ alias: 'myATest', fileNumber: '0110892277693', mobileNumber: '+962790121435' }),
-                        data: JSON.stringify({ alias: aliasNAme, fileNumber: fileNumberNAme, mobileNumber: mobileNumberNAme }),
+                        data: JSON.stringify({ aliasName: aliasNAme, fileNumber: fileNumberNAme, mobileNumber: mobileNumberNAme, LanguageId:"AR" }),
                         dataType: "json",
                         async: false,
                         success: function (data) {
@@ -1538,9 +1591,8 @@ Thank you for Subscription.
                             console.log(result);
                             //alert("Error");
 
-                            //var absajdvbajsd = result.responseJSON.key;
                             $('#myModal').modal('hide');
-                            $("#errroreCreate").text(absajdvbajsd);
+                           // $("#errroreCreate").text(absajdvbajsd);
                             $('#myModalFailed').modal('show');
 
 
@@ -1651,28 +1703,36 @@ Thank you for Subscription.
                     var callFileURl = ApiURLhistory + "/" + filename;
                     $('#lblfileNo').text(filename);
                     $("#FilesNumberlbl").text(filename);
-
+                    var x = $('.fileGraphChangecls').attr('data-filename');
                     $.ajax({
-                        type: "GET",
-                        //contentType: "application/json; charset=utf-8",
-                        url: callFileURl,
-                        dataType: "json",
-                        async: false,
+                        //type: "GET",
+                        ////contentType: "application/json; charset=utf-8",
+                        //url: callFileURl,
+                        //dataType: "json",
+                        //async: false,
+                        type: "POST",
+                        url: APIUrl + "MobileBills/GetBills",
+                        beforeSend: function (xhr) {
+                            xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("MiddlewareToken"));
+                        },
+                        data: JSON.stringify({
+                            FileNumber: filename,
+                            LanguageId: "AR"
+                        }),
+                        contentType: "application/json; charset=utf-8",
                         success: function (data) {
-
-                            if (data.status == "success") {
+                            if (data.statusCode == "Success") {
 
                                 AllBillconsumptionQty = 0;
-                                var GetAllBillconsumptionQty2 = data.body.allBills;
+                                var GetAllBillconsumptionQty2 = data.body.allBillsDetails;
                                 ALLGraphdata = [];
                                 var GraphMonthLoopChn = 1;
                                 $.each(GetAllBillconsumptionQty2, function (key, value) {
 
-                                    var consQty = value.consumptionQty;
-                                    var consMonth = value.readDate;
-
+                                    var consQty = value.ibillingQuantity;
+                                    var consMonth = value.billPeriod;
                                     if (GraphMonthLoopChn == 1) {
-                                        var Myareas = value.billHTMLData.values[1];
+                                        var Myareas = data.body.billsHeader.officeDescription;
                                         $("#lblAreaGrapgh").text(Myareas);
                                     }
 
@@ -1687,7 +1747,6 @@ Thank you for Subscription.
 
                                         //ALLGraphdata.push(Graphdata);
                                         ALLGraphdata.push(Graphdata);
-
 
                                         GraphMonthLoopChn++;
                                     }
@@ -2110,9 +2169,29 @@ Thank you for Subscription.
             .mCSB_dragger_bar,
             .mCS-light-2.mCSB_scrollTools
             .mCSB_dragger:hover
-            .mCSB_dragger_bar 
-            {
-                 background-color: rgb(0 127 195);
+            .mCSB_dragger_bar {
+                background-color: rgb(0 127 195);
+            }
+
+            .mCS-light-2.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+                background-color: rgb(222 200 77);
+            }
+
+            .mCS-light-2.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar:hover {
+                background-color: rgb(222 200 77);
+            }
+
+            .mCS-light-2.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar {
+                background-color: rgb(222 200 77);
+            }
+            /* Number Input Style  */
+            input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+            input[type=number] {
+                -moz-appearance: textfield;
             }
         </style>
 
@@ -2131,16 +2210,26 @@ Thank you for Subscription.
                 $(".mobile_menu .container").slideToggle();
             });
 
+            // Validation of Refrence Number Input : 
+            function myFunction() {
+                let charNumber = document.getElementById('fileadddata').value;
+                if (charNumber == 13) {
+                    document.getElementById('hidden-validation').innerHTML = 'Done';
+                }
+                else {
+                    //alert("Refrence number has to be 13 number");
+                    document.getElementById('hidden-validation').innerHTML = 'Reference Number Must Be 13 Digits';
 
+                }
+
+            }
         </script>
 
         <script>
             $("document").ready(function () {
 
-                debugger;
                 // var fsjdf = $("[id$=ComplainCount]").text();
                 var fsjdf = $("[id$=hndCountofCmpln]").val();
-                debugger;
 
                 for (var i = 0; i < fsjdf; i++) {
 
@@ -2163,7 +2252,6 @@ Thank you for Subscription.
                         // data: govidSelected //JSON.stringify(govidSelected),
 
                         success: function (result) {
-                            console.log(result);
 
                             StatusID = result.d;
 
@@ -2177,7 +2265,6 @@ Thank you for Subscription.
                                 dataType: "json",
                                 async: false,
                                 success: function (result) {
-                                    console.log(result);
                                     var ThisStatu = "";
                                     $.each(result.d, function (key, value) {
                                         ThisStatu = value.StatusName;

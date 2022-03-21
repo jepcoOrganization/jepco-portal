@@ -24,6 +24,7 @@ using System.Text;
 using System.IO;
 using System.Net.Mail;
 using System.Net;
+using System.Security.Cryptography;
 
 public partial class LoginPage_Registration : SiteBasePage
 {
@@ -213,18 +214,14 @@ public partial class LoginPage_Registration : SiteBasePage
 
     }
 
-
-
-
-
     protected async void btnSubmit_Click(object sender, EventArgs e)
     {
 
         //    //---******* (For Local) ******-------------------------
-        //string uploadPath1 = ConfigurationManager.AppSettings["UploadPath"].ToString();
+        string uploadPath1 = ConfigurationManager.AppSettings["UploadPath"].ToString();
 
         //    //---------------******* (For Live) ******-------------------------
-        string uploadPath1 = Server.MapPath(ConfigurationManager.AppSettings["UploadPath"].ToString());
+        //string uploadPath1 = Server.MapPath(ConfigurationManager.AppSettings["UploadPath"].ToString());
 
 
 
@@ -248,7 +245,7 @@ public partial class LoginPage_Registration : SiteBasePage
             entity.Email = txtEmail.Text;
             string pass = txtPassword.Text;
             string pass2 = txtConformPass.Text;
-            entity.Password = txtPassword.Text;
+            entity.Password =EncryptPass(txtPassword.Text.ToString());
             entity.Country = Convert.ToInt32(ddlCountry.SelectedValue);
             entity.City = Convert.ToInt32(ddlCity.SelectedValue);
             entity.Area1 = Convert.ToInt32(ddlArea1.SelectedValue);
@@ -299,7 +296,7 @@ public partial class LoginPage_Registration : SiteBasePage
             entity.Email = txtEmailUSer2.Text;
             string pass = txtPasswordUser2.Text;
             string pass2 = txtConformPassUser2.Text;
-            entity.Password = txtPasswordUser2.Text;
+            entity.Password =txtPasswordUser2.Text;
             entity.Country = 0; //Convert.ToInt32(ddlCountry.SelectedValue);
             entity.City = 0; // Convert.ToInt32(ddlCity.SelectedValue);
             entity.Area1 = 0; // Convert.ToInt32(ddlArea1.SelectedValue);
@@ -498,6 +495,19 @@ public partial class LoginPage_Registration : SiteBasePage
 
         }
 
+    }
+
+    protected static string EncryptPass(string pass)
+    {
+
+        var crypt = new SHA256Managed();
+        string hash = String.Empty;
+        byte[] crypto = crypt.ComputeHash(Encoding.UTF8.GetBytes(pass));
+        foreach (byte theByte in crypto)
+        {
+            hash += theByte.ToString("x2");
+        }
+        return hash;
     }
 
     protected void btn_ok_Click(object sender, EventArgs e)

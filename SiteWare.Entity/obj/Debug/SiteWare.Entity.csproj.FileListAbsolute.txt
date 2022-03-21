@@ -34,3 +34,21 @@ D:\KiranTFS2020\Hasan_Git\JepcoPortal\jepco-portal\SiteWare.Entity\bin\Debug\Sit
 D:\KiranTFS2020\Hasan_Git\JepcoPortal\jepco-portal\SiteWare.Entity\obj\Debug\SiteWare.Entity.csproj.CoreCompileInputs.cache
 D:\KiranTFS2020\Hasan_Git\JepcoPortal\jepco-portal\SiteWare.Entity\obj\Debug\SiteWare.Entity.dll
 D:\KiranTFS2020\Hasan_Git\JepcoPortal\jepco-portal\SiteWare.Entity\obj\Debug\SiteWare.Entity.pdb
+D:\Git Project\jepco-portal\SiteWare.Entity\bin\Debug\SiteWare.Entity.dll
+D:\Git Project\jepco-portal\SiteWare.Entity\bin\Debug\SiteWare.Entity.pdb
+D:\Git Project\jepco-portal\SiteWare.Entity\obj\Debug\SiteWare.Entity.csproj.AssemblyReference.cache
+D:\Git Project\jepco-portal\SiteWare.Entity\obj\Debug\SiteWare.Entity.csproj.CoreCompileInputs.cache
+D:\Git Project\jepco-portal\SiteWare.Entity\obj\Debug\SiteWare.Entity.dll
+D:\Git Project\jepco-portal\SiteWare.Entity\obj\Debug\SiteWare.Entity.pdb
+C:\Users\Administrator\Downloads\wetransfer_jepco-portal-rar_2022-02-17_0654\jepco-portal\jepco-portal\SiteWare.Entity\bin\Debug\SiteWare.Entity.dll
+C:\Users\Administrator\Downloads\wetransfer_jepco-portal-rar_2022-02-17_0654\jepco-portal\jepco-portal\SiteWare.Entity\bin\Debug\SiteWare.Entity.pdb
+C:\Users\Administrator\Downloads\wetransfer_jepco-portal-rar_2022-02-17_0654\jepco-portal\jepco-portal\SiteWare.Entity\obj\Debug\SiteWare.Entity.csproj.AssemblyReference.cache
+C:\Users\Administrator\Downloads\wetransfer_jepco-portal-rar_2022-02-17_0654\jepco-portal\jepco-portal\SiteWare.Entity\obj\Debug\SiteWare.Entity.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Downloads\wetransfer_jepco-portal-rar_2022-02-17_0654\jepco-portal\jepco-portal\SiteWare.Entity\obj\Debug\SiteWare.Entity.dll
+C:\Users\Administrator\Downloads\wetransfer_jepco-portal-rar_2022-02-17_0654\jepco-portal\jepco-portal\SiteWare.Entity\obj\Debug\SiteWare.Entity.pdb
+C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\SiteWare.Entity\bin\Debug\SiteWare.Entity.dll
+C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\SiteWare.Entity\bin\Debug\SiteWare.Entity.pdb
+C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\SiteWare.Entity\obj\Debug\SiteWare.Entity.csproj.AssemblyReference.cache
+C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\SiteWare.Entity\obj\Debug\SiteWare.Entity.csproj.CoreCompileInputs.cache
+C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\SiteWare.Entity\obj\Debug\SiteWare.Entity.dll
+C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\SiteWare.Entity\obj\Debug\SiteWare.Entity.pdb

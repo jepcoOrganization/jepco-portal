@@ -111,3 +111,51 @@ D:\KiranTFS2020\Hasan_Git\JepcoPortal\jepco-portal\Siteware.Web\obj\Debug\Sitewa
 D:\KiranTFS2020\Hasan_Git\JepcoPortal\jepco-portal\Siteware.Web\obj\Debug\Siteware.Web.csproj.CopyComplete
 D:\KiranTFS2020\Hasan_Git\JepcoPortal\jepco-portal\Siteware.Web\obj\Debug\Siteware.Web.dll
 D:\KiranTFS2020\Hasan_Git\JepcoPortal\jepco-portal\Siteware.Web\obj\Debug\Siteware.Web.pdb
+D:\Git Project\jepco-portal\Siteware.Web\bin\Siteware.Web.dll.config
+D:\Git Project\jepco-portal\Siteware.Web\bin\Siteware.Web.dll
+D:\Git Project\jepco-portal\Siteware.Web\bin\Siteware.Web.pdb
+D:\Git Project\jepco-portal\Siteware.Web\bin\IZ.WebFileManager.dll
+D:\Git Project\jepco-portal\Siteware.Web\bin\Newtonsoft.Json.dll
+D:\Git Project\jepco-portal\Siteware.Web\bin\SiteWare.DataAccess.dll
+D:\Git Project\jepco-portal\Siteware.Web\bin\SiteWare.Domain.dll
+D:\Git Project\jepco-portal\Siteware.Web\bin\SiteWare.Entity.dll
+D:\Git Project\jepco-portal\Siteware.Web\bin\SiteWare.DataAccess.pdb
+D:\Git Project\jepco-portal\Siteware.Web\bin\SiteWare.Domain.pdb
+D:\Git Project\jepco-portal\Siteware.Web\bin\SiteWare.Entity.pdb
+D:\Git Project\jepco-portal\Siteware.Web\obj\Debug\Siteware.Web.csproj.AssemblyReference.cache
+D:\Git Project\jepco-portal\Siteware.Web\obj\Debug\Siteware.Web.csproj.CoreCompileInputs.cache
+D:\Git Project\jepco-portal\Siteware.Web\obj\Debug\Siteware.Web.csproj.CopyComplete
+D:\Git Project\jepco-portal\Siteware.Web\obj\Debug\Siteware.Web.dll
+D:\Git Project\jepco-portal\Siteware.Web\obj\Debug\Siteware.Web.pdb
+C:\Users\Administrator\Downloads\wetransfer_jepco-portal-rar_2022-02-17_0654\jepco-portal\jepco-portal\Siteware.Web\bin\Siteware.Web.dll.config
+C:\Users\Administrator\Downloads\wetransfer_jepco-portal-rar_2022-02-17_0654\jepco-portal\jepco-portal\Siteware.Web\bin\Siteware.Web.dll
+C:\Users\Administrator\Downloads\wetransfer_jepco-portal-rar_2022-02-17_0654\jepco-portal\jepco-portal\Siteware.Web\bin\Siteware.Web.pdb
+C:\Users\Administrator\Downloads\wetransfer_jepco-portal-rar_2022-02-17_0654\jepco-portal\jepco-portal\Siteware.Web\bin\IZ.WebFileManager.dll
+C:\Users\Administrator\Downloads\wetransfer_jepco-portal-rar_2022-02-17_0654\jepco-portal\jepco-portal\Siteware.Web\bin\Newtonsoft.Json.dll
+C:\Users\Administrator\Downloads\wetransfer_jepco-portal-rar_2022-02-17_0654\jepco-portal\jepco-portal\Siteware.Web\bin\SiteWare.DataAccess.dll
+C:\Users\Administrator\Downloads\wetransfer_jepco-portal-rar_2022-02-17_0654\jepco-portal\jepco-portal\Siteware.Web\bin\SiteWare.Domain.dll
+C:\Users\Administrator\Downloads\wetransfer_jepco-portal-rar_2022-02-17_0654\jepco-portal\jepco-portal\Siteware.Web\bin\SiteWare.Entity.dll
+C:\Users\Administrator\Downloads\wetransfer_jepco-portal-rar_2022-02-17_0654\jepco-portal\jepco-portal\Siteware.Web\bin\SiteWare.DataAccess.pdb
+C:\Users\Administrator\Downloads\wetransfer_jepco-portal-rar_2022-02-17_0654\jepco-portal\jepco-portal\Siteware.Web\bin\SiteWare.Domain.pdb
+C:\Users\Administrator\Downloads\wetransfer_jepco-portal-rar_2022-02-17_0654\jepco-portal\jepco-portal\Siteware.Web\bin\SiteWare.Entity.pdb
+C:\Users\Administrator\Downloads\wetransfer_jepco-portal-rar_2022-02-17_0654\jepco-portal\jepco-portal\Siteware.Web\obj\Debug\Siteware.Web.csproj.AssemblyReference.cache
+C:\Users\Administrator\Downloads\wetransfer_jepco-portal-rar_2022-02-17_0654\jepco-portal\jepco-portal\Siteware.Web\obj\Debug\Siteware.Web.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Downloads\wetransfer_jepco-portal-rar_2022-02-17_0654\jepco-portal\jepco-portal\Siteware.Web\obj\Debug\Siteware.Web.csproj.CopyComplete
+C:\Users\Administrator\Downloads\wetransfer_jepco-portal-rar_2022-02-17_0654\jepco-portal\jepco-portal\Siteware.Web\obj\Debug\Siteware.Web.dll
+C:\Users\Administrator\Downloads\wetransfer_jepco-portal-rar_2022-02-17_0654\jepco-portal\jepco-portal\Siteware.Web\obj\Debug\Siteware.Web.pdb
+C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\Siteware.Web\bin\Siteware.Web.dll.config
+C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\Siteware.Web\bin\Siteware.Web.dll
+C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\Siteware.Web\bin\Siteware.Web.pdb
+C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\Siteware.Web\bin\IZ.WebFileManager.dll
+C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\Siteware.Web\bin\Newtonsoft.Json.dll
+C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\Siteware.Web\bin\SiteWare.DataAccess.dll
+C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\Siteware.Web\bin\SiteWare.Domain.dll
+C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\Siteware.Web\bin\SiteWare.Entity.dll
+C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\Siteware.Web\bin\SiteWare.DataAccess.pdb
+C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\Siteware.Web\bin\SiteWare.Domain.pdb
+C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\Siteware.Web\bin\SiteWare.Entity.pdb
+C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\Siteware.Web\obj\Debug\Siteware.Web.csproj.AssemblyReference.cache
+C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\Siteware.Web\obj\Debug\Siteware.Web.csproj.CoreCompileInputs.cache
+C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\Siteware.Web\obj\Debug\Siteware.Web.csproj.CopyComplete
+C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\Siteware.Web\obj\Debug\Siteware.Web.dll
+C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\Siteware.Web\obj\Debug\Siteware.Web.pdb

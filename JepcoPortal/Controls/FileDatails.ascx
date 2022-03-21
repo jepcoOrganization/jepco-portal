@@ -59,7 +59,7 @@
 
                     <div class="counterinfo1">
                         <div class="col-xs-12 col-sm-12 col-md-12">
-                            <p class="counter_new1">رقم العداد </p>
+                            <p class="counter_new1">رقم الملف </p>
                         </div>
                     </div>
                     <div class="counterinfo2">
@@ -82,7 +82,7 @@
 
                 <div class="newcounter4">
 
-                    <p><strong>رقم العداد  <span>
+                    <p><strong>رقم الملف  <span>
                         <label class="LTR" id="lblFileNo"></label>
                     </span></strong></p>
                     <div class="row">
@@ -132,7 +132,7 @@
 
 
             <div class="canvasdiv canvasdivDetails" id="myCanvasDivDetails">
-                <canvas id="ctx" width="1000" height="250"></canvas>
+                <canvas id="ctx" width="925" height="250"></canvas>
             </div>
 
 
@@ -427,8 +427,9 @@
         var ALLGraphdata = [];
         var MobileNoURL = $("#hdnmobileno").val();
         var apiConfiguUrl = '<%= System.Configuration.ConfigurationManager.AppSettings["MobileAPIurl"].ToString() %>';
-        var GetFileNo = $("#ContentPlaceHolder1_ctl00_hdnFileNAme").val();
+        var APIUrl = '<%= System.Configuration.ConfigurationManager.AppSettings["APIurl"].ToString() %>';
 
+        var GetFileNo = $("#ContentPlaceHolder1_ctl00_hdnFileNAme").val();
 
 
         var months = ["يناير", "فبراير", "مارس", "إبريل", "مايو", "يونيو",
@@ -446,66 +447,76 @@
         function callFirstload() {
 
 
-
-
-            var ApiURLhistory = apiConfiguUrl + "history/" + MobileNoURL;
-            var callURl = ApiURLhistory + "/" + GetFileNo;
-
-            var ApiURLStatus = apiConfiguUrl + "statement/" + MobileNoURL;
-            var callStatusURl = ApiURLStatus + "/" + GetFileNo;
-
+            
             $("#lblFileNo").text(GetFileNo);
-
-
             $.ajax({
-                type: "GET",
-                //contentType: "application/json; charset=utf-8",
-                url: callURl,
+
+                type: "POST",
+                url: APIUrl + "MobileBills/GetBills",
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("MiddlewareToken"));
+                },
+                data: JSON.stringify({
+                    FileNumber: GetFileNo,
+                    LanguageId: "AR"
+                }),
+                contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 async: false,
                 success: function (data) {
-
-                    if (data.status == "success") {
-                        // console.log(data);
-                        var CostsName = data.body.fileNumberInfo.mConsumerName;
+                    if (data.statusCode == "Success") {
+                        var CostsName = data.body.billsHeader.firstName; 
 
 
-
-                        $("#lblUnpaidAmount").text(parseFloat(data.body.fileNumberInfo.mConBalance));
-                        $("#lblUnpaidBills").text(parseFloat(data.body.unpaidBills.length));
-
+                        var amount = 0
+                        //$("#lblUnpaidAmount").text(parseFloat(data.body.fileNumberInfo.mConBalance));
+                        for (var i = 0; i < data.body.allBillsDetails.length;i++)
+                            amount += parseFloat(data.body.allBillsDetails[i].unClearingAmount);
+                        $("#lblUnpaidAmount").text(parseFloat(data.body.allBillsDetails.totalBillAmount));
+                        $("#lblUnpaidAmount").text(amount);
+                        $("#lblUnpaidBills").text(parseFloat(data.body.unClearedBillsDetails.length));
 
                         $("#CostName").text(CostsName);
-                        var FileSectionType = data.body.allBills[0].billHTMLData.values[3];
-                        var FileArea = data.body.allBills[0].billHTMLData.values[1];
+                        //var FileSectionType = data.body.allBills[0].billHTMLData.values[3];
+                        var FileSectionType = data.body.billsHeader.subscriptionDescription; 
+                        //var FileArea = data.body.allBills[0].billHTMLData.values[1];
+                        var FileArea = data.body.billsHeader.officeDescription; 
                         $("#lblFileArea").text(FileArea); //Area
                         $("#lblfileSectiontype").text(FileSectionType); //Section
 
-                        var AllBills = data.body.allBills;
-                        var AllPaidBill = data.body.paidBills;
-                        var AllUnPaidBill = data.body.unpaidBills;
+                        //var AllBills = data.body.allBills;
+                        var AllBills = data.body.allBillsDetails; 
 
-                        //console.log(AllBills);
-                        //console.log(AllPaidBill);
-                        //console.log(AllUnPaidBill);
+                        var AllPaidBill = data.body.clearedBillsDetails;
+                        var AllUnPaidBill = data.body.unClearedBillsDetails;
 
 
 
 
                         $.each(AllBills, function (key, value) {
 
-
-                            if (value.consumptionQty > 0) {
+                            if (value.ibillingQuantity > 0) {
 
                                 var FileData = {};
+                                var PaidStatu;
+                                var BillValue;
+                                var BillNo = value.billPeriod;
+                                BillNo = BillNo.replace(/[^a-zA-Z0-9]/g, '');
+                                var ConsQty = value.ibillingQuantity;
 
-                                var BillNo = value.billNo;
-                                var ConsQty = value.consumptionQty;
-                                var PaidStatu = value.status;
-                                var BillValue = value.billValue;
-                                var BillDates = value.readDate;
+                                if (value.clearingAmount != "0.000") {
+                                    BillValue = value.clearingAmount;
+                                } else {
+                                    BillValue = 0
+                                }
+                                 
+                                var BillDates = value.billPeriod;
                                 var FileNo = value.fileNumber;
-                                var PaymentDate = value.paidDate;
+                                var PaymentDate = value.clearingDate;
+                                if (PaymentDate !== "0000/00/00")
+                                    PaidStatu = 1;
+                                else
+                                    PaidStatu = 0;
 
                                 FileData.billNo = BillNo;
                                 FileData.consumptionQty = ConsQty;
@@ -515,6 +526,7 @@
                                 FileData.fileNumber = FileNo;
                                 FileData.paidDate = PaymentDate;
                                 AllFileBill.push(FileData);
+
                             }
 
 
@@ -524,16 +536,27 @@
                         $.each(AllPaidBill, function (key, value) {
 
 
-                            if (value.consumptionQty > 0) {
+                            if (value.ibillingQuantity > 0) {
                                 var FileData = {};
+                                var PaidStatu;
 
-                                var BillNo = value.billNo;
-                                var ConsQty = value.consumptionQty;
-                                var PaidStatu = value.status;
-                                var BillValue = value.billValue;
-                                var BillDates = value.readDate;
+                                var BillNo = value.billPeriod;
+                                BillNo = BillNo.replace(/[^a-zA-Z0-9]/g, '');
+                                var ConsQty = value.ibillingQuantity;
+     
+                                var BillValue;
+                                if (value.clearingAmount != "0.000") {
+                                    BillValue = value.clearingAmount;
+                                } else {
+                                    BillValue = 0
+                                }
+                                var BillDates = value.billPeriod;
                                 var FileNo = value.fileNumber;
-                                var PaymentDate = value.paidDate;
+                                var PaymentDate = value.clearingDate;
+                                if (PaymentDate !== "0000/00/00")
+                                    PaidStatu = 1;
+                                else
+                                    PaidStatu = 0;
 
                                 FileData.billNo = BillNo;
                                 FileData.consumptionQty = ConsQty;
@@ -543,6 +566,7 @@
                                 FileData.fileNumber = FileNo;
                                 FileData.paidDate = PaymentDate;
                                 AllFileBill.push(FileData);
+
                             }
 
 
@@ -550,17 +574,35 @@
 
                         $.each(AllUnPaidBill, function (key, value) {
 
-                            if (value.consumptionQty > 0) {
+                            if (value.ibillingQuantity > 0) {
 
                                 var FileData = {};
+                                var PaidStatu;
 
-                                var BillNo = value.billNo;
-                                var ConsQty = value.consumptionQty;
-                                var PaidStatu = value.status;
-                                var BillValue = value.billValue;
-                                var BillDates = value.readDate;
+                                //var BillNo = value.billNo;
+                                //var ConsQty = value.consumptionQty;
+                                //var PaidStatu = value.status;
+                                //var BillValue = value.billValue;
+                                //var BillDates = value.readDate;
+                                //var FileNo = value.fileNumber;
+                                //var PaymentDate = value.paidDate;
+                                var BillNo = value.billPeriod;
+                                BillNo = string.BillNo(/[^a-zA-Z0-9]/g, '');
+                                var ConsQty = value.ibillingQuantity;
+
+                                var BillValue ;
+                                if (value.clearingAmount != "0.000") {
+                                    BillValue = value.clearingAmount;
+                                } else {
+                                    BillValue = value.unClearingAmount
+                                }
+                                var BillDates = value.billPeriod;
                                 var FileNo = value.fileNumber;
-                                var PaymentDate = value.paidDate;
+                                var PaymentDate = value.clearingDate;
+                                if (PaymentDate !== "0000/00/00")
+                                    PaidStatu = 1;
+                                else
+                                    PaidStatu = 0;
 
                                 FileData.billNo = BillNo;
                                 FileData.consumptionQty = ConsQty;
@@ -587,21 +629,35 @@
                 }
             });
 
-
+            debugger
             $.ajax({
-                type: "GET",
-                //contentType: "application/json; charset=utf-8",
-                url: callStatusURl,
+                //type: "GET",
+                ////contentType: "application/json; charset=utf-8",
+                //url: callStatusURl,
+                //dataType: "json",
+                //async: false,
+                //success: function (data) {
+                //    console.log("now : ",data)
+                //    if (data.status == "success") {
+                type: "POST",
+                url: APIUrl + "MobileBills/GetBills",
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("MiddlewareToken"));
+                },
+                data: JSON.stringify({
+                    FileNumber: GetFileNo,
+                    LanguageId: "AR"
+                }),
+                contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 async: false,
                 success: function (data) {
-
-                    if (data.status == "success") {
-                        // console.log(data);
-
-                        var mReceivables = data.body.accountStatementInfo.mTotalReceivables;
+                    if (data.statusCode == "Success") {
+                        var amount = 0
+                        for (var i = 0; i < data.body.allBillsDetails.length; i++)
+                            amount += parseFloat(data.body.allBillsDetails[i].unClearingAmount);
+                        var mReceivables = amount;
                         $("#lblmTotalReceivabales").text(mReceivables);
-
                     }
                     else {
                         Fillstatus = "error";
@@ -629,13 +685,11 @@
 
             // Declare an empty object 
             let uniqueObject = {};
-
             // Loop for the array elements 
             for (let i in AllFileBill) {
 
                 // Extract the title 
                 objTitle = AllFileBill[i]['billNo'];
-
                 // Use the title as the index 
                 uniqueObject[objTitle] = AllFileBill[i];
             }
@@ -656,10 +710,9 @@
 
             var HTMLUL = "<ul class='list-unstyled'>";
             var HtmlLIContaint = "";
-            newArray.reverse();
+/*            newArray.reverse();*/
             var GraphMonthLoop = 1;
             $.each(newArray, function (key, value) {
-
 
                 var HtmlLi = "<li>";
                 var HtmlRow = "<div class='row'>";
@@ -684,10 +737,10 @@
                 var ThirdDiv = "<div class='col-xs-6 col-sm-6 col-md-2'><h4>الاستهلاك KW</h4><span class='LTR'>KW " + value.consumptionQty + "</span></div>";
                 var FourthDiv = "<div class='col-xs-6 col-sm-6 col-md-2'><h4>القيمة المطلوبة</h4><span><strong>" + value.billValue + "</strong> دينار</span></div>";
                 var FiveDiv = "<div class='col-xs-6 col-sm-6 col-md-1'><h4>تاريخ الدفع</h4><span><strong style='font-family:TimesNewRoman,Times,serif;'>" + FileThisDate + "</strong></span>  </div>";
-                var SixNewDiv = "<div class='col-xs-6 col-sm-6 col-md-1'><h4>تاريخ الدفع</h4> <a href='#' data-billnos=" + value.billNo + " data-amount=" + value.billValue + "  class='Paymentcls'  > pay </a > </div>";
+                //var SixNewDiv = "<div class='col-xs-6 col-sm-6 col-md-1'><h4>تاريخ الدفع</h4> <a href='#' data-billnos=" + value.billNo + " data-amount=" + value.billValue + "  class='Paymentcls'  > pay </a > </div>";
                 var EndHtmlRow = "</div>";
                 var EndHtmlLi = "</li>";
-                var thisLi = HtmlLi + HtmlRow + FirstDiv + SecondDiv + ThirdDiv + FourthDiv + StatusDiv + FiveDiv + SixNewDiv + EndHtmlRow + EndHtmlLi;
+                var thisLi = HtmlLi + HtmlRow + FirstDiv + SecondDiv + ThirdDiv + FourthDiv + StatusDiv + FiveDiv  + EndHtmlRow + EndHtmlLi;
                 HtmlLIContaint = HtmlLIContaint + thisLi;
 
 
@@ -756,14 +809,13 @@
                 }
             }
 
-            console.log(ALLGraphdata);
 
             ALLGraphdata.reverse();
 
 
             //-------------------------------------------------------
             $('#ctx').remove(); // this is my <canvas> element
-            $('#myCanvasDivDetails').append(' <canvas id="ctx" width="1000" height="250"></canvas>');
+            $('#myCanvasDivDetails').append(' <canvas id="ctx" width="925" height="250"></canvas>');
 
             var chart = new Chart(ctx, {
                 type: 'bar',
@@ -836,95 +888,90 @@
             var AllFileForGraph = "";
             var ApiURLprofile = apiConfiguUrl + "profile/" + MobileNoURL;
             var DesingAllFileForGraph = "";
-
             $.ajax({
-                type: "GET",
-                //contentType: "application/json; charset=utf-8",
-                //url: "https://mobile.jepco.com.jo:8443/JepcoMobApiProd/profile/+962790121435",    
-                url: ApiURLprofile,
-                dataType: "json",
-                async: false,
+                type: "POST",
+                url: APIUrl + "CustomerInfo/GetCustomerInfoDataForWebsite",
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("MiddlewareToken"));
+                },
+                data: JSON.stringify({
+                    MobileNumber: MobileNoURL,
+                    LanguageId: "AR"
+                }),
+                contentType: "application/json; charset=utf-8",
                 success: function (data) {
-                    //console.log(data);
-                    //console.log(data.body.customerSubAccountList);
-
-                    //console.log(data.body.customerSubAccountList[0]);
+                        DesingAllFileForGraph = "";
+                        var GetAllFile = data.body.customerInfoResult.customerInformationDetails;
 
 
+                        var tab_Pop = "<div class='tab-content'>";
+                        var StringUI123_pop = "<ul class='list-unstyled'>";
+                        var HtmlScroolingdivHRD_pop = "<div class='content demo-y'>";
+                        var ENDHtmlScroolingdivHRD123_pop = "</div>";
+                        var EndStringUI123_pop = "</ul>";
+                        var ENDtab_Pop = "</div>";
 
-                    DesingAllFileForGraph = "";
-                    var GetAllFile = data.body.customerSubAccountList;
+                        $.each(GetAllFile, function (key, value) {
 
+                            var fileNumber = value.fileNumber;
+                            var alias = value.aliasName;
 
-                    var tab_Pop = "<div class='tab-content'>";
-                    var StringUI123_pop = "<ul class='list-unstyled'>";
-                    var HtmlScroolingdivHRD_pop = "<div class='content demo-y'>";
-                    var ENDHtmlScroolingdivHRD123_pop = "</div>";
-                    var EndStringUI123_pop = "</ul>";
-                    var ENDtab_Pop = "</div>";
+                            var HTMLLI_pop = "<li>";
+                            var HTMLDiv1_pop = "<div><strong>التعريف</strong><span >" + alias + "</span></div>";
+                            var HTMLDiv2_pop = "<div><strong> الرقم المرجعي</strong><p> " + fileNumber + " </p></div>"
 
-                    $.each(GetAllFile, function (key, value) {
+                            //var HTMLa_pop = "<a href='#' data-filename=" + fileNumber + " class='fileGraphChangecls' >عرض التفاصيل </a >";
+                            var HTMLa_pop = "<a href='#' data-filename=" + fileNumber + " class='changeFileData' >عرض التفاصيل </a >";
+                            var EndHTMLLI_pop = "</li>";
 
-                        var fileNumber = value.fileNumber;
-                        var alias = value.alias;
+                            var HTMLmyFileName = HTMLLI_pop + HTMLDiv1_pop + HTMLDiv2_pop + HTMLa_pop + EndHTMLLI_pop;
 
-                        var HTMLLI_pop = "<li>";
-                        var HTMLDiv1_pop = "<div><strong>التعريف</strong><span >" + alias + "</span></div>";
-                        var HTMLDiv2_pop = "<div><strong> الرقم المرجعي</strong><p> " + fileNumber + " </p></div>"
-
-                        //var HTMLa_pop = "<a href='#' data-filename=" + fileNumber + " class='fileGraphChangecls' >عرض التفاصيل </a >";
-                        var HTMLa_pop = "<a href='#' data-filename=" + fileNumber + " class='changeFileData' >عرض التفاصيل </a >";
-                        var EndHTMLLI_pop = "</li>";
-
-                        var HTMLmyFileName = HTMLLI_pop + HTMLDiv1_pop + HTMLDiv2_pop + HTMLa_pop + EndHTMLLI_pop;
-
-                        AllFileForGraph = AllFileForGraph + HTMLmyFileName;
-                        // AllFileForGraph = AllFileForGraph + HTMLmyFileName;
+                            AllFileForGraph = AllFileForGraph + HTMLmyFileName;
+                            // AllFileForGraph = AllFileForGraph + HTMLmyFileName;
 
 
 
-                    });
+                        });
 
 
 
-                    DesingAllFileForGraph = tab_Pop + StringUI123_pop + HtmlScroolingdivHRD_pop + AllFileForGraph + ENDHtmlScroolingdivHRD123_pop + EndStringUI123_pop + ENDtab_Pop;
-                    //console.log("Last Array Data " + AllcustomerSubAccountList);
-                    $('#filegraph').empty();
-                    $("#filegraph").append(DesingAllFileForGraph);
+                        DesingAllFileForGraph = tab_Pop + StringUI123_pop + HtmlScroolingdivHRD_pop + AllFileForGraph + ENDHtmlScroolingdivHRD123_pop + EndStringUI123_pop + ENDtab_Pop;
+                        //console.log("Last Array Data " + AllcustomerSubAccountList);
+                        $('#filegraph').empty();
+                        $("#filegraph").append(DesingAllFileForGraph);
 
-                    //----------------------------------------------------------
+                        //----------------------------------------------------------
 
-                    //alert("call Scroll 2");
+                        //alert("call Scroll 2");
 
-                    $.mCustomScrollbar.defaults.theme = "light-2"; //set "light-2" as the default theme
+                        $.mCustomScrollbar.defaults.theme = "light-2"; //set "light-2" as the default theme
 
-                    $(".demo-y").mCustomScrollbar();
+                        $(".demo-y").mCustomScrollbar();
 
-                    $(".demo-x").mCustomScrollbar({
-                        axis: "x",
-                        advanced: { autoExpandHorizontalScroll: true }
-                    });
+                        $(".demo-x").mCustomScrollbar({
+                            axis: "x",
+                            advanced: { autoExpandHorizontalScroll: true }
+                        });
 
-                    $(".demo-yx").mCustomScrollbar({
-                        axis: "yx"
-                    });
+                        $(".demo-yx").mCustomScrollbar({
+                            axis: "yx"
+                        });
 
-                    $(".scrollTo a").click(function (e) {
-                        e.preventDefault();
-                        var $this = $(this),
-                            rel = $this.attr("rel"),
-                            el = rel === "content-y" ? ".demo-y" : rel === "content-x" ? ".demo-x" : ".demo-yx",
-                            data = $this.data("scroll-to"),
-                            href = $this.attr("href").split(/#(.+)/)[1],
-                            to = data ? $(el).find(".mCSB_container").find(data) : el === ".demo-yx" ? eval("(" + href + ")") : href,
-                            output = $("#info > p code"),
-                            outputTXTdata = el === ".demo-yx" ? data : "'" + data + "'",
-                            outputTXThref = el === ".demo-yx" ? href : "'" + href + "'",
-                            outputTXT = data ? "$('" + el + "').find('.mCSB_container').find(" + outputTXTdata + ")" : outputTXThref;
-                        $(el).mCustomScrollbar("scrollTo", to);
-                        output.text("$('" + el + "').mCustomScrollbar('scrollTo'," + outputTXT + ");");
-                    });
-
+                        $(".scrollTo a").click(function (e) {
+                            e.preventDefault();
+                            var $this = $(this),
+                                rel = $this.attr("rel"),
+                                el = rel === "content-y" ? ".demo-y" : rel === "content-x" ? ".demo-x" : ".demo-yx",
+                                data = $this.data("scroll-to"),
+                                href = $this.attr("href").split(/#(.+)/)[1],
+                                to = data ? $(el).find(".mCSB_container").find(data) : el === ".demo-yx" ? eval("(" + href + ")") : href,
+                                output = $("#info > p code"),
+                                outputTXTdata = el === ".demo-yx" ? data : "'" + data + "'",
+                                outputTXThref = el === ".demo-yx" ? href : "'" + href + "'",
+                                outputTXT = data ? "$('" + el + "').find('.mCSB_container').find(" + outputTXTdata + ")" : outputTXThref;
+                            $(el).mCustomScrollbar("scrollTo", to);
+                            output.text("$('" + el + "').mCustomScrollbar('scrollTo'," + outputTXT + ");");
+                        });
                     //--------------------------------------------------------
                 },
                 error: function (result) {
@@ -932,21 +979,22 @@
                 }
             });
 
-
-
-            //$("#filegraph").append(AllFileForGraph); 
-            $('#myModalForFileGraph').modal('show');
-
             $(".changeFileData").click(function () {
                 AllFileBill = [];
                 ALLGraphdata = [];
                 $('#MyAllFiles').empty();
-                var filename = $(this).data("filename");
+                //var filename = $(this).data("filename");
+                var filename = $('.changeFileData').attr('data-filename');
+                console.log("hehe : ", filename)
                 GetFileNo = filename;
 
                 callFirstload();
                 $('#myModalForFileGraph').modal('hide');
             });
+
+            //$("#filegraph").append(AllFileForGraph); 
+            $('#myModalForFileGraph').modal('show');
+
 
 
         });
@@ -1068,7 +1116,7 @@
 
 </style>
 
- <script>
+ <script type="text/javascript">
      $("document").ready(function () {
 
          $(".Paymentcls").click(function () {

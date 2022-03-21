@@ -59,7 +59,6 @@
 
                                 <fieldset>
                                     <div class="step_form">
-
                                         <div class="row">
                                             <div class="col-lg-12 col-md-12 col-sm-12">
                                                 <div class="form-group">
@@ -124,7 +123,7 @@
                                                                 <%--<asp:DropDownList ID="ddlNAtionalityUser2" runat="server" class="chzn-select">
                                                                 </asp:DropDownList>--%>
                                                                 <asp:TextBox runat="server" ID="txtNAtionalityUser2" placeholder="الرقم الوطني للمنشأة" ClientIDMode="Static" CssClass="user"></asp:TextBox>
-                                                                
+
 
                                                             </div>
                                                         </div>
@@ -546,7 +545,7 @@
                                 <span class="fieldlabels">الرجاء تحميل السيرة الذاتية بنوع doc  أو docx  أو pdf  وبحجم أقصى 2 ميجابايت</span>--%>
                                                     </div>
 
-                                                   <%--  <label class="fieldlabels">السجل التجاري للشركة</label>
+                                                    <%--  <label class="fieldlabels">السجل التجاري للشركة</label>
                                                     <label for="fileuploadfield_3" class="custom-file-upload fieldlabels">
                                                         اختيار الملف
                                                     </label>
@@ -561,14 +560,14 @@
 
                                                     <div class="file-upload">
                                                         <label for="fileuploadfield_2" class="custom-file-upload fieldlabels">
-                                                          صورة عن ترخيص الشركة
+                                                            صورة عن ترخيص الشركة
                                    
                                                         </label>
                                                         <input id="fileuploadfield_2" name="fileuploadfield_2" type="file" class="demoInputBox" />
                                                         <span class="file-select">No file selected</span>
                                                         <br />
                                                         <span id="file_error2" style="color: red"></span>
-                                                      
+
                                                     </div>
 
                                                     <%-- <label class="fieldlabels">صورة عن ترخيص الشركة</label>
@@ -670,7 +669,7 @@
             BackgroundCssClass="modalBackground" PopupControlID="panelInquiry"
             CancelControlID="btnClose">
         </cc1:ModalPopupExtender>
-        <asp:Panel ID="panelInquiry" runat="server" CssClass="modalPopup d_model_popup l_modelpopup welcome in" Style="display: none; position: fixed; top: 0px; right: 0px; bottom: 0px; left: 0.5px; z-index: 1000001; overflow: hidden; outline: 0px;background:rgb(194 194 194 / 72%);">
+        <asp:Panel ID="panelInquiry" runat="server" CssClass="modalPopup d_model_popup l_modelpopup welcome in" Style="display: none; position: fixed; top: 0px; right: 0px; bottom: 0px; left: 0.5px; z-index: 1000001; overflow: hidden; outline: 0px; background: rgb(194 194 194 / 72%);">
             <div class="modal-dialog modal-md">
                 <!-- Modal content-->
                 <div class="modal-content">
@@ -711,6 +710,34 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script type="text/javascript" src="/Scripts/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+
+        <%-- Call Api Url And Token Middleware --%>
+        <script>
+            // Global Varibale :
+            var APIUrl = '<%= System.Configuration.ConfigurationManager.AppSettings["APIurl"].ToString() %>';
+            var userNameMiddlewareToken = '<%= System.Configuration.ConfigurationManager.AppSettings["usernameMiddleware"].ToString() %>';
+            var passwordMiddlewareToken = '<%= System.Configuration.ConfigurationManager.AppSettings["passwordMiddleware"].ToString() %>';
+            var MiddlewareToken = "";
+            $.ajax({
+                url: APIUrl + 'LoginController/Login',
+                type: 'POST',
+                data: JSON.stringify(
+                    {
+                        username: userNameMiddlewareToken,
+                        password: passwordMiddlewareToken
+                    }),
+                dataType: "json",
+                contentType:"application/json",
+                async: false,
+                success: function (res) {
+                    MiddlewareToken = res.body.token;
+                    localStorage.setItem("MiddlewareToken", MiddlewareToken);
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+            });
+        </script>
         <script type="text/javascript">
             $(document).ready(function () {
                 jQuery(".Dateeee").datepicker();
@@ -1385,11 +1412,11 @@
 
                         $('#<%= txtNAtionalityUser2.ClientID %>').css('border', 'none');
                         ValNAtionalUSer2 = true;
-                      }
-                      else {
+                    }
+                    else {
 
-                          $('#<%= txtNAtionalityUser2.ClientID %>').css('border', '1px solid red');
-                      }
+                        $('#<%= txtNAtionalityUser2.ClientID %>').css('border', '1px solid red');
+                    }
 
 
                     if ($('#<%= ddlCompanyClassification.ClientID %> option:selected').val() == "0") {
@@ -1561,7 +1588,7 @@
                             $("#lblMobileErrorUSer2").css("display", "block");
                             $("#lblMobileErrorUSer2").css("color", "red");
                         }
-                        
+
                         else {
                             var mobile_pattern = /^[1-9]{1}[0-9]+/;
                             if (mobiles.match(mobile_pattern)) {
@@ -1682,21 +1709,36 @@
 
                 debugger;
                 if (SelectedUserValidation == 1) {
+                    // tess
 
-                    var APIF_Name = $("#txtFirstName").val(); //$('#<%=txtFirstName.ClientID %>').val();
-                    var APIl_Name = $("#txtFamilyName").val(); // $('#<%=txtFirstName.ClientID %>').val();
-                    var APImobileNumbers = $("#txtMobileNo").val();      //$('#<%=txtMobileNo.ClientID %>').val();
-                    var APIemails = $("#txtEmail").val(); //$('#<%=txtEmail.ClientID %>').val();
-                    var APInationalNumbers = "0";
+                   
+                    var APIF_Name = $("#txtFirstName").val(); // First Name
+                    var APIl_Name = $("#txtFamilyName").val(); // Last Name
+                    var APImobileNumbers = $("#txtMobileNo").val(); // Mobile Number     
+                    var APIemails = $("#txtEmail").val(); // Email 
+                    var APInationalId = $("#txtIDNumber").val(); // NationalId
+                    var APINationalityID = $('#ddlNAtionality').find(":selected").val(); // اردني او اخرى
+
+                    console.log(APINationalityID);
+                    var APIIntegrationType = 1; // from wb site
+                    var LanguageId = "AR"; // default 
 
                     $.ajax({
                         type: "POST",
                         contentType: "application/json; charset=utf-8",
-                        //url: "https://mobile.jepco.com.jo:8443/JepcoMobApiProd/profile/newCreate",
-                        url: "http://217.144.0.219:8080/JepcoMobApiProd/profile/newCreate",
-
-                        // data: JSON.stringify({ alias: 'myATest', fileNumber: '0110892277693', mobileNumber: '+962790121435' }),
-                        data: JSON.stringify({ firstName: APIF_Name, lastName: APIl_Name, mobileNumber: APImobileNumbers, email: APIemails, nationalNumber: APInationalNumbers }),
+                        url: APIUrl + "CustomerInfo/AddCustomerInfo",
+                        beforeSend: function (xhr) {
+                            xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("MiddlewareToken"));
+                        },
+                        data: JSON.stringify(
+                            {
+                                MobileNumber: APImobileNumbers, FirstName: APIF_Name,
+                                LastName: APIl_Name, Email: APIemails,
+                                NationalityID: APINationalityID,
+                                NationalId: APInationalId,
+                                IntegrationType: APIIntegrationType,
+                                LanguageId: LanguageId
+                            }),
                         dataType: "json",
                         async: false,
                         success: function (data) {
@@ -1779,22 +1821,22 @@
 
                         if ($('#<%= txtQualificationDate.ClientID %>').val().trim() != "") {
 
-                             var regex = /^(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d$/;
-                             if (!regex.test($('#<%= txtQualificationDate.ClientID %>').val())) {
-                        $('#<%= txtQualificationDate.ClientID %>').css('border', '1px solid red');
+                            var regex = /^(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d$/;
+                            if (!regex.test($('#<%= txtQualificationDate.ClientID %>').val())) {
+                                $('#<%= txtQualificationDate.ClientID %>').css('border', '1px solid red');
 
-                    } else {
-                        $('#<%= txtQualificationDate.ClientID %>').css('border', 'none');
-                        ValQualificationDate = true;
+                             } else {
+                                 $('#<%= txtQualificationDate.ClientID %>').css('border', 'none');
+                                ValQualificationDate = true;
+                            }
+                        }
+                        else {
+                            $('#<%= txtQualificationDate.ClientID %>').css('border', '1px solid red');
+                        }
                     }
-                }
-                else {
-                    $('#<%= txtQualificationDate.ClientID %>').css('border', '1px solid red');
-                         }
-                     }
-                     else {
-                         $('#<%= txtQualificationDate.ClientID %>').css('border', '1px solid red');
-                     }
+                    else {
+                        $('#<%= txtQualificationDate.ClientID %>').css('border', '1px solid red');
+                    }
 
                     debugger;
                     if (FileUpload1 == true && FileUpload2 == true && ValQualificationDate == true) {
@@ -1804,7 +1846,7 @@
                         var APIemails = $("#txtEmailUSer2").val(); //$('#<%=txtEmail.ClientID %>').val();
                         var APInationalNumbers = "0";
 
-                        
+
 
                         //$.ajax({
                         //    type: "POST",
@@ -2363,9 +2405,9 @@
                 right: 15px;
             }
 
-            .custom-file-upload {  
-    padding: 16px 5px;    
-}
+            .custom-file-upload {
+                padding: 16px 5px;
+            }
         </style>
 
         <style>
@@ -2481,7 +2523,7 @@
 
             });--%>
 
-</script>
+        </script>
 
         <script>
             $("document").ready(function () {

@@ -34,7 +34,7 @@ using System.IO;
 using Newtonsoft.Json;
 
 using System.Net.Mail;
-
+using System.Security.Cryptography;
 
 public partial class LoginPage_Login : SiteBasePage
 {
@@ -84,7 +84,8 @@ public partial class LoginPage_Login : SiteBasePage
                 Email = txtEmail.Text;
                 string Password = string.Empty;
                 Password = txtPassword.Text;
-                ResultEntity<Plugin_ServiceUserEntity> Result = await Plugin_ServiceUserDomain.CheckUserLogin(Email, Password);
+                string encryptedPass = EncryptPass(Password);
+                ResultEntity<Plugin_ServiceUserEntity> Result = await Plugin_ServiceUserDomain.CheckUserLogin(Email, encryptedPass);
                 if (Result.Status == ErrorEnums.Success)
                 {
 
@@ -518,7 +519,18 @@ public partial class LoginPage_Login : SiteBasePage
         {
         }
     }
+    protected static string EncryptPass(string pass)
+    {
 
+        var crypt = new SHA256Managed();
+        string hash = String.Empty;
+        byte[] crypto = crypt.ComputeHash(Encoding.UTF8.GetBytes(pass));
+        foreach (byte theByte in crypto)
+        {
+            hash += theByte.ToString("x2");
+        }
+        return hash;
+    }
     protected void lnkClear_Click(object sender, EventArgs e)
     {
 
@@ -750,9 +762,13 @@ public partial class LoginPage_Login : SiteBasePage
 
 
             SmtpServer.Port = Port;
-            SmtpServer.EnableSsl = ssl;
             SmtpServer.UseDefaultCredentials = false;
-
+            SmtpServer.EnableSsl = ssl;
+            if(HOST.ToLower().Contains("office365"))
+            {
+                SmtpServer.DeliveryMethod = SmtpDeliveryMethod.Network;
+                System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+            }
             SmtpServer.Credentials = new System.Net.NetworkCredential(UserName, Password);
 
             try
