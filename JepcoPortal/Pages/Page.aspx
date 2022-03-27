@@ -6,10 +6,6 @@
 
     
 
-
-
-
-
     
 
     <asp:Label runat="server" ID="lblDetail1" ></asp:Label>

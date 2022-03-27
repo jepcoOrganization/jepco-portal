@@ -798,7 +798,6 @@
                     //$in = $(this);
                     //var abcd = $in[0].files[0].name;
                     //$in.next().html(abcd);
-                    debugger;
 
                     var fileInput1 = document.getElementById('fileuploadfield_1');
                     var filePath1 = fileInput1.value;   // Allowing file type           
@@ -821,7 +820,6 @@
 
 
                 $('#fileuploadfield_2').change(function (e) {
-                    debugger;
                     var fileInput2 = document.getElementById('fileuploadfield_2');
                     var filePath2 = fileInput2.value;   // Allowing file type           
                     var allowedExtensions2 =
@@ -905,9 +903,6 @@
                     }
                 });
 
-                if (testArray) {
-
-                }
 
                 var current_fs, next_fs, previous_fs; //fieldsets
                 var opacity;
@@ -966,7 +961,6 @@
 
                             step1validResult = false;
                             step1ValidUSer1();
-                            debugger;
                             if (step1validResult == true) {
                             }
                             else {
@@ -977,7 +971,6 @@
                         if (current == 2) {
                             step2validResult = false;
                             step2ValidUSer1();
-                            debugger;
                             if (step2validResult == true) {
                             }
                             else {
@@ -1271,18 +1264,18 @@
 
 
 
-                                $.each(testArray, function () {
-                                    var self = this.toString();
+                                //$.each(testArray, function () {
+                                //    var self = this.toString();
 
-                                    if (myEmail.indexOf(self) === -1) {
+                                //    if (myEmail.indexOf(self) === -1) {
 
 
-                                    }
-                                    else {
+                                //    }
+                                //    else {
 
-                                        compareEMailwithArry = true;
-                                    }
-                                });
+                                //        compareEMailwithArry = true;
+                                //    }
+                                //});
 
                                 if (compareEMailwithArry == true) {
                                     $("#errorEmailuse").css("display", "block");
@@ -1326,17 +1319,17 @@
 
 
                                 var compareMobielwithArry = false;
-                                $.each(testArrayMobiles, function () {
-                                    var self = this.toString();
-                                    var RemoveFirstCharThreeSub = self.substring(4);
-                                    if (mobiles != RemoveFirstCharThreeSub) {
+                                //$.each(testArrayMobiles, function () {
+                                //    var self = this.toString();
+                                //    var RemoveFirstCharThreeSub = self.substring(4);
+                                //    if (mobiles != RemoveFirstCharThreeSub) {
 
-                                    }
-                                    else {
+                                //    }
+                                //    else {
 
-                                        compareMobielwithArry = true;
-                                    }
-                                });
+                                //        compareMobielwithArry = true;
+                                //    }
+                                //});
 
                                 if (compareMobielwithArry == true) {
                                     $("#lblMobileRegistedError").css("display", "block");
@@ -1500,7 +1493,6 @@
                     //-----------------------------------------------------------------
 
 
-                    debugger;
 
                     if (ValCompanyName == true &&
                         ValNAtionalUSer2 == true &&
@@ -1521,7 +1513,6 @@
 
                     var FEmail_S2 = false;
                     var MoBileno_S2 = false;
-                    debugger;
                     if ($('#<%= txtEmailUSer2.ClientID %>').val().trim() != '') {
                         $('#<%= txtEmailUSer2.ClientID %>').css('border', 'none');
                         if ($('#<%= txtEmailUSer2.ClientID %>').val().trim() != "") {
@@ -1538,18 +1529,18 @@
 
 
 
-                                $.each(testArray, function () {
-                                    var self = this.toString();
+                                //$.each(testArray, function () {
+                                //    var self = this.toString();
 
-                                    if (myEmail.indexOf(self) === -1) {
+                                //    if (myEmail.indexOf(self) === -1) {
 
 
-                                    }
-                                    else {
+                                //    }
+                                //    else {
 
-                                        compareEMailwithArry = true;
-                                    }
-                                });
+                                //        compareEMailwithArry = true;
+                                //    }
+                                //});
 
                                 if (compareEMailwithArry == true) {
                                     $("#errorEmailuse2").css("display", "block");
@@ -1584,7 +1575,6 @@
                         var mobiles = $('#<%= txtMobileUser2.ClientID %>').val();
 
                         if (mobiles.length != 9) {
-                            debugger;
                             $("#lblMobileErrorUSer2").css("display", "block");
                             $("#lblMobileErrorUSer2").css("color", "red");
                         }
@@ -1637,7 +1627,6 @@
                         $('#<%= txtMobileUser2.ClientID %>').css('border', '1px solid red');
                     }
 
-                    debugger;
                     if (FEmail_S2 == true && MoBileno_S2 == true) {
 
                         step2validResult = true;
@@ -1707,22 +1696,19 @@
                     SelectedUserValidation = 2;
                 }
 
-                debugger;
                 if (SelectedUserValidation == 1) {
                     // tess
 
                    
                     var APIF_Name = $("#txtFirstName").val(); // First Name
                     var APIl_Name = $("#txtFamilyName").val(); // Last Name
-                    var APImobileNumbers = $("#txtMobileNo").val(); // Mobile Number     
+                    var APImobileNumbers = "+962" + $("#txtMobileNo").val(); // Mobile Number     
                     var APIemails = $("#txtEmail").val(); // Email 
                     var APInationalId = $("#txtIDNumber").val(); // NationalId
                     var APINationalityID = $('#ddlNAtionality').find(":selected").val(); // اردني او اخرى
-
-                    console.log(APINationalityID);
                     var APIIntegrationType = 1; // from wb site
                     var LanguageId = "AR"; // default 
-
+                    debugger;
                     $.ajax({
                         type: "POST",
                         contentType: "application/json; charset=utf-8",
@@ -1732,9 +1718,11 @@
                         },
                         data: JSON.stringify(
                             {
-                                MobileNumber: APImobileNumbers, FirstName: APIF_Name,
-                                LastName: APIl_Name, Email: APIemails,
-                                NationalityID: APINationalityID,
+                                MobileNumber: APImobileNumbers,
+                                FirstName: APIF_Name,
+                                LastName: APIl_Name,
+                                Email: APIemails,
+                                NationalityID: parseInt(APINationalityID),
                                 NationalId: APInationalId,
                                 IntegrationType: APIIntegrationType,
                                 LanguageId: LanguageId
@@ -1742,16 +1730,11 @@
                         dataType: "json",
                         async: false,
                         success: function (data) {
-                            // alert("Call Success");
-                            console.log(data);
 
-
-
+                            console.log("Done Register")
                         },
-                        error: function (result) {
-
-                            console.log(result);
-                            //alert("Error");
+                        error: function (err) {
+                            console.log(err);
 
                         }
                     });
@@ -1767,14 +1750,12 @@
 
                     var inp1 = document.getElementById('fileuploadfield_1');
                     if (inp1.files.length === 0) {
-                        debugger;
                         $("#file_error1").html("Please Select File");
                         inp1.focus();
                         FileUpload1 = false;
 
                     }
                     else {
-                        debugger;
                         $("#file_error1").html("");
                         var file_size1 = $('#fileuploadfield_1')[0].files[0].size;
                         if (file_size1 > 1000001) {
@@ -1784,7 +1765,6 @@
 
                         }
                         else {
-                            debugger;
                             FileUpload1 = true;
 
                             var abcd = $('#fileuploadfield_1')[0].files[0].name;
@@ -1796,13 +1776,11 @@
 
                     var inp2 = document.getElementById('fileuploadfield_2');
                     if (inp2.files.length === 0) {
-                        debugger;
                         $("#file_error2").html("Please Select File");
                         inp2.focus();
                         FileUpload2 = false;
                     }
                     else {
-                        debugger;
                         $("#file_error2").html("");
                         var file_size2 = $('#fileuploadfield_2')[0].files[0].size;
                         if (file_size2 > 1000001) {
@@ -1810,7 +1788,6 @@
                             $('#fileuploadfield_2').next().html("");
                         }
                         else {
-                            debugger;
                             FileUpload2 = true;
                             var abcd = $('#fileuploadfield_2')[0].files[0].name;
                             $('#fileuploadfield_2').next().html(abcd);
@@ -1838,7 +1815,6 @@
                         $('#<%= txtQualificationDate.ClientID %>').css('border', '1px solid red');
                     }
 
-                    debugger;
                     if (FileUpload1 == true && FileUpload2 == true && ValQualificationDate == true) {
                         var APIF_Name = $("#txtCompanyName").val(); //$('#<%=txtFirstName.ClientID %>').val();
                         var APIl_Name = ""; // $('#<%=txtFirstName.ClientID %>').val();
@@ -1879,7 +1855,7 @@
                     }
                 }
 
-            }
+            } 
         </script>
 
 
@@ -2540,7 +2516,6 @@
                     success: function (result) {
 
 
-                        console.log(result);
                         $("#ddlGeove").empty();
                         $("#ddlGeove").append("<option value='0'>المحافظة</option>");
                         $.each(result.d, function (key, value) {
@@ -2598,6 +2573,7 @@
                         },
                         error: function (result) {
                             // alert(result.status + " : " + result.StatusText);
+                            console.log(result)
                         }
                     });
 

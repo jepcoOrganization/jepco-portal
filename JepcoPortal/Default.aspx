@@ -370,7 +370,7 @@
                             <div class="Report_counter">
 
 
-                                <a href="/ar/Home/ComplainForm">
+                                <a href="/ar/Home/ComplainList">
                                     <img src="<%=ResolveUrl("~/") %>App_Themes/ThemeAr/img/electric-meter.png" alt="">
 
                                     <strong>تقديم شكوى
@@ -444,7 +444,7 @@
                                         <div id="CopmlainEmptyDiv" class="emptyfilecls" style="display: none" runat="server">
                                             <img src=" <%=ResolveUrl("~/") %>App_Themes/ThemeAr/img/Step-Icon-2.png" alt="">
                                             <strong>
-                                                <a href="/ar/Home/ComplainForm" class="a_ComplainBox">تقديم شكوى جديدة</a>
+                                                <a href="/ar/Home/ComplainList" class="a_ComplainBox">تقديم شكوى جديدة</a>
                                             </strong>
                                         </div>
                                         <%-- style="height: 250px; width: 250px;"--%>
@@ -830,7 +830,7 @@ Thank you for Subscription.
 
 
 
-        <div class="modal fade welcome" id="myModal spModel ModalInput" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"  >
+        <div class="modal fade welcome" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -847,7 +847,7 @@ Thank you for Subscription.
                                 <div class="col-lg-12 col-md-12 col-sm-12">
                                     <div class="form-group">
                                         <label style="float: right">الرقم المرجعي </label>
-                                        <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"type = "number" maxlength = "13" id="fileadddata"  />
+                                        <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type = "number" maxlength = "13" id="fileadddata"  />
                                     </div>
                                 </div>
                                 <p id="hidden-validation"></p>
@@ -880,7 +880,7 @@ Thank you for Subscription.
                         <%--<img src="images/logo.png" alt="">--%>
                     </div>
                     <div class="modal-footer">
-                        <button id="SubmitFillCall">حفظ</button>
+                        <button id="SubmitFillCall" type="submit">حفظ</button>
 
                         <%-- <button>موافق</button>--%>
                     </div>
@@ -897,7 +897,7 @@ Thank you for Subscription.
                         <h4 class="modal-title" id="myModalLabel1234"></h4>
                     </div>
                     <div class="modal-body">
-                        <h4>تم اضافة الملف المرجعي بنجاح</h4>
+                        <h4 class="modal-done" >تم اضافة الملف المرجعي بنجاح</h4>
                     </div>
                     <div class="modal-footer">
 
@@ -919,7 +919,7 @@ Thank you for Subscription.
                     <div class="modal-body">
 
                         <h4>
-                            <label id="errroreCreate">
+                            <label id="errroreCreate" class="errorRef">
                             </label>
                         </h4>
                     </div>
@@ -1121,8 +1121,14 @@ Thank you for Subscription.
                         if (data.statusCode == "Success") {
 
                             var GetAllFile = data.body.customerInfoResult;
+                            var customerInfo;
+                            if (data.body.customerStatus == 0) {
+                                var customerInfo = 0
+                            } else {
+                                var customerInfo = data.body.customerInfoResult.customerInformationDetails;
+                            }
 
-                            if (data.body.customerStatus == "1") {
+                            if (customerInfo.length > 0 ) {
 
                             }
                             else {
@@ -1545,7 +1551,6 @@ Thank you for Subscription.
                 }
 
                 $(".aheffuncation").click(() => {
-                    console.log('اضافة/ تعديل رقم عداد')
                     $('#myModal').modal('show');
                     
                     //$('#myModal').show();
@@ -1566,7 +1571,7 @@ Thank you for Subscription.
                     var fileNumberNAme = $("#fileadddata").val();
                     var mobileNumberNAme = MobileNoURL; // $("#MobileNoadddata").val();
 
-
+                    var errorModal;
 
                     $.ajax({
                         type: "POST",
@@ -1576,7 +1581,7 @@ Thank you for Subscription.
                             xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("MiddlewareToken"));
                         },
                         // data: JSON.stringify({ alias: 'myATest', fileNumber: '0110892277693', mobileNumber: '+962790121435' }),
-                        data: JSON.stringify({ aliasName: aliasNAme, fileNumber: fileNumberNAme, mobileNumber: mobileNumberNAme, LanguageId:"AR" }),
+                        data: JSON.stringify({ aliasName: aliasNAme, fileNumber: fileNumberNAme, mobileNumber: mobileNumberNAme, LanguageId: "AR" }),
                         dataType: "json",
                         async: false,
                         success: function (data) {
@@ -1590,12 +1595,20 @@ Thank you for Subscription.
 
                             console.log(result);
                             //alert("Error");
-
+                            errorModal = result.responseJSON.errors;
                             $('#myModal').modal('hide');
-                           // $("#errroreCreate").text(absajdvbajsd);
+                            // $("#errroreCreate").text(absajdvbajsd);
                             $('#myModalFailed').modal('show');
+                            $('.errorRef').append(errorModal);
 
-
+                            var inputValue = $('#fileadddata').val();
+                     
+                                if (inputValue.length == 0)
+                                    $('.errorRef').append("يرجى ادخال الرقم المرجعي")
+                                //if (inputValue.length > 0 && inputValue.length <= 12)
+                                //    $('.errorRef').append("يجب ان يتكون الرقم المرجعي من 13 رقم")
+                            
+                 
                         }
                     });
 
@@ -2132,7 +2145,9 @@ Thank you for Subscription.
                 top: 0;
                 left: 0;
             }
-
+            .complaints_box .btndiv{
+                margin-right : 25px
+            }
             .complaints_box .btndiv a {
                 background: #007fc3;
                 color: #fff;
@@ -2193,6 +2208,23 @@ Thank you for Subscription.
             input[type=number] {
                 -moz-appearance: textfield;
             }
+            .welcome .modal-body{
+                background-color : #fff !important;
+            }
+            .errorRef{
+                padding: 30px 0;
+                color: red;
+            }
+            #hidden-validation{
+                text-align: right;
+                color: red;
+                font-size: 15px;
+                margin-right: 17px;
+                margin-bottom: 6px;
+            }
+            .modal-done{
+                padding: 30px 0;
+            }
         </style>
 
 
@@ -2211,18 +2243,15 @@ Thank you for Subscription.
             });
 
             // Validation of Refrence Number Input : 
-            function myFunction() {
-                let charNumber = document.getElementById('fileadddata').value;
-                if (charNumber == 13) {
-                    document.getElementById('hidden-validation').innerHTML = 'Done';
-                }
-                else {
-                    //alert("Refrence number has to be 13 number");
-                    document.getElementById('hidden-validation').innerHTML = 'Reference Number Must Be 13 Digits';
+            $(document).on('change keyup', '#fileadddata', function () {
 
+                var inputValue = $('#fileadddata').val();
+                if (inputValue.length != 13) {
+                    document.getElementById('hidden-validation').innerHTML = 'الرقم المرجعي يجب ان يتكون من 13 رقم';
+                } else {
+                    document.getElementById('hidden-validation').innerHTML = '';
                 }
-
-            }
+            })
         </script>
 
         <script>
@@ -2292,7 +2321,9 @@ Thank you for Subscription.
 
                 }
 
-
+                $("#logout").click(function () {
+                    localStorage.clear();
+                })
             });
 
 
