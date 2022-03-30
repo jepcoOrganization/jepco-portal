@@ -2,6 +2,60 @@
 
 <asp:HiddenField runat="server" ID="hdnFileNAme" />
 
+
+
+<%-- Moadl Summery :  --%>
+
+<div class="modal fade welcome" id="myModalBill" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 style="display:contents">شركة الكهرباء الأردينة</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span class="fa fa-close"></span>
+                </button>
+
+            </div>
+            <div class="modal-body">
+                <div class="input-feild">
+                    <p class="title">
+                        اسم المشترك : 
+                    </p>
+                    <strong id='CostName1' class='value-field'></strong>
+                </div>
+                  <div class="input-feild">
+                    <p class="title">
+                        رقم المرجع : 
+                    </p>
+                    <strong id='fileNumber1'></strong>
+                </div>                
+                <div class="input-feild">
+                    <p class="title">
+                        الفواتير : 
+                    </p>
+                    <strong id='bill-sammury'></strong>
+                </div>               
+                <div class="input-feild">
+                    <p class="title">
+                        عدد الفواتير : 
+                    </p>
+                    <strong id='bill-no1'></strong>
+                </div>
+                 <div class="input-feild">
+                    <p class="title">
+                        القيمة : 
+                    </p>
+                    <strong id='totalAmount1'></strong>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <%--<button id="SubmitFillCall"  >Save</button>--%>
+                <a href="" class="btn btn-outline-primary" id="button-payment">تسديد</a>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="protal_tabs">
    <div class="title-payment">
       <h1>الفواتير الغير مسددة لهذا الملف</h1>
@@ -59,16 +113,10 @@
                      <input class="form-check-input" type="checkbox" value="" id="checkAll">
                      <label class="form-check-label" for="checkAll">  تحديد الجميع   </label>
                 </div>
-                <a href="#" class="btn btn-primary">تسديد الفواتير</a>
+                <span class="btn btn-primary" id="paument-btn">تسديد الفواتير</span>
 
             </h5>
             <ul class="list-unstyled">
- <li><div><strong>رقم الفاتورة</strong><span class='LTR'>" + value.billNumber + "</span></div>";
-                            var htmlbox2 = "<div><strong>قيمة الفاتورة</strong><p>" + value.billAmount + "</p></div>";
-                            var htmlbox3 = "<div class='form-check'><input class='form-check-input' type='checkbox' index="2" value='" + value.billNumber + "' bill-amount='" + value.billAmount +"'><label class='form-check-label' for='flexCheckDefault'>اختيار الفاتورة</label></div></li>
-                <li><div><strong>رقم الفاتورة</strong><span class='LTR'>" + value.billNumber + "</span></div>";
-                            var htmlbox2 = "<div><strong>قيمة الفاتورة</strong><p>" + value.billAmount + "</p></div>";
-                            var htmlbox3 = "<div class='form-check'><input class='form-check-input' type='checkbox' index="1" value='" + value.billNumber2 + "' bill-amount='" + value.billAmount2 +"'><label class='form-check-label' for='flexCheckDefault'>اختيار الفاتورة</label></div></li
             </ul>
          </div>
       </div>
@@ -82,15 +130,31 @@
                     <p>صافي الذمم : <strong>548.287</strong></p>
                 </div>
                 <div class="d3">
-                    <p>المبلغ الأجمالي : <strong id="bill-amount"></strong></p>
+                    <p>المبلغ الأجمالي : <strong id="bill-amount">00.00</strong></p>
                 </div>
             </div>
         </div>
     </div>
 
 </div>
-<button class="btn btn-danger" id="button" type="button">lasl;ald;asl;d</button>
 <script>
+    // Global Variable : ---------------
+    var GetFileNo = $("#ContentPlaceHolder1_ctl00_hdnFileNAme").val();
+    var Language = "AR";
+    var APIUrl = '<%= System.Configuration.ConfigurationManager.AppSettings["APIurl"].ToString() %>';
+    var userNameMiddlewareToken = '<%= System.Configuration.ConfigurationManager.AppSettings["usernameMiddleware"].ToString() %>';
+    var passwordMiddlewareToken = '<%= System.Configuration.ConfigurationManager.AppSettings["passwordMiddleware"].ToString() %>';
+    var totalAmount = 0;
+    var nameCustomer = "";
+    var subscriptionType = "";
+    var meterNumber = "";
+    var fileNumber = "";
+    var contractNo = "";
+    var billNo = 0;
+    var tmp = [];
+    var phoneNumber = $("#hdnmobileno").val();
+    var allDocumentSelected = false;
+    var docArray = []
 
     $(document).ready(function () {
 
@@ -107,21 +171,7 @@
             }
         });
 
-        // Global Variable : ---------------
-        var GetFileNo = $("#ContentPlaceHolder1_ctl00_hdnFileNAme").val();
-        var Language = "AR";
-        var APIUrl = '<%= System.Configuration.ConfigurationManager.AppSettings["APIurl"].ToString() %>';
-        var userNameMiddlewareToken = '<%= System.Configuration.ConfigurationManager.AppSettings["usernameMiddleware"].ToString() %>';
-        var passwordMiddlewareToken = '<%= System.Configuration.ConfigurationManager.AppSettings["passwordMiddleware"].ToString() %>';
-
-        var nameCustomer = "";
-        var subscriptionType = "";
-        var meterNumber = "";
-        var fileNumber = "";
-        var contractNo = "";
-        var billNo = 0;
-        var totalAmount = 0;
-        var tmp = [];
+     
 
         // Token Middlware : ------------------
 
@@ -185,9 +235,6 @@
 
                     if ((data.body.details).length > 0) {
                         $.each(data.body.details, function (key, value) {
-                            billNo++;
-                            $("#no-bill").text(billNo);
-                            
                             var htmlbox = "<li><div><strong>رقم الفاتورة</strong><span class='LTR'>" + value.billNumber + "</span></div>";
                             var htmlbox2 = "<div><strong>قيمة الفاتورة</strong><p>" + value.billAmount + "</p></div>";
                             var htmlbox3 = "<div class='form-check'><input class='form-check-input' index='"+key+"' type='checkbox' value='" + value.billNumber + "' bill-amount='" + value.billAmount +"'><label class='form-check-label' for='flexCheckDefault'>اختيار الفاتورة</label></div></li>";
@@ -196,7 +243,6 @@
                             $(".MyAllFiles .list-unstyled").append(collect);
                         })
                     } else {
-                        $("#no-bill").text(billNo);
 
                     }
                     $(".list-unstyled input[type='checkbox']").on("click", function () {
@@ -204,16 +250,20 @@
                         var billatrr = $(this).attr('bill-amount')
                         var index = $(this).attr('index')
                         if ($(this).is(':checked')) {
+                            billNo++;
+
                             totalAmount = totalAmount + parseFloat(billatrr);
                             console.log(totalAmount)
-
+                            $("#bill-amount").text(totalAmount)
                             tmp.push({
-                                checked,
-                                billatrr,
+                                "BillNumber" : checked,
+                                "BillAmount" : billatrr,
                                 index
                             });
                         } else {
-                            
+                            totalAmount = totalAmount - parseFloat(billatrr);
+                            billNo--;
+                            $("#bill-amount").text(totalAmount)
                             tmp.splice($.inArray(index, tmp), 1);
                         }
                     });
@@ -224,9 +274,64 @@
                 console.log(err);
             }
         });
+        $("#paument-btn").click(function () {
+            $("#CostName1").text(nameCustomer);
+            $("#fileNumber1").text(fileNumber);
+            $("#bill-no1").text(billNo)
+            $("#totalAmount1").text(totalAmount)
+            docArray.splice(0, docArray.length)
+            $("#bill-sammury").empty();
+            $.each(tmp, function (key, value) {
+                var htmlbill = "<div class=''> " + value.BillNumber + " || " + value.BillAmount + " </div>";
+                $("#bill-sammury").append(htmlbill)
+                docArray.push(
+                    {
+                        "BillNumber": value.BillNumber,
+                        "BillAmount": value.BillAmount
+                    }
+                )
+            })
+            console.log("Arrya : ", docArray);
+            $('#myModalBill').modal('show');
+
+            $("#button-payment").click(function () {
+                debugger;
+                $.ajax({
+                    url: APIUrl + 'PaymentOrderHeaders/ReturnPaymentSummary',
+                    type: 'POST',
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("MiddlewareToken"));
+                    },
+                    data: JSON.stringify(
+                        {
+                            ReferenceNumber: fileNumber,
+                            ListOfDocument: docArray,
+                            PaymentSource: "0",
+                            Language: "AR",
+                            PaymentType: "bills",
+                            AllDocument: allDocumentSelected,
+                            PaymentGatewayId: "1",
+                            MobileNumber: phoneNumber
+                        }),
+                    dataType: "json",
+                    contentType: "application/json",
+                    async: false,
+                    success: function (res) {
+                        alert( res.body.paymentWebPageURL)
+                        //window.location.href = res.body.paymentWebPageURL;
+
+                    },
+                    error: function (err) {
+                        console.log(err);
+                    }
+
+            })
+            });
+        })
 
         $('#button').on('click', function () {
             console.log(tmp)
+            
         });
 
     })
@@ -369,4 +474,21 @@
              flex-direction: column;
          }
      }
+     .welcome .modal-body{
+         text-align : right;
+         padding : 10px 20px
+     }
+     .welcome .modal-body p{
+         margin: 0 0 10px;
+         color: #007fc3;
+     }
+    .welcome .modal-body strong {
+    width: 100%;
+    background: #fff;
+    display: block;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    color: #007fc3;
+
+    }
 </style>
