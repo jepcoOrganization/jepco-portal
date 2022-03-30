@@ -415,7 +415,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button class="btn btn-primary" id="getpdb_btn" onclick="myApp.printTable()" > تحميل الفاتورة </button>
+                <button class="btn btn-primary" id="getpdb_btn" onclick="myApp.printTable()"> طباعة الفاتورة </button>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span class="fa fa-close"></span>
                 </button>
@@ -423,7 +423,7 @@
             </div>
             <div class="modal-body">
                 <div id="editor"></div>
-                 <div style="width:100%" align="center" class="BillBodyPDF" id="BillBodyId" >
+                 <div style="width:100%" align="center" class="BillBody" id="BillBodyId" >
             <table class="bor " align="center" width="100%" cellpadding="0" cellspacing="0" dir="rtl" style="border:solid 0.05vw #0099FF" id="Table-Bill">
                 <tr>
                     <td align="center" colspan="3" style="border:solid 0.05vw #0099FF; border-right:none; border-left:none; padding:0px;">
@@ -480,7 +480,7 @@
                                 <td align="right" style="border-left:solid 0.05vw #0099FF; border-top:solid 0.05vw #0099FF; background:#C0DCFE; font-weight: bold" width="13%">رقم الفاتورة</td>
                                 <td align="right" style="border-left:solid 0.05vw #0099FF; border-top:solid 0.05vw #0099FF; color:#000000; font-size:130%" width="37%" id="billPeriod"></td>
                                 <td align="center" style="border-left:solid 0.05vw #0099FF; border-top:solid 0.05vw #0099FF; background:#C0DCFE; font-weight: bold" width="14%">رقم الاضبارة</td>
-                                <td align="right" style="border-left:solid 0.05vw #0099FF; border-top:solid 0.05vw #0099FF; color:#000000; font-size:130%" width="36%">x08t</td>
+                                <td align="right" style="border-left:solid 0.05vw #0099FF; border-top:solid 0.05vw #0099FF; color:#000000; font-size:130%" width="36%">********</td>
                             </tr>
                             <tr>
                                 <td align="right" style="border-left:solid 0.05vw #0099FF; border-top:solid 0.05vw #0099FF; background:#C0DCFE; font-weight: bold" width="13%">رقم الملف</td>
@@ -921,19 +921,20 @@
                 
 
             </table>
-        </div>
           <table width="100%" id="barcode-table">
             <tr>
-                <td colspan="4" align="center" style="padding:1%; height:200%; border:solid 0.05vw #D00D0D;">
-                    <font style="color:#FF0000; font-size:2vw;">     <font style="color:#000000"></font></font><br />
+                <td colspan="4" align="center" style="padding:1%; height:200%; border:solid 0.05vw #D00D0D;" id="bar-id">
+                    <font style="color:#FF0000; font-size:2vw;">     <font style="color:#000000"></font></font>
                     <font style="font-size:1.7vw;"><div style='text-align: center;'>
                       <!-- insert your custom barcode setting your data in the GET parameter "data" -->
                       <img alt='Barcode Generator TEC-IT' id="barcode-img"
                            src=''/>
-                    </div></font><br />
+                    </div></font>
                                     </td>
             </tr>
             </table>
+                             </div>
+
             </div>
             <div class="modal-footer">
                 <%--<button id="SubmitFillCall"  >Save</button>--%>
@@ -945,16 +946,22 @@
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bwip-js/3.0.4/bwip-js-min.js"></script>
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>
 <%--<a href="../Properties/">../Properties/</a>--%>
 
 
 
 <script>
     $("document").ready(function () {
+
+     
+
+
+
         var BillHeaders = {}
         var AllFileBill = [];
         var ALLGraphdata = [];
@@ -1729,8 +1736,8 @@
 
             var style = "<style>";
             style = style + "table {width: 100%;font: 17px Calibri;}";
-            style = style + "table, th, td {border: none; border-collapse: unset;";
-            style = style + "padding: 2px 3px;text-align: initial;}";
+            style = style + " th, td {border: none; border-collapse: unset;";
+            style = style + "padding: 2px 3px;}";
             style = style + "</style>";
 
             var win = window.open();

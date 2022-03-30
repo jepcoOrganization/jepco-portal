@@ -748,8 +748,10 @@
             </div>
         </div>
 
-        <asp:HiddenField runat="server" ID="htdFilenameDetais" />
+        <asp:HiddenField runat="server" ID="htdFilenameDetais" OnValueChanged="htdFilenameDetais_ValueChanged" />
         <asp:Button ID="lnkFileDetails" runat="server" Text="تصويت" OnClick="lnkFileDetails_Click" Style="display: none;" />
+        <asp:Button ID="LnkPaymentDetails" runat="server" Text="تصويت" OnClick="LnkPaymentDetails_Click" Style="display: none;" />
+
         <%-- <asp:HyperLink runat="server" ID="lnkFileDetails" onclick="ShowFileDetails" style="display:none"></asp:HyperLink>--%>
         <%-- <asp:LinkButton ID="lnkSubscribe" runat="server"></asp:LinkButton>
         <cc1:ModalPopupExtender runat="server" ID="mpeSuccess"
@@ -1528,11 +1530,12 @@ Thank you for Subscription.
                                 var HTMLLI = "<li>";
                                 var HTMLDiv1 = "<div><strong>رقم الملف</strong><span class='LTR'>" + SubAccountListValue.fileNumber + "</span><p>المنطقة: " + SubAccountListValue.area + " </p></div>";
                                 var HTMLDiv2 = "<div><strong>الفواتير الغير مسددة</strong><p>لديك عدد " + SubAccountListValue.UnpaidBillCount + " فواتير غير مسددة</p></div>"
-                                var HTMLDiv3 = "<div><strong>القيمة المطلوبة</strong><p>اجمالي المبلغ المطلوب " + SubAccountListValue.UnpaidBillvalue + "</p></div>"
-                                var HTMLa = "<a href='#' data-filename=" + SubAccountListValue.fileNumber + " class='GoFileDetails' >التفاصيل </a >";
+                                var HTMLDiv3 = "<div><strong>القيمة المطلوبة</strong><p class='totalbillamount'>اجمالي المبلغ المطلوب " + SubAccountListValue.UnpaidBillvalue + "</p></div>"
+                                var HTMLPayment = "<a href='#' data-filename=" + SubAccountListValue.fileNumber + " class='GoPaymentDetials btn-pay' >الدفع </a >";
+                                var HTMLa = "<a href='#' data-filename=" + SubAccountListValue.fileNumber + " class='GoFileDetails btn-det' >التفاصيل </a >";
                                 var EndHTMLLI = "</li>";
 
-                                AllLiHTML = HTMLLI + HTMLDiv1 + HTMLDiv2 + HTMLDiv3 + HTMLa + EndHTMLLI
+                                AllLiHTML = HTMLLI + HTMLDiv1 + HTMLDiv2 + HTMLDiv3 + HTMLPayment + HTMLa  + EndHTMLLI
                                 AllLiContalt = AllLiContalt + AllLiHTML;
 
                                 countAllSubList++;
@@ -1858,12 +1861,24 @@ Thank you for Subscription.
 
 
 
-                $(".GoFileDetails").click(function () {
+                $(".btn-det").click(function () {
 
                     var filename = $(this).data("filename");
                     $('#<%=htdFilenameDetais.ClientID %>').val(filename);
 
                     $("[id*=<%=lnkFileDetails.ClientID %>]").click();
+
+                    // Session["FileNumberDetails"] = filename;
+                    // alert(Session["FileNumberDetails"]);
+
+                });
+
+                $(".btn-pay").click(function () {
+
+                    var filename = $(this).data("filename");
+                    $('#<%=htdFilenameDetais.ClientID %>').val(filename);
+
+                    $("[id*=<%=LnkPaymentDetails.ClientID %>]").click();
 
                     // Session["FileNumberDetails"] = filename;
                     // alert(Session["FileNumberDetails"]);
@@ -2068,7 +2083,9 @@ Thank you for Subscription.
             input#RadioButtonList2_2 {display: none;}
             input#RadioButtonList2_3 {display: none;}*/
 
-
+            .totalbillamount{
+                width : 190px
+            }
 
             .container-checkbox input:checked ~ .checkmark {
                 background-color: #007fc3;
@@ -2120,7 +2137,13 @@ Thank you for Subscription.
                 margin: 0;
                 display: inherit;
             }
+            .protal_tabs .tab-content li .btn-pay {
+                background: #dec84d;
 
+            }
+            .protal_tabs .tab-content li a{
+                min-width: 135px;
+            }
             .residential_sector h5 {
                 margin-bottom: 20px;
             }

@@ -3143,7 +3143,11 @@ public partial class _Default : SiteBasePage
         Session["FileDetails"] = htdFilenameDetais.Value.ToString();
         Response.Redirect(lang + "/Home/FileDatails", false);
     }
-
+    protected void LnkPaymentDetails_Click(object sender, EventArgs e)
+    {
+        Session["PaymentDetails"] = htdFilenameDetais.Value.ToString();
+        Response.Redirect(lang + "/Home/Payment", false);
+    }
     protected async void btn_ok_Click(object sender, EventArgs e)
     {
 
@@ -4510,4 +4514,9 @@ public partial class _Default : SiteBasePage
     #endregion
 
 
+
+    protected void htdFilenameDetais_ValueChanged(object sender, EventArgs e)
+    {
+
+    }
 }

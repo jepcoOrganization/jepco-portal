@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29326.143
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiteWare.Entity", "SiteWare.Entity\SiteWare.Entity.csproj", "{E6DDAFD8-3AC5-403C-BA00-6C5840629FF2}"
 EndProject
@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiteWare.Domain", "SiteWare
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Siteware.Web", "Siteware.Web\Siteware.Web.csproj", "{1E237627-C90B-43A1-9D62-B490935DA91E}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "JepcoPortal(1)", "JepcoPortal", "{63C3CD89-F0C9-4BCB-8EE5-2B6C6ACB33A7}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "JepcoPortal(1)", "JepcoPortal\", "{63C3CD89-F0C9-4BCB-8EE5-2B6C6ACB33A7}"
 	ProjectSection(WebsiteProperties) = preProject
 		SccProjectName = "SAK"
 		SccAuxPath = "SAK"
@@ -70,28 +70,5 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {064C4B50-39DB-466A-AF1D-483CF27FA61F}
-	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 6
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = http://ws-srv-net:8080/tfs/webmyne%20systems%20tfs%20collection
-		SccLocalPath0 = .
-		SccWebProject1 = true
-		SccProjectUniqueName1 = JepcoPortal
-		SccProjectName1 = JepcoPortal
-		SccLocalPath1 = JepcoPortal
-		SccProjectEnlistmentChoice1 = 2
-		SccProjectUniqueName2 = SiteWare.DataAccess\\SiteWare.DataAccess.csproj
-		SccProjectName2 = SiteWare.DataAccess
-		SccLocalPath2 = SiteWare.DataAccess
-		SccProjectUniqueName3 = SiteWare.Domain\\SiteWare.Domain.csproj
-		SccProjectName3 = SiteWare.Domain
-		SccLocalPath3 = SiteWare.Domain
-		SccProjectUniqueName4 = SiteWare.Entity\\SiteWare.Entity.csproj
-		SccProjectName4 = SiteWare.Entity
-		SccLocalPath4 = SiteWare.Entity
-		SccProjectUniqueName5 = Siteware.Web\\Siteware.Web.csproj
-		SccProjectName5 = Siteware.Web
-		SccLocalPath5 = Siteware.Web
 	EndGlobalSection
 EndGlobal
