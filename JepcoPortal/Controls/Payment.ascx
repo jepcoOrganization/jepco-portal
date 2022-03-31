@@ -17,6 +17,10 @@
 
             </div>
             <div class="modal-body">
+                <div class="head-body">
+                    <h3>ملخص الدفع</h3>
+                </div>
+                <div class="f-col">
                 <div class="input-feild">
                     <p class="title">
                         اسم المشترك : 
@@ -27,14 +31,17 @@
                     <p class="title">
                         رقم المرجع : 
                     </p>
-                    <strong id='fileNumber1'></strong>
+                       <strong id='fileNumber1'></strong>
+
+                      </div>
                 </div>                
                 <div class="input-feild">
                     <p class="title">
                         الفواتير : 
                     </p>
                     <strong id='bill-sammury'></strong>
-                </div>               
+                </div>           
+                <div class="s-col">                
                 <div class="input-feild">
                     <p class="title">
                         عدد الفواتير : 
@@ -47,10 +54,11 @@
                     </p>
                     <strong id='totalAmount1'></strong>
                 </div>
+                    </div>
             </div>
             <div class="modal-footer">
                 <%--<button id="SubmitFillCall"  >Save</button>--%>
-                <a href="" class="btn btn-outline-primary" id="button-payment">تسديد</a>
+                <button class="btn btn-outline-primary" id="button-payment" >تسديد</button>
             </div>
         </div>
     </div>
@@ -113,7 +121,7 @@
                      <input class="form-check-input" type="checkbox" value="" id="checkAll">
                      <label class="form-check-label" for="checkAll">  تحديد الجميع   </label>
                 </div>
-                <span class="btn btn-primary" id="paument-btn">تسديد الفواتير</span>
+                <button type="button" class="btn btn-primary" id="paument-btn">تسديد الفواتير</button>
 
             </h5>
             <ul class="list-unstyled">
@@ -124,10 +132,10 @@
         <div class="pd-container">
             <div class="pd">
                 <div class="d1">
-                    <p>رصيد سابق : <strong>00.00</strong> </p>
+                    <p>رصيد سابق : <strong id="advPayment">00.00</strong> </p>
                 </div>
                 <div class="d2">
-                    <p>صافي الذمم : <strong>548.287</strong></p>
+                    <p>صافي الذمم : <strong id="t-reciviable">548.287</strong></p>
                 </div>
                 <div class="d3">
                     <p>المبلغ الأجمالي : <strong id="bill-amount">00.00</strong></p>
@@ -150,23 +158,33 @@
     var meterNumber = "";
     var fileNumber = "";
     var contractNo = "";
+    var totalReciviable = "";
+    var advPayment = "";
     var billNo = 0;
     var tmp = [];
     var phoneNumber = $("#hdnmobileno").val();
     var allDocumentSelected = false;
     var docArray = []
-
+    var arrayAllChicked = [];
+    var totalSelectedAmount = 0;
+    var paymentArray = [];
     $(document).ready(function () {
 
+        var checkAll = $("#checkAll");
 
         $("#checkAll").click(function () {
             if (this.checked) {
                 $('.list-unstyled input:checkbox').each(function () {
                     $(".list-unstyled input:checkbox ").prop('checked', true);
+                    $(".list-unstyled input:checkbox").attr("disabled", true);
+
                 })
             } else {
                 $('.list-unstyled input:checkbox').each(function () {
+
                     $(".list-unstyled input:checkbox").prop('checked', false);
+                    $(".list-unstyled input:checkbox").removeAttr("disabled");
+
                 })
             }
         });
@@ -225,6 +243,8 @@
                     meterNumber = data.body.header.meterNumber;
                     fileNumber = data.body.header.fileNumber;
                     contractNo = data.body.header.contractNo;
+                    advPayment = data.body.header.advancePaymentAmount;
+                    totalReciviable = data.body.header.totalReceivablePaymentAmount;
 
                     // send global var to html : --------------
                     $("#CostName").text(nameCustomer);
@@ -232,6 +252,8 @@
                     $("#meterNumber").text(meterNumber);
                     $("#fileNumber").text(fileNumber);
                     $("#contractNo").text(contractNo);
+                    $("#advPayment").text(advPayment);
+                    $("#t-reciviable").text(totalReciviable);
 
                     if ((data.body.details).length > 0) {
                         $.each(data.body.details, function (key, value) {
@@ -241,29 +263,44 @@
 
                             var collect = htmlbox + htmlbox2 + htmlbox3;
                             $(".MyAllFiles .list-unstyled").append(collect);
+                            arrayAllChicked.push(
+                                {
+                                    "BillNumber": value.billNumber.slice(0,-2),
+                                    "BillAmount": value.billAmount,
+                                    key
+                                })
+                            totalSelectedAmount = totalSelectedAmount + Number(value.billAmount);
+                            totalSelectedAmount.toFixed(3);
                         })
                     } else {
-
+                        $(".MyAllFiles").css("display", "none");
+                        var htmlNoBill = "<div class='nobill'><img src='/App_Themes/ThemeAr/img/ايقونة%20دفع%20الفواتير-01.png' alt=''><strong>جميع الفواتير مدفوعة</strong></div >"
+                        $(".list-con-payment").append(htmlNoBill);
                     }
+              
+
                     $(".list-unstyled input[type='checkbox']").on("click", function () {
                         var checked = $(this).val();
-                        var billatrr = $(this).attr('bill-amount')
+                        var billatrr = Number($(this).attr('bill-amount'))
                         var index = $(this).attr('index')
+                        parseFloat(totalAmount)
                         if ($(this).is(':checked')) {
                             billNo++;
 
-                            totalAmount = totalAmount + parseFloat(billatrr);
+                            totalAmount = totalAmount +billatrr;
                             console.log(totalAmount)
-                            $("#bill-amount").text(totalAmount)
+                            $("#bill-amount").text(totalAmount.toFixed(3))
                             tmp.push({
                                 "BillNumber" : checked,
                                 "BillAmount" : billatrr,
                                 index
                             });
                         } else {
-                            totalAmount = totalAmount - parseFloat(billatrr);
+                            totalAmount = totalAmount - billatrr ;
+                            console.log(totalAmount)
+
                             billNo--;
-                            $("#bill-amount").text(totalAmount)
+                            $("#bill-amount").text(totalAmount.toFixed(3))
                             tmp.splice($.inArray(index, tmp), 1);
                         }
                     });
@@ -274,23 +311,51 @@
                 console.log(err);
             }
         });
+
+        $("#checkAll").on("change", function () {
+            if (checkAll.is(':checked')) {
+                $("#bill-amount").text(totalSelectedAmount.toFixed(3))
+                $("#totalAmount1").text(totalSelectedAmount.toFixed(3))
+                paymentArray = arrayAllChicked;
+
+            } else {
+                $("#bill-amount").text("00.00")
+                $("#totalAmount1").text("00.00")
+                paymentArray.splice(0, arrayAllChicked.length);
+            }
+        })
         $("#paument-btn").click(function () {
-            $("#CostName1").text(nameCustomer);
-            $("#fileNumber1").text(fileNumber);
-            $("#bill-no1").text(billNo)
-            $("#totalAmount1").text(totalAmount)
+            console.log("sassad : ",paymentArray)
+
+                if (checkAll.is(':checked')) {
+                    $("#CostName1").text(nameCustomer);
+                    $("#fileNumber1").text(fileNumber);
+                    $("#bill-no1").text(paymentArray.length)
+                    $("#totalAmount1").text(totalSelectedAmount.toFixed(3))
+                    
+                }
+                else {
+                    $("#CostName1").text(nameCustomer);
+                    $("#fileNumber1").text(fileNumber);
+                    $("#bill-no1").text(billNo)
+                    $("#totalAmount1").text(totalAmount.toFixed(3))
+
+                }
+
+
             docArray.splice(0, docArray.length)
             $("#bill-sammury").empty();
             $.each(tmp, function (key, value) {
-                var htmlbill = "<div class=''> " + value.BillNumber + " || " + value.BillAmount + " </div>";
+                var htmlbill = "<div class=''> " + value.BillNumber + " || " + value.BillAmount +  " د.أ </div>";
                 $("#bill-sammury").append(htmlbill)
                 docArray.push(
                     {
-                        "BillNumber": value.BillNumber,
-                        "BillAmount": value.BillAmount
+                        "BillNumber": (value.BillNumber.slice(0, -2)).toString(),
+                        "BillAmount": (value.BillAmount).toString()
                     }
                 )
             })
+
             console.log("Arrya : ", docArray);
             $('#myModalBill').modal('show');
 
@@ -317,6 +382,7 @@
                     contentType: "application/json",
                     async: false,
                     success: function (res) {
+                        console.log(res)
                         alert( res.body.paymentWebPageURL)
                         //window.location.href = res.body.paymentWebPageURL;
 
@@ -329,10 +395,6 @@
             });
         })
 
-        $('#button').on('click', function () {
-            console.log(tmp)
-            
-        });
 
     })
     
@@ -476,7 +538,8 @@
      }
      .welcome .modal-body{
          text-align : right;
-         padding : 10px 20px
+         padding : 10px 20px;
+         background : #FFF !important
      }
      .welcome .modal-body p{
          margin: 0 0 10px;
@@ -490,5 +553,32 @@
     margin-bottom: 10px;
     color: #007fc3;
 
+    }
+    .nobill strong {
+        margin-bottom : 20px
+    }
+    .nobill img {
+    width: 175px;
+    margin-bottom: 5px;
+    margin-top: 20px;
+    }
+    .nobill{
+            color: #fff;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+        flex-direction: column;
+
+    }
+    .welcome .modal-dialog{
+        max-width : 600px
+    }
+    .head-body{
+        text-align : center
+    }
+    .head-body h3{
+        color : #dec84d;
+        font-weight : bold
     }
 </style>
