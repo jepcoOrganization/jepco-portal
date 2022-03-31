@@ -20,6 +20,24 @@
                 <div class="head-body">
                     <h3>ملخص الدفع</h3>
                 </div>
+                <div class="s-col"style="display: flex;justify-content: space-between;">        
+                     <div class="input-feild">
+                    <p class="title" >
+                      رقم المرجع :
+                    </p>
+                       <strong id='fileNumber1'></strong>
+
+                      </div>
+
+
+                <div class="input-feild">
+                    <p class="title" style="text-align: center;">
+                        عدد الفواتير  
+                    </p>
+                    <strong id='bill-no1'  style="text-align: center;"></strong>
+                </div>
+              
+                    </div>
                 <div class="f-col">
                 <div class="input-feild">
                     <p class="title">
@@ -27,34 +45,21 @@
                     </p>
                     <strong id='CostName1' class='value-field'></strong>
                 </div>
-                  <div class="input-feild">
-                    <p class="title">
-                        رقم المرجع : 
-                    </p>
-                       <strong id='fileNumber1'></strong>
-
-                      </div>
-                </div>                
+                 
+                </div>    
+                
                 <div class="input-feild">
                     <p class="title">
                         الفواتير : 
                     </p>
                     <strong id='bill-sammury'></strong>
                 </div>           
-                <div class="s-col">                
-                <div class="input-feild">
-                    <p class="title">
-                        عدد الفواتير : 
-                    </p>
-                    <strong id='bill-no1'></strong>
-                </div>
-                 <div class="input-feild">
+                   <div class="input-feild">
                     <p class="title">
                         القيمة : 
                     </p>
                     <strong id='totalAmount1'></strong>
                 </div>
-                    </div>
             </div>
             <div class="modal-footer">
                 <%--<button id="SubmitFillCall"  >Save</button>--%>
@@ -246,6 +251,9 @@
                     advPayment = data.body.header.advancePaymentAmount;
                     totalReciviable = data.body.header.totalReceivablePaymentAmount;
 
+                    if (data.body.header.receivablePaymentAmount <= 0) {
+                        $("#paument-btn").attr("disabled", true);
+                    }
                     // send global var to html : --------------
                     $("#CostName").text(nameCustomer);
                     $("#subscriptionType").text(subscriptionType);
@@ -263,12 +271,7 @@
 
                             var collect = htmlbox + htmlbox2 + htmlbox3;
                             $(".MyAllFiles .list-unstyled").append(collect);
-                            arrayAllChicked.push(
-                                {
-                                    "BillNumber": value.billNumber.slice(0,-2),
-                                    "BillAmount": value.billAmount,
-                                    key
-                                })
+
                             totalSelectedAmount = totalSelectedAmount + Number(value.billAmount);
                             totalSelectedAmount.toFixed(3);
                         })
@@ -301,7 +304,7 @@
 
                             billNo--;
                             $("#bill-amount").text(totalAmount.toFixed(3))
-                            tmp.splice($.inArray(index, tmp), 1);
+                            tmp.splice($.inArray(index, tmp), 2);
                         }
                     });
 
@@ -325,7 +328,8 @@
             }
         })
         $("#paument-btn").click(function () {
-            console.log("sassad : ",paymentArray)
+            docArray.splice(0, docArray.length)
+            console.log("Arrya bef : ", docArray);
 
                 if (checkAll.is(':checked')) {
                     $("#CostName1").text(nameCustomer);
@@ -343,10 +347,10 @@
                 }
 
 
-            docArray.splice(0, docArray.length)
             $("#bill-sammury").empty();
             $.each(tmp, function (key, value) {
-                var htmlbill = "<div class=''> " + value.BillNumber + " || " + value.BillAmount +  " د.أ </div>";
+                console.log("arrrrr : ",value)
+                var htmlbill = "<div class=''> " + value.BillNumber + " --> " + value.BillAmount +  " د.أ </div>";
                 $("#bill-sammury").append(htmlbill)
                 docArray.push(
                     {
@@ -383,7 +387,10 @@
                     async: false,
                     success: function (res) {
                         console.log(res)
-                        alert( res.body.paymentWebPageURL)
+                        window.open(
+                            res.body.paymentWebPageURL,
+                            '_blank' 
+                        ) 
                         //window.location.href = res.body.paymentWebPageURL;
 
                     },
@@ -546,8 +553,9 @@
          color: #007fc3;
      }
     .welcome .modal-body strong {
-    width: 100%;
-    background: #fff;
+     width: 100%;
+    background: #1111;
+    border-radius: 2em;
     display: block;
     padding: 10px 20px;
     margin-bottom: 10px;
@@ -581,4 +589,17 @@
         color : #dec84d;
         font-weight : bold
     }
+        p.title {
+    color: darkgray !important;
+    }
+        .welcome .modal-footer button {
+    background: #dec84d;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    border: none;
+    width: 100%;
+    max-width: 100%;
+    line-height: 60px;
+}
 </style>
