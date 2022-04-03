@@ -1880,9 +1880,6 @@ Thank you for Subscription.
 
                     $("[id*=<%=LnkPaymentDetails.ClientID %>]").click();
 
-                    // Session["FileNumberDetails"] = filename;
-                    // alert(Session["FileNumberDetails"]);
-
                 });
 
 
