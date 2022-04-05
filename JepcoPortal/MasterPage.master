@@ -608,7 +608,9 @@ Thank you for Subscription.
        <%--  <script type="text/javascript" src="/Scripts/jquery.mCustomScrollbar.concat.min.js"></script>--%>
 
          <script>
-             $("document").ready(function () {
+    $("#lstNavigation_img_4").attr("src", "/App_Themes/ThemeAr/img/pay1Log3.png")
+
+    $("document").ready(function () {
 
 
                  function checkTime(i) {
@@ -730,6 +732,9 @@ Thank you for Subscription.
     </script>
 
         <style>
+    img#lstNavigation_img_4 {
+    width: 50px;
+}
             .nwdr {
                 background: #f8f8f8;
                 padding: 40px 0;

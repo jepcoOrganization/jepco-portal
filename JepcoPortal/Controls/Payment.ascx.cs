@@ -19,12 +19,19 @@ public partial class Controls_Payment : System.Web.UI.UserControl
             {
                 hdnFileNAme.Value = Session["PaymentDetails"].ToString();
             }
+      
+
         }
-        
+    }
+    protected void hiddenArrayBills_ValueChanged(object sender, EventArgs e)
+    {
 
     }
-    protected async void lnkArrayDetails_Click(object sender, EventArgs e)
-    { 
-       
+
+
+    protected async void paymentreq(object sender, EventArgs e)
+    {
+        System.Diagnostics.Debug.WriteLine(txtEmail.Text);
+
     }
 }

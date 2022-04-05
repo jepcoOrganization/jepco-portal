@@ -1062,8 +1062,8 @@
                                         PaidStatu = 1;
                                     else
                                         PaidStatu = 0;
-
                                     FileData.billName = CostsName;
+                                    FileData.actualMeterReadDateTime = value.actualMeterReadDateTime;
                                     FileData.billNo = BillNo;
                                     FileData.consumptionQty = ConsQty;
                                     FileData.status = PaidStatu;
@@ -1138,6 +1138,7 @@
                                         PaidStatu = 1;
                                     else
                                         PaidStatu = 0;
+                                    FileData.actualMeterReadDateTime = value.actualMeterReadDateTime;
 
                                     FileData.billName = CostsName;
                                     FileData.billNo = BillNo;
@@ -1219,6 +1220,8 @@
                                     PaidStatu = 1;
                                 else
                                     PaidStatu = 0;
+
+                                FileData.actualMeterReadDateTime = value.actualMeterReadDateTime;
 
                                 FileData.billName = CostsName;
                                 FileData.billNo = BillNo;
@@ -1649,9 +1652,8 @@
         $(".showBillModal").click(function (event) {
 
             var index = event.target.attributes.getNamedItem('data-billNo').value;
-
+            console.log(index)
             selectedInvoce = InvoceList[index];
-
             // split Fils & Dinar
             var consumptionAmount_split = (selectedInvoce.consumptionAmount).split('.');
             var fuelAmount_split = (selectedInvoce.fuelAmount).split('.');
@@ -1663,6 +1665,7 @@
             var clearingAmount_split = (selectedInvoce.clearingAmount).split('.');
             var unClearingAmount_split = (selectedInvoce.unClearingAmount).split('.');
 
+            var actualMeterRead = (selectedInvoce.actualMeterReadDateTime).slice(0,-4);
             $('#BillName').text(selectedInvoce.billName);
             $('#BillInstallation').text(selectedInvoce.installation);
             $('#subscriptionNo').text(selectedInvoce.subscriptionNo);
@@ -1673,7 +1676,7 @@
             $('#fileNumberI').text(selectedInvoce.fileNumber);
             $('#factor').text(selectedInvoce.factor);
             $('#meterNumber').text(selectedInvoce.meterNumber);
-            $('#endBillingPeriod1').text(selectedInvoce.endBillingPeriod);
+            $('#endBillingPeriod1').text(actualMeterRead);
             $('#normalMeterRead').text(selectedInvoce.normalMeterRead);
             $('#normalMeterRead1').text(selectedInvoce.normalMeterRead);
             $('#ibillingQuantity').text(selectedInvoce.ibillingQuantity);

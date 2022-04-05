@@ -1623,12 +1623,14 @@
     <Content Include="Siteware\Siteware_File\image\JEPCO\menu-icon-6.png" />
     <Content Include="Siteware\Siteware_File\image\JEPCO\menu-icon-7.png" />
     <Content Include="Siteware\Siteware_File\image\JEPCO\menu-icon-8.png" />
+    <Content Include="Siteware\Siteware_File\image\JEPCO\Menu-Images\pay1Log.png" />
     <Content Include="Siteware\Siteware_File\image\JEPCO\meter-1.png" />
     <Content Include="Siteware\Siteware_File\image\JEPCO\meter.png" />
     <Content Include="Siteware\Siteware_File\image\JEPCO\money.png" />
     <Content Include="Siteware\Siteware_File\image\JEPCO\new-icon.png" />
     <Content Include="Siteware\Siteware_File\image\JEPCO\online-payment-1.png" />
     <Content Include="Siteware\Siteware_File\image\JEPCO\online-payment.png" />
+    <Content Include="Siteware\Siteware_File\image\JEPCO\payLog.png" />
     <Content Include="Siteware\Siteware_File\image\JEPCO\playstore.png" />
     <Content Include="Siteware\Siteware_File\image\JEPCO\problem-icon.png" />
     <Content Include="Siteware\Siteware_File\image\JEPCO\problem.png" />

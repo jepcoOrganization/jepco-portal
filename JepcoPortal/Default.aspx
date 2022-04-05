@@ -1060,6 +1060,8 @@ Thank you for Subscription.
 
 
         <script>
+            $("#lstNavigation_img_4").attr("src", "/App_Themes/ThemeAr/img/pay1Log3.png")
+
             $("document").ready(function () {
 
 
@@ -2245,6 +2247,9 @@ Thank you for Subscription.
             .modal-done{
                 padding: 30px 0;
             }
+            img#lstNavigation_img_4 {
+    width: 50px;
+}
         </style>
 
 
