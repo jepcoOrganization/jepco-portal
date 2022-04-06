@@ -1607,9 +1607,13 @@ Thank you for Subscription.
                             $('.errorRef').append(errorModal);
 
                             var inputValue = $('#fileadddata').val();
-                     
+
+                            if ($("#Aliasadddata").val().length == 0) {
+                                $('.errorRef').append("يرجى ادخال الاسم المستعار")
+                            }
                                 if (inputValue.length == 0)
-                                    $('.errorRef').append("يرجى ادخال الرقم المرجعي")
+                                $('.errorRef').append("يرجى ادخال الرقم المرجعي")
+                            
                                 //if (inputValue.length > 0 && inputValue.length <= 12)
                                 //    $('.errorRef').append("يجب ان يتكون الرقم المرجعي من 13 رقم")
                             
