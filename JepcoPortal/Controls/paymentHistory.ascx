@@ -145,7 +145,6 @@
                 arrayResponese = data.body;
 
                 $.each(arrayResponese, function (key, value) {
-                    console.log("SSS : ",value)
                     var dateSplit = ((value.responseDate.split('T'))[0]).slice(0, -3)
                     arrayDate.push(dateSplit)
                     var i = 0;
@@ -176,7 +175,7 @@
                 $.each(unique(arrayDate), function (index, value) {
                     var count = 1;
                     var htmlHeader = "<div class='col-lg-12 col-sm-12 col-md-12'><div class='billnum'><h2 class='billno'>" + value + "</h2></div></div>";
-                    var htmlContent = "<table class='table table-hover table-responsive table-success'><thead><tr><th></th><th> الإسم المختصر</th><th> تاريخ الدفع </th><th> رقم الحركة </th><th>القيمة</th></tr></thead><tbody class='inner-body"+i+"'>";
+                    var htmlContent = "<table class='table table-hover table-responsive table-success'><thead><tr><th></th><th> الإسم المختصر</th><th> تاريخ الدفع </th><th> رقم الحركة </th><th>القيمة</th><th></th></tr></thead><tbody class='inner-body"+i+"'>";
                     var htmlContent1 = "</tbody></table>"
                     $(".inner-js").append(htmlHeader + htmlContent + htmlContent1);
                     $.each(allArray, function (key, temp) {
@@ -184,7 +183,7 @@
                             var x = temp.date.split("T");
                             var htmlContent2 = "<tr class='btn-modal' data-billNo='"+ key +"'><td>" + count++ + "</td><td><label  style='font-size: 15px;'>" + temp.name + "</label></td>";
                             var htmlContent3 = "<td><label style='font-size: 15px'>" + x[0] + "/" + x[1].split(".")[0] + "</label></td><td><label style='font-size: 15px;'>" + temp.transaction + "</label></td>";
-                           var htmlContent4 = "<td><label  style='font-size: 15px;'> " + temp.amount + " د.أ </label></td></tr>";
+                            var htmlContent4 = "<td><label  style='font-size: 15px;'> " + temp.amount + " د.أ </label></td><td><button type='button' class='btn btn-primary det'> تفاصيل الدفعة</button></td></tr>";
 
                             var concatChild1 = htmlContent2 + htmlContent3 + htmlContent4;
                             $(".inner-body" + i +"").append(concatChild1);
@@ -209,14 +208,11 @@
             });
             return result;
         }
-        console.log(allArray)
 
         $(".btn-modal").click(function (event) {
             var index = $(this).attr("data-billNo");
             //var index = event.target.attributes.getNamedItem('data-billNo').value;
-            console.log("index : ",index)
             selctedArray = allArray[index]
-            console.log("select : ", selctedArray)
 
             var x = selctedArray.date.split("T");
             var final_date = x[0] + " / " + x[1].split(".")[0];
@@ -240,7 +236,6 @@
             $("#bill-order-type").text(paymentGatewayId)
 
             $.each(selctedArray.billArray, function (key, value) {
-                console.log(value)
                 var htmlBox = "<div class='box-bill'><strong> " + value.billNumber + " </strong><h3>|</h3><strong>" + value.billAmount + " د.أ </strong></div>"
                 /*               htmlappeend += htmlBox;*/
                 $(".bill-parnet").append(htmlBox)
@@ -272,7 +267,7 @@
     }
     .table-history tr:hover td{
         background : #f5f5f5;
-        cursor : pointer
+        cursor : pointer;
     }
 
     .table-history thead th:first-child{
@@ -291,6 +286,8 @@
     } 
     .table-history tbody th ,.table-history tbody td{
         padding-left : 7px !important;
+            vertical-align: middle !important;
+
     } 
     .table-history tbody label{
         display : contents;
@@ -377,5 +374,9 @@
     }
     .box-bill h3{
         display:contents
+    }
+    .det{
+        background-color: #007fc3;
+    border-color: #007fc3;
     }
 </style>

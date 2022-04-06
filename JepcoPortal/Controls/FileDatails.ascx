@@ -1664,8 +1664,18 @@
             var totalBillAmount_split = (selectedInvoce.totalBillAmount).split('.');
             var clearingAmount_split = (selectedInvoce.clearingAmount).split('.');
             var unClearingAmount_split = (selectedInvoce.unClearingAmount).split('.');
-
-            var actualMeterRead = (selectedInvoce.actualMeterReadDateTime).slice(0,-4);
+            var dateConcat = "";
+            var actualMeterRead = (selectedInvoce.actualMeterReadDateTime).slice(0, -4);
+            for (let i = 0; i < actualMeterRead.length; i++) {
+                console.log(actualMeterRead[i])
+                if (i == 4) {
+                    dateConcat += "/"
+                }
+                if (i == 6) {
+                    dateConcat += "/"
+                }
+                dateConcat += actualMeterRead[i]
+            }
             $('#BillName').text(selectedInvoce.billName);
             $('#BillInstallation').text(selectedInvoce.installation);
             $('#subscriptionNo').text(selectedInvoce.subscriptionNo);
@@ -1676,7 +1686,7 @@
             $('#fileNumberI').text(selectedInvoce.fileNumber);
             $('#factor').text(selectedInvoce.factor);
             $('#meterNumber').text(selectedInvoce.meterNumber);
-            $('#endBillingPeriod1').text(actualMeterRead);
+            $('#endBillingPeriod1').text(dateConcat);
             $('#normalMeterRead').text(selectedInvoce.normalMeterRead);
             $('#normalMeterRead1').text(selectedInvoce.normalMeterRead);
             $('#ibillingQuantity').text(selectedInvoce.ibillingQuantity);

@@ -882,7 +882,7 @@ Thank you for Subscription.
                         <%--<img src="images/logo.png" alt="">--%>
                     </div>
                     <div class="modal-footer">
-                        <button id="SubmitFillCall" type="submit">حفظ</button>
+                        <button id="SubmitFillCall" type="submit" class="btn btn-primary" disabled>حفظ</button>
 
                         <%-- <button>موافق</button>--%>
                     </div>
@@ -1063,6 +1063,17 @@ Thank you for Subscription.
             $("#lstNavigation_img_4").attr("src", "/App_Themes/ThemeAr/img/pay1Log3.png")
 
             $("document").ready(function () {
+
+                /* validation Add Refrence Number  */
+                $("#fileadddata,#Aliasadddata").keyup("change", function () {
+                    if ($("#fileadddata").val().length != 0) {
+                        if ($("#Aliasadddata").val().length == 0) {
+                            $("#SubmitFillCall").attr("disabled", true)
+                        } else {
+                            $("#SubmitFillCall").removeAttr("disabled")
+                        }
+                    }                   
+                })
 
 
                 $.ajax({

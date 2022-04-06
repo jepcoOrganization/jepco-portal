@@ -31,6 +31,31 @@
 </div>
 
 
+<div class="modal fade welcome modal-data" id="myModalerror2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 style="display: contents">شركة الكهرباء الأردنية</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span class="fa fa-close"></span>
+                </button>
+
+            </div>
+            <div class="modal-body">
+                       <div class="err-box alert alert-danger">
+                    <p style="font-weight:bold"> خطأ : </p>
+                    <p> في حال أختيار اكثر من فاتورة يجب عليك اختيار فواتير متتالية</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <%--<button id="SubmitFillCall"  >Save</button>--%>
+                <button type="button" class="btn btn-outline-primary" id="" data-dismiss="modal" aria-label="Close">موافق</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
 <%-- Moadl Summery :  --%>
 
 <div class="modal fade welcome modal-data" id="myModalBill" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -113,10 +138,7 @@
                   </div>
                 </div>
 
-                <div class="err-box alert alert-danger" style="display:none">
-                    <p style="font-weight:bold"> خطأ : </p>
-                    <p> في حال أختيار اكثر من فاتورة يجب عليك اختيار فواتير متتالية</p>
-                </div>
+
             </div>
             <div class="modal-footer">
                 <%--<button id="SubmitFillCall"  >Save</button>--%>
@@ -340,7 +362,6 @@
             contentType: "application/json; charset=utf-8",
             async: false,
             success: function (data) {
-                console.log(data);
                 if (data.statusCode = "Success") {
 
                     receivablePaymentAmount = data.body.header.receivablePaymentAmount;
@@ -403,7 +424,6 @@
                             billNo++;
 
                             totalAmount = totalAmount + billatrr;
-                            console.log(totalAmount)
                             $("#bill-amount").text(totalAmount.toFixed(3))
                             tmp.push({
                                 "BillNumber": checked,
@@ -414,7 +434,6 @@
 
                         else {
                             totalAmount = totalAmount - billatrr;
-                            console.log(totalAmount)
 
                             billNo--;
                             $("#bill-amount").text(totalAmount.toFixed(3))
@@ -452,7 +471,6 @@
             if (Number(receivablePaymentAmount) <= 0) {
                 $("#myModalFailed").modal("show")
             } else {
-                $(".err-box").hide();
 
                 if (checkAll.is(':checked')) {
 
@@ -507,25 +525,12 @@
                     )
                 })
 
-                console.log("Arrya : ", docArray);
 
                 //////////////////////////////////////////////
 
                 $('#<%=hiddenArrayBills.ClientID %>').val(docArray);
 
                 /////////////////////////////////////////////
-                $('#myModalBill').modal('show');
-            }
-        
-
-        })
-       
-  
-        $("#button-payment").click(function (e) {
-                e.preventDefault();
-
-                console.log(docArray);
-                console.log('docArray')
 
                 var allow = true;
 
@@ -540,7 +545,6 @@
 
                     if (cnt == 0) {
                         current = docArray[k].index;
-                        console.log('t')
                         cnt++;
 
                         continue;
@@ -556,16 +560,12 @@
                         allow = false
                         break;
                     }
-                    console.log('2')
 
 
                 }
-
-
-
-
                 if (!allow) {
-                    $(".err-box").show();
+                    $('#myModalerror2').modal('show');
+
 
                 } else {
                     var invoceList = '';
@@ -577,9 +577,70 @@
                         }
 
                     }
-                    console.log(invoceList);
                     $('#txtEmail').val(invoceList)
+                    $('#myModalBill').modal('show');
+
                 }
+
+
+            }
+        
+
+        })
+  
+        $("#button-payment").click(function (e) {
+                e.preventDefault();
+
+
+                //var allow = true;
+
+                //docArray.sort(function (a, b) {
+                //    return a.index - b.index;
+                //})
+
+                //var current;
+                //var cnt = 0;
+
+                //for (let k in docArray) {
+
+                //    if (cnt == 0) {
+                //        current = docArray[k].index;
+                //        console.log('t')
+                //        cnt++;
+
+                //        continue;
+                //    }
+
+
+                //    if ((current + 1) == docArray[k].index) {
+                //        current = docArray[k].index;
+                //        cnt++;
+
+                //    } else {
+                //        //   alert('error');
+                //        allow = false
+                //        break;
+                //    }
+                //    console.log('2')
+
+
+                //}
+                //if (!allow) {
+                //    $(".err-box").show();
+
+                //} else {
+                //    var invoceList = '';
+                //    for (let k in docArray) {
+                //        if (docArray.length - 1 == k) {
+                //            invoceList += docArray[k].BillNumber;
+                //        } else {
+                //            invoceList += docArray[k].BillNumber + ',';
+                //        }
+
+                //    }
+                //    console.log(invoceList);
+                //    $('#txtEmail').val(invoceList)
+                //}
 
                 // get all selected invoce ids 
                 //in asp get all invoces and loop to get the aomount
@@ -608,14 +669,10 @@
                     contentType: "application/json",
                     async: false,
                     success: function (res) {
-                        console.log(res)
-                        if (allow) {
+
                             window.open(
                                 res.body.paymentWebPageURL,
-                                '_blank'
-                            )
-                        }
-
+                                '_blank')
                         //window.location.href = res.body.paymentWebPageURL;
 
                     },
