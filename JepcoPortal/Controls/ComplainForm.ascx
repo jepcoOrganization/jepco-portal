@@ -40,7 +40,7 @@
                         <ul class="list-unstyled steplist Compiansteps" id="progressbar2" style="margin-bottom: 30px;">
                                 <li class="active"><a href="javascript:void">الشكوى المقدم لها</a></li>
                                 <li><a href="javascript:void">المعلومات الشخصية</a></li>
-                                <li><a href="javascript:void">معلومات العداد</a></li>
+                                <li><a href="javascript:void">عنوان الشكوى</a></li>
                                 <li><a href="javascript:void">تفاصيل الشكوى</a></li>
 
                             </ul>
@@ -61,17 +61,40 @@
                             <h3>الشكوى المقدم لها</h3>
                             <div class="row">
 
-                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <div class="form-group">
+                              <div class="col-lg-6 col-md-6 col-sm-6">
+                                      <div class="form-group">
 
                                         <label><span>*</span>نوع الشكوى</label>
-                                        <asp:DropDownList ID="ddlComplainType" runat="server" TabIndex="2" Width="100%">
+                                          <select TabIndex="2" class="complain-type-select">
+                                                <option value="0">الرجاء اختيار نوع الشكوى</option>
+                                          </select>
+                                        <asp:DropDownList ID="ddlComplainType" runat="server" TabIndex="2" Width="100%" Style="display:none">
                                         </asp:DropDownList>
+                                    </div>
+                                    <div class="form-group damage-type">
+
+                                        <label><span>*</span>نوع العطل</label>
+                                          <select TabIndex="2" class="damage-type-select">
+                                                <option value="0">الرجاء اختيار نوع العطل</option>
+                                          </select>
+
+                                    </div>
+                                     <div class="form-group meter-number-req">
+                                        <label><span>*</span>رقم العداد</label>
+                                          <select TabIndex="2" class="meter-number-select">
+                                                <option value="0">الرجاء اختيار رقم العداد</option>
+                                          </select>
+                                    </div>
+                                    <div class="form-group meter-number-notreq">
+                                        <label>رقم العداد ( اختياري )</label>
+                                          <select TabIndex="2" class="meter-number-select">
+                                                <option value="0">الرجاء اختيار رقم العداد</option>
+                                          </select>
                                     </div>
                                 </div>
                             </div>
 
-                            <input type="button" name="next" class="next action-button" value="التالي" />
+                            <input type="button" name="next" class="btn next next1 action-button" value="التالي" disabled/>
                         </fieldset>
                         <fieldset>
                             <h3>المعلومات الشخصية</h3>
@@ -81,14 +104,14 @@
                                     <div class="form-group">
                                         <label><span>*</span>الاسم الأول</label>
                                         <asp:HiddenField runat="server" ID="hdnServiceID" />
-                                        <asp:TextBox ID="txtfirstName" runat="server" PlaceHolder="الاسم الأول" readonly='true'></asp:TextBox>
+                                        <asp:TextBox ID="txtfirstName" runat="server" PlaceHolder="الاسم الأول" ></asp:TextBox>
 
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="form-group">
                                         <label><span>*</span>اسم الأب </label>
-                                        <asp:TextBox ID="txtSecondNAme" runat="server" PlaceHolder="اسم الأب" readonly='true'></asp:TextBox>
+                                        <asp:TextBox ID="txtSecondNAme" runat="server" PlaceHolder="اسم الأب" ></asp:TextBox>
 
                                     </div>
                                 </div>
@@ -98,14 +121,14 @@
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="form-group">
                                         <label><span>*</span>اسم الجد </label>
-                                        <asp:TextBox ID="txtThirdName" runat="server" PlaceHolder="اسم الجد " readonly='true'></asp:TextBox>
+                                        <asp:TextBox ID="txtThirdName" runat="server" PlaceHolder="اسم الجد " ></asp:TextBox>
 
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="form-group">
                                         <label><span>*</span>اسم العائلة </label>
-                                        <asp:TextBox ID="txtFamilyName" runat="server" PlaceHolder="اسم العائلة " readonly='true'></asp:TextBox>
+                                        <asp:TextBox ID="txtFamilyName" runat="server" PlaceHolder="اسم العائلة " ></asp:TextBox>
 
                                     </div>
                                 </div>
@@ -117,7 +140,12 @@
                                         <div class="col-lg-6 col-md-6 col-sm-6">
                                             <div class="form-group">
                                                 <label><span>*</span>  الجنسية</label>
-                                                <asp:DropDownList ID="ddlNationality" OnSelectedIndexChanged="ddlNationality_SelectedIndexChanged" AutoPostBack="true" runat="server" TabIndex="2" Width="100%">
+                                                <select class="national-select">
+                                                    <option value="0">اختيار الجنسية</option>
+                                                    <option value="1">الأردنية</option>
+                                                    <option value="2">أخرى</option>
+                                                </select>
+                                                <asp:DropDownList ID="ddlNationality" OnSelectedIndexChanged="ddlNationality_SelectedIndexChanged" AutoPostBack="true" runat="server" TabIndex="2" Width="100%" Style="display:none" >
                                                 </asp:DropDownList>
 
                                             </div>
@@ -125,7 +153,10 @@
                                         <div class="col-lg-6 col-md-6 col-sm-6">
                                             <div class="form-group">
                                                 <label><span>*</span>  نوع الوثيقة</label>
-                                                <asp:DropDownList ID="ddlTypeDocument" runat="server" TabIndex="2" Width="100%">
+                                                <select class="nationalTypeDocument-select">
+                                                    <option value="0">يرجى اختيار الجنسية</option>
+                                                </select>
+                                                <asp:DropDownList ID="ddlTypeDocument" runat="server" TabIndex="2" Width="100%" Style="display:none">
                                                 </asp:DropDownList>
                                             </div>
                                         </div>
@@ -133,8 +164,8 @@
                                     <div class="row">
                                         <div class="col-lg-6 col-md-6 col-sm-6">
                                             <div class="form-group">
-                                                <label><span>*</span> رقم الوثيقة</label>
-                                                <asp:TextBox ID="txtDocumnetNo" runat="server" PlaceHolder="رقم الوثيقة" class="mobileNo"></asp:TextBox>
+                                                <label> رقم ( الوطني / الوثيقة ) اختياري</label>
+                                                <asp:TextBox ID="txtDocumnetNo" runat="server" PlaceHolder="رقم الوثيقة" ></asp:TextBox>
                                             </div>
                                         </div>
 
@@ -149,13 +180,13 @@
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="form-group">
                                         <label><span>*</span> البريد الالكتروني </label>
-                                        <asp:TextBox ID="txtEmail" runat="server" PlaceHolder=" البريد الالكتروني " readonly='true'></asp:TextBox>
+                                        <asp:TextBox ID="txtEmail" runat="server" PlaceHolder=" البريد الالكتروني "></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="form-group">
-                                        <label>رقم الهاتف </label>
-                                        <asp:TextBox ID="txtMobileNo" runat="server" PlaceHolder="رقم الهاتف " class="mobileNo" readonly='true'></asp:TextBox>
+                                        <label style="margin-top:7px">رقم الهاتف </label>
+                                        <asp:TextBox ID="txtMobileNo" runat="server" PlaceHolder="رقم الهاتف "  ></asp:TextBox>
                                     </div>
                                 </div>
                             </div>
@@ -171,7 +202,7 @@
 
                                 <div class="row">
 
-                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="col-lg-6 col-md-6 col-sm-6" style="display:none" >
                                     <div class="form-group">
                                         <label>رقم العداد </label>
                                         <asp:TextBox ID="txtMeterNo" runat="server" PlaceHolder=" رقم العداد "></asp:TextBox>
@@ -185,16 +216,20 @@
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="form-group">
                                         <label><span>*</span>  المحافظة </label>
-
-                                        <select id="ddlGeove" name="ddlGeove" class="form-control" tabindex="2"></select>
+                                        <select class="city-select">
+                                            <option value="0">أختيار المحافظة</option>
+                                        </select>
+                                        <select id="ddlGeove" name="ddlGeove" class="form-control" tabindex="2" style="display:none"></select>
                                     </div>
 
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="form-group">
-                                        <label><span>*</span>الحي </label>
-
-                                        <select id="ddlAreas" name="ddlAreas" class="form-control" tabindex="2"></select>
+                                        <label><span>*</span>المنطقة </label>
+                                        <select class="areas-select">
+                                             <option value="0">يرجى أختيار المحافظة</option>
+                                        </select>
+                                        <select id="ddlAreas" name="ddlAreas" class="form-control" tabindex="2" style="display:none" ></select>
 
                                     </div>
 
@@ -205,16 +240,23 @@
 
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="form-group">
-                                        <label>Area 2</label>
-                                        <select id="ddlAreas2" name="ddlAreas2" class="form-control" tabindex="2"></select>
+                                        <label>الحي</label>
+                                        <select class="neighborhoods-select">
+                                            <option value="0">يرجى أختيار المنطقة</option>
+                                        </select>
+                                        <select id="ddlAreas2" name="ddlAreas2" class="form-control" tabindex="2" style="display:none"></select>
                                     </div>
 
                                 </div>
 
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="form-group">
-                                        <label>Street</label>
-                                        <select id="ddlsteet" name="ddlsteet" class="form-control" tabindex="2"></select>
+                                        <label>الشارع</label>
+                                        <select class="street-select">
+                                           <option value="0">يرجى أختيار الحي</option>
+
+                                        </select>
+                                        <select id="ddlsteet" name="ddlsteet" class="form-control" tabindex="2" style="display:none"></select>
                                     </div>
 
                                 </div>
@@ -338,6 +380,241 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maps.google.com/maps/api/js?key=AIzaSyDw7R6UWQg5NiY7uR6T-GKmwkscSaBmVtY"></script>
 
+<%-- New Api For Complain  :  --%>
+<script>
+    var APIUrl = '<%= System.Configuration.ConfigurationManager.AppSettings["APIurl"].ToString() %>';
+
+    var MobileNoURL = $("#hdnmobileno").val();
+
+    var complainType = [];
+    var damageType = [];
+    var meterNumberList = [];
+    var BranchId;
+    var AreaId;
+    var NeighborhoodId;
+    //if ($('#aioConceptName').find(":selected").text() == "0") {
+
+    //} else {
+
+    //}
+    $(document).ready(function () {
+
+        $.ajax({
+            type: "POST",
+            url: APIUrl + "Complaints/RequestComplaint",
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("MiddlewareToken"));
+            },
+            data: JSON.stringify({
+                MobileNumber: MobileNoURL,
+                LanguageId: "AR"
+            }),
+            contentType: "application/json; charset=utf-8",
+            async: false,
+            success: function (data) {
+                console.log("data : ", data);
+                complainType = data.body.complanetTypeList;
+                damageType = data.body.failureTypesList;
+                meterNumberList = data.body.meterNumberList;
+
+                // for loop for complain type : 
+                $.each(complainType, function (key, value) {
+                                                        // value == codeId from API
+                    var htmlComplainDropDown = "<option value='" + value.codeId + "'>" + value.codeName + "</option>";
+                    $(".complain-type-select").append(htmlComplainDropDown);
+                })
+
+                // foor loop for damage type : 
+                $.each(damageType, function (key, value) {
+                                            // value == codeId from API
+                    var htmlComplainDropDown = "<option value='" + value.codeId + "'>" + value.codeName + "</option>";
+                    $(".damage-type-select").append(htmlComplainDropDown);
+                })
+                
+                // foor loop for meter Number List :
+                $.each(meterNumberList, function (key, value) {
+                                            // value == codeId from API
+                    var htmlComplainDropDown = "<option value='" + ++key + "'>" + value.name + " : " + value.meterNumber +"</option>";
+                    $(".meter-number-select").append(htmlComplainDropDown);
+                })
+
+                $(".complain-type-select").on('change', function () {
+
+                    /* ***********-- Validation For Input --*********** */
+                    if (this.value != 0) {
+                        $(".next1").removeAttr("disabled")
+                    } else {
+                        $(".next1").attr("disabled", true)
+                    }
+
+
+                    if (this.value == 1) {
+                        $(".damage-type").show()
+                        $(".meter-number-notreq").show()
+                    } else {
+                        $(".damage-type").hide()
+                        $(".meter-number-notreq").hide()
+                    }
+
+                    if (this.value == 7) {
+                        $(".meter-number-req").show()
+                    } else {
+                        $(".meter-number-req").hide()
+                    }
+                })
+
+                $(".national-select").on("change", function () {
+                    console.log("val : ", this.value);
+                    if (this.value == 1) {
+
+                        $(".nationalTypeDocument-select").empty()
+                        $(".nationalTypeDocument-select").append("<option value='1'>هوية أحوال مدنية</option>");
+                    } else {
+                        $(".nationalTypeDocument-select").empty()
+                        $(".nationalTypeDocument-select").append("<option value='2'> جواز سفر</option><option value='3'>اقامة</option>");
+
+                    }
+                })
+ 
+            },
+            error: function (result) {
+                console.log(result)
+            }
+        });
+
+
+
+
+        $.ajax({
+            type: "POST",
+            url: APIUrl + "Complaints/GetCallCenterProviance",
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("MiddlewareToken"));
+            },
+            //data: JSON.stringify({
+            //    MobileNumber: MobileNoURL,
+            //    LanguageId: "AR"
+            //}),
+            contentType: "application/json; charset=utf-8",
+            async: false,
+            success: function (data) {
+                $.each(data.body, function (key, value) {
+                    var htmlBox = "<option value='" + value.codeId + "'>" + value.codeName + "</option>"
+                    $(".city-select").append(htmlBox);
+                })
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        })
+
+        $(".city-select").on("change", function () {
+            BranchId = Number(this.value);
+
+            if (BranchId != 0) {
+                $.ajax({
+                    type: "POST",
+                    url: APIUrl + "Complaints/GetCallCenterAreas",
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("MiddlewareToken"));
+                    },
+                    data: JSON.stringify({
+                        BranchId: BranchId,
+                        LanguageId: "AR"
+                    }),
+                    contentType: "application/json; charset=utf-8",
+                    async: false,
+                    success: function (data) {
+                        $(".areas-select").empty()
+                        $.each(data.body, function (key, value) {
+                            var htmlBox = "<option value='" + value.codeId + "' >" + value.codeName + "</option >"
+                            $(".areas-select").append(htmlBox);
+                        })
+
+                    },
+                    error: function (err) {
+                        console.log(err);
+                    }
+                })
+            }
+            
+        })
+
+
+        $(".areas-select").on("change", function () {
+            AreaId = Number(this.value);
+
+            if (AreaId != 0) {
+                $.ajax({
+                    type: "POST",
+                    url: APIUrl + "Complaints/GetCallCenterNeighborhood",
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("MiddlewareToken"));
+                    },
+                    data: JSON.stringify({
+                        BranchId: BranchId,
+                        AreaId: AreaId,
+                        LanguageId: "AR"
+                    }),
+                    contentType: "application/json; charset=utf-8",
+                    async: false,
+                    success: function (data) {
+                        $(".neighborhoods-select").empty()
+                        $.each(data.body, function (key, value) {
+                            var htmlBox = "<option value='" + value.codeId + "'>" + value.codeName + "</option>"
+                            $(".neighborhoods-select").append(htmlBox);
+                        })
+
+                    },
+                    error: function (err) {
+                        console.log(err);
+                    }
+                })
+            }
+
+        })
+
+
+        $(".neighborhoods-select").on("change", function () {
+            NeighborhoodId = Number(this.value);
+
+            if (NeighborhoodId != 0) {
+                $.ajax({
+                    type: "POST",
+                    url: APIUrl + "Complaints/GetCallCenterStreets",
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("MiddlewareToken"));
+                    },
+                    data: JSON.stringify({
+                        BranchId: BranchId,
+                        AreaId: AreaId,
+                        NeighborhoodId: NeighborhoodId,
+                        LanguageId: "AR"
+                    }),
+                    contentType: "application/json; charset=utf-8",
+                    async: false,
+                    success: function (data) {
+                        $(".street-select").empty()
+                        $.each(data.body, function (key, value) {
+                            var htmlBox = "<option value='" + value.codeId + "'>" + value.codeName + "</option>"
+                            $(".street-select").append(htmlBox);
+                        })
+
+                    },
+                    error: function (err) {
+                        console.log(err);
+                    }
+                })
+            }
+
+        })
+
+
+
+
+    })
+
+</script>
 <script>
 
     var lati = $("#<%=lblLatitude.ClientID%>").val();
@@ -712,6 +989,17 @@
 </script>
 
 <style>
+
+    /* new API Design  : */
+    .damage-type{
+        display:none 
+    }    
+    .meter-number-notreq{
+        display:none 
+    }
+    .meter-number-req{
+        display:none
+    }
     /* =================================================
 	 17-02-2020 form stepper new css :start
 ===================================================== */
@@ -1255,44 +1543,44 @@
         $(".next").click(function () {
 
             current_fs = $(this).parent();
+            console.log(current_fs)
+
+            //if (current == 1) {
+
+            //    step1validResult = false;
+            //    step1Valid();
+
+            //    if (step1validResult == true) {
+            //    }
+            //    else {
+            //        return false;
+            //    }
+            //}
+
+            //if (current == 2) {
+            //    step2validResult = false;
+            //    step2Valid();
+            //    if (step2validResult == true) {
+            //    }
+            //    else {
+            //        return false;
+            //    }
+            //}
 
 
-            if (current == 1) {
-
-                step1validResult = false;
-                step1Valid();
-
-                if (step1validResult == true) {
-                }
-                else {
-                    return false;
-                }
-            }
-
-            if (current == 2) {
-                step2validResult = false;
-                step2Valid();
-                if (step2validResult == true) {
-                }
-                else {
-                    return false;
-                }
-            }
-
-
-            if (current == 3) {
-                step3validResult = false;
-                step3Valid();
-                if (step3validResult == true) {
-                }
-                else {
-                    return false;
-                }
-            }
+            //if (current == 3) {
+            //    step3validResult = false;
+            //    step3Valid();
+            //    if (step3validResult == true) {
+            //    }
+            //    else {
+            //        return false;
+            //    }
+            //}
 
 
             next_fs = $(this).parent().next();
-
+            console.log("next : ",next_fs)
             //Add Class Active
             //$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
              
@@ -1362,7 +1650,7 @@
         }
 
 
-        function step1Valid() {
+<%--        function step1Valid() {
             var ValComplainType = false;
 
             if ($('#<%= ddlComplainType.ClientID %> option:selected').val() == "0") {
@@ -1387,7 +1675,7 @@
 
 
 
-        }
+        }--%>
 
         function step2Valid() {
 
@@ -1453,16 +1741,6 @@
                 $('#<%= txtDocumnetNo.ClientID %>').css('border', '1px solid red');
             }
 
-
-
-            if ($('#<%= ddlNationality.ClientID %> option:selected').val() == "0") {
-
-                $('#<%= ddlNationality.ClientID %>').css('border', '1px solid red');
-            }
-            else {
-                $('#<%= ddlNationality.ClientID %>').css('border', 'none');
-                ValNationality = true;
-            }
 
             if ($('#<%= ddlTypeDocument.ClientID %> option:selected').val() == "0") {
 
@@ -1561,7 +1839,7 @@
                  }
 
 
-                if ($('#<%= ddlComplainType.ClientID %> option:selected').val() == "1")
+       <%--         if ($('#<%= ddlComplainType.ClientID %> option:selected').val() == "1")
                 {
                      
                      if ($('#<%= txtMeterNo.ClientID %>').val().trim() != '')
@@ -1603,7 +1881,7 @@
                     }
                         //----------------------------------------------------
 
-                }
+                }--%>
 
 
                
@@ -1627,6 +1905,7 @@
              }
 
     });
+
 </script>
 
 

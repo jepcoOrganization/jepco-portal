@@ -50,7 +50,7 @@ public partial class Controls_ComplainForm : System.Web.UI.UserControl
 
                 FillNationality();
                 FillUserData();
-                FillComplainType();
+                //FillComplainType();
                 // FillTypeDocumnet();
                
                 FillGovernate();
@@ -117,31 +117,31 @@ public partial class Controls_ComplainForm : System.Web.UI.UserControl
         catch { }
     }
 
-    protected void FillComplainType()
-    {
-        try
-        {
+    //protected void FillComplainType()
+    //{
+    //    try
+    //    {
 
-            ddlComplainType.Items.Insert(0, new ListItem("لرجاء اختيار نوع الشكوى", "0"));
-            // ddlComplainType.Items.Insert(1, new ListItem(" 1 اختيار الجنسية", "1"));
+    //        ddlComplainType.Items.Insert(0, new ListItem("لرجاء اختيار نوع الشكوى", "0"));
+    //        // ddlComplainType.Items.Insert(1, new ListItem(" 1 اختيار الجنسية", "1"));
 
-            ResultList<Lookup_ComplainTypeEntity> Result = new ResultList<Lookup_ComplainTypeEntity>();
-            Result = Lookup_ComplainTypeDomain.GetAllNotAsync();
+    //        ResultList<Lookup_ComplainTypeEntity> Result = new ResultList<Lookup_ComplainTypeEntity>();
+    //        Result = Lookup_ComplainTypeDomain.GetAllNotAsync();
 
-            if (Result.Status == ErrorEnums.Success)
-            {
-                foreach (Lookup_ComplainTypeEntity item in Result.List)
-                {
-                    ddlComplainType.Items.Add(new ListItem(item.ComplainType.ToString(), item.ComplainTypeID.ToString()));
-                }
-            }
+    //        if (Result.Status == ErrorEnums.Success)
+    //        {
+    //            foreach (Lookup_ComplainTypeEntity item in Result.List)
+    //            {
+    //                ddlComplainType.Items.Add(new ListItem(item.ComplainType.ToString(), item.ComplainTypeID.ToString()));
+    //            }
+    //        }
 
 
 
-        }
-        catch { }
+    //    }
+    //    catch { }
 
-    }
+    //}
 
     protected void FillTypeDocumnet()
     {
@@ -294,7 +294,7 @@ public partial class Controls_ComplainForm : System.Web.UI.UserControl
 
         Entity.ComplainTitle = txtComplianTitle.Text;
         Entity.ComplainDetails = txtComplainDetail.Text;
-        Entity.ComplainType = Convert.ToInt32(ddlComplainType.SelectedValue);
+        //Entity.ComplainType = Convert.ToInt32(ddlComplainType.SelectedValue);
         Entity.FirstName = txtfirstName.Text;
         Entity.SecondName = txtSecondNAme.Text;
         Entity.ThirdName = txtThirdName.Text;
