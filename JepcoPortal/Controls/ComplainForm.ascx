@@ -18,8 +18,53 @@
     </div>
 </div>--%>
 <%------------------------------------------------------%>
+<div class="modal fade welcome modal-done" id="myModalerror2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 style="display: contents">شركة الكهرباء الأردنية</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span class="fa fa-close"></span>
+                </button>
 
+            </div>
+            <div class="modal-body">
+                       <div class="err-box err-app alert alert-success">
+                    
+                </div>
+            </div>
+            <div class="modal-footer">
+                <%--<button id="SubmitFillCall"  >Save</button>--%>
+                <a href="/ar/Home/ComplainList" class="btn btn-primary" id="" style="width: 100%;padding: 20px;font-size: 20px;" >موافق</a>
 
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade welcome modal-err" id="" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 style="display: contents">شركة الكهرباء الأردنية</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span class="fa fa-close"></span>
+                </button>
+
+            </div>
+            <div class="modal-body">
+                       <div class="err-box err-app alert alert-danger">
+                    
+                </div>
+            </div>
+            <div class="modal-footer">
+                <%--<button id="SubmitFillCall"  >Save</button>--%>
+                <a href="/ar/Home/ComplainList" class="btn btn-primary" id="" style="width: 100%;padding: 20px;font-size: 20px;" >موافق</a>
+
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="greybg subscribe_div">
     <div class="step_form">
@@ -81,7 +126,7 @@
                                     </div>
                                      <div class="form-group meter-number-req">
                                         <label><span>*</span>رقم العداد</label>
-                                          <select TabIndex="2" class="meter-number-select">
+                                          <select TabIndex="2" class="meter-number-select req">
                                                 <option value="0">الرجاء اختيار رقم العداد</option>
                                           </select>
                                     </div>
@@ -91,10 +136,14 @@
                                                 <option value="0">الرجاء اختيار رقم العداد</option>
                                           </select>
                                     </div>
+                                     <div class="form-group trans-number">
+                                        <label><span>*</span> رقم المعاملة</label>
+                                          <asp:TextBox ID="transNumber" runat="server" PlaceHolder=" رقم المعاملة "></asp:TextBox>
+                                    </div>
                                 </div>
                             </div>
 
-                            <input type="button" name="next" class="btn next next1 action-button" value="التالي" disabled/>
+                            <input type="button" name="next" class="btn next next1 action-button" value="التالي" onclick=""/>
                         </fieldset>
                         <fieldset>
                             <h3>المعلومات الشخصية</h3>
@@ -104,14 +153,14 @@
                                     <div class="form-group">
                                         <label><span>*</span>الاسم الأول</label>
                                         <asp:HiddenField runat="server" ID="hdnServiceID" />
-                                        <asp:TextBox ID="txtfirstName" runat="server" PlaceHolder="الاسم الأول" ></asp:TextBox>
+                                        <asp:TextBox ID="txtfirstName" runat="server" PlaceHolder="الاسم الأول" ReadOnly="true"></asp:TextBox>
 
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="form-group">
                                         <label><span>*</span>اسم الأب </label>
-                                        <asp:TextBox ID="txtSecondNAme" runat="server" PlaceHolder="اسم الأب" ></asp:TextBox>
+                                        <asp:TextBox ID="txtSecondNAme" runat="server" PlaceHolder="اسم الأب" ReadOnly="true"></asp:TextBox>
 
                                     </div>
                                 </div>
@@ -121,14 +170,14 @@
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="form-group">
                                         <label><span>*</span>اسم الجد </label>
-                                        <asp:TextBox ID="txtThirdName" runat="server" PlaceHolder="اسم الجد " ></asp:TextBox>
+                                        <asp:TextBox ID="txtThirdName" runat="server" PlaceHolder="اسم الجد " ReadOnly="true"></asp:TextBox>
 
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="form-group">
                                         <label><span>*</span>اسم العائلة </label>
-                                        <asp:TextBox ID="txtFamilyName" runat="server" PlaceHolder="اسم العائلة " ></asp:TextBox>
+                                        <asp:TextBox ID="txtFamilyName" runat="server" PlaceHolder="اسم العائلة " ReadOnly="true" ></asp:TextBox>
 
                                     </div>
                                 </div>
@@ -152,7 +201,7 @@
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-6">
                                             <div class="form-group">
-                                                <label><span>*</span>  نوع الوثيقة</label>
+                                                <label ><span>*</span>  نوع الوثيقة</label>
                                                 <select class="nationalTypeDocument-select">
                                                     <option value="0">يرجى اختيار الجنسية</option>
                                                 </select>
@@ -164,7 +213,7 @@
                                     <div class="row">
                                         <div class="col-lg-6 col-md-6 col-sm-6">
                                             <div class="form-group">
-                                                <label> رقم ( الوطني / الوثيقة ) اختياري</label>
+                                                <label><span>*</span> رقم ( الوطني / الوثيقة ) </label>
                                                 <asp:TextBox ID="txtDocumnetNo" runat="server" PlaceHolder="رقم الوثيقة" ></asp:TextBox>
                                             </div>
                                         </div>
@@ -180,25 +229,26 @@
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="form-group">
                                         <label><span>*</span> البريد الالكتروني </label>
-                                        <asp:TextBox ID="txtEmail" runat="server" PlaceHolder=" البريد الالكتروني "></asp:TextBox>
+                                        <asp:TextBox ID="txtEmail" runat="server" PlaceHolder=" البريد الالكتروني " ReadOnly="true"></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="form-group">
-                                        <label style="margin-top:7px">رقم الهاتف </label>
-                                        <asp:TextBox ID="txtMobileNo" runat="server" PlaceHolder="رقم الهاتف "  ></asp:TextBox>
+                                        <label><span>*</span>رقم الهاتف </label>
+                                        <asp:TextBox ID="txtMobileNo" runat="server" PlaceHolder="رقم الهاتف " ReadOnly="true" ></asp:TextBox>
                                     </div>
                                 </div>
                             </div>
 
                           
 
-                            <input type="button" name="next" class="next action-button" value="التالي" />
+                            <input type="button" name="next" class="btn next next2 action-button" value="التالي" />
                             <input type="button" name="previous" class="previous action-button-previous" value="السابق" />
                         </fieldset>
 
                           <fieldset>
 
+                              <div class="alert alert-danger err-label" >لن تستطيع تعديل عنوان الشكوى, سيتم إعتماد عنوان العداد</div>
 
                                 <div class="row">
 
@@ -219,6 +269,9 @@
                                         <select class="city-select">
                                             <option value="0">أختيار المحافظة</option>
                                         </select>
+                                        <select class="city-select-disabled" disabled >
+                                            
+                                        </select>
                                         <select id="ddlGeove" name="ddlGeove" class="form-control" tabindex="2" style="display:none"></select>
                                     </div>
 
@@ -227,7 +280,9 @@
                                     <div class="form-group">
                                         <label><span>*</span>المنطقة </label>
                                         <select class="areas-select">
-                                             <option value="0">يرجى أختيار المحافظة</option>
+                                             <option value="0">لعرض المناطق يرجى اختيار المحافظة</option>
+                                        </select>
+                                        <select class="areas-select-disabled" disabled>
                                         </select>
                                         <select id="ddlAreas" name="ddlAreas" class="form-control" tabindex="2" style="display:none" ></select>
 
@@ -240,9 +295,12 @@
 
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="form-group">
-                                        <label>الحي</label>
+                                        <label><span>*</span>الحي</label>
                                         <select class="neighborhoods-select">
-                                            <option value="0">يرجى أختيار المنطقة</option>
+                                            <option value="0">لعرض الاحياء يرجى اختيار المنطقة</option>
+                                        </select>
+                                        <select class="neighborhoods-select-disabled" disabled>
+
                                         </select>
                                         <select id="ddlAreas2" name="ddlAreas2" class="form-control" tabindex="2" style="display:none"></select>
                                     </div>
@@ -251,16 +309,24 @@
 
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="form-group">
-                                        <label>الشارع</label>
+                                        <label style="margin-top:7px">الشارع</label>
                                         <select class="street-select">
-                                           <option value="0">يرجى أختيار الحي</option>
+                                           <option value="0">لعرض الشوارع يرجى اختيار الحي</option>
+
+                                        </select>
+                                        <select class="street-select-disabled" disabled>
 
                                         </select>
                                         <select id="ddlsteet" name="ddlsteet" class="form-control" tabindex="2" style="display:none"></select>
                                     </div>
 
                                 </div>
-
+                                 <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div class="form-group">
+                                        <label><span>*</span>تفاصيل العنوان ( رقم البناية رقم الشقة أقرب معلم ) </label>
+                                        <asp:TextBox ID="txtComplianTitle" runat="server" PlaceHolder="عنوان الشكوى "></asp:TextBox>
+                                    </div>
+                                </div>
                             </div>
 
 
@@ -286,7 +352,7 @@
                                 </div>
                             </div>
 
-                               <input type="button" name="next" class="next action-button" value="التالي" />
+                               <input type="button" name="next" class="next action-button next3" value="التالي" />
                             <input type="button" name="previous" class="previous action-button-previous" value="السابق" />
 
                           </fieldset>
@@ -297,12 +363,6 @@
 
                             <div class="row">
 
-                                <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <div class="form-group">
-                                        <label><span>*</span>عنوان الشكوى </label>
-                                        <asp:TextBox ID="txtComplianTitle" runat="server" PlaceHolder="عنوان الشكوى "></asp:TextBox>
-                                    </div>
-                                </div>
 
                             </div>
                             <div class="row">
@@ -316,7 +376,7 @@
 
                             </div>
 
-                            <button class="btn action-button" type="button" id="btbvalid" onclick="SendClick();">ارسال الطلب</button>
+                            <button class="btn action-button sendComplain next4" type="button" id="btbvalid" ">ارسال الطلب</button>
                             <asp:Button ID="btnSubmit" OnClick="btnSubmit_Click" type="button" Style="display: none;" runat="server" Text="Button" />
                             <asp:HiddenField runat="server" ID="hdnSaveResultStatus" />
                             <asp:HiddenField runat="server" ID="hdnSaveResultVAlue" />
@@ -376,22 +436,74 @@
     </div>
 
 </asp:Panel>
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maps.google.com/maps/api/js?key=AIzaSyDw7R6UWQg5NiY7uR6T-GKmwkscSaBmVtY"></script>
 
 <%-- New Api For Complain  :  --%>
-<script>
+<script>    
+
     var APIUrl = '<%= System.Configuration.ConfigurationManager.AppSettings["APIurl"].ToString() %>';
 
+    /* ------------------- Add Complain API Variable ----------------------- */
     var MobileNoURL = $("#hdnmobileno").val();
+    var ComplainantName = "";
+    var ComplainantType = "";
+    var ComplainTypeName = "";
+    var ComplainFailureType = "";
+    var MeterNumber = "";
+    var requsterName = ""
+    var Nationality = "";
+    var NationalityDoc = "";
+    var NationalityNum = "";
+    var ComplainEmail = "";
+    var ComplainPhoneNumber = "";
+    var ProvinceId = "";
+    var ProvinceName = "";
+    var AreaIdLast = "";
+    var AreaNameLast = "";
+    var NeighborhoodIdLast = "";
+    var NeighborhoodNameLast = "";
+    var StreetIdLast = "";
+    var StreetNameLast = "";
+    var AddrssDetails = "";
+    var ComplainDetails = "";
+    var arrayAddress = undefined;
+    /* --------------------- Disabled Global Variable For Address Section -----------------------   */
+    var DisabledCity = "";
+    var DisabledArea = "";
+    var DisabledNeighbrhood = "";
+    var DisabledStreat = "";
+
+    var BranchId;
+    var AreaId;
+    var NeighborhoodId;
 
     var complainType = [];
     var damageType = [];
     var meterNumberList = [];
-    var BranchId;
-    var AreaId;
-    var NeighborhoodId;
+    var arrayMeter = [];
+
+    /* ----------------------- Validation Variable ----------------------- */
+    // section 1 : 
+    var validComplainType = false;
+    var valDamageType = false;
+    var valMeterReq = false;
+    // section 2 : 
+    var validationFname =true ;
+    var validationM1name = true ;
+    var validationM2name = true ;
+    var validationLname = true ;
+    var validationNatio =false ;
+    var validationTypeNatio =false ;
+    var validationDocNatio = true ;
+    var validationEmail = true ;
+    var validationPhone = true ;
+    var validationCity = false ;
+    var validationArea = false ;
+    var validationNeigh = false ;
+    var validationTrans = false ;
+
+
     //if ($('#aioConceptName').find(":selected").text() == "0") {
 
     //} else {
@@ -416,6 +528,9 @@
                 complainType = data.body.complanetTypeList;
                 damageType = data.body.failureTypesList;
                 meterNumberList = data.body.meterNumberList;
+                arrayMeter = data.body.meterNumberList;
+
+
 
                 // for loop for complain type : 
                 $.each(complainType, function (key, value) {
@@ -434,26 +549,36 @@
                 // foor loop for meter Number List :
                 $.each(meterNumberList, function (key, value) {
                                             // value == codeId from API
-                    var htmlComplainDropDown = "<option value='" + ++key + "'>" + value.name + " : " + value.meterNumber +"</option>";
+                    var htmlComplainDropDown = "<option value='" + ++key + "' meter-num='"+value.meterNumber+"'>" + value.name + " : " + value.meterNumber +"</option>";
                     $(".meter-number-select").append(htmlComplainDropDown);
                 })
 
                 $(".complain-type-select").on('change', function () {
 
-                    /* ***********-- Validation For Input --*********** */
-                    if (this.value != 0) {
-                        $(".next1").removeAttr("disabled")
+                    ComplainFailureType = "";
+                    ComplainTypeName = "";
+                    MeterNumber = "";
+
+                    ComplainantName = $(this).find('option:selected').text();
+                    ComplainantType = this.value;
+
+                    /* *********** -- Validation For Input -- *********** */
+                    if (this.value == 0) {
+                        validComplainType = false;
                     } else {
-                        $(".next1").attr("disabled", true)
+                        validComplainType = true;
                     }
 
 
                     if (this.value == 1) {
+
                         $(".damage-type").show()
                         $(".meter-number-notreq").show()
                     } else {
+
                         $(".damage-type").hide()
                         $(".meter-number-notreq").hide()
+   
                     }
 
                     if (this.value == 7) {
@@ -461,29 +586,137 @@
                     } else {
                         $(".meter-number-req").hide()
                     }
+                    if (this.value == 8) {
+                        $(".trans-number").show()
+                    } else {
+                        $(".trans-number").hide()
+                    }
                 })
+                $(".damage-type-select").on("change", function () {
+                    ComplainFailureType = this.value;
+                    ComplainTypeName = $(this).find('option:selected').text();
 
+                    if (this.value == 0) {
+                        valDamageType = false;
+                    } else {
+                        valDamageType = true;
+                    }
+                })
+                $("select.meter-number-select.req").on("change", function () {
+                    MeterNumber = $(this).find('option:selected').attr("meter-num")
+                    if (this.value == 0) {
+                        valMeterReq = false;
+                    } else {
+                        valMeterReq = true;
+                    }
+                })
+                $("select.meter-number-select").on("change", function () {
+                    MeterNumber = $(this).find('option:selected').attr("meter-num")
+                })
                 $(".national-select").on("change", function () {
-                    console.log("val : ", this.value);
-                    if (this.value == 1) {
+                    if (this.value == 0) {
+                        $(".nationalTypeDocument-select").empty()
+                        $(".nationalTypeDocument-select").append("<option value='0'>يرجى اختيار الجنسية</option>");
+                    }
+                    else if (this.value == 1) {
 
                         $(".nationalTypeDocument-select").empty()
+                        
                         $(".nationalTypeDocument-select").append("<option value='1'>هوية أحوال مدنية</option>");
                     } else {
                         $(".nationalTypeDocument-select").empty()
                         $(".nationalTypeDocument-select").append("<option value='2'> جواز سفر</option><option value='3'>اقامة</option>");
 
                     }
+                    if ($(".nationalTypeDocument-select").val() == 0) {
+                        validationTypeNatio = false;
+                    } else {
+                        validationTypeNatio = true;
+                    }
+
                 })
- 
+                $('#<%= transNumber.ClientID %>').on("keyup", function () {
+                    MeterNumber = this.value;
+                    if (this.value == 0) {
+                        validationTrans = false;
+                    } else {
+                        validationTrans = true;
+                    }
+                })
+                /* -------------------- Validation section 2 -------------------- */
+                $('#<%= txtfirstName.ClientID %>').on("keyup", function () {
+                    if (this.value == 0) {
+                        validationFname = false;
+                    } else {
+                        validationFname = true;
+                    }
+                })
+                $('#<%= txtSecondNAme.ClientID %>').on("keyup", function () {
+                    if (this.value == 0) {
+                        validationM1name = false;
+                    } else {
+                        validationM1name = true;
+                    }
+                })
+                $('#<%= txtThirdName.ClientID %>').on("keyup", function () {
+                    if (this.value == 0) {
+                        validationM2name = false;
+                    } else {
+                        validationM2name = true;
+                    }
+                })
+                $('#<%= txtFamilyName.ClientID %>').on("keyup", function () {
+                    if (this.value == 0) {
+                        validationLname = false;
+                    } else {
+                        validationLname = true;
+                    }
+                })
+                $("select.national-select").on("change", function () {
+                    /*Nationality = $(this).find('option:selected').text();*/
+                    if (this.value == 0) {
+                        validationNatio = false;
+                    } else {
+                        validationNatio = true;
+                    }
+                })                    
+                $(".nationalTypeDocument-select").on("change", function () {
+                   // NationalityDoc = $(this).find('option:selected').text();
+                    if (this.value == 0) {
+                        validationTypeNatio = false;
+                    } else {
+                        validationTypeNatio = true;
+                    }
+
+                })
+                $('#<%= txtDocumnetNo.ClientID %>').on("keyup", function () {
+                    if (this.value == 0) {
+                        validationDocNatio = false;
+                    } else {
+                        validationDocNatio = true;
+                    }
+                })
+                $('#<%= txtEmail.ClientID %>').on("keyup", function () {
+                    if (this.value == 0) {
+                        validationEmail = false;
+                    } else {
+                        validationEmail = true;
+                    }
+                })
+                $('#<%= txtMobileNo.ClientID %>').on("keyup", function () {
+                    if (this.value == 0) {
+                        validationPhone = false;
+                    } else {
+                        validationPhone = true;
+                    }
+                })
             },
             error: function (result) {
                 console.log(result)
             }
         });
 
-
-
+        
 
         $.ajax({
             type: "POST",
@@ -510,6 +743,14 @@
 
         $(".city-select").on("change", function () {
             BranchId = Number(this.value);
+            ProvinceName = $(this).find('option:selected').text();
+            ProvinceId = this.value;
+
+            if (this.value == 0) {
+                validationCity = false;
+            } else {
+                validationCity = true
+            }
 
             if (BranchId != 0) {
                 $.ajax({
@@ -526,6 +767,8 @@
                     async: false,
                     success: function (data) {
                         $(".areas-select").empty()
+                        $(".areas-select").append("<option value='0'>أختيار المنطقة</option>");
+
                         $.each(data.body, function (key, value) {
                             var htmlBox = "<option value='" + value.codeId + "' >" + value.codeName + "</option >"
                             $(".areas-select").append(htmlBox);
@@ -537,12 +780,26 @@
                     }
                 })
             }
-            
+            if ($(".areas-select").val() == 0) {
+                validationArea = false
+            } else {
+                validationArea = true
+            }
         })
 
 
         $(".areas-select").on("change", function () {
             AreaId = Number(this.value);
+            AreaIdLast = this.value;
+            AreaNameLast = $(this).find('option:selected').text();
+
+
+            if (this.value == 0) {
+                validationArea = false
+            } else {
+                validationArea = true
+            }
+
 
             if (AreaId != 0) {
                 $.ajax({
@@ -560,6 +817,7 @@
                     async: false,
                     success: function (data) {
                         $(".neighborhoods-select").empty()
+                        $(".neighborhoods-select").append("<option value='0'>أختيار الحي</option>");
                         $.each(data.body, function (key, value) {
                             var htmlBox = "<option value='" + value.codeId + "'>" + value.codeName + "</option>"
                             $(".neighborhoods-select").append(htmlBox);
@@ -572,11 +830,25 @@
                 })
             }
 
+            if ($(".neighborhoods-select").val() == 0) {
+
+
+                validationNeigh = false
+            } else {
+                validationNeigh = true
+            }
         })
 
 
         $(".neighborhoods-select").on("change", function () {
             NeighborhoodId = Number(this.value);
+            NeighborhoodNameLast = $(this).find('option:selected').text();
+            NeighborhoodIdLast = this.value;
+            if(this.value == 0){
+                validationNeigh = false
+            }else {
+                validationNeigh = true
+            }
 
             if (NeighborhoodId != 0) {
                 $.ajax({
@@ -595,6 +867,7 @@
                     async: false,
                     success: function (data) {
                         $(".street-select").empty()
+                        $(".street-select").append("<option value='0'>أختيار الشارع</option>");
                         $.each(data.body, function (key, value) {
                             var htmlBox = "<option value='" + value.codeId + "'>" + value.codeName + "</option>"
                             $(".street-select").append(htmlBox);
@@ -608,12 +881,17 @@
             }
 
         })
-
+        $(".street-select").on("change", function () {
+            StreetIdLast = this.value;
+            StreetNameLast = $(this).find('option:selected').text();
+        })
 
 
 
     })
 
+
+    
 </script>
 <script>
 
@@ -670,23 +948,14 @@
 
 
 <script type="text/javascript">
-    function SendClick() {
+<%--    function SendClick() {
 
 
        
-        var ValComplianTitle = false;
+        
         var ValComplainDetail = false;
     
-
-        if ($('#<%= txtComplianTitle.ClientID %>').val().trim() != '') {
-
-            $('#<%= txtComplianTitle.ClientID %>').css('border', 'none');
-            ValComplianTitle = true;
-        }
-        else {
-
-            $('#<%= txtComplianTitle.ClientID %>').css('border', '1px solid red');
-        }
+  
 
 
         if ($('#<%= txtComplainDetail.ClientID %>').val().trim() != '') {
@@ -768,7 +1037,7 @@
 
         }
 
-    }
+    }--%>
 </script>
 
 
@@ -998,6 +1267,9 @@
         display:none 
     }
     .meter-number-req{
+        display:none
+    }
+    .trans-number{
         display:none
     }
     /* =================================================
@@ -1522,7 +1794,21 @@
 
 }
 
-
+.modal-body {
+    padding: 42px !important;
+}
+.modal-body h4 {
+    font-size: 25px !important;
+}
+.err-label{
+    display:none
+}
+.err-box.err-app.alert.alert-danger {
+    font-size: 24px;
+}
+.err-box.err-app.alert.alert-success {
+    font-family: Tahoma, "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
 </style>
 
 <script type="text/javascript">
@@ -1542,45 +1828,304 @@
 
         $(".next").click(function () {
 
+
             current_fs = $(this).parent();
-            console.log(current_fs)
 
-            //if (current == 1) {
+            if (current == 1) {
 
-            //    step1validResult = false;
-            //    step1Valid();
+                if (validComplainType == false) {
+                    $(".complain-type-select").css("border", "1px solid red");
+                    return false;
+                } else {
+                    $(".complain-type-select").css("border", "1px solid #e2e2e2");
+                }
+                if ($(".complain-type-select").val() == 1) {
+                    if (valDamageType == false) {
+                        $(".damage-type-select").css("border", "1px solid red");
+                        return false;
+                    } else {
+                        $(".damage-type-select").css("border", "1px solid #e2e2e2");
+                    }
+                }
+                if ($(".complain-type-select").val() == 7) {
+                    if (valMeterReq == false) {
+                        $("select.meter-number-select.req").css("border", "1px solid red");
+                        return false;
+                    } else {
+                        $("select.meter-number-select.req").css("border", "1px solid #e2e2e2");
+                    }
+                }
+                if ($(".complain-type-select").val() == 8) {
+                    if (validationTrans == false) {
+                        $('#<%= transNumber.ClientID %>').css("border", "1px solid red");
+                        return false;
+                    } else {
+                        $('#<%= transNumber.ClientID %>').css("border", "1px solid #e2e2e2");
+                    }
+                }
+  
+ 
+                //step1validResult = false;
+                //step1Valid();
 
-            //    if (step1validResult == true) {
-            //    }
-            //    else {
-            //        return false;
-            //    }
-            //}
+                //if (step1validResult == true) {
+                //}
+                //else {
+                //    return false;
+                //}
+                
+                $.each(arrayMeter, function (key, value) {
+                    if (value.fileNumberAddressesData != undefined) {
+                        if (value.meterNumber == MeterNumber) {
+                            arrayAddress = value.fileNumberAddressesData;
+                            ProvinceName = arrayAddress.provinceName;
+                            ProvinceId = arrayAddress.provinceId;
+                            AreaNameLast = arrayAddress.areaName;
+                            AreaIdLast = arrayAddress.areaId;
+                            NeighborhoodNameLast = arrayAddress.neighborhoodName;
+                            NeighborhoodIdLast = arrayAddress.neighborhoodId;
+                            if (arrayAddress.streetName == undefined) {
+                                StreetNameLast = "";
+                            } else {
+                                StreetNameLast = arrayAddress.streetName;
+                            }
+                            if (arrayAddress.streetId == undefined) {
+                                StreetIdLast = "";
+                            } else {
+                                StreetIdLast = arrayAddress.streetId;
+                            }
 
-            //if (current == 2) {
-            //    step2validResult = false;
-            //    step2Valid();
-            //    if (step2validResult == true) {
-            //    }
-            //    else {
-            //        return false;
-            //    }
-            //}
+                            $(".err-label").show();
+                            $(".city-select-disabled").show()
+                            $(".areas-select-disabled").show();
+                            $(".neighborhoods-select-disabled").show();
+                            $(".street-select-disabled").show();
+
+                            $(".city-select-disabled").empty();
+                            $(".areas-select-disabled").empty()
+                            $(".neighborhoods-select-disabled").empty()
+                            $(".street-select-disabled").empty();
+
+                            $(".city-select-disabled").append("<option value='" + value.provinceId + "'>" + ProvinceName + "</option>")
+                            $(".areas-select-disabled").append("<option value='" + value.areaId + "'>" + AreaNameLast + "</option>");
+                            $(".neighborhoods-select-disabled").append("<option value='" + value.neighborhoodId + "'>" + NeighborhoodNameLast + "</option>");
+                            $(".street-select-disabled").append("<option>" + StreetNameLast + "</option>");
 
 
-            //if (current == 3) {
-            //    step3validResult = false;
-            //    step3Valid();
-            //    if (step3validResult == true) {
-            //    }
-            //    else {
-            //        return false;
-            //    }
-            //}
+                            $(".city-select").hide()
+                            $(".areas-select").hide();
+                            $(".neighborhoods-select").hide();
+                            $(".street-select").hide();
+
+
+                        } else {
+                            $(".err-label").hide();
+                            $(".city-select-disabled").hide()
+                            $(".areas-select-disabled").hide();
+                            $(".neighborhoods-select-disabled").hide();
+                            $(".street-select-disabled").hide();
+
+                            $(".city-select").show()
+                            $(".areas-select").show();
+                            $(".neighborhoods-select").show();
+                            $(".street-select").show();
+
+                            $('.city-select').prop('selectedIndex', 0)
+                            $('.areas-select').prop('selectedIndex', 0)
+                            $('.neighborhoods-select').prop('selectedIndex', 0)
+                            $('.street-select').prop('selectedIndex', 0)
+                            arrayAddress = undefined
+
+                        }
+                    } else {
+                    }
+                })
+
+       
+                if ($(".complain-type-select").val() == "7" || $(".complain-type-select").val() == "8") {
+                    console.log("1 :", MobileNoURL)
+                    console.log("2 :", $(".complain-type-select").val())
+                    console.log("3 :", ProvinceId)
+                    console.log("4 :", AreaIdLast)
+                    console.log("5 :", NeighborhoodIdLast)
+                    console.log("6 :", MeterNumber)
+
+                    $.ajax({
+                        type: "POST",
+                        url: APIUrl + "Complaints/ValidateComplaint",
+                        beforeSend: function (xhr) {
+                            xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("MiddlewareToken"));
+                        },
+                        data: JSON.stringify({
+                            MobileNumber: MobileNoURL,
+                            ComplainType: $(".complain-type-select").val(),
+                            ProvinceId: ProvinceId.toString(),
+                            AreaId: AreaIdLast.toString(),
+                            NeighborhoodId: NeighborhoodIdLast.toString(),
+                            MeterNumber: MeterNumber,
+                            LanguageId: "ar"
+                        }),
+                        contentType: "application/json; charset=utf-8",
+                        async: false,
+                        success: function (data) {
+                            console.log("data 1 : ",data)
+                        },
+                        error: function (err) {
+                            console.log("err2 : ", err.responseJSON.errors);
+                            $(".modal-err .err-app").text(err.responseJSON.errors)
+                            $(".modal-err").modal("show")
+                            $(".next2").attr("disabled", true);
+                        }
+                    })
+                }
+            }
+
+            if (current == 2) {
+
+                if (validationFname == false) {
+                    $('#<%= txtfirstName.ClientID %>').css("border", "1px solid red");
+                    return false;
+                } else {
+                    $('#<%= txtfirstName.ClientID %>').css("border", "1px solid #e2e2e2");
+                }
+                if (validationM1name == false) {
+                    $('#<%= txtSecondNAme.ClientID %>').css("border", "1px solid red");
+                    return false;
+                } else {
+                    $('#<%= txtSecondNAme.ClientID %>').css("border", "1px solid #e2e2e2");
+                }
+                if (validationM2name == false) {
+                    $('#<%= txtThirdName.ClientID %>').css("border", "1px solid red");
+                    return false;
+                } else {
+                    $('#<%= txtThirdName.ClientID %>').css("border", "1px solid #e2e2e2");
+                }
+                if (validationLname == false) {
+                    $('#<%= txtFamilyName.ClientID %>').css("border", "1px solid red");
+                    return false;
+                } else {
+                    $('#<%= txtFamilyName.ClientID %>').css("border", "1px solid #e2e2e2");
+                }
+                if (validationNatio == false) {
+                    $("select.national-select").css("border", "1px solid red");
+                    return false;
+                } else {
+                    $("select.national-select").css("border", "1px solid #e2e2e2");
+                }
+                if (validationTypeNatio == false) {
+                    $("select.nationalTypeDocument-select").css("border", "1px solid red");
+                    return false;
+                } else {
+                    $("select.nationalTypeDocument-select").css("border", "1px solid #e2e2e2");
+                }
+                if (validationDocNatio == false) {
+                    $('#<%= txtDocumnetNo.ClientID %>').css("border", "1px solid red");
+                    return false;
+                } else {
+                    $('#<%= txtDocumnetNo.ClientID %>').css("border", "1px solid #e2e2e2");
+                }
+                if (validationEmail == false) {
+                    $('#<%= txtEmail.ClientID %>').css("border", "1px solid red");
+                    return false;
+                } else {
+                    $('#<%= txtEmail.ClientID %>').css("border", "1px solid #e2e2e2");
+                }
+                if (validationPhone == false) {
+                    $('#<%= txtMobileNo.ClientID %>').css("border", "1px solid red");
+                    return false;
+                } else {
+                    $('#<%= txtMobileNo.ClientID %>').css("border", "1px solid #e2e2e2");
+                }
+
+
+                requsterName = $('#<%= txtfirstName.ClientID %>').val() + " " + $('#<%= txtSecondNAme.ClientID %>').val() + " " +
+                    $('#<%= txtThirdName.ClientID %>').val() + " " + $('#<%= txtFamilyName.ClientID %>').val();
+                NationalityNum = $('#<%= txtDocumnetNo.ClientID %>').val();
+                NationalityDoc = $(".nationalTypeDocument-select").val();
+                Nationality = $("select.national-select").val();
+                ComplainPhoneNumber = $('#<%= txtMobileNo.ClientID %>').val();
+                ComplainEmail = $('#<%= txtEmail.ClientID %>').val();
+
+
+
+            }
+
+
+
+            var ValComplianTitle = false;
+
+            if (current == 3) {
+                if (arrayAddress == undefined) {
+
+                
+                if (validationCity == false) {
+                    $('.city-select').css("border", "1px solid red");
+                    return false;
+                } else {
+                    $('.city-select').css("border", "1px solid #e2e2e2");
+                }
+                if (validationArea == false) {
+                    $('.areas-select').css("border", "1px solid red");
+                    return false;
+                } else {
+                    $('.areas-select').css("border", "1px solid #e2e2e2");
+                }
+                if (validationNeigh == false) {
+                    $('.neighborhoods-select').css("border", "1px solid red");
+                    return false;
+                } else {
+                    $('.neighborhoods-select').css("border", "1px solid #e2e2e2");
+                }
+                }
+
+                if ($('#<%= txtComplianTitle.ClientID %>').val().trim() != '') {
+
+                    $('#<%= txtComplianTitle.ClientID %>').css('border', 'none');
+                }
+                else {
+                    $('#<%= txtComplianTitle.ClientID %>').css('border', '1px solid red');
+                    return false;
+                    }
+                AddrssDetails = $('#<%= txtComplianTitle.ClientID %>').val();
+
+
+                if ($(".complain-type-select").val() == "1" || $(".complain-type-select").val() == "5") {
+
+       
+                  
+                    $.ajax({
+                        type: "POST",
+                        url: APIUrl + "Complaints/ValidateComplaint",
+                        beforeSend: function (xhr) {
+                            xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("MiddlewareToken"));
+                        },
+                        data: JSON.stringify({
+                            MobileNumber: MobileNoURL,
+                            ComplainType: $(".complain-type-select").val(),
+                            ProvinceId: ProvinceId.toString(),
+                            AreaId: AreaIdLast.toString(),
+                            NeighborhoodId: NeighborhoodIdLast.toString(),
+                            MeterNumber: MeterNumber,
+                            LanguageId: "ar"
+                        }),
+                        contentType: "application/json; charset=utf-8",
+                        async: false,
+                        success: function (data) {
+                            console.log("data 2 :",data)
+                        },
+                        error: function (err) {
+                            console.log("err1 : ", err.responseJSON.errors);
+                            $(".modal-err .err-app").text(err.responseJSON.errors)
+                            $(".modal-err").modal("show")
+                            $(".next4").attr("disabled", true);
+
+                        }
+                    })
+                }
+            }
 
 
             next_fs = $(this).parent().next();
-            console.log("next : ",next_fs)
             //Add Class Active
             //$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
              
@@ -1906,6 +2451,74 @@
 
     });
 
+
+    $(".sendComplain").click(function () {
+        ComplainDetails = $('#<%= txtComplainDetail.ClientID %>').val()
+        if ($('#<%= txtComplainDetail.ClientID %>').val().trim() != '') {
+
+            $('#<%= txtComplainDetail.ClientID %>').css('border', 'none')
+        }
+        else {
+            $('#<%= txtComplainDetail.ClientID %>').css('border', '1px solid red');
+            return false;
+        }
+
+
+
+        if (StreetIdLast == "") {
+            StreetIdLast = "-1";
+        }
+        if (ComplainFailureType == "") {
+            ComplainFailureType = "-1";
+        }
+
+        $.ajax({
+            type: "POST",
+            url: APIUrl + "Complaints/AddComplaint",
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("MiddlewareToken"));
+            },
+            data: JSON.stringify({
+                MobileNumber: MobileNoURL,
+                RequesterName: requsterName,
+                ComplainantName: ComplainantName,
+                ComplainType: ComplainantType,
+                ComplainTypeName: ComplainantName,
+                ComplainFailureType: ComplainFailureType,
+                MeterNumber: MeterNumber,
+                ComplainEmail: ComplainEmail,
+                ComplainPhoneNumber: ComplainPhoneNumber,
+                Nationality: Nationality,
+                DocumentType: NationalityDoc,
+                DocumentNumber: NationalityNum,
+                ProvinceId: ProvinceId,
+                ProvinceName: ProvinceName,
+                AreaId: AreaIdLast,
+                AreaName: AreaNameLast,
+                NeighborhoodId: NeighborhoodIdLast,
+                NeighborhoodName: NeighborhoodNameLast,
+                ComplainDescribtion: ComplainDetails,
+                StreetId: StreetIdLast,
+                StreetName: StreetNameLast,
+                Address: AddrssDetails,
+                LanguageId: "AR",
+                Integrationtype : 1
+            }),
+            contentType: "application/json; charset=utf-8",
+            async: false,
+            success: function (data) {
+                console.log(data);
+                
+                var htmlData = "<h3> تم تسجيل شكوى برقم " + data.body.complainRefrenceNumber.split(":")[1] + " سيتم التواصل بالقريب العاجل</h3>";
+                $(".err-app").append(htmlData);
+                $(".modal-done").modal("show")
+                $(".sendComplain").attr("disabled",true)
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        })
+    })
 </script>
 
 

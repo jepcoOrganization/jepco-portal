@@ -58,16 +58,16 @@ public partial class Controls_ComplainList : System.Web.UI.UserControl
                 //ComplainCount.Text = Complaincout.ToString();
 
 
-                if (Complaincout > 0)
-                {
-                    ComplainCount.Text = Complaincout.ToString();                  
-                    CopmlainEmptyDiv.Attributes.Add("style", "display:none");
-                }
-                else
-                {
-                    ComplainCount.Text = "0";
-                    CopmlainEmptyDiv.Attributes.Add("style", "display:block");
-                }
+                //if (Complaincout > 0)
+                //{
+                //    ComplainCount.Text = Complaincout.ToString();                  
+                //    CopmlainEmptyDiv.Attributes.Add("style", "display:none");
+                //}
+                //else
+                //{
+                //    ComplainCount.Text = "0";
+                //    CopmlainEmptyDiv.Attributes.Add("style", "display:block");
+                //}
 
 
 
