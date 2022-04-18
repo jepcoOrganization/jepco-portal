@@ -51,3 +51,14 @@ D:\KiranTFS2020\Hasan_Git\JepcoPortal\jepco-portal\SiteWare.Domain\obj\Release\S
 D:\KiranTFS2020\Hasan_Git\JepcoPortal\jepco-portal\SiteWare.Domain\obj\Release\SiteWare.Domain.csproj.CopyComplete
 D:\KiranTFS2020\Hasan_Git\JepcoPortal\jepco-portal\SiteWare.Domain\obj\Release\SiteWare.Domain.dll
 D:\KiranTFS2020\Hasan_Git\JepcoPortal\jepco-portal\SiteWare.Domain\obj\Release\SiteWare.Domain.pdb
+C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\SiteWare.Domain\bin\Release\SiteWare.Domain.dll
+C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\SiteWare.Domain\bin\Release\SiteWare.Domain.pdb
+C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\SiteWare.Domain\bin\Release\SiteWare.DataAccess.dll
+C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\SiteWare.Domain\bin\Release\SiteWare.Entity.dll
+C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\SiteWare.Domain\bin\Release\SiteWare.DataAccess.pdb
+C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\SiteWare.Domain\bin\Release\SiteWare.Entity.pdb
+C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\SiteWare.Domain\obj\Release\SiteWare.Domain.csproj.AssemblyReference.cache
+C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\SiteWare.Domain\obj\Release\SiteWare.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\SiteWare.Domain\obj\Release\SiteWare.Domain.csproj.CopyComplete
+C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\SiteWare.Domain\obj\Release\SiteWare.Domain.dll
+C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\SiteWare.Domain\obj\Release\SiteWare.Domain.pdb

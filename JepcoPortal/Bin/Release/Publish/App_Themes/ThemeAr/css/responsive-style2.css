@@ -1,0 +1,1186 @@
+﻿
+@media only screen and (min-width:1920px) {
+    .container {
+        width: 1650px;
+    }
+    .content.demo-x {
+        width: 450px;
+    }
+}
+
+@media only screen and (min-width:1600px) and (max-width:1900px) {
+    .container {
+        width: 1500px;
+    }
+
+    .mitar_service span {
+        font-size: 18px;
+    }
+
+    .welcm strong {
+        font-size: 22px;
+    }
+
+    .latest_news_company .newstext p {
+        font-size: 18px;
+        color: #9e9e9e;
+        margin: 10px 0;
+    }
+
+    .Counter_number p {
+        font-size: 16px;
+    }
+
+    .container-checkbox {
+        margin-left: 15px;
+    }
+
+    .protal_menu li a {
+        font-size: 18px;
+    }
+
+    .mitar_service strong {
+        font-size: 30px;
+    }
+
+    .mmddiv a {
+        padding: 8px 15px;
+        margin: 0 1px;
+    }
+
+    .filrevdiv select {
+        width: 150px;
+    }
+}
+
+@media only screen and (min-width:1400px) and (max-width:1590px) {
+    .container {
+        width: 100%;
+    }
+
+    .mitar_service span {
+        font-size: 18px;
+    }
+
+    .welcm strong {
+        font-size: 22px;
+    }
+
+    .latest_news_company .newstext p {
+        font-size: 18px;
+        color: #9e9e9e;
+        margin: 10px 0;
+    }
+
+    .Counter_number p {
+        font-size: 16px;
+    }
+
+    .container-checkbox {
+        margin-left: 15px;
+        padding-right: 30px;
+        font-size: 18px;
+    }
+
+    .protal_menu li a {
+        font-size: 18px;
+    }
+
+    .mitar_service strong {
+        font-size: 30px;
+    }
+
+    .protal_tabs .tab-content li p {
+        font-size: 16px;
+    }
+
+    .Report_counter {
+        font-size: 18px;
+        left: 20px;
+    }
+
+    .prrtal_mainpart aside h1 {
+        font-size: 30px;
+    }
+
+    .btndiv button {
+        width: 120px;
+    }
+
+    .mmddiv a {
+        padding: 8px 15px;
+        margin: 0 1px;
+        font-size: 16px;
+    }
+
+    .filrevdiv select {
+        width: 150px;
+    }
+
+    .filrevdiv span {
+        margin: 0 5px;
+    }
+
+    .div1 span, .div2 img {
+        margin-left: 12px;
+    }
+
+    .details_tab .tab-content .inboxul li p, .details_tab .tab-content .inboxul li span {
+        font-size: 15px;
+    }
+}
+
+@media only screen and (min-width:1300px) and (max-width:1367px) {
+    .container {
+        width: 100%;
+    }
+
+    .temperature li span,
+    .temperature li strong {
+        font-size: 14px;
+    }
+
+    .protal_menu li a {
+        font-size: 18px;
+        padding: 15px 10px;
+    }
+
+    .mitar_service span {
+        font-size: 18px;
+    }
+
+    .welcm strong {
+        font-size: 20px;
+    }
+
+    .mitar_service span {
+        font-size: 16px;
+    }
+
+    .welcm strong {
+        font-size: 22px;
+    }
+
+    .latest_news_company .newstext p {
+        font-size: 18px;
+        color: #9e9e9e;
+        margin: 10px 0;
+    }
+
+    .Counter_number p {
+        font-size: 14px;
+    }
+
+    .container-checkbox {
+        margin-left: 10px;
+        padding-right: 30px;
+        font-size: 18px;
+    }
+
+    .protal_menu li a {
+        font-size: 18px;
+    }
+
+    .mitar_service strong {
+        font-size: 30px;
+    }
+
+    .protal_tabs .tab-content li p,
+    .complaints_box li p {
+        font-size: 16px;
+    }
+
+    .Report_counter {
+        font-size: 18px;
+        left: 20px;
+    }
+
+    .prrtal_mainpart aside h1 {
+        font-size: 30px;
+    }
+
+    .btndiv button {
+        width: 110px;
+        font-size: 16px;
+    }
+
+    .newstext h4 {
+        font-size: 22px;
+    }
+
+    .canvasdiv {
+        width: auto;
+    }
+
+        .canvasdiv canvas {
+            width: 400px !important;
+            height: 200px !important;
+        }
+    .canvasdivDetails canvas {
+        width: 800px !important;
+        height: 200px !important;
+    }
+
+
+
+    .top-cart-detail strong {
+        font-size: 12px;
+    }
+    .top-cart-detail span {
+        font-size: 13px;
+    }
+
+    .delfilter a {
+        font-size: 16px;
+    }
+
+    .details_tab .tab-content li span.LTR {
+        font-size: 14px;
+    }
+
+    .detcheckbox label::before {
+        width: 22px;
+        height: 22px;
+    }
+
+    .detcheckbox input:checked + label::after {
+        top: 7px;
+        left: 5px;
+        width: 12px;
+        height: 12px;
+    }
+
+
+    /*==*/
+    .mmddiv a {
+        padding: 8px 10px;
+        margin: 0 1px;
+        font-size: 15px;
+    }
+
+    .filterboxdiv {
+        padding: 25px;
+    }
+
+    .inboxlistdiv .tab-content {
+        padding: 0 25px;
+    }
+
+    .filrevdiv select {
+        width: 150px;
+    }
+
+    .filrevdiv span {
+        margin: 0 5px;
+        font-size: 16px;
+    }
+
+    .div1 span, .div2 img {
+        margin-left: 12px;
+    }
+
+    .details_tab .tab-content .inboxul li p, .details_tab .tab-content .inboxul li span {
+        font-size: 15px;
+    }
+
+    .pro_list li,
+    .vote a,
+    .check_box p {
+        font-size: 16px;
+    }
+
+    .service_list li {
+        font-size: 22px;
+    }
+
+    .prrtal_mainpart aside h1 small {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+
+    .sidebar_tips aside h1,
+    .opinion_matters aside h1 {
+        font-size: 26px;
+    }
+
+    .sidebar_tips p {
+        font-size: 16px;
+        height: 90px;
+    }
+
+    #tips .item {
+        min-height: 200px;
+    }
+
+    .profilediv img.propic {
+        width: 130px;
+    }
+
+    .Energy_Request h2,
+    .popup_modal .modal-title {
+        font-size: 28px;
+    }
+
+    .Energy_Request label {
+        font-size: 16px;
+    }
+
+    .Energy_Request h3 {
+        font-size: 24px;
+    }
+
+    .information_delegated input,
+    .information_delegated select,
+    .energyrequest input {
+        height: 50px;
+    }
+
+    .popup_modal .modal-body strong {
+        font-size: 30px;
+    }
+
+    .popup_modal .modal-body img {
+        width: 120px;
+        height: 120px;
+        margin: 20px auto;
+    }
+    /*==*/
+
+    .energyrequest_tabcontent li span,
+    .energyrequest_tabcontent li strong,
+    .EnergyRequest_Accordion h5,
+    .time,
+    .date,
+    .EnergyRequest_Accordion p,
+    .EnergyRequest_Accordion strong,
+    .energyrequest_tabcontent label,
+    .energyrequest_tabcontent input,
+    a.download {
+        font-size: 15px;
+    }
+
+    .check_date_time img {
+        width: 25px;
+    }
+
+    .energyrequest_tab li a {
+        font-size: 20px;
+        padding: 25px 30px;
+    }
+
+    .more-less {
+        font-size: 24px;
+        width: 40px;
+        vertical-align: middle;
+    }
+
+    .uploadBTN i {
+        margin-right: 10px;
+        font-size: 26px;
+    }
+
+    .Type_Request strong,
+    .energyrequest input,
+    .companyorder label,
+    .Choose_Commissioner strong,
+    .Choose_Commissioner li p,
+    .Choose_Commissioner li span.LTR,
+    .Add_device a,
+    .Add_device a i,
+    .Reverse_device_information input {
+        font-size: 15px;
+    }
+
+    .request_accept_BTN,
+    .Continue_BTN {
+        font-size: 16px;
+    }
+
+    .steplist li a {
+        font-size: 17px;
+        padding: 22px 30px;
+    }
+
+    .Agree strong {
+        font-size: 20px;
+    }
+
+    .companyorder .detcheckbox input:checked + label::after {
+        top: 5px;
+    }
+
+    .Continue_BTN {
+        margin: 40px 0;
+    }
+
+    .Reverse_device_information input,
+    .companyorder select,
+    .Add_device {
+        /*height: 46px;*/
+        height: 53px;
+    }
+
+        .Add_device img {
+            width: 20px;
+        }
+
+    .Add_device {
+        margin-top: 30px;
+    }
+
+    .profile_PIC img {
+        width: 50px;
+    }
+
+
+}
+
+@media only screen and (min-width:1200px) and (max-width:1280px) {
+    .container {
+        width: 100%;
+    }
+
+    .delfilter a {
+        font-size: 15px;
+    }
+
+    .details_tab .tab-content li span.LTR {
+        font-size: 14px;
+    }
+
+    .detcheckbox label::before {
+        width: 22px;
+        height: 22px;
+    }
+
+    .detcheckbox input:checked + label::after {
+        top: 7px;
+        left: 5px;
+        width: 12px;
+        height: 12px;
+    }
+
+    .details_tab .tab-content li {
+        position: relative;
+        flex-wrap: wrap;
+    }
+
+        .details_tab .tab-content li p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+    .protal_tabs .tab-content li a {
+        font-size: 15px;
+        min-width: 130px;
+    }
+    .mmddiv a {
+        padding: 8px 10px;
+        margin: 0 1px;
+        font-size: 15px;
+    }
+
+    .mmddiv {
+        margin: 0 10px;
+    }
+
+    .filrevdiv select {
+        width: 150px;
+    }
+
+    .filrevdiv span {
+        margin: 0 5px;
+        font-size: 16px;
+    }
+
+    .div1 span, .div2 img {
+        margin-left: 12px;
+    }
+
+    .details_tab .tab-content .inboxul li p, .details_tab .tab-content .inboxul li span {
+        font-size: 15px;
+    }
+
+    .filterboxdiv {
+        padding: 25px 25px;
+    }
+
+    .inboxlistdiv .tab-content {
+        padding: 0 25px;
+    }
+
+    .energyrequest_tabcontent li span,
+    .energyrequest_tabcontent li strong,
+    .EnergyRequest_Accordion h5,
+    .time,
+    .date,
+    .EnergyRequest_Accordion p,
+    .EnergyRequest_Accordion strong,
+    .energyrequest_tabcontent label,
+    .energyrequest_tabcontent input,
+    a.download {
+        font-size: 15px;
+    }
+
+    .check_date_time img {
+        width: 25px;
+    }
+
+    .energyrequest_tab li a {
+        font-size: 20px;
+        padding: 25px 30px;
+    }
+
+    .more-less {
+        font-size: 24px;
+        width: 40px;
+        vertical-align: middle;
+    }
+
+}
+
+@media screen and (max-width: 1024px) {
+    .container {
+        width: 100%;
+    }
+
+    .show_profilebtn {
+        display: block;
+        background: #007fc3;
+        color: #fff;
+        font-size: 18px;
+        font-weight: bold;
+        border: none;
+        padding: 7px 20px;
+    }
+
+    .hidendiv {
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 50px;
+        z-index: 1;
+        width: 300px;
+        background: #fff;
+        width: 550px;
+    }
+
+    .protal_menu li a {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .logo {
+        text-align: center;
+    }
+
+    .protal_menu li a img {
+        width: 36px;
+    }
+
+    .Counter_number img {
+        width: 100%;
+    }
+
+    .subscribe {
+        margin-top: 20px;
+    }
+
+    .followon {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .delfilter a {
+        font-size: 14px;
+    }
+
+    .details_tab .tab-content li span.LTR {
+        font-size: 14px;
+    }
+
+    .detcheckbox label::before {
+        width: 22px;
+        height: 22px;
+    }
+
+    .detcheckbox input:checked + label::after {
+        top: 7px;
+        left: 5px;
+        width: 12px;
+        height: 12px;
+    }
+
+    .canvasdiv canvas {
+        width: 950px !important;
+        height: 250px !important;
+    }
+
+    .content.demo-x {
+        width: 430px;
+    }
+    .mmddiv a {
+        font-size: 16px;
+        padding: 8px 15px;
+    }
+
+    .filterboxdiv .detcheckbox {
+        display: inline-block;
+        margin-bottom: 0;
+        margin-left: 15px;
+    }
+
+    .filterboxdiv {
+        padding: 25px;
+    }
+
+    .inboxlistdiv .tab-content {
+        padding: 0 25px;
+    }
+    .energyrequest_tabcontent li span,
+    .energyrequest_tabcontent li strong,
+    .EnergyRequest_Accordion h5,
+    .time,
+    .date,
+    .EnergyRequest_Accordion p,
+    .EnergyRequest_Accordion strong,
+    .energyrequest_tabcontent label,
+    .energyrequest_tabcontent input,
+    a.download {
+        font-size: 15px;
+    }
+
+    .check_date_time img {
+        width: 25px;
+    }
+
+    .energyrequest_tab li a {
+        font-size: 20px;
+        padding: 25px 30px;
+    }
+
+    .more-less {
+        font-size: 24px;
+        width: 40px;
+        vertical-align: middle;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .Report_counter {
+        font-size: 18px;
+        left: 10px;
+        width: 210px;
+    }
+
+    .protal_tabs .tab-content li div {
+        padding: 15px;
+    }
+
+    .protal_tabs .tab-content li {
+        flex-wrap: wrap;
+        text-align: right;
+    }
+
+    .ftsecondlink {
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .protal_menu {
+        display: none;
+    }
+
+    .mobile_menu {
+        display: block;
+        background: none;
+        margin-bottom: 10px;
+    }
+
+        .mobile_menu button {
+            display: block;
+            background: #007fc3;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            padding: 7px 20px;
+            margin-right: 15px;
+            margin-bottom: 10px;
+        }
+
+        .mobile_menu a {
+            display: inline-block;
+            background: #007fc3;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            padding: 7px 20px;
+            margin-right: 15px;
+            margin-bottom: 10px;
+        }
+
+
+        .mobile_menu .container {
+            background: #007fc3;
+            position: absolute;
+            z-index: 1;
+        }
+
+        .mobile_menu li {
+            float: none;
+            width: auto;
+            text-align: right;
+            border-bottom: 1px solid #4d9fcb;
+        }
+
+            .mobile_menu li a {
+                text-align: right;
+            }
+
+                .mobile_menu li a img {
+                    display: inline-block;
+                    margin-left: 10px;
+                }
+
+                .mobile_menu li a aside {
+                    position: relative;
+                    display: inline-block;
+                    margin: 0 auto;
+                }
+
+    .msgno {
+        text-align: center;
+    }
+
+    .mobile_menu .container {
+        display: none;
+    }
+    .detil_counter_rowone {
+        margin-top: 25px;
+    }
+
+    .ReportMess p, .newcounter p {
+        font-size: 24px;
+    }
+
+    .newcounter,
+    .ReportMess {
+        padding: 20px;
+    }
+
+    .delfilter,
+    .delsearch {
+        width: 100%;
+        height: 50px;
+        margin-bottom: 15px;
+    }
+
+    .delsearch_delfilter {
+        flex-wrap: wrap;
+    }
+    .canvasdiv canvas {
+        width: 700px !important;
+        height: 200px !important;
+    }
+
+    /*==*/
+    .filterboxdiv {
+        padding: 15px;
+        display: block;
+    }
+
+    .filterbtn {
+        display: block;
+    }
+
+    .mmddiv,
+    .filrevdiv {
+        display: block;
+        margin: 10px 0;
+    }
+
+        .filrevdiv select {
+            width: auto;
+        }
+
+    .filterboxdiv {
+        display: none;
+    }
+
+    .Energy_Request label {
+        font-size: 16px;
+    }
+
+    .popup_modal .modal-dialog {
+        width: 90%;
+    }
+
+    .popup_modal .modal-body {
+        padding: 50px;
+    }
+    /*==*/
+
+    #Order_details li {
+        width: 33%;
+        display: inline-block;
+    }
+
+    #Working_procedures li {
+        vertical-align: text-top;
+    }
+
+    .companyorder .detcheckbox input:checked + label::after {
+        top: 7px;
+    }
+
+    .companyorder {
+        padding: 15px;
+    }
+
+    .Choose_Commissioner li {
+        flex-wrap: wrap;
+    }
+
+    .uploadBTN i {
+        margin-right: 10px;
+        font-size: 26px;
+    }
+
+    .Type_Request strong,
+    .energyrequest input,
+    .companyorder label,
+    .Choose_Commissioner strong,
+    .Choose_Commissioner li p,
+    .Choose_Commissioner li span.LTR,
+    .Add_device a,
+    .Add_device a i,
+    .Reverse_device_information input {
+        font-size: 14px;
+    }
+
+    .request_accept_BTN,
+    .Continue_BTN {
+        font-size: 16px;
+    }
+
+    .steplist li a {
+        font-size: 17px;
+        padding: 22px 25px;
+    }
+
+    .Agree strong {
+        font-size: 20px;
+    }
+
+    .companyorder .detcheckbox input:checked + label::after {
+        top: 5px;
+    }
+
+    .Continue_BTN {
+        margin: 40px 0;
+    }
+
+    .Reverse_device_information input,
+    .companyorder select,
+    .Add_device {
+        height: 46px;
+    }
+
+        .Add_device img {
+            width: 20px;
+        }
+
+    .Add_device {
+        margin-top: 30px;
+    }
+
+    .profile_PIC img {
+        width: 50px;
+    }
+
+}
+
+@media screen and (max-width: 767px) {
+
+    /*27072020*/
+    .newsscroolsdiv ul {
+        padding: 15px;
+    }
+        .newsscroolsdiv ul li {
+            display: inline-block;
+            width: 300px;
+            padding: 0 15px;
+            margin-bottom:0;
+        }
+
+        .newsscroolsdiv {
+            overflow: hidden;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            white-space: nowrap;
+            padding: 20px 0;
+        }
+    /*27072020*/
+
+    .Report_counter {
+        position: initial;
+        background: #007fc3;
+        width: 100%;
+        margin-bottom: 10px;
+        text-align: center;
+        display: block;
+        padding: 15px;
+    }
+
+    .protal_tabs .nav-tabs > li > a {
+        font-size: 18px;
+        padding: 15px;
+    }
+
+    .prrtal_mainpart aside h1 {
+        font-size: 28px;
+    }
+
+    .complaints_box li {
+        display: block;
+        text-align: center;
+    }
+
+    .btndiv button {
+        width: auto;
+        line-height: initial;
+        padding: 5px 10px;
+        margin-top: 10px;
+    }
+
+    .newstext h4 {
+        font-size: 20px;
+        margin-top: 15px;
+    }
+
+    .protal_tabs .tab-content {
+        padding: 15px;
+    }
+
+        .protal_tabs .tab-content h5 {
+            flex-wrap: wrap;
+        }
+
+    .detil_counter_rowone {
+        margin-top: 25px;
+        flex-wrap: wrap;
+    }
+
+    .delsearch_delfilter, .delfilter {
+        flex-wrap: wrap;
+        height: auto;
+    }
+
+    .newcounter, .ReportMess {
+        padding: 20px;
+        width: 100%;
+    }
+
+    .delsearch button {
+        min-width: auto;
+    }
+
+    .details_tab .tab-content li::before,
+    .details_tab .tab-content li::after {
+        display: none;
+    }
+
+    .pagination > li > a, .pagination > li > span {
+        padding: 4px 10px;
+        font-size: 16px;
+    }
+
+    .pagination li:last-child a,
+    .pagination li:first-child a {
+        margin: 0 5px;
+    }
+
+    .content.demo-x {
+        width: 100%;
+    }
+    .canvasdiv {
+        width: 280px;
+        overflow: auto;
+        text-align: center;
+    }
+
+    .billlist span {
+        font-size: 15px;
+        color: #8a8a8a;
+    }
+    /*==*/
+    .inboxlistdiv .tab-content .inboxul li {
+        padding: 15px 0;
+    }
+
+    .div2 img {
+        margin-left: 15px;
+    }
+
+    .Energy_Request h2 {
+        font-size: 30px;
+    }
+
+    .Energy_Request {
+        background: #fff;
+        padding: 20px;
+    }
+
+        .Energy_Request label {
+            font-size: 18px;
+        }
+
+    .popup_modal .modal-title {
+        font-size: 26px;
+    }
+
+    .popup_modal .modal-header .close {
+        width: 28px;
+        font-size: 18px;
+        line-height: 32px;
+        height: 30px;
+    }
+
+    .popup_modal .modal-body {
+        padding: 20px;
+    }
+
+        .popup_modal .modal-body strong {
+            font-size: 30px;
+            color: #007fc3;
+            display: block;
+        }
+
+        .popup_modal .modal-body p {
+            font-size: 16px;
+        }
+
+        .popup_modal .modal-body img {
+            width: 100px;
+            margin: 20px auto;
+        }
+    /*==*/
+
+    .energyrequest_tab li a {
+        font-size: 18px;
+        padding: 15px 20px;
+    }
+
+    #Order_details li,
+    #Working_procedures li {
+        width: 49%;
+        vertical-align: top;
+        margin-bottom: 10px;
+    }
+
+    .energyrequest_tabcontent {
+        background: #fff;
+        padding: 20px 15px;
+    }
+
+    .request_reject_BTN,
+    .request_accept_BTN {
+        height: 46px;
+        width: 140px;
+        font-size: 16px;
+        margin-top: 20px;
+    }
+
+    .mary_top_120 {
+        margin-top: 50px;
+    }
+
+    .uploadbox {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .Agree {
+        margin-top: 0;
+    }
+
+        .Agree .checkbox {
+            padding-right: 35px;
+        }
+
+    .hidendiv {
+        width: 100%;
+        z-index: 5;
+    }
+
+    .steplist li.active::before,
+    .steplist li.active::after,
+    .steplist li:first-child::before,
+    .steplist li:last-child::before {
+        visibility: hidden;
+        display: none;
+    }
+
+    .steplist li a {
+        font-size: 15px;
+        padding: 15px 10px;
+    }
+}
+
+@media screen and (max-width:525px) {
+    .filrevdiv select {
+        width: 100%;
+    }
+
+    .filrevdiv span {
+        margin-top: 15px;
+        margin-bottom: 5px;
+    }
+
+    .filterboxdiv .detcheckbox {
+        margin-left: 7px;
+    }
+
+    .mmddiv a {
+        font-size: 14px;
+        padding: 5px 9px;
+    }
+
+    .mmddiv, .filrevdiv {
+        display: block;
+        margin: 0;
+    }
+
+        .filrevdiv span {
+            font-size: 16px;
+        }
+
+    .div2 {
+        display: flex;
+        align-items: center;
+    }
+
+        .div2 img {
+            margin-left: 15px;
+        }
+
+    .panel-title > a {
+        display: block;
+    }
+
+    .panel-default > .panel-heading + .panel-collapse > .panel-body {
+        padding: 15px;
+        min-height: inherit;
+    }
+
+    .panel-body {
+        border-bottom: 10px solid #eff7fb;
+        border-left: 10px solid #eff7fb;
+        border-right: 10px solid #eff7fb;
+    }
+}
+
+@media screen and (max-width:360px) {
+}

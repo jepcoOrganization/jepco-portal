@@ -1,0 +1,1111 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+
+<%@ Import Namespace="SiteWare.Entity.Common.Enums" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>JEPCO</title>
+   
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body runat="server">
+    <form id="form1" runat="server" enctype="multipart/form-data">
+        <asp:ScriptManager ID="scriptmanager1" runat="server"></asp:ScriptManager>
+       
+             
+        <header>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div class="logo">
+                            <a href="<%= (Session["CurrentLanguage"].ToString() == Convert.ToInt32(EnumLanguage.Arabic).ToString() ? "/ar" : "/en") %>/home">
+                                <asp:Image ID="imgLogo" runat="server" ImageUrl='<%# Bind("Image") %>' />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <ul class="list-unstyled temperature">
+                            <li>
+                                <strong>
+                                    <asp:Label ID="lblDayName" runat="server"></asp:Label>
+                                </strong>
+                                <asp:Label ID="lbldate" runat="server" class="LTR"></asp:Label>
+                                <asp:Label ID="lblMonth" runat="server"></asp:Label>
+                                <asp:Label ID="lblYear" runat="server" class="LTR"></asp:Label>
+
+                                <%--                                <span class="LTR">14</span>
+                                <span>نيسان </span>
+                                <span class="LTR">2020</span>--%>
+
+
+                            </li>
+                            <li>
+
+
+
+                                <%--  <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                    <ContentTemplate>
+                                        <asp:Timer ID="Timer1" runat="server" Interval="1000">
+                                        </asp:Timer>
+                                        <strong class="LTR">
+                                          
+                                             
+                                            <asp:Literal ID="lblcurrenttime" runat="server" Text="" ></asp:Literal>
+                                        </strong>
+                                         <span>(غرينتش <span class="LTR">+3</span>) </span>
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>--%>
+
+
+
+                                <strong class="LTR">
+                                    <div id="time"></div>
+                                </strong>
+                                <span>(غرينتش <span class="LTR">+3</span>) </span>
+
+
+                                <%-- <strong class="LTR">09:36 AM</strong>--%>
+                               
+                            </li>
+                            <li>
+                                <strong class="LTR"><label id="labelTempMax"></label> C</strong>
+                                <span class="LTR"><label id="labelTempMin"></label> C</span>
+                                <img src=" <%=ResolveUrl("~/") %>App_Themes/ThemeAr/img/temp.png" alt="">
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <span class="searchdiv">
+                            <input type="text" placeholder="ادخل كلمات البحث">
+                            <i class="fa fa-search"></i>
+                        </span>
+                        <span class="noti">
+                             <a href="/ar/Home/MessagesAndNotificationsList">
+                            <span class="uncheckmail">
+                                <small>
+                                    <asp:Label ID="unReadMSGCount" runat="server"></asp:Label>
+
+                                </small>
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                                 </a>
+                            <i class="fa fa-bell-o bell"></i>
+                        </span>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+          
+        <div class="protal_menu">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+
+
+                        <ul class="list-unstyled">
+                            <asp:ListView runat="server" ID="lstNavigation" OnItemDataBound="lstNavigation_ItemDataBound">
+                                <ItemTemplate>
+                                    <li>
+                                         <asp:HiddenField ID="hdnid" runat="server" Value='<%# Bind("ID") %>' />
+                                        <asp:HyperLink runat="server" ID="lnkNav" NavigateUrl='<%# Bind("URL") %>' Target='<%# Bind("TargetID") %>'>
+
+                                              <aside>
+                                               <asp:Literal runat="server" ID="unReadMSgMenu"> </asp:Literal>
+                                               <asp:Image ID="img" runat="server" ImageUrl='<%# Bind("MenuImage") %>' />
+                                            </aside>
+
+                                           
+                                            <span>
+                                                <asp:Literal ID="lblTitle" runat="server" Text='<%# Bind("MenuName") %>'></asp:Literal>
+                                            </span>
+                                        </asp:HyperLink>
+                                    </li>
+                                </ItemTemplate>
+                            </asp:ListView>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="protal_menu mobile_menu">
+          <%--  <button>القائمة</button>--%>
+              <a href="javascript:void(0);">القائمة</a>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ul class="list-unstyled">
+                            <asp:ListView runat="server" ID="lstMobileNavigation" OnItemDataBound="lstNavigation_ItemDataBound">
+                                <ItemTemplate>
+                                    <li>
+                                        <asp:HiddenField ID="hdnid" runat="server" Value='<%# Bind("ID") %>' />
+                                        <asp:HyperLink runat="server" ID="lnkNav" NavigateUrl='<%# Bind("URL") %>' Target='<%# Bind("TargetID") %>'>
+                                            <asp:Literal runat="server" ID="unReadMSgMenu"> </asp:Literal>
+                                            <asp:Image ID="img" runat="server" ImageUrl='<%# Bind("MenuImage") %>' />
+                                            <span>
+                                                <asp:Literal ID="lblTitle" runat="server" Text='<%# Bind("MenuName") %>'></asp:Literal>
+                                            </span>
+                                        </asp:HyperLink>
+                                    </li>
+                                </ItemTemplate>
+                            </asp:ListView>
+
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="bread_crumb">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <ol class="breadcrumb">
+
+             <li><a href="<%= (Session["CurrentLanguage"].ToString() == Convert.ToInt32(EnumLanguage.Arabic).ToString() ? "/ar" : "/en") %>/Home">الرئيسية</a></li>
+
+           <li runat="server" id="lstParent" class="active" visible="false">
+                                <asp:HyperLink ID="lnkParentName" runat="server" NavigateUrl='<%# Bind("AliasPath") %>' Target='<%# Bind("Target") %>' Text='<%# Bind("MenuName") %>'></asp:HyperLink>
+                            </li>
+
+         <%-- <li><a href="javascript:void">حسابي   </a></li>--%>
+          <li class="active">
+               <asp:Literal ID="lblChildName" runat="server"></asp:Literal>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+
+
+
+
+        <section class="prrtal_mainpart">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <button class="show_profilebtn">الملف الشخصي</button>
+                        <div class="hidendiv">
+                            <div class="profilediv">
+                                <img src=" <%=ResolveUrl("~/") %>App_Themes/ThemeAr/img/Profile_pic.png" class="propic" alt="" />
+                                <div class="welcm">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-sm-6">
+                                            <small>اهلا وسهلا</small>
+                                            <strong>
+                                                <asp:Literal ID="lblUserName" runat="server"></asp:Literal>
+                                                <asp:Literal ID="lblUserLastName" runat="server"></asp:Literal>
+                                            </strong>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 text-right">
+                                            <small>&nbsp;</small>
+                                            <p>
+                                                اخر تسجيل دخول
+                                                <asp:Literal ID="lblLastLogin" runat="server"></asp:Literal>
+                                            </p>
+                                            <asp:HiddenField runat="server" ID="hdhLastLoginId" />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-sm-6">
+                                            <small>
+                                                <img src=" <%=ResolveUrl("~/") %>App_Themes/ThemeAr/img/setting.png" alt="">
+                                                الملف الشخصي </small>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 text-right">
+                                            <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                                                <ContentTemplate>
+
+                                                    <asp:LinkButton runat="server" ID="logout" OnClick="logout_Click">
+
+                                                  <small>
+                                                <img src=" <%=ResolveUrl("~/") %>App_Themes/ThemeAr/img/logout.png" alt="">
+                                                تسجيل الخروج</small>
+
+                                                    </asp:LinkButton>
+
+                                                </ContentTemplate>
+                                            </asp:UpdatePanel>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <ul class="list-unstyled pro_list">
+                                    <li>
+                                        <strong>العنوان</strong>
+                                        <asp:Literal ID="lblUserAddress" runat="server"></asp:Literal>
+                                    </li>
+                                    <li><strong>البريد الالكتروني</strong><asp:Literal ID="lblUSerEmail" runat="server"></asp:Literal></li>
+                                    <li><strong>رقم الهاتف</strong><span class="LTR"><asp:Literal ID="lblUSerMobile" runat="server"></asp:Literal>
+                                        <asp:HiddenField ID="hdnmobileno" runat="server"/>
+                                                                   </span></li>
+                                    <li><strong>تاريخ التسجيل</strong><asp:Label ID="lblUSerRegiDate" runat="server" style="font-family:Montserrat"></asp:Label></li>
+                                </ul>
+                            </div>
+                            <ul class="list-unstyled service_list">
+
+
+                                <asp:ListView runat="server" ID="lstBanner" OnItemDataBound="lstBanner_ItemDataBound">
+                                    <ItemTemplate>
+                                        <li class="libg1" runat="server" id="li">
+                                            <asp:HyperLink runat="server" ID="lnkNav" NavigateUrl='<%# Bind("Link") %>' Target='<%# Bind("Target") %>'>
+                                                <strong>
+                                                    <asp:Literal ID="lblTitle" runat="server" Text='<%# Bind("Title") %>'></asp:Literal>
+                                                </strong>
+                                                <asp:Image ID="img" runat="server" ImageUrl='<%# Bind("BannerImage") %>' />
+
+                                            </asp:HyperLink>
+                                        </li>
+                                    </ItemTemplate>
+                                </asp:ListView>
+
+
+                            </ul>
+                            <div class="opinion_matters">
+                                <aside>
+                                    <h1><small>التصويت</small>رأيك يهمنا </h1>
+                                    <img src=" <%=ResolveUrl("~/") %>App_Themes/ThemeAr/img/voting.png" alt="">
+                                </aside>
+
+                                <div class="check_box">
+                                    <p>ما رأيك بالخدمات التي تقدمها البوابة الالكترونية لشركة الكهرباء</p>
+
+                                    <%--<asp:RadioButtonList ID="RadioButtonList2" runat="server" RepeatDirection="Horizontal">
+                                        <asp:ListItem Selected="True">ممتازة   <span class="checkmark" for="RadioButtonList2_0"></span></asp:ListItem>
+                                        <asp:ListItem> جيدة <span class="checkmark" for="RadioButtonList2_1"></span></asp:ListItem>
+                                        <asp:ListItem> مقبولة <span class="checkmark" for="RadioButtonList2_2"></span></asp:ListItem>
+                                        <asp:ListItem>غير راضي <span class="checkmark" for="RadioButtonList2_3"></span></asp:ListItem>
+                                    </asp:RadioButtonList>--%>
+                                    <asp:RadioButtonList ID="RadioButtonList2" runat="server" RepeatDirection="Horizontal">
+                                        <asp:ListItem Selected="True">ممتازة </asp:ListItem>
+                                        <asp:ListItem> جيدة </asp:ListItem>
+                                        <asp:ListItem> مقبولة</asp:ListItem>
+                                        <asp:ListItem>غير راضي </asp:ListItem>
+                                    </asp:RadioButtonList>
+
+
+                                </div>
+                                <div class="vote">
+
+                                    <button class="btn action-button" type="button" id="btbvalid" onclick="VoteClick();">تصويت</button>
+                                    <asp:Button ID="btnVotes" runat="server" Text="تصويت" OnClick="btnVote_click" Style="display: none;" />
+
+                                    <%-- <button>تصويت</button>--%>
+                                    <a href="javascript:void">نتائج التصويت</a>
+                                </div>
+
+                            </div>
+                            <div class="sidebar_tips">
+                                <aside>
+                                    <h1>
+                                        <small>من اجل سلامتكم</small>
+                                        نصائح ارشادية
+                                    </h1>
+                                    <img src=" <%=ResolveUrl("~/") %>App_Themes/ThemeAr/img/info.png" alt="" />
+                                </aside>
+                                <div id="tips" class="owl-carousel">
+
+                                    <asp:ListView runat="server" ID="lstDailyAdv">
+                                        <ItemTemplate>
+
+                                            <div class="item">
+                                                <p>
+                                                    <asp:Literal runat="server" ID="lblTitle" Text='<%# Bind("Title") %>'></asp:Literal></p>
+                                                <asp:HyperLink runat="server" ID="lnkNav" NavigateUrl='<%# Bind("Link") %>' Target='<%# Bind("Target") %>'>
+                                                     <img src=" <%=ResolveUrl("~/") %>App_Themes/ThemeAr/img/left-arrow.png" alt="">
+                                                </asp:HyperLink>
+
+                                            </div>
+
+
+                                        </ItemTemplate>
+                                    </asp:ListView>
+
+
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-8 col-md-12 col-sm-12">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+                    </div>
+                     
+                </div>
+            </div>
+        </section>
+
+        <section class="subscribe_news">
+            <div class="container">
+                <div class="row">
+                    <asp:UpdatePanel ID="up1" runat="server">
+                        <ContentTemplate>
+
+
+                            <div class="col-lg-6 col-md-12 col-sm-12">
+                                <div class="news">
+                                    <strong>النشرة الإخبارية</strong>
+                                    <span>اشترك في قائمتنا البريدية للحصول على آخر الأخبار على صندوق الوارد الخاص بك</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12">
+                                <div class="subscribe">
+
+                                    <asp:RequiredFieldValidator runat="server" CssClass="validator" ErrorMessage="" ID="RequiredFieldValidator4"
+                                        ControlToValidate="txtSubscribe" Font-Size="11" Display="Dynamic" Text=""
+                                        ForeColor="Red" ValidationGroup="grp1" EnableClientScript="false" SetFocusOnError="true" />
+                                    <asp:RegularExpressionValidator ID="RequiredFieldValidator16" runat="server"
+                                        CssClass="validator"
+                                        ControlToValidate="txtSubscribe"
+                                        ErrorMessage=""
+                                        ForeColor="red"
+                                        ValidationGroup="grp1"
+                                        Display="Dynamic"
+                                        ValidationExpression="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"
+                                        Style="color: Red; float: right; margin-top: 2%; margin-right: -1.5%;"></asp:RegularExpressionValidator>
+                                    <asp:TextBox ID="txtSubscribe" runat="server" PlaceHolder="ادخل البريد الالكتروني "></asp:TextBox>
+                                    <%-- <button onclick="EmailSendClick()">اشترك الآن</button>--%>
+                                    <asp:Button ID="btnSubscribes" runat="server" Text="اشترك الآن" ValidationGroup="grp1" OnClick="btnSubscribes_click" />
+                                    <%--<asp:LinkButton runat="server" ID="btnSubscribes" OnClick="btnSubscribes_click" Style="display: none;"></asp:LinkButton>--%>
+                                </div>
+                                <%--<div class="subscribe">
+                            <input type="text" placeholder="ادخل البريد الالكتروني ">
+                            <button>اشترك الآن</button>
+                        </div>--%>
+                            </div>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                </div>
+            </div>
+        </section>
+
+        <!------------------------------------------------------------------->
+
+        <div class="protal_copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 col-md-7 col-sm-12">
+
+
+
+
+
+                        <div class="ftsecondlink">
+
+
+                            <asp:ListView runat="server" ID="lstSecondNavFooter1" OnItemDataBound="lstSecondNav_ItemDataBound">
+                                <ItemTemplate>
+
+                                    <asp:HyperLink runat="server" ID="lnkSecondNav" Text='<%# Bind("Title") %>' NavigateUrl='<%# Bind("URL") %>' Target='<%# Bind("Target") %>'>
+                                    </asp:HyperLink>
+
+                                </ItemTemplate>
+                            </asp:ListView>
+
+                            <%--<asp:ListView runat="server" ID="lstSecondNavFooter1" OnItemDataBound="lstSecondNav_ItemDataBound">
+                                <ItemTemplate>
+
+                                    <asp:HyperLink runat="server" ID="lnkSecondNav" Text='<%# Bind("MenuName") %>' NavigateUrl='<%# Bind("URL") %>' Target='<%# Bind("TargetID") %>'>
+                                    </asp:HyperLink>
+
+                                </ItemTemplate>
+                            </asp:ListView>--%>
+                            <%--  <a href="javascript:void">طلبات التوظيف</a>
+                            <a href="javascript:void">أسئلة شائعة</a>
+                            <a href="javascript:void">معرض الصور</a>
+                            <a href="javascript:void">الشروط والاحكام</a>
+                            <a href="javascript:void">خريطة الموقع</a>--%>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-5 col-sm-12">
+                        <div class="ftsecondlink text-right">
+                            <asp:ListView runat="server" ID="lstSecondNavFooter2" OnItemDataBound="lstSecondNav_ItemDataBound">
+                                <ItemTemplate>
+
+                                    <asp:HyperLink runat="server" ID="lnkSecondNav" Text='<%# Bind("Title") %>' NavigateUrl='<%# Bind("URL") %>' Target='<%# Bind("Target") %>'>
+                                    </asp:HyperLink>
+
+                                </ItemTemplate>
+                            </asp:ListView>
+
+                            <%--<asp:ListView runat="server" ID="lstSecondNavFooter2" OnItemDataBound="lstSecondNav_ItemDataBound">
+                                <ItemTemplate>
+
+                                    <asp:HyperLink runat="server" ID="lnkSecondNav" Text='<%# Bind("MenuName") %>' NavigateUrl='<%# Bind("URL") %>' Target='<%# Bind("TargetID") %>'>
+                                    </asp:HyperLink>
+
+                                </ItemTemplate>
+                            </asp:ListView>--%>
+                            <%-- <a href="javascript:void">امكانية الوصول</a>
+                            <a href="javascript:void">الشروط و الأحكام</a>
+                            <a href="javascript:void">سياسة الخصوصية</a>--%>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-12 col-sm-12">
+                        <div class="followon">
+                            <span>تابعونا على</span>
+                            <asp:ListView runat="server" ID="lstSocialFooter" OnItemDataBound="lstSocial_ItemDataBound">
+                                <ItemTemplate>
+                                    <asp:HyperLink runat="server" ID="lnkSecondNav" NavigateUrl='<%# Bind("Link") %>' Target='<%# Bind("Target") %>'>
+                                        <asp:HiddenField runat="server" ID="imgURL" Value='<%# Bind("Imageover") %>' />
+                                        <asp:Image ID="imgsocial" runat="server" ImageUrl='<%# Bind("Image") %>' />
+                                    </asp:HyperLink>
+
+                                </ItemTemplate>
+                            </asp:ListView>
+                            <%-- <a href="javascript:void" class="fa fa-youtube"></a>
+                            <a href="javascript:void" class="fa fa-instagram"></a>
+                            <a href="javascript:void" class="fa fa-twitter"></a>
+                            <a href="javascript:void" class="fa fa-facebook"></a>--%>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!------------------------------------------------------------------->
+
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <asp:Literal ID="lblCopyright" runat="server"></asp:Literal>
+                        <%-- <aside>
+                            جميع الحقوق الملكية محفوظة <span style="font-family: 'Poppins', sans-serif;">2020</span>.<strong>جيبكو</strong>  ©     
+                        </aside>
+                        <small>|</small>
+                        <aside>
+                            <span>تصميم وتطوير بواسطة</span>
+                            <a href="javascript:void">Auratechs Solutions </a>
+                        </aside>--%>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <%-- <asp:LinkButton ID="lnkSubscribe" runat="server"></asp:LinkButton>
+        <cc1:ModalPopupExtender runat="server" ID="mpeSuccess"
+            TargetControlID="lnkSubscribe" BehaviorID="mpeSuccess"
+            BackgroundCssClass="modalBackground" PopupControlID="panelNewsLetter"
+            CancelControlID="btnNewLetterClose">
+        </cc1:ModalPopupExtender>
+        <asp:Panel ID="panelNewsLetter" runat="server" CssClass="modalPopup d_model_popup l_modelpopup" Style="display: none">
+            <div class="modal-dialog modal-md">
+              
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="Title">
+                            <h2>
+                                <asp:Literal runat="server" ID="lblTitle">Message</asp:Literal>
+                            </h2>
+                        </div>
+                        <asp:LinkButton CssClass="close" data-dismiss="modal" runat="server" ID="btnNewLetterClose">&times;</asp:LinkButton>
+                    </div>
+                    <div class="modal-body">
+                        <div style="text-align: center; font-size: 25px; padding: 40px 0;">
+                            <asp:Literal runat="server" ID="lblMessage">  
+                                 Your email has been successfully registered
+Thank you for Subscription.
+                            </asp:Literal>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        
+                        <asp:Button ID="Button8" runat="server" Text="Ok" CssClass="d_model_btn" type="button" OnClick="Button8_Click" />
+                    </div>
+                </div>
+            </div>
+        </asp:Panel>--%>
+
+        <asp:LinkButton ID="lnkSubscribe" runat="server"></asp:LinkButton>
+        <cc1:ModalPopupExtender runat="server" ID="mpeSuccess"
+            TargetControlID="lnkSubscribe" BehaviorID="mpeSuccess"
+            BackgroundCssClass="modalBackground" PopupControlID="panelNewsLetter"
+            CancelControlID="btnClose">
+        </cc1:ModalPopupExtender>
+        <asp:Panel ID="panelNewsLetter" runat="server" CssClass="modalPopup d_model_popup l_modelpopup welcome in" Style="display: none; position: fixed; top: 0px; right: 0px; bottom: 0px; left: 0.5px; z-index: 1000001; overflow: hidden; outline: 0px;">
+            <div class="modal-dialog modal-md">
+                <!-- Modal content-->
+                <div class="modal-content">
+
+                    <div class="modal-header">
+
+
+                        <asp:LinkButton CssClass="close" data-dismiss="modal" runat="server" ID="btnClose"><span class="fa fa-close"></span></asp:LinkButton>
+                        <h4 class="modal-title" id="myModalLabel">
+                            <asp:Literal runat="server" ID="lblTitle" Text="م الاستلام بنجاح "></asp:Literal></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div style="text-align: center; font-size: 25px; padding: 40px 0;">
+                            <asp:Image ID="imgPopup" runat="server" ImageUrl="~/App_Themes/ThemeAr/img/logo.png" />
+
+                            <%--<p>
+<asp:Literal runat="server" ID="lblInquiryMessage" Text="تم استلام معلومات سيرتك الذاتية بنجاح.">
+</asp:Literal>
+</p>--%>
+                            <p>
+                                <asp:Literal runat="server" ID="lblMessage" Text="شكرا لكم ">
+                                </asp:Literal>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="button" type="button" id="btnok" onclick="HidePopup();">موافق</button>
+                        <%--<asp:Button ID="btn_ok" runat="server" data-dismiss="modal" Text="موافق" CssClass="button" type="button"  OnClick="Button8_Click" />--%>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </asp:Panel>
+
+
+       
+
+      
+        <!-------------------------------------------------------------------------------------------->
+
+       <%-- <script type="text/javascript" src="/Scripts/jquery-3.3.1.js"></script>
+        <script type="text/javascript" src="/Scripts/popper.js"></script>
+        <script type="text/javascript" src="/Scripts/bootstrap-4.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous"></script>--%>
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script type="text/javascript" src="/Scripts/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/Scripts/owl.carousel.min.js"></script>
+        
+        <script type="text/javascript" src="/Scripts/counter.js"></script>
+         <script type="text/javascript" src="/Scripts/accordion.js"></script>
+         <script type="text/javascript" src="/Scripts/jquery.mCustomScrollbar.concat.min.js"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+       <%--  <script type="text/javascript" src="/Scripts/jquery.mCustomScrollbar.concat.min.js"></script>--%>
+
+         <script>
+    $("#lstNavigation_img_4").attr("src", "/App_Themes/ThemeAr/img/pay1Log3.png")
+
+    $("document").ready(function () {
+
+
+                 function checkTime(i) {
+                     if (i < 10) {
+                         i = "0" + i;
+                     }
+                     return i;
+                 }
+
+                 function startTime() {
+
+                     var today = new Date();
+                     var h = today.getHours();
+                     var m = today.getMinutes();
+                     var s = today.getSeconds();
+
+
+                     m = checkTime(m);
+                     s = checkTime(s);
+                     document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
+
+                     //var livetime = new Date().toString("hh:mm tt");
+                     //document.getElementById('time').innerHTML = livetime;
+
+                     t = setTimeout(function () {
+                         startTime()
+                     }, 500);
+
+
+                 }
+                 startTime();
+
+
+                 $('#<%=RadioButtonList2.ClientID  %>_0').next('label').addClass("container-checkbox");
+                 $('#<%=RadioButtonList2.ClientID  %>_1').next('label').addClass("container-checkbox");
+                 $('#<%=RadioButtonList2.ClientID  %>_2').next('label').addClass("container-checkbox");
+                 $('#<%=RadioButtonList2.ClientID  %>_3').next('label').addClass("container-checkbox");
+
+                 $('#<%=RadioButtonList2.ClientID  %>_0').addClass("rdoBig");
+                 $('#<%=RadioButtonList2.ClientID  %>_1').addClass("rdoBig");
+                 $('#<%=RadioButtonList2.ClientID  %>_2').addClass("rdoBig");
+                 $('#<%=RadioButtonList2.ClientID  %>_3').addClass("rdoBig");
+
+                 $.ajax({
+                     type: "GET",
+                     //contentType: "application/json; charset=utf-8",
+                     url: "http://api.openweathermap.org/data/2.5/weather?lat=31.96&lon=35.95&units=metric&APPID=f6958e5632dd97b4efbb2b092a0573e2",
+                     dataType: "json",
+                     async: false,
+                     success: function (data) {
+
+
+
+                         var MaxTemp = data.main.temp_max;
+                         var MinTemp = data.main.temp_min;
+                         $("#labelTempMax").text(MaxTemp);
+                         $("#labelTempMin").text(MinTemp);
+
+
+                     },
+                     error: function (result) {
+                         //alert("Error");
+                     }
+                 });
+             });
+
+         </script>
+
+        
+        <script>
+            (function ($) {
+                $(window).on("load", function () {
+                   
+                   
+                    $.mCustomScrollbar.defaults.theme = "light-2"; //set "light-2" as the default theme
+
+                    $(".demo-y").mCustomScrollbar();
+
+                    $(".demo-x").mCustomScrollbar({
+                        axis: "x",
+                        advanced: { autoExpandHorizontalScroll: true }
+                    });
+
+                    $(".demo-yx").mCustomScrollbar({
+                        axis: "yx"
+                    });
+
+                    $(".scrollTo a").click(function (e) {
+                        e.preventDefault();
+                        var $this = $(this),
+                            rel = $this.attr("rel"),
+                            el = rel === "content-y" ? ".demo-y" : rel === "content-x" ? ".demo-x" : ".demo-yx",
+                            data = $this.data("scroll-to"),
+                            href = $this.attr("href").split(/#(.+)/)[1],
+                            to = data ? $(el).find(".mCSB_container").find(data) : el === ".demo-yx" ? eval("(" + href + ")") : href,
+                            output = $("#info > p code"),
+                            outputTXTdata = el === ".demo-yx" ? data : "'" + data + "'",
+                            outputTXThref = el === ".demo-yx" ? href : "'" + href + "'",
+                            outputTXT = data ? "$('" + el + "').find('.mCSB_container').find(" + outputTXTdata + ")" : outputTXThref;
+                        $(el).mCustomScrollbar("scrollTo", to);
+                        output.text("$('" + el + "').mCustomScrollbar('scrollTo'," + outputTXT + ");");
+                    });
+
+                });
+            })(jQuery);
+        </script>
+
+          <script>
+              function EmailSendClick() {
+                  debugger;
+                  $("[id*=<%=btnSubscribes.ClientID %>]").click();
+              }
+        </script>
+
+        <script>
+            $(document).ready(function () {
+                jQuery(".Dateeee").datepicker();
+            });
+    </script>
+
+        <style>
+    img#lstNavigation_img_4 {
+    width: 50px;
+}
+            .nwdr {
+                background: #f8f8f8;
+                padding: 40px 0;
+                position: absolute;
+                width: 100%;
+                right: 0;
+                top: 100%;
+                    z-index: 25;
+            }
+
+            input#btnSubscribes {
+                background: #007fc3;
+                color: #fff;
+                height: 80px;
+                width: 165px;
+                font-size: 20px;
+                padding: 10px;
+                border: none;
+            }
+
+            input#btnVotes {
+                color: #007fc3;
+                background: #ffde23;
+                font-size: 20px;
+                font-weight: bold;
+                border: none;
+                width: 100%;
+                padding: 7px;
+                height: 50px;
+            }
+        </style>
+
+          <style>
+            .button {
+    background: #007fc3;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    border: none;
+    width: 100%;
+    max-width: 200px;
+    line-height: 60px;
+}           
+        </style>
+       
+<script> 
+    $(".bgcolor1").click(function () {
+        $("body").addClass("bg1");
+        $("body").removeClass("bg2");
+        $("body").removeClass("bg3");
+        $("body").removeClass("bg4");
+    });
+    $(".bgcolor2").click(function () {
+        $("body").addClass("bg2");
+        $("body").removeClass("bg1");
+        $("body").removeClass("bg3");
+        $("body").removeClass("bg4");
+    });
+    $(".bgcolor3").click(function () {
+        $("body").addClass("bg3");
+        $("body").removeClass("bg1");
+        $("body").removeClass("bg2");
+        $("body").removeClass("bg4");
+    });
+    $(".bgcolor4").click(function () {
+        $("body").addClass("bg4");
+        $("body").removeClass("bg1");
+        $("body").removeClass("bg2");
+        $("body").removeClass("bg3");
+    });
+
+</script> 
+
+<script>
+    jQuery("#tips").owlCarousel({
+        autoplay: true,
+        // loop: true,
+        margin: 10,
+        responsiveClass: true,
+        rtl: true,
+        dots: true,
+        nav: false,
+        responsive: {
+            0: {
+                items: 1
+            },
+
+            600: {
+                items: 1
+            },
+
+            1024: {
+                items: 1
+            }
+        }
+    });
+</script>
+
+<script>
+    // Search Box Script
+    $(".searchicon,.sarch button").click(function () {
+        $(".searchboxdiv").slideToggle();
+    });
+
+    $(".mobdrop").click(function () {
+        $(".mobsubmenu").slideToggle();
+    });
+    $(".mobmenubar i , .closebtn").click(function () {
+        $(".mobmenu").slideToggle();
+    });
+
+    $(".mobeditstyleclosebtn").click(function () {
+        $(".mobeditstyle").slideToggle();
+    });
+
+// Menu show div Script
+// $(".navbar-nav > li").click(function(){
+//   $(".dropdownmenu").slideToggle();
+// });
+
+</script>
+
+<!-- <script>
+  jQuery(document).ready(function(){
+    jQuery('.navbar-nav > li').click(function(event){
+        jQuery('.active').removeClass('active');
+        jQuery(this).addClass('active');
+        event.preventDefault();
+    });
+  });
+</script> -->
+
+ <script>
+     //$('.dropli').click(function (evt) {
+     //    $(".dropdownmenu").slideToggle();
+     //    evt.stopPropagation();
+     //});
+     
+     for (var i = 0; i < 8; i++) {
+         
+         $(".dropdownmenu" + i).hide();
+
+     }
+
+
+          <%-- $("#<%=lstNavigation2.ClientID%>").click(function () {
+                debugger;
+
+
+            });
+            $('.Mydropli').click(function () {
+               
+                debugger;
+                 for (var i = 0; i < 6; i++) {
+                     debugger;
+                     $('.dropli' + i).click(function (evt) {
+                         $(".dropdownmenu" + i).slideToggle();
+                         evt.stopPropagation();
+                     });
+
+                 }
+            });--%>
+
+     function callsubmenu(count) {
+         debugger;
+         var old = $("#hidmainvalue").val();
+         var newc = count - 1;
+         $("#lstNavigation2_lstmenu_" + newc).addClass("active Mydropli dropli" + count);
+
+         if (newc == old) {
+             $("#lstNavigation2_lstmenu_" + old).removeClass("Mydropli dropli dropli" + count);
+         }
+         else {
+             $("#lstNavigation2_lstmenu_" + old).removeClass("active Mydropli dropli dropli" + count);
+         }
+
+        // $("#lstNavigation2_lstmenu_" + old).removeClass("active Mydropli dropli" + count);
+         $("#hidmainvalue").val(newc)
+
+         $(".dropdownmenu" + count).slideToggle();
+         //evt.stopPropagation();
+         for (var i = 1; i < 8; i++) {
+             debugger;
+             if (i != count) {
+                 $(".dropdownmenu" + i).hide();
+             }
+         }
+     }
+
+
+     $('.editstyle').click(function (evt) {
+         $(".edit_style_div").slideToggle();
+         evt.stopPropagation();
+     });
+     $('.editstyle').click(function (evt) {
+         $(".dropdownmenu").hide();
+         evt.stopPropagation();
+     });
+     $('body').click(function (e) {
+         if (!$(e.target).closest('.dropdownmenu ,.edit_style_div').length) {
+             $(".dropdownmenu,.edit_style_div").hide();
+
+             //for (var i = 0; i < 6; i++) {
+             //    $(".dropdownmenu" + i).hide();
+             //}
+         }
+     });
+        </script>
+
+<!-- <script>
+$('ul li').on('click', function () {
+    $('.tab-content div:eq('+$(this).index()+')').show().siblings().hide();
+});
+</script> -->
+
+<script type="text/javascript">
+
+    var $affectedElements = $("div,aside, p, span, strong, h1, h2, h3, h4, h5, h6, b"); // Can be extended, ex. $("div, p, span.someClass")
+
+    // Storing the original size in a data attribute so size can be reset
+    $affectedElements.each(function () {
+        var $this = $(this);
+        $this.data("orig-size", $this.css("font-size"));
+    });
+
+    $("#btn-increase").click(function () {
+        changeFontSize(1);
+    })
+
+    $("#btn-decrease").click(function () {
+        changeFontSize(-1);
+    })
+
+    $("#btn-orig").click(function () {
+        $affectedElements.each(function () {
+            var $this = $(this);
+            $this.css("font-size", $this.data("orig-size"));
+        });
+    })
+
+    function changeFontSize(direction) {
+        $affectedElements.each(function () {
+            var $this = $(this);
+            $this.css("font-size", parseInt($this.css("font-size")) + direction);
+        });
+    }
+
+  </script>
+
+
+        <script>
+            jQuery("#Complaint_receiving_centers").owlCarousel({
+                autoplay: true,
+                // loop: true,
+                margin: 50,
+                responsiveClass: true,
+                transitionStyle: "fade",
+                animateOut: 'fadeOut',
+                animateIn: 'fadeIn',
+                rtl: true,
+                dots: true,
+                nav: false,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 1
+                    },
+                    768: {
+                        items: 2
+                    },
+                    1024: {
+                        items: 3
+                    },
+                    1100: {
+                        items: 4
+                    }
+                }
+            });
+</script>
+        <script>
+            function HidePopup() {
+                var mpu = $find('mpeSuccess');
+                mpu.hide();
+            }
+
+        </script>
+
+
+
+        
+<script>
+    jQuery(function () {
+        // initialize collapsable accordion
+        jQuery('.collapsable-accordion').collapsable({
+            accordion: false,
+            fx: 'slide',
+            fxDuration: 300,
+            collapsableAll: true
+        });
+
+        // expand all elements
+        jQuery('.expand-all').on('click', function (evt) {
+            evt.preventDefault();
+            jQuery('.collapsable-accordion').collapsable('expandAll');
+        });
+
+        // collapse all elements
+        jQuery('.collapse-all').on('click', function (evt) {
+            evt.preventDefault();
+            jQuery('.collapsable-accordion').collapsable('collapseAll');
+        });
+    });
+    </script>
+
+<script type="text/javascript">
+    $('.panel-collapse').on('show.bs.collapse', function () {
+        $(this).siblings('.panel-heading').addClass('active');
+    });
+
+    $('.panel-collapse').on('hide.bs.collapse', function () {
+        $(this).siblings('.panel-heading').removeClass('active');
+    });
+</script>
+
+        <script>
+            $(".show_profilebtn").click(function () {
+                debugger;
+                $(".hidendiv").slideToggle();
+            });
+
+            $(".mobile_menu button").click(function () {
+                $(".mobile_menu .container").slideToggle();
+            });
+
+            $(".mobile_menu a").click(function () {
+                $(".mobile_menu .container").slideToggle();
+            });
+
+
+</script>
+        <script>
+	function toggleIcon(e) {
+        $(e.target)
+            .prev('.panel-heading')
+            .find(".more-less")
+            .toggleClass('lni-plus lni-minus');
+    }
+    $('.panel-group').on('hidden.bs.collapse', toggleIcon);
+    $('.panel-group').on('shown.bs.collapse', toggleIcon);
+</script>
+
+        <style>
+             .container-checkbox input:checked ~ .checkmark {
+                background-color: #007fc3;
+            }
+
+            .container-checkbox input:checked ~ span.checkmark {
+                background-color: #007fc3;
+            }
+
+            .check_box .rdoBig {
+                height: 20px;
+                width: 20px;
+            }
+        </style>
+
+
+    </form>
+
+</body>
+</html>
+

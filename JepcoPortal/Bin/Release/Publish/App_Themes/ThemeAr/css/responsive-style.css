@@ -1,0 +1,1622 @@
+
+@media only screen and (min-width:1920px) {
+    .container {
+        width: 1650px;
+    }
+
+    .ftlink li a {
+        font-size: 18px;
+    }
+
+    .ftdownloadapp img {
+        margin-bottom: 20px;
+        width: 190px;
+    }
+
+    .navbar-nav > li > a strong {
+        font-size: 19px;
+    }
+
+    .navbar-nav > li > a {
+        font-size: 16px;
+    }
+
+    .blue {
+        padding: 50px 50px 50px 200px;
+    }
+
+    .finacial {
+        margin-top: 50px;
+        padding: 0 80px;
+    }
+
+    .carousel-caption {
+        right: 190px;
+    }
+
+    .carousel-indicators {
+        right: 50px;
+    }
+
+    .Consumption_tariff table tr td:first-child,
+    .Consumption_tariff table tr td {
+        padding: 15px;
+    }
+
+    .servicebox h4 {
+        min-height: 65px;
+    }
+
+    .bannerinfo {
+        left: 137px;
+    }
+
+    .bannersubscrib {
+        left: 300px;
+    }
+
+    .white {
+        padding: 0px 150px 0px 50px;
+    }
+
+    .ftapp {
+        padding-right: 50px;
+    }
+
+    .newstext p {
+        min-height: 80px;
+    }
+}
+
+@media only screen and (min-width:1600px) and (max-width:1900px) {
+    .container {
+        width: 1500px;
+    }
+
+    .forgot_login {
+        padding-top: 40px;
+    }
+
+    .ragi_white .steplist li a {
+        padding: 20px 30px;
+    }
+
+    .ragister {
+        padding-top: 30px;
+    }
+
+    .ragi_white .steplist {
+        margin-bottom: 10px;
+    }
+}
+
+@media only screen and (min-width:1400px) and (max-width:1590px) {
+    .container {
+        width: 100%;
+    }
+
+    .navbar-nav > li {
+        padding: 0 14px 10px 10px;
+    }
+
+    .ftlink li a {
+        font-size: 14px;
+    }
+
+    .news span {
+        font-size: 16px;
+    }
+
+    .news strong {
+        font-size: 28px;
+        padding: 0 25px;
+    }
+
+    .about p {
+        font-size: 16px;
+    }
+
+    .comnheading {
+        font-size: 26px;
+    }
+
+    .contact h1,
+    .Complaint_receiving_centers h1,
+    .contact aside span {
+        font-size: 30px;
+    }
+
+    .contact p {
+        font-size: 16px;
+        margin: 20px 0;
+    }
+
+    .forgot_login {
+        padding-top: 40px;
+    }
+
+    .ragi_white {
+        padding: 50px;
+    }
+
+    .uikith1 {
+        font-size: 50px;
+    }
+
+    a.comnlink {
+        font-size: 16px;
+    }
+
+    .uikith4 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .comnbtn {
+        font-size: 20px;
+        max-width: 220px;
+        line-height: 60px;
+        height: 60px;
+    }
+
+    .comntable tr th,
+    .comntable tr td {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .ragi_white .steplist li a {
+        padding: 20px 20px;
+    }
+
+    .ragister {
+        padding-top: 40px;
+    }
+
+    .ragi_white .steplist {
+        margin-bottom: 10px;
+    }
+}
+
+@media only screen and (min-width:1300px) and (max-width:1367px) {
+    .container {
+        width: 100%;
+    }
+
+    .edit_global_call a {
+        padding-left: 15px;
+        margin-left: 15px;
+    }
+
+    .navbar-nav > li {
+        padding: 0 10px 10px 10px;
+        width: 16.5%;
+    }
+
+    .ftlink li a {
+        font-size: 14px;
+    }
+
+    .news span {
+        font-size: 16px;
+    }
+
+    .news strong {
+        font-size: 28px;
+        padding: 0 25px;
+    }
+
+    .about p {
+        font-size: 16px;
+    }
+
+    .comnheading {
+        font-size: 26px;
+    }
+
+    .servicebox h4 {
+        font-size: 24px;
+    }
+
+    .btndiv button {
+        max-width: 200px;
+        line-height: 60px;
+        height: 60px;
+    }
+
+    .upgrade_services .up_right p {
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+
+    .btndiv {
+        margin-top: 100px;
+    }
+
+    .contact h1,
+    .Complaint_receiving_centers h1,
+    .contact aside span,
+    .contact aside strong {
+        font-size: 30px;
+    }
+
+    .contact p {
+        font-size: 16px;
+        margin: 20px 0;
+    }
+
+    .estext h3 {
+        font-size: 22px;
+    }
+
+    .forgot_login {
+        padding-top: 30px;
+    }
+
+    .forlogotherlink {
+        margin-top: 20px;
+    }
+
+    .card .front {
+        padding: 15px 30px;
+        border-radius: 30px;
+    }
+
+    .login_right {
+        padding-left: 0;
+    }
+
+    .card h1 {
+        font-size: 30px;
+        margin-top: 0;
+    }
+
+    .card input {
+        height: 44px;
+        margin: 5px 0;
+        padding: 5px 60px 5px 5px;
+    }
+
+    .container-checkbox {
+        font-size: 16px;
+    }
+
+    .forlogbtndiv button {
+        font-size: 18px;
+        height: 44px;
+        line-height: 44px;
+    }
+
+    .forgot_login hr {
+        margin: 10px 0;
+    }
+
+    .Create_account {
+        font-size: 22px;
+        padding: 7px;
+    }
+
+    .ragi_white {
+        padding: 15px 30px;
+    }
+
+        .ragi_white aside {
+            font-size: 30px;
+        }
+
+        .ragi_white p {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+    .uikith1 {
+        font-size: 40px;
+        margin-bottom: 30px;
+    }
+
+    a.comnlink {
+        font-size: 16px;
+    }
+
+    .uikith4 {
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+
+    .comnbtn {
+        font-size: 20px;
+        max-width: 220px;
+        line-height: 60px;
+        height: 60px;
+    }
+
+    .comntable tr th,
+    .comntable tr td {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .ragi_white .steplist li a {
+        padding: 10px 30px;
+        font-size: 15px;
+    }
+
+    .steplist li:first-child::before {
+        border-bottom: 68px solid #007fc3;
+    }
+
+    .steplist li::before {
+        border-bottom: 68px solid #ffde23;
+    }
+
+    .steplist li::after {
+        border-top: 68px solid #ffde23;
+    }
+
+    .steplist li:last-child::before {
+        border-bottom: 68px solid #f2f2f2;
+    }
+
+    .ragister {
+        padding-top: 15px;
+    }
+
+    .ragi_white .steplist {
+        margin-bottom: 10px;
+    }
+
+    .ragister_service p {
+        margin: 30px 0;
+        width: 100%;
+        font-size: 16px;
+    }
+
+    .ragister_service button {
+        font-size: 24px;
+        max-width: 300px;
+        line-height: 50px;
+    }
+
+    .ragister_service img {
+        margin-top: 30px;
+        width: 70px;
+    }
+
+    .ragister_service aside {
+        font-size: 30px;
+    }
+
+    .ragibtn {
+        margin-top: 0;
+    }
+
+    .step_form input {
+        height: 50px;
+    }
+
+    .steplist li a {
+        padding: 20px 40px;
+    }
+
+    .newstext p {
+        overflow: hidden;
+        height: 74px;
+    }
+}
+
+@media only screen and (min-width:1200px) and (max-width:1280px) {
+    .container {
+        width: 100%;
+    }
+
+    .navbar-nav > li {
+        padding: 0 10px 10px 10px;
+        width: 16.5%;
+    }
+
+        .navbar-nav > li > a {
+            font-size: 13px;
+        }
+
+    .ftlink li a {
+        font-size: 14px;
+    }
+
+    .news span {
+        font-size: 16px;
+    }
+
+    .news strong {
+        font-size: 22px;
+        padding: 0 20px;
+    }
+
+    .about p {
+        font-size: 16px;
+    }
+
+    .comnheading {
+        font-size: 24px;
+    }
+
+    .followon a {
+        margin-right: 5px;
+    }
+
+    .ftsecondlink a {
+        font-size: 14px;
+    }
+
+    .call strong {
+        font-size: 16px;
+    }
+
+    .edit_global_call a {
+        margin-left: 10px;
+        padding-left: 15px;
+    }
+
+    .navbar-nav > li > a strong {
+        font-size: 15px;
+    }
+
+    .subscribe button,
+    .subscribe input {
+        height: 60px;
+    }
+
+    .btndiv button {
+        max-width: 200px;
+        line-height: 60px;
+        height: 60px;
+    }
+
+    .upgrade_services .up_right p {
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+
+    .btndiv {
+        margin-top: 100px;
+    }
+
+    .kitlink a {
+        font-size: 15px;
+    }
+
+    .kitbtn button {
+        font-size: 18px;
+        max-width: 190px;
+    }
+
+    .contact h1,
+    .Complaint_receiving_centers h1 {
+        font-size: 30px;
+    }
+
+    .contact aside span,
+    .contact aside strong {
+        font-size: 26px;
+    }
+
+    .contact p {
+        font-size: 16px;
+        margin: 20px 0;
+    }
+
+    .estext h3 {
+        font-size: 22px;
+    }
+
+    .forgot_login {
+        padding-top: 30px;
+    }
+
+    .forlogotherlink {
+        margin-top: 30px;
+    }
+
+    .card .front {
+        padding: 15px 30px;
+        border-radius: 30px;
+    }
+
+    .login_right {
+        padding-left: 0;
+    }
+
+    .ragi_white {
+        padding: 30px;
+    }
+
+    .uikith1 {
+        font-size: 40px;
+        margin-bottom: 30px;
+    }
+
+    a.comnlink {
+        font-size: 15px;
+    }
+
+    .uikith4 {
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+
+    .comnbtn {
+        font-size: 20px;
+        max-width: 220px;
+        line-height: 60px;
+        height: 60px;
+    }
+
+    .comntable tr th,
+    .comntable tr td {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .ragi_white .steplist li a {
+        padding: 20px;
+    }
+
+    .ragister {
+        padding-top: 30px;
+    }
+
+    .ragi_white .steplist {
+        margin-bottom: 10px;
+    }
+
+    .ragister_service p {
+        margin: 50px 0;
+        width: 100%;
+    }
+
+    .ragister_service img {
+        margin-top: 50px;
+    }
+
+    .ragibtn {
+        margin-top: 0;
+    }
+
+    .step_form input {
+        height: 50px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .container {
+        width: 100%;
+    }
+
+    header {
+        /*display: none;*/
+    }
+
+    .followon {
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .subscribe button,
+    .subscribe input {
+        height: 60px;
+        margin-top: 20px;
+    }
+
+    .sidebar aside {
+        font-size: 26px;
+        padding: 15px;
+    }
+
+    .comnheading {
+        font-size: 22px;
+        margin-bottom: 30px;
+    }
+
+    .about p {
+        color: #9e9e9e;
+        font-size: 15px;
+        margin-bottom: 15px;
+    }
+
+    .sidebar a {
+        font-size: 16px;
+        padding: 15px 35px 15px 10px;
+    }
+
+    .innerbannerheading aside {
+        font-size: 34px;
+    }
+
+    .mobmenudiv {
+        display: block;
+        padding: 15px;
+    }
+
+    .mobmenubar i {
+        font-size: 36px;
+        color: #007fc3;
+        margin-right: 20px;
+        cursor: pointer;
+    }
+
+    .mobmenubar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .mobmenu {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 5;
+        background: #007fc3;
+        padding: 20px;
+        box-shadow: 0 0 5px #fff;
+        width: 320px;
+        height: 100%;
+        overflow: auto;
+        display: none;
+    }
+
+        .mobmenu li a {
+            color: #fff;
+            font-size: 16px;
+            display: block;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ffde23;
+        }
+
+            .mobmenu li a strong {
+                color: #94d8ff;
+                display: block;
+                font-size: 20px;
+            }
+
+    .mobsubmenu {
+        padding: 0;
+        list-style: none;
+        display: none;
+    }
+
+        .mobsubmenu img {
+            margin-bottom: 10px;
+        }
+
+    .mobmenu li {
+        position: relative;
+    }
+
+        .mobmenu li i {
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
+            position: absolute;
+            left: 8px;
+            top: 0;
+        }
+
+    .mobsubmenu li a {
+        border-bottom: none;
+    }
+
+    .mobmenu .ftsecondlink a {
+        color: #fff;
+        font-size: 16px;
+        display: block;
+        position: relative;
+        margin-left: 0;
+        text-align: right;
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+        border-bottom: 1px solid #ffde23;
+    }
+
+        .mobmenu .ftsecondlink a::after {
+            display: none;
+        }
+
+    .mobmenu .edit_global_call {
+        text-align: right;
+    }
+
+        .mobmenu .edit_global_call a {
+            display: block;
+            border-left: none;
+            padding-left: 0;
+            margin-left: 0;
+            text-align: right;
+            color: #fff;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ffde23;
+        }
+
+            .mobmenu .edit_global_call a.call strong {
+                color: #fff;
+            }
+
+    .closebtn {
+        color: #fff;
+        font-size: 24px;
+        position: relative;
+        top: -12px;
+        right: -10px;
+        cursor: pointer;
+    }
+
+    .fixdiv li {
+        left: -190px;
+    }
+
+    .mobeditstyle {
+        z-index: 2;
+        padding: 15px;
+        top: 0;
+    }
+
+    .mobeditstyleclosebtn {
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    .carousel-caption {
+        width: 550px;
+        top: 20px;
+    }
+
+        .carousel-caption aside {
+            font-size: 36px;
+            line-height: 36px;
+        }
+
+        .carousel-caption p {
+            font-size: 16px;
+            margin: 15px 0;
+        }
+
+        .carousel-caption a {
+            font-size: 20px;
+        }
+
+            .carousel-caption a i {
+                font-size: 30px;
+            }
+
+    .bannersubscrib {
+        left: 180px;
+    }
+
+        .bannersubscrib strong {
+            font-size: 30px;
+        }
+
+        .bannersubscrib span {
+            font-size: 24px;
+        }
+
+        .bannersubscrib img {
+            width: 70px;
+        }
+
+    .carousel-indicators-numbers li.active::after {
+        height: 80px;
+    }
+
+    .carousel-indicators {
+        top: 15%;
+    }
+
+    .comntitle h1 {
+        font-size: 28px;
+    }
+
+    .comntitle p {
+        font-size: 16px;
+    }
+
+    .Falling .app a {
+        padding: 0 5px;
+    }
+
+    #counter .owl-dots {
+        position: initial;
+        margin-top: 30px;
+    }
+
+        #counter .owl-dots button.active span,
+        #counter .owl-dots button:hover span {
+            background: #ffde23;
+        }
+
+    .white {
+        width: 50%;
+        padding: 0px 20px 0px 20px;
+        position: relative;
+    }
+
+    .newstext h4 {
+        font-size: 20px;
+    }
+
+    .servicebox h4 {
+        font-size: 22px;
+    }
+
+    .newstext p {
+        font-size: 15px;
+        margin: 15px 0;
+    }
+
+    .creatlogin a {
+        font-size: 18px;
+        max-width: 165px;
+    }
+
+    .finacial strong {
+        font-size: 20px;
+        margin: 15px 0;
+    }
+
+    .finacial img {
+        width: 70px;
+    }
+
+    .blue {
+        padding: 25px;
+    }
+
+    .estext h3,
+    .compnytext h2 {
+        font-size: 22px;
+    }
+
+    .estext p,
+    .compnytext p {
+        font-size: 16px;
+    }
+
+    .comnbtn {
+        max-width: 200px;
+        line-height: 60px;
+        height: 60px;
+    }
+
+    .upgrade_services .up_right p {
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+
+    .btndiv {
+        margin-top: 50px;
+    }
+
+    .step li a {
+        padding: 20px 40px;
+    }
+
+    .map {
+        margin: 30px 0;
+        text-align: center;
+    }
+
+    .contact h1,
+    .Complaint_receiving_centers h1,
+    .contact aside span,
+    .contact aside strong {
+        font-size: 30px;
+    }
+
+    .login_right {
+        padding-left: 0;
+    }
+
+    .forgot_login {
+        padding: 15px 0;
+        text-align: center;
+        overflow: scroll;
+    }
+
+    .account_service {
+        margin-top: 25px;
+    }
+
+    .card {
+        width: calc(100% - 30px);
+    }
+
+    .copyright.forlogcopyright {
+        background: #007fc3;
+        text-align: center;
+    }
+
+    html, body {
+        height: 100vh;
+    }
+
+    .card .front input[type="text"] {
+        width: 47%;
+        margin: 0 1%;
+    }
+
+    .container-checkbox {
+        text-align: right;
+    }
+
+    .card .front .forlogotherlink {
+        margin-top: 20px;
+        margin-bottom: 70px;
+    }
+
+    .card .front {
+        padding: 20px 50px;
+    }
+
+    .ragister_service img {
+        width: 130px;
+    }
+
+    .ragister_service aside {
+        font-size: 34px;
+    }
+
+    .Ragister_box .steplist li a {
+        padding: 20px 30px;
+    }
+
+    .uikith1 {
+        font-size: 40px;
+        margin-bottom: 30px;
+    }
+
+    a.comnlink {
+        font-size: 15px;
+    }
+
+    .uikith4 {
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+
+    .comnbtn {
+        font-size: 20px;
+        max-width: 220px;
+        line-height: 60px;
+        height: 60px;
+    }
+
+    .comntable tr th,
+    .comntable tr td {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .ragi_white .steplist li a {
+        padding: 23px 25px;
+        font-size: 16px;
+    }
+
+    .ragister {
+        padding-top: 15px;
+    }
+
+    .ragi_white .steplist {
+        margin-bottom: 10px;
+    }
+
+    .ragister_service p {
+        margin: 50px 0;
+        width: 100%;
+    }
+
+    .ragister_service img {
+        margin-top: 30px;
+        width: 70px;
+    }
+
+    .ragibtn {
+        margin-top: 0;
+    }
+
+    .step_form input {
+        height: 50px;
+    }
+
+    .ragibtn button {
+        font-size: 20px;
+        max-width: 150px;
+        line-height: 50px;
+        height: 50px;
+        margin-left: 10px;
+    }
+
+    .ragi_white {
+        padding: 20px 30px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+
+    .sidebar_tips {
+        margin-bottom: 30px;
+    }
+
+    .ftsecondlink {
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .followon {
+        text-align: center;
+        margin-top: 0;
+    }
+
+    footer {
+        padding: 30px 0;
+    }
+
+    .news {
+        margin-top: 0;
+    }
+
+    .innerbannerheading aside {
+        font-size: 30px;
+    }
+
+    .innersocial {
+        text-align: right;
+        margin-top: 20px;
+    }
+
+    .sidebar_tips aside {
+        padding: 15px;
+    }
+
+    .bannerinfo {
+        position: absolute;
+        left: 10px;
+        top: 10px;
+    }
+
+    .bannersubscrib {
+        left: 80px;
+        bottom: 100px;
+    }
+
+        .bannersubscrib img,
+        .bannerinfo img {
+            width: 50px;
+        }
+
+        .bannersubscrib span,
+        .bannerinfo a span {
+            font-size: 18px;
+        }
+
+        .bannersubscrib strong {
+            font-size: 22px;
+        }
+
+    .carousel-caption {
+        width: 450px;
+        top: 0px;
+    }
+
+        .carousel-caption aside {
+            font-size: 26px;
+            line-height: 26px;
+        }
+
+    .carousel-indicators {
+        top: 20px;
+    }
+
+    .Falling .app {
+        justify-content: flex-start;
+        margin-top: 20px;
+    }
+
+        .Falling .app a img {
+            width: 180px;
+        }
+
+    .compnyimg span {
+        font-size: 28px;
+        margin-top: 20px;
+    }
+
+    .Consumption_tariff table {
+        margin-top: 20px;
+    }
+
+    .white::before,
+    .white::after {
+        display: none;
+    }
+
+    .bluewhite {
+        display: block;
+    }
+
+    .white,
+    .blue {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .counter,
+    .News_events {
+        padding: 50px 0;
+    }
+
+    .vote {
+        margin-top: 30px;
+    }
+
+    .newslist {
+        padding-bottom: 50px;
+    }
+
+    .carousel-indicators-numbers li.active, .carousel-indicators-numbers li:hover {
+        margin: 2px;
+    }
+
+        .carousel-indicators-numbers li.active::after {
+            height: 60px;
+        }
+
+    .upgrade_services,
+    .step,
+    .table_two,
+    .loding {
+        padding: 30px 0;
+    }
+
+    .uikith1 {
+        font-size: 34px;
+        margin-bottom: 30px;
+    }
+
+    .upgrade_services .up_left .row {
+        padding-right: 0;
+    }
+
+    .step li a {
+        padding: 20px 15px;
+    }
+
+    .step ul {
+        margin-bottom: 40px;
+    }
+
+    .welcome .modal-dialog {
+        width: 90%;
+    }
+
+    .welcome .modal-body {
+        padding: 50px;
+    }
+
+    .follow_onsite ul {
+        margin: 0;
+    }
+
+    .Complaint_receiving_centers form {
+        margin-top: 30px;
+    }
+
+    .account_service aside {
+        font-size: 40px;
+    }
+
+    .Ragister_box {
+        display: block;
+    }
+
+    .ragi_blue, .ragi_white {
+        padding: 30px;
+        width: 100%;
+    }
+
+    .ragister_service p {
+        margin: 20px 0;
+    }
+
+    .ragi_blue {
+        text-align: center;
+    }
+
+    .ragi_white aside {
+        font-size: 30px;
+    }
+
+    .ragi_white p {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    .ragi_blue, .ragi_white {
+        padding: 15px 30px;
+        width: 100%;
+    }
+
+    .ragister {
+        padding-top: 0;
+        padding-bottom: 80px;
+        height: auto;
+    }
+
+    .step_form input {
+        height: 40px;
+        padding: 5px 10px;
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    footer h6 {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    footer ul {
+        margin-bottom: 30px;
+    }
+
+    .innerbannerheading aside {
+        font-size: 24px;
+    }
+
+    #tips .item {
+        min-height: 250px;
+        padding: 50px 20px;
+    }
+
+    .sidebar_tips a {
+        font-size: 16px;
+    }
+
+    #tips .owl-dots {
+        right: 20px;
+    }
+
+    .ftdownloadapp img {
+        margin-bottom: 15px;
+        width: 140px;
+    }
+
+    .ftVideogallery a {
+        display: inline-block;
+        width: auto;
+        margin: 1%;
+    }
+
+    footer hr {
+        border-top: 6px solid #007fc3;
+        margin-top: 10px;
+    }
+
+    .bannerinfo,
+    .bannersubscrib,
+    .carousel-indicators-numbers li::after,
+    .electronic_services::before,
+    .compnytext::after {
+        display: none;
+    }
+
+    .carousel-caption {
+        width: 100%;
+        position: initial;
+        background: #007fc3;
+        padding: 15px;
+    }
+
+    .Falling {
+        margin-top: 0;
+    }
+
+        .Falling .container {
+            background: #007fc3;
+            padding: 15px;
+        }
+
+    #company_value .owl-dots {
+        position: initial;
+        width: 100%;
+    }
+
+    .electronic_services_tab .nav-tabs {
+        border-bottom: none;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .compnytext {
+        padding-right: 0;
+        position: relative;
+    }
+
+    .owl-carousel .owl-dots button span {
+        width: 15px;
+        margin: 0 5px;
+    }
+
+    .electronic_services_tab .tab-content .owl-carousel .owl-dots,
+    #News_events .owl-dots {
+        margin-top: 20px;
+        position: initial;
+    }
+
+    .creatlogin a {
+        font-size: 15px;
+        max-width: 120px;
+        margin-top: 15px;
+    }
+
+    .Vote_Arithmetic img {
+        margin: 20px auto 0;
+        display: block;
+        width: 80px;
+    }
+
+    .captchinput {
+        display: flex;
+        align-items: end;
+        margin-bottom: 15px;
+    }
+
+        .captchinput img {
+            margin-right: 10px !important;
+            height: 50px;
+            width: 50px !important;
+            margin-top: 0;
+        }
+
+    .direct_connection span strong {
+        font-size: 30px;
+    }
+
+    .company_value,
+    .electronic_services {
+        padding: 25px 0;
+    }
+
+    .votecheckbox {
+        padding-right: 0;
+    }
+
+    .vote {
+        margin-top: 15px;
+        padding: 15px;
+    }
+
+    .container-radio {
+        margin-left: 20px;
+        padding-right: 30px;
+    }
+
+    .newslist .newimg {
+        margin-bottom: 20px;
+    }
+
+    .carousel-indicators-numbers li.active,
+    .carousel-indicators-numbers li {
+        margin: 2px;
+    }
+
+    .upgrade_services .up_right {
+        padding: 0 15px 0 0;
+    }
+
+    .upgrade_services small {
+        font-size: 20px;
+    }
+
+    .uikith1 {
+        font-size: 26px;
+    }
+
+        .uikith1::after,
+        .upgrade_services .up_right h4::after {
+            width: 5px;
+            right: -20px;
+        }
+
+    .steplist li::before,
+    .steplist li::after {
+        display: none;
+    }
+
+    .steplist li a {
+        padding: 12px 12px;
+        font-size: 16px;
+    }
+
+    .kitlink, .kitbtn {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .welcome .modal-body {
+        padding: 25px;
+    }
+
+        .welcome .modal-body p {
+            margin-top: 30px;
+            color: #9e9e9e;
+            font-size: 16px;
+        }
+
+    .welcome .modal-header h4 {
+        font-size: 26px;
+    }
+
+    .modal-header .close {
+        width: 34px;
+        line-height: 38px;
+        font-size: 20px;
+        height: 34px;
+    }
+
+    .follow_onsite ul {
+        margin: 20px 0 0 0;
+    }
+
+    .card .front,
+    .card .back {
+        padding: 20px;
+    }
+
+        .card .front input[type="text"] {
+            width: 100%;
+            margin: 10px 0;
+        }
+
+    .chgpass {
+        margin-right: 20px;
+    }
+
+    .card h1 {
+        font-size: 30px;
+    }
+
+    .card .back a.arenewuser {
+        margin: 20px auto;
+    }
+
+    .card .back .forlogotherlink {
+        margin-top: 30px;
+    }
+
+    .comnbtn {
+        max-width: 180px;
+        line-height: 50px;
+        height: 50px;
+        font-size: 18px;
+    }
+
+    .Ragister_box .steplist li a {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .ragister_service img {
+        width: 90px;
+    }
+
+    .ragi_blue, .ragi_white {
+        padding: 15px;
+        width: 100%;
+    }
+
+    .ragister_service aside {
+        font-size: 30px;
+        margin-top: 15px;
+    }
+
+    .ragi_white .steplist {
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+}
+
+@media screen and (max-width:525px) {
+    .ftsecondlink a::after {
+        display: none;
+    }
+
+    .ftsecondlink a {
+        font-size: 15px;
+        margin: 5px 10px;
+    }
+
+    .subscribe {
+        display: block;
+    }
+
+        .subscribe button, .subscribe input {
+            height: 50px;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+    .contact aside span,
+    .contact aside strong {
+        display: block;
+        text-align: center;
+    }
+
+    .card .front .forlogotherlink {
+        margin-bottom: 100px;
+    }
+
+    .forlogbtndiv button {
+        width: 100%;
+    }
+
+    .comnbtn {
+        max-width: 100px;
+        line-height: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    .Re_captch {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .ragi_check_box label::before {
+        margin-left: 10px;
+    }
+
+    .Re_captch img {
+        width: 50px;
+    }
+
+    .ragibtn {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+        .ragibtn button {
+            margin-left: 0;
+            margin-top: 15px;
+        }
+
+    .loadlist,
+    .loadradio {
+        width: 100%;
+        text-align: right;
+    }
+
+    .load {
+        display: block;
+    }
+
+    .loding {
+        text-align: center;
+    }
+
+    .ragister_service button {
+        margin-right: 0;
+        margin-top: 15px;
+    }
+
+    .ragi_white {
+        margin: 15px 0;
+    }
+
+    .ragister {
+        padding-bottom: 100px;
+    }
+}
+
+@media screen and (max-width:360px) {
+}

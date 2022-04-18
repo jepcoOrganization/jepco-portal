@@ -1,0 +1,55 @@
+
+
+@media only screen and (min-width:1300px) and (max-width:1367px) {
+
+
+    .welcome .modal-header h4 {
+        font-size: 30px;       
+    }
+
+    .modal-header .close {
+       
+        width: 38px;
+        line-height: 40px;
+        font-size: 20px;     
+        height: 36px;
+      
+    }
+    .mitar_service strong {
+        font-size: 28px;
+    }
+    .protal_tabs .tab-content li {
+        font-size: 16px;      
+    }
+
+    .service_list li a {
+       
+        font-size: 18px;
+       
+    }
+
+    li.UnreadLI:hover:before {
+        content: "";
+        background: #ebf8ff;
+        width: 40px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: -40px;
+    }
+
+    li.UnreadLI:hover:after {
+        content: "";
+        background: #ebf8ff;
+        width: 40px;
+        border-right: 15px solid #fee662;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: -40px;
+    }
+
+
+
+}
+
