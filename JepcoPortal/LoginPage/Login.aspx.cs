@@ -51,8 +51,8 @@ public partial class LoginPage_Login : SiteBasePage
             //        //Response.Redirect("ar/Home");
             //    }
             //}
-                FillFooterNavigation();
-           // FillLink();
+            FillFooterNavigation();
+            // FillLink();
         }
     }
 
@@ -60,13 +60,13 @@ public partial class LoginPage_Login : SiteBasePage
     {
         try
         {
-           
+
             bool _isValEmail = false;
             //ResultEntity<ContactUsFormEntity> result = new ResultEntity<ContactUsFormEntity>();
             //ContactUsFormEntity entity = new ContactUsFormEntity();
-            
+
             //entity.Email = txtEmail.Text;
-           
+
             if (!string.IsNullOrEmpty(txtEmail.Text))
             {
                 Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
@@ -78,7 +78,7 @@ public partial class LoginPage_Login : SiteBasePage
                 else
                     _isValEmail = false;
             }
-            if ( _isValEmail )
+            if (_isValEmail)
             {
                 string Email = string.Empty;
                 Email = txtEmail.Text;
@@ -103,7 +103,7 @@ public partial class LoginPage_Login : SiteBasePage
                             if (RenwabaleEnergyResult.Status == ErrorEnums.Success)
                             {
 
-                               if (RenwabaleEnergyResult.Entity.IsPublished == true) // If User IsApproved 
+                                if (RenwabaleEnergyResult.Entity.IsPublished == true) // If User IsApproved 
                                 {
                                     #region  Send OTP For User 2
 
@@ -291,35 +291,124 @@ public partial class LoginPage_Login : SiteBasePage
                                         ModalOTP.Show();
                                     }
                                     #endregion
-                                  
+
 
                                 }
-                               else
+                                else
                                 {
                                     lblOTPString.Text = "موافقتك معلقة";
                                     ModalPopupExtender1.Show();
                                 }
 
-                                
+
                             }
                         }
-                        else { 
-                       
-                        ResultEntity<MobileRegistationEntity> MobileRegistrationResult = new ResultEntity<MobileRegistationEntity>();
-                        MobileRegistrationResult = MobileRegistationDomain.GetByIDNotAsync(UserId);
-
-
-                        if (MobileRegistrationResult.Status == ErrorEnums.Success)
+                        else
                         {
 
+                            ResultEntity<MobileRegistationEntity> MobileRegistrationResult = new ResultEntity<MobileRegistationEntity>();
+                            MobileRegistrationResult = MobileRegistationDomain.GetByIDNotAsync(UserId);
 
-                            //Boolean isRegisterd = GetMobileVerifyed[0].IsVerify;
-                            Boolean isRegisterd = MobileRegistrationResult.Entity.IsVerify;
 
-                            if (isRegisterd == true)
+                            if (MobileRegistrationResult.Status == ErrorEnums.Success)
                             {
-                                SessionManager.GetInstance.Users = Result.Entity;
-                                Response.Redirect("/ar/Home", false);
+
+
+                                //Boolean isRegisterd = GetMobileVerifyed[0].IsVerify;
+                                Boolean isRegisterd = MobileRegistrationResult.Entity.IsVerify;
+
+                                if (isRegisterd == true)
+                                {
+                                    SessionManager.GetInstance.Users = Result.Entity;
+                                    Response.Redirect("/ar/Home", false);
+                                }
+                                else
+                                {
+
+                                    #region--> New API
+                                    //*************************---New API Integration---------- ****************************************************
+
+                                    //----------------------------------------- Latest Code --------------------------------------
+                                    var getSMSCred = await GetAccessToken();
+                                    Page.Response.Write("<script>console.log(' Call For OTP 1');</script>");
+                                    string smsException = string.Empty;
+
+                                    string dyna_otp = Generatenumber();
+                                    if (!string.IsNullOrEmpty(getSMSCred.SenderID) && !string.IsNullOrEmpty(getSMSCred.AccessToken))
+                                    {
+                                        List<string> MobileNumber = new List<string>();
+                                        MobileNumber.Add(Result.Entity.MobileNumber);
+                                        var Body = new
+                                        {
+                                            //service_type = "bulk_sms",
+                                            //recipient_numbers_type = "single_numbers",
+                                            //phone_numbers = MobileNumber.ToArray(),
+                                            //content = "JepcoPortal Send : " + dyna_otp,
+                                            //sender_id = "SENDER"
+
+                                            service_type = "bulk_sms",
+                                            recipient_numbers_type = "single_numbers",
+                                            phone_numbers = MobileNumber.ToArray(),
+                                            // content = "JepcoPortal Send : " + dyna_otp,
+                                            content = "اهلا وسهلا بكم في البوابة الالكترونية لشركة الكهرباء رقم التعريف الخاص بك هو " + dyna_otp,
+                                            sender_id = "JEPCO"
+
+                                        };
+                                        Page.Response.Write("<script>console.log('Mobile No 1: " + Result.Entity.MobileNumber + "');</script>");
+                                        string inputJson = (new JavaScriptSerializer()).Serialize(Body);
+                                        HttpWebRequest httpRequest = (HttpWebRequest)WebRequest.Create(new Uri(ConfigurationManager.AppSettings["SMSURL"].ToString()));
+                                        httpRequest.ContentType = "application/json";
+                                        httpRequest.Method = "POST";
+                                        httpRequest.Headers.Add("integration_token", getSMSCred.AccessToken);
+
+                                        byte[] bytes = Encoding.UTF8.GetBytes(inputJson);
+                                        using (Stream stream = httpRequest.GetRequestStream())
+                                        {
+                                            stream.Write(bytes, 0, bytes.Length);
+                                            stream.Close();
+                                        }
+                                        using (HttpWebResponse httpResponse = (HttpWebResponse)httpRequest.GetResponse())
+                                        {
+                                            using (Stream stream = httpResponse.GetResponseStream())
+                                            {
+                                                var res = (new StreamReader(stream)).ReadToEnd();
+                                                var data = (JObject)JsonConvert.DeserializeObject(res);
+
+                                                string status = data["status"].Value<string>();
+                                                smsException = status;
+
+                                                Page.Response.Write("<script>console.log('OTP Suss 1');</script>");
+
+                                                try
+                                                {
+                                                    MobileRegistationEntity MemberOTPEntity = new MobileRegistationEntity();
+
+                                                    MemberOTPEntity.ServiceUserID = UserId;
+                                                    MemberOTPEntity.MobileNumber = Result.Entity.MobileNumber;
+                                                    MemberOTPEntity.OTP = dyna_otp;
+                                                    MemberOTPEntity.IsVerify = false;
+                                                    MemberOTPEntity.AddDate = DateTime.Now;
+                                                    MemberOTPEntity.VerifyDate = DateTime.Now;
+
+                                                    var MemberOTPResult = await MobileRegistationDomain.Insert(MemberOTPEntity);
+                                                    Page.Response.Write("<script>console.log('new Data Added 1');</script>");
+                                                }
+                                                catch { }
+
+
+
+                                            }
+                                        }
+                                    }
+                                    //**************************************************************************************************************
+                                    #endregion
+
+                                    SessionManager.GetInstance.Users = Result.Entity;
+                                    lblOTPMobile.Text = Result.Entity.MobileNumber;
+                                    ModalOTP.Show();
+
+                                }
+
                             }
                             else
                             {
@@ -329,7 +418,7 @@ public partial class LoginPage_Login : SiteBasePage
 
                                 //----------------------------------------- Latest Code --------------------------------------
                                 var getSMSCred = await GetAccessToken();
-                                Page.Response.Write("<script>console.log(' Call For OTP 1');</script>");
+                                Page.Response.Write("<script>console.log(' Call For OTP 2');</script>");
                                 string smsException = string.Empty;
 
                                 string dyna_otp = Generatenumber();
@@ -339,11 +428,6 @@ public partial class LoginPage_Login : SiteBasePage
                                     MobileNumber.Add(Result.Entity.MobileNumber);
                                     var Body = new
                                     {
-                                        //service_type = "bulk_sms",
-                                        //recipient_numbers_type = "single_numbers",
-                                        //phone_numbers = MobileNumber.ToArray(),
-                                        //content = "JepcoPortal Send : " + dyna_otp,
-                                        //sender_id = "SENDER"
 
                                         service_type = "bulk_sms",
                                         recipient_numbers_type = "single_numbers",
@@ -353,7 +437,7 @@ public partial class LoginPage_Login : SiteBasePage
                                         sender_id = "JEPCO"
 
                                     };
-                                    Page.Response.Write("<script>console.log('Mobile No 1: " + Result.Entity.MobileNumber + "');</script>");
+                                    Page.Response.Write("<script>console.log('Mobile No 2: " + Result.Entity.MobileNumber + "');</script>");
                                     string inputJson = (new JavaScriptSerializer()).Serialize(Body);
                                     HttpWebRequest httpRequest = (HttpWebRequest)WebRequest.Create(new Uri(ConfigurationManager.AppSettings["SMSURL"].ToString()));
                                     httpRequest.ContentType = "application/json";
@@ -376,7 +460,7 @@ public partial class LoginPage_Login : SiteBasePage
                                             string status = data["status"].Value<string>();
                                             smsException = status;
 
-                                            Page.Response.Write("<script>console.log('OTP Suss 1');</script>");
+                                            Page.Response.Write("<script>console.log('OTP Suss 2');</script>");
 
                                             try
                                             {
@@ -390,7 +474,7 @@ public partial class LoginPage_Login : SiteBasePage
                                                 MemberOTPEntity.VerifyDate = DateTime.Now;
 
                                                 var MemberOTPResult = await MobileRegistationDomain.Insert(MemberOTPEntity);
-                                                Page.Response.Write("<script>console.log('new Data Added 1');</script>");
+                                                Page.Response.Write("<script>console.log('Mobile Data addded2');</script>");
                                             }
                                             catch { }
 
@@ -401,93 +485,10 @@ public partial class LoginPage_Login : SiteBasePage
                                 }
                                 //**************************************************************************************************************
                                 #endregion
-
                                 SessionManager.GetInstance.Users = Result.Entity;
                                 lblOTPMobile.Text = Result.Entity.MobileNumber;
                                 ModalOTP.Show();
-
                             }
-
-                        }
-                        else
-                        {
-
-                            #region--> New API
-                            //*************************---New API Integration---------- ****************************************************
-
-                            //----------------------------------------- Latest Code --------------------------------------
-                            var getSMSCred = await GetAccessToken();
-                            Page.Response.Write("<script>console.log(' Call For OTP 2');</script>");
-                            string smsException = string.Empty;
-
-                            string dyna_otp = Generatenumber();
-                            if (!string.IsNullOrEmpty(getSMSCred.SenderID) && !string.IsNullOrEmpty(getSMSCred.AccessToken))
-                            {
-                                List<string> MobileNumber = new List<string>();
-                                MobileNumber.Add(Result.Entity.MobileNumber);
-                                var Body = new
-                                {
-
-                                    service_type = "bulk_sms",
-                                    recipient_numbers_type = "single_numbers",
-                                    phone_numbers = MobileNumber.ToArray(),
-                                    // content = "JepcoPortal Send : " + dyna_otp,
-                                    content = "اهلا وسهلا بكم في البوابة الالكترونية لشركة الكهرباء رقم التعريف الخاص بك هو " + dyna_otp,
-                                    sender_id = "JEPCO"
-
-                                };
-                                Page.Response.Write("<script>console.log('Mobile No 2: " + Result.Entity.MobileNumber + "');</script>");
-                                string inputJson = (new JavaScriptSerializer()).Serialize(Body);
-                                HttpWebRequest httpRequest = (HttpWebRequest)WebRequest.Create(new Uri(ConfigurationManager.AppSettings["SMSURL"].ToString()));
-                                httpRequest.ContentType = "application/json";
-                                httpRequest.Method = "POST";
-                                httpRequest.Headers.Add("integration_token", getSMSCred.AccessToken);
-
-                                byte[] bytes = Encoding.UTF8.GetBytes(inputJson);
-                                using (Stream stream = httpRequest.GetRequestStream())
-                                {
-                                    stream.Write(bytes, 0, bytes.Length);
-                                    stream.Close();
-                                }
-                                using (HttpWebResponse httpResponse = (HttpWebResponse)httpRequest.GetResponse())
-                                {
-                                    using (Stream stream = httpResponse.GetResponseStream())
-                                    {
-                                        var res = (new StreamReader(stream)).ReadToEnd();
-                                        var data = (JObject)JsonConvert.DeserializeObject(res);
-
-                                        string status = data["status"].Value<string>();
-                                        smsException = status;
-
-                                        Page.Response.Write("<script>console.log('OTP Suss 2');</script>");
-
-                                        try
-                                        {
-                                            MobileRegistationEntity MemberOTPEntity = new MobileRegistationEntity();
-
-                                            MemberOTPEntity.ServiceUserID = UserId;
-                                            MemberOTPEntity.MobileNumber = Result.Entity.MobileNumber;
-                                            MemberOTPEntity.OTP = dyna_otp;
-                                            MemberOTPEntity.IsVerify = false;
-                                            MemberOTPEntity.AddDate = DateTime.Now;
-                                            MemberOTPEntity.VerifyDate = DateTime.Now;
-
-                                            var MemberOTPResult = await MobileRegistationDomain.Insert(MemberOTPEntity);
-                                            Page.Response.Write("<script>console.log('Mobile Data addded2');</script>");
-                                        }
-                                        catch { }
-
-
-
-                                    }
-                                }
-                            }
-                            //**************************************************************************************************************
-                            #endregion
-                            SessionManager.GetInstance.Users = Result.Entity;
-                            lblOTPMobile.Text = Result.Entity.MobileNumber;
-                            ModalOTP.Show();
-                        }
                         }
                     }
                     else
@@ -503,7 +504,7 @@ public partial class LoginPage_Login : SiteBasePage
             }
             else
             {
-                
+
                 if (_isValEmail)
                 {
                     txtEmail.Style.Add("border", "none");
@@ -536,7 +537,7 @@ public partial class LoginPage_Login : SiteBasePage
 
     }
 
-   
+
 
     protected void btn_ok_Click(object sender, EventArgs e)
     {
@@ -649,7 +650,8 @@ public partial class LoginPage_Login : SiteBasePage
 
 
 
-        try {
+        try
+        {
             ResultEntity<MobileRegistationEntity> MobileRegiEntity = new ResultEntity<MobileRegistationEntity>();
             MobileRegiEntity = MobileRegistationDomain.GetByIDNotAsync(UserId);
             if (MobileRegiEntity.Status == ErrorEnums.Success)
@@ -698,7 +700,7 @@ public partial class LoginPage_Login : SiteBasePage
         }
         catch { }
 
-       
+
     }
 
 
@@ -764,7 +766,7 @@ public partial class LoginPage_Login : SiteBasePage
             SmtpServer.Port = Port;
             SmtpServer.UseDefaultCredentials = false;
             SmtpServer.EnableSsl = ssl;
-            if(HOST.ToLower().Contains("office365"))
+            if (HOST.ToLower().Contains("office365"))
             {
                 SmtpServer.DeliveryMethod = SmtpDeliveryMethod.Network;
                 System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
@@ -882,7 +884,7 @@ public partial class LoginPage_Login : SiteBasePage
             if (_isValEmail)
             {
                 txtForgetPassEmail.Style.Add("border", "none");
-               
+
             }
             else
             {
@@ -891,7 +893,7 @@ public partial class LoginPage_Login : SiteBasePage
             txtForgetPassEmail.Focus();
         }
 
-        
+
     }
 
     public string FetchLinksFromSource(string htmlSource)

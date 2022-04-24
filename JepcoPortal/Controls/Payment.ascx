@@ -739,7 +739,7 @@
                         {
                             ReferenceNumber: fileNumber,
                             ListOfDocument: docArray,
-                            PaymentSource: "0",
+                            PaymentSource: "1",
                             Language: "AR",
                             PaymentType: "bills",
                             AllDocument: allDocumentSelected,
