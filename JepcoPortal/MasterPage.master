@@ -16,6 +16,7 @@
    
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/fontawesome.min.css" integrity="sha512-xX2rYBFJSj86W54Fyv1de80DWBq7zYLn2z0I9bIhQG+rxIF6XVJUpdGnsNHWRa6AvP89vtFupEPDP8eZAtu9qA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body runat="server">
     <form id="form1" runat="server" enctype="multipart/form-data">
@@ -119,13 +120,12 @@
                                     <li>
                                          <asp:HiddenField ID="hdnid" runat="server" Value='<%# Bind("ID") %>' />
                                         <asp:HyperLink runat="server" ID="lnkNav" NavigateUrl='<%# Bind("URL") %>' Target='<%# Bind("TargetID") %>'>
-
                                               <aside>
                                                <asp:Literal runat="server" ID="unReadMSgMenu"> </asp:Literal>
                                                <asp:Image ID="img" runat="server" ImageUrl='<%# Bind("MenuImage") %>' />
                                             </aside>
 
-                                           
+
                                             <span>
                                                 <asp:Literal ID="lblTitle" runat="server" Text='<%# Bind("MenuName") %>'></asp:Literal>
                                             </span>
@@ -608,10 +608,11 @@ Thank you for Subscription.
        <%--  <script type="text/javascript" src="/Scripts/jquery.mCustomScrollbar.concat.min.js"></script>--%>
 
          <script>
-    $("#lstNavigation_img_4").attr("src", "/App_Themes/ThemeAr/img/pay1Log3.png")
+
+
+
 
     $("document").ready(function () {
-
 
                  function checkTime(i) {
                      if (i < 10) {
@@ -732,9 +733,7 @@ Thank you for Subscription.
     </script>
 
         <style>
-    img#lstNavigation_img_4 {
-    width: 50px;
-}
+
             .nwdr {
                 background: #f8f8f8;
                 padding: 40px 0;

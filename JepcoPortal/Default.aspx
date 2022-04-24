@@ -1,5 +1,4 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" Culture="en-US" UICulture="en-US" Async="true" EnableEventValidation="false" %>
-
 <%@ Import Namespace="SiteWare.Entity.Common.Enums" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
@@ -1013,11 +1012,88 @@ Thank you for Subscription.
 
                 </div>
             </div>
-
         </asp:Panel>
+          <div id="loading">
+              <div id="loader"></div><br />
+              <h3 style="color:#007fc3;font-weight:bold">شركة الكهرباء الأردنية  </h3>
+  <%--<img id="loading-image" src="/App_Themes/ThemeAr/img/Dual Ring-1s-200px (3).gif" alt="Loading..." style="width:200px;height:200px" />--%>
+</div>
+        <style>
+            #loader {
+    display: block;
+    position: relative;
 
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #3498db;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+            #loader:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #e74c3c;
+    -webkit-animation: spin 3s linear infinite;
+    animation: spin 3s linear infinite;
+}
+#loader:after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #f9c922;
+    -webkit-animation: spin 1.5s linear infinite;
+    animation: spin 1.5s linear infinite;
+}
+            #loading {
+  position: fixed;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  text-align: center;
+  background-color: rgba(255, 255, 255,1);
+  z-index: 99;
+  justify-content:center;
+  align-items:center;
+      flex-direction: column;
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+}
+
+#loading-image {
+
+  z-index: 99999;
+}
+@-webkit-keyframes spin {
+	0%   {-webkit-transform: rotate(0deg);}
+
+	100% {-webkit-transform: rotate(360deg);}
+}
+@keyframes spin {
+	0%   {transform: rotate(0deg);}
+
+	100% {transform: rotate(360deg);}
+}
+        </style>
+ <script>
+     $(window).load(function () {
+         $('#loading').hide();
+     });
+ </script> 
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script type="text/javascript" src="/Scripts/bootstrap.min.js"></script>
         <script type="text/javascript" src="/Scripts/owl.carousel.min.js"></script>
         <%--  <script type="text/javascript"  src="js/jquery.mCustomScrollbar.concat.min.js"></script>--%>
@@ -1026,17 +1102,20 @@ Thank you for Subscription.
 
         <%-- <script type="text/javascript" src="/Scripts/chartJs/Chart.min.js"></script>--%>
 
-        <%--For Chart--%>
+        <%--For Chart--  
 
-
+  
         <%-- Call Api Url And Token Middleware --%>
 
         <script>
-            // Global Varibale :
+              // Global Varibale :
             var APIUrl = '<%= System.Configuration.ConfigurationManager.AppSettings["APIurl"].ToString() %>';
+            var domainName = '<%= System.Configuration.ConfigurationManager.AppSettings["domainName"].ToString() %>';
+
             var userNameMiddlewareToken = '<%= System.Configuration.ConfigurationManager.AppSettings["usernameMiddleware"].ToString() %>';
             var passwordMiddlewareToken = '<%= System.Configuration.ConfigurationManager.AppSettings["passwordMiddleware"].ToString() %>';
             var MiddlewareToken = "";
+            var complainCount = 0;
             $.ajax({
                 url: APIUrl + 'LoginController/Login',
                 type: 'POST',
@@ -1060,7 +1139,7 @@ Thank you for Subscription.
 
 
         <script>
-            $("#lstNavigation_img_4").attr("src", "/App_Themes/ThemeAr/img/pay1Log3.png")
+ 
 
             $("document").ready(function () {
 
@@ -1074,7 +1153,7 @@ Thank you for Subscription.
                         }
                     }                   
                 })
-
+   
 
                 $.ajax({
                     type: "GET",
@@ -1099,7 +1178,6 @@ Thank you for Subscription.
                 });
 
                 var MobileNoURL = $("#hdnmobileno").val();
-
                 var AllcustomerSubAccountList = [];
 
                 var GetAllcustomerSubAccountList = [];
@@ -1115,7 +1193,28 @@ Thank you for Subscription.
                 var DesingAllFileForGraph = "";
                 //var apiConfiguUrl = '@System.Configuration.ConfigurationManager.AppSettings["MobileAPIurl"]';
                 var apiConfiguUrl = '<%= System.Configuration.ConfigurationManager.AppSettings["MobileAPIurl"].ToString() %>';
-                ;
+                console.log("mob : ", MobileNoURL)
+                $.ajax({
+                    type: "POST",
+                    url: APIUrl + "Complaints/ComplaintByID",
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("MiddlewareToken"));
+                    },
+                    data: JSON.stringify({
+                        MobileNumber: MobileNoURL,
+                        LanguageId: "AR"
+                    }),
+                    contentType: "application/json; charset=utf-8",
+                    async: false,
+                    success: function (data) {
+                        complainCount = data.body.allCount;
+                        $(".mitarbg4 strong").text(complainCount)
+                    },
+                    error: function (err) {
+                        console.log(err);
+                    }
+
+                })
                 //debugger;
                 $.ajax({
                     type: "POST",
@@ -1510,7 +1609,7 @@ Thank you for Subscription.
                     var LiHtmlDatas = GetFileDetialList(value, DetialList);
                     var Countdata = parseFloat(LiHtmlDatas[1]) - 1;
 
-                    var Stringh5 = "<h5> متوفر لديك عدد " + Countdata + " عدادات في " + value + " مسجلة <a href='Home/addFile' class='aheffuncation addFile'>اضافة/ تعديل رقم عداد</a></h5>";
+                    var Stringh5 = "<h5> متوفر لديك عدد " + Countdata + " عدادات في " + value + " مسجلة <a href='/*" + domainName+"*/ar/Home/addFile' class='aheffuncation addFile'>اضافة/ تعديل رقم عداد</a></h5>";
                     // var Stringh5 = "<h5> " + value + " لديك عدد " + Countdata + " عدادات في   <a class='aheffuncation'>اضافة/ تعديل رقم عداد</a></h5>";
                     var HtmlScroolingdivHRD = "<div class='content demo-y'>";
                     var StringUI = "<ul class='list-unstyled'>";
@@ -2262,9 +2361,7 @@ Thank you for Subscription.
             .modal-done{
                 padding: 30px 0;
             }
-            img#lstNavigation_img_4 {
-    width: 50px;
-}
+
             @media screen and (max-width: 767px) {
                 .canvasdiv {
                     width: auto;
@@ -2372,7 +2469,6 @@ Thank you for Subscription.
                     localStorage.clear();
                 })
             });
-
 
         </script>
 

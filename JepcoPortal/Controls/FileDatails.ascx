@@ -179,206 +179,13 @@
                         </div>
                     </div>
                 </li>
-                <li>
-                    <div class="row">
-                        <div class="col-xs-6 col-sm-6 col-md-5">
-                            <h4>رقم الفاتورة</h4>
-                            <span class="LTR">2798564398222</span>
-                        </div>
-                        <div class="col-xs-6 col-sm-6 col-md-2">
-                            <h4>تاريخ القراءة</h4>
-                            <span class="LTR">23-05-2020</span>
-                        </div>
-                        <div class="col-xs-6 col-sm-6 col-md-3">
-                            <h4>كمية الاستهلاك KW</h4>
-                            <span class="LTR">KW768435</span>
-                        </div>
-                        <div class="col-xs-6 col-sm-6 col-md-2">
-                            <h4>القيمة المطلوبة</h4>
-                            <span><strong>٢٤،٦٩٣</strong> دينار</span>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="row">
-                        <div class="col-xs-6 col-sm-6 col-md-5">
-                            <h4>رقم الفاتورة</h4>
-                            <span class="LTR">2798564398222</span>
-                        </div>
-                        <div class="col-xs-6 col-sm-6 col-md-2">
-                            <h4>تاريخ القراءة</h4>
-                            <span class="LTR">23-05-2020</span>
-                        </div>
-                        <div class="col-xs-6 col-sm-6 col-md-3">
-                            <h4>كمية الاستهلاك KW</h4>
-                            <span class="LTR">KW768435</span>
-                        </div>
-                        <div class="col-xs-6 col-sm-6 col-md-2">
-                            <h4>القيمة المطلوبة</h4>
-                            <span><strong>٢٤،٦٩٣</strong> دينار</span>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="row">
-                        <div class="col-xs-6 col-sm-6 col-md-5">
-                            <h4>رقم الفاتورة</h4>
-                            <span class="LTR">2798564398222</span>
-                        </div>
-                        <div class="col-xs-6 col-sm-6 col-md-2">
-                            <h4>تاريخ القراءة</h4>
-                            <span class="LTR">23-05-2020</span>
-                        </div>
-                        <div class="col-xs-6 col-sm-6 col-md-3">
-                            <h4>كمية الاستهلاك KW</h4>
-                            <span class="LTR">KW768435</span>
-                        </div>
-                        <div class="col-xs-6 col-sm-6 col-md-2">
-                            <h4>القيمة المطلوبة</h4>
-                            <span><strong>٢٤،٦٩٣</strong> دينار</span>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="row">
-                        <div class="col-xs-6 col-sm-6 col-md-5">
-                            <h4>رقم الفاتورة</h4>
-                            <span class="LTR">2798564398222</span>
-                        </div>
-                        <div class="col-xs-6 col-sm-6 col-md-2">
-                            <h4>تاريخ القراءة</h4>
-                            <span class="LTR">23-05-2020</span>
-                        </div>
-                        <div class="col-xs-6 col-sm-6 col-md-3">
-                            <h4>كمية الاستهلاك KW</h4>
-                            <span class="LTR">KW768435</span>
-                        </div>
-                        <div class="col-xs-6 col-sm-6 col-md-2">
-                            <h4>القيمة المطلوبة</h4>
-                            <span><strong>٢٤،٦٩٣</strong> دينار</span>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="row">
-                        <div class="col-xs-6 col-sm-6 col-md-5">
-                            <h4>رقم الفاتورة</h4>
-                            <span class="LTR">2798564398222</span>
-                        </div>
-                        <div class="col-xs-6 col-sm-6 col-md-2">
-                            <h4>تاريخ القراءة</h4>
-                            <span class="LTR">23-05-2020</span>
-                        </div>
-                        <div class="col-xs-6 col-sm-6 col-md-3">
-                            <h4>كمية الاستهلاك KW</h4>
-                            <span class="LTR">KW768435</span>
-                        </div>
-                        <div class="col-xs-6 col-sm-6 col-md-2">
-                            <h4>القيمة المطلوبة</h4>
-                            <span><strong>٢٤،٦٩٣</strong> دينار</span>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="row">
-                        <div class="col-xs-6 col-sm-6 col-md-5">
-                            <h4>رقم الفاتورة</h4>
-                            <span class="LTR">2798564398222</span>
-                        </div>
-                        <div class="col-xs-6 col-sm-6 col-md-2">
-                            <h4>تاريخ القراءة</h4>
-                            <span class="LTR">23-05-2020</span>
-                        </div>
-                        <div class="col-xs-6 col-sm-6 col-md-3">
-                            <h4>كمية الاستهلاك KW</h4>
-                            <span class="LTR">KW768435</span>
-                        </div>
-                        <div class="col-xs-6 col-sm-6 col-md-2">
-                            <h4>القيمة المطلوبة</h4>
-                            <span><strong>٢٤،٦٩٣</strong> دينار</span>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="row">
-                        <div class="col-xs-6 col-sm-6 col-md-5">
-                            <h4>رقم الفاتورة</h4>
-                            <span class="LTR">2798564398222</span>
-                        </div>
-                        <div class="col-xs-6 col-sm-6 col-md-2">
-                            <h4>تاريخ القراءة</h4>
-                            <span class="LTR">23-05-2020</span>
-                        </div>
-                        <div class="col-xs-6 col-sm-6 col-md-3">
-                            <h4>كمية الاستهلاك KW</h4>
-                            <span class="LTR">KW768435</span>
-                        </div>
-                        <div class="col-xs-6 col-sm-6 col-md-2">
-                            <h4>القيمة المطلوبة</h4>
-                            <span><strong>٢٤،٦٩٣</strong> دينار</span>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="row">
-                        <div class="col-xs-6 col-sm-6 col-md-5">
-                            <h4>رقم الفاتورة</h4>
-                            <span class="LTR">2798564398222</span>
-                        </div>
-                        <div class="col-xs-6 col-sm-6 col-md-2">
-                            <h4>تاريخ القراءة</h4>
-                            <span class="LTR">23-05-2020</span>
-                        </div>
-                        <div class="col-xs-6 col-sm-6 col-md-3">
-                            <h4>كمية الاستهلاك KW</h4>
-                            <span class="LTR">KW768435</span>
-                        </div>
-                        <div class="col-xs-6 col-sm-6 col-md-2">
-                            <h4>القيمة المطلوبة</h4>
-                            <span><strong>٢٤،٦٩٣</strong> دينار</span>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="row">
-                        <div class="col-xs-6 col-sm-6 col-md-5">
-                            <h4>رقم الفاتورة</h4>
-                            <span class="LTR">2798564398222</span>
-                        </div>
-                        <div class="col-xs-6 col-sm-6 col-md-2">
-                            <h4>تاريخ القراءة</h4>
-                            <span class="LTR">23-05-2020</span>
-                        </div>
-                        <div class="col-xs-6 col-sm-6 col-md-3">
-                            <h4>كمية الاستهلاك KW</h4>
-                            <span class="LTR">KW768435</span>
-                        </div>
-                        <div class="col-xs-6 col-sm-6 col-md-2">
-                            <h4>القيمة المطلوبة</h4>
-                            <span><strong>٢٤،٦٩٣</strong> دينار</span>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="row">
-                        <div class="col-xs-6 col-sm-6 col-md-5">
-                            <h4>رقم الفاتورة</h4>
-                            <span class="LTR">2798564398222</span>
-                        </div>
-                        <div class="col-xs-6 col-sm-6 col-md-2">
-                            <h4>تاريخ القراءة</h4>
-                            <span class="LTR">23-05-2020</span>
-                        </div>
-                        <div class="col-xs-6 col-sm-6 col-md-3">
-                            <h4>كمية الاستهلاك KW</h4>
-                            <span class="LTR">KW768435</span>
-                        </div>
-                        <div class="col-xs-6 col-sm-6 col-md-2">
-                            <h4>القيمة المطلوبة</h4>
-                            <span><strong>٢٤،٦٩٣</strong> دينار</span>
-                        </div>
-                    </div>
-                </li>
+
+
+   
+
+ 
+     
+     
             </ul>--%>
         </div>
 
@@ -444,7 +251,7 @@
                                     <table align="center" width="100%" cellpadding="0" cellspacing="0" style="padding:0px">
                                         <tr>
                                             <td align="right" width="60%" style="padding:0px" id="BillName"></td>
-                                            <td align="right" width="40%" style="padding:0px" id="BillInstallation"></td>
+                                            <td align="right" width="40%" style="padding:0px"></td>
                                         </tr>
                                     </table>
                                 </td>
@@ -455,7 +262,7 @@
                                 <td align="right" colspan="3" style=" border-top:solid 0.05vw #0099FF; color:#000000; font-size:130%" width="88%">
                                     <table align="center" width="100%" cellpadding="0" cellspacing="0" style="padding:0px">
                                         <tr>
-                                            <td align="right" width="60%" style="padding:0px" id="subscriptionNo"></td>
+                                            <td align="right" width="60%" style="padding:0px"  id="BillInstallation"></td>
                                             <td align="right" width="40%" style="padding:0px" id="subscriptionDescription"></td>
                                         </tr>
                                     </table>
@@ -479,8 +286,8 @@
                             <tr>
                                 <td align="right" style="border-left:solid 0.05vw #0099FF; border-top:solid 0.05vw #0099FF; background:#C0DCFE; font-weight: bold" width="13%">رقم الفاتورة</td>
                                 <td align="right" style="border-left:solid 0.05vw #0099FF; border-top:solid 0.05vw #0099FF; color:#000000; font-size:130%" width="37%" id="billPeriod"></td>
-                                <td align="center" style="border-left:solid 0.05vw #0099FF; border-top:solid 0.05vw #0099FF; background:#C0DCFE; font-weight: bold" width="14%">رقم الاضبارة</td>
-                                <td align="right" style="border-left:solid 0.05vw #0099FF; border-top:solid 0.05vw #0099FF; color:#000000; font-size:130%" width="36%">********</td>
+                                <td align="center" style="border-left:solid 0.05vw #0099FF; border-top:solid 0.05vw #0099FF; background:#C0DCFE; font-weight: bold" width="14%">رقم الجولة</td>
+                                <td align="right" style="border-left:solid 0.05vw #0099FF; border-top:solid 0.05vw #0099FF; color:#000000; font-size:130%" width="36%" id="subscriptionNo"></td>
                             </tr>
                             <tr>
                                 <td align="right" style="border-left:solid 0.05vw #0099FF; border-top:solid 0.05vw #0099FF; background:#C0DCFE; font-weight: bold" width="13%">رقم الملف</td>
@@ -722,6 +529,32 @@
                                                         <td height="100%" align="center" colspan="4" style="padding:0px; vertical-align:top" valign="top">
                                                         </td>
                                                     </tr>
+                                                     <tr>
+                                                        <td height="100%" align="center" style="padding:0px; border-left:solid 0.05vw #0099FF; border-top:solid 0.05vw #0099FF;" width="43%">
+                                                            الدعم النقدي الثابت
+                                                        </td>
+                                                        <td height="100%" align="right" style="padding:0;" width="57%">
+                                                            <table align="center" width="100%" height="100%" style="padding:0px;" cellpadding="0" cellspacing="0">
+                                                                <tr>
+                                                                    <td height="100%" align="center" style="padding:1%; border-left:solid 0.05vw #0099FF; color:#000000; font-size:130%; border-top:solid 0.05vw #0099FF;" width="35%" id="fixedSubsidyAmount1">35</td>
+                                                                    <td height="100%" align="center" style="padding:1%; border-top:solid 0.05vw #0099FF; color:#000000; font-size:130%" width="65%" id="fixedSubsidyAmount2">310</td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                     <tr>
+                                                        <td height="100%" align="center" style="padding:0px; border-left:solid 0.05vw #0099FF; border-top:solid 0.05vw #0099FF;" width="43%">
+                                                            بدل خدمات الشبكة
+                                                        </td>
+                                                        <td height="100%" align="right" style="padding:0;" width="57%">
+                                                            <table align="center" width="100%" height="100%" style="padding:0px;" cellpadding="0" cellspacing="0">
+                                                                <tr>
+                                                                    <td height="100%" align="center" style="padding:1%; border-left:solid 0.05vw #0099FF; color:#000000; font-size:130%; border-top:solid 0.05vw #0099FF;" width="35%" id="networkFeesAmount1">57</td>
+                                                                    <td height="100%" align="center" style="padding:1%; border-top:solid 0.05vw #0099FF; color:#000000; font-size:130%" width="65%" id="networkFeesAmount2">000</td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
                                                     <tr>
                                                         <td height="100%" align="center" style="padding:0px; border-left:solid 0.05vw #0099FF; border-top:solid 0.05vw #0099FF;" width="43%">
                                                             قيمة الفاتورة
@@ -851,6 +684,34 @@
 
                                                                     </td>
                                                                 </tr>
+                                                                 <tr>
+                                                                    <td align="center" style="padding:1%; border-left:solid 0.05vw #D00D0D; border-bottom:solid 0.05vw #D00D0D; color:#000000;" width="50%" valign="top">
+                                                                        ********
+
+                                                                    </td>
+                                                                    <td align="center" style="padding:1%; border-left:solid 0.05vw #D00D0D; border-bottom:solid 0.05vw #D00D0D; color:#000000;" width="20%" valign="top">
+                                                                        ********
+
+                                                                    </td>
+                                                                    <td align="center" style="padding:1%; border-left:solid 0.05vw #D00D0D; border-bottom:solid 0.05vw #D00D0D; color:#000000;" width="30%" valign="top">
+                                                                        ********
+
+                                                                    </td>
+                                                                </tr>
+                                                                 <tr>
+                                                                    <td align="center" style="padding:1%; border-left:solid 0.05vw #D00D0D; border-bottom:solid 0.05vw #D00D0D; color:#000000;" width="50%" valign="top">
+                                                                        ********
+
+                                                                    </td>
+                                                                    <td align="center" style="padding:1%; border-left:solid 0.05vw #D00D0D; border-bottom:solid 0.05vw #D00D0D; color:#000000;" width="20%" valign="top">
+                                                                        ********
+
+                                                                    </td>
+                                                                    <td align="center" style="padding:1%; border-left:solid 0.05vw #D00D0D; border-bottom:solid 0.05vw #D00D0D; color:#000000;" width="30%" valign="top">
+                                                                        ********
+
+                                                                    </td>
+                                                                </tr>
                                                                 <tr>
                                                                     <td align="center" style="padding:1%; border-left:solid 0.05vw #D00D0D; border-bottom:solid 0.05vw #D00D0D; color:#000000;" width="50%" valign="top">
                                                                         ********
@@ -865,6 +726,22 @@
 
                                                                     </td>
                                                                 </tr>
+                                                                
+                                                                <tr>
+                                                                    <td align="center" style="padding:1%; border-left:solid 0.05vw #D00D0D; border-bottom:solid 0.05vw #D00D0D; color:#000000;" width="50%" valign="top">
+                                                                        ********
+
+                                                                    </td>
+                                                                    <td align="center" style="padding:1%; border-left:solid 0.05vw #D00D0D; border-bottom:solid 0.05vw #D00D0D; color:#000000;" width="20%" valign="top">
+                                                                        ********
+
+                                                                    </td>
+                                                                    <td align="center" style="padding:1%; border-left:solid 0.05vw #D00D0D; border-bottom:solid 0.05vw #D00D0D; color:#000000;" width="30%" valign="top">
+                                                                        ********
+
+                                                                    </td>
+                                                                </tr>
+                                                                
                                                                 <tr>
                                                                     <td align="center" style="padding:1%; border-left:solid 0.05vw #D00D0D; border-bottom:solid 0.05vw #D00D0D;color:#000000;" width="50%" valign="top">
                                                                         رصيد سابق
@@ -927,8 +804,8 @@
                     <font style="color:#FF0000; font-size:2vw;">     <font style="color:#000000"></font></font>
                     <font style="font-size:1.7vw;"><div style='text-align: center;'>
                       <!-- insert your custom barcode setting your data in the GET parameter "data" -->
-                      <img alt='Barcode Generator TEC-IT' id="barcode-img"
-                           src=''/>
+                    <div><img alt='Barcode Generator TEC-IT' id="barcode-img"
+                           src=''/></div>  
                     </div></font>
                                     </td>
             </tr>
@@ -944,6 +821,87 @@
         </div>
     </div>
 </div>
+
+          <div id="loading">
+              <div id="loader"></div><br />
+              <h3 style="color:#007fc3;font-weight:bold">شركة الكهرباء الأردنية  </h3>
+  <%--<img id="loading-image" src="/App_Themes/ThemeAr/img/Dual Ring-1s-200px (3).gif" alt="Loading..." style="width:200px;height:200px" />--%>
+</div>
+        <style>
+            #loader {
+    display: block;
+    position: relative;
+
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #3498db;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+            #loader:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #e74c3c;
+    -webkit-animation: spin 3s linear infinite;
+    animation: spin 3s linear infinite;
+}
+#loader:after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #f9c922;
+    -webkit-animation: spin 1.5s linear infinite;
+    animation: spin 1.5s linear infinite;
+}
+            #loading {
+  position: fixed;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  text-align: center;
+  background-color: rgba(255, 255, 255,1);
+  z-index: 99;
+  justify-content:center;
+  align-items:center;
+      flex-direction: column;
+
+}
+
+#loading-image {
+
+  z-index: 99999;
+}
+@-webkit-keyframes spin {
+	0%   {-webkit-transform: rotate(0deg);}
+
+	100% {-webkit-transform: rotate(360deg);}
+}
+@keyframes spin {
+	0%   {transform: rotate(0deg);}
+
+	100% {transform: rotate(360deg);}
+}
+        </style>
+ <script>
+     $(window).load(function () {
+         $('#loading').hide();
+     });
+ </script> 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bwip-js/3.0.4/bwip-js-min.js"></script>
@@ -991,11 +949,12 @@
 
         function callFirstload() {
 
+            $("#lblFileNo").text(GetFileNo);
 
             
-            $("#lblFileNo").text(GetFileNo);
-            $.ajax({
+            console.log("file : ", GetFileNo)
 
+            $.ajax({
                 type: "POST",
                 url: APIUrl + "MobileBills/GetBills",
                 beforeSend: function (xhr) {
@@ -1009,6 +968,7 @@
                 dataType: "json",
                 async: false,
                 success: function (data) {
+                    console.log(data)
                      if (data.statusCode == "Success") {
                         var CostsName = data.body.billsHeader.firstName; 
 
@@ -1100,6 +1060,9 @@
                                     FileData.clearingAmount = value.clearingAmount;
                                     FileData.unClearingAmount = value.unClearingAmount;
                                     FileData.billBarCode = value.billBarCode;
+                                    FileData.totalPreFixedSubsidyAmount = value.totalPreFixedSubsidyAmount;
+                                    FileData.fixedSubsidyAmount = value.fixedSubsidyAmount;
+                                    FileData.networkFeesAmount = value.networkFeesAmount;
                                     AllFileBill.push(FileData);
                                 }
                                 {
@@ -1177,7 +1140,9 @@
                                     FileData.clearingAmount = value.clearingAmount;
                                     FileData.unClearingAmount = value.unClearingAmount;
                                     FileData.billBarCode = value.billBarCode;
-
+                                    FileData.totalPreFixedSubsidyAmount = value.totalPreFixedSubsidyAmount;
+                                    FileData.fixedSubsidyAmount = value.fixedSubsidyAmount;
+                                    FileData.networkFeesAmount = value.networkFeesAmount;
                                     AllFileBill.push(FileData);
                                 } else {
 
@@ -1260,7 +1225,9 @@
                                 FileData.clearingAmount = value.clearingAmount;
                                 FileData.unClearingAmount = value.unClearingAmount;
                                 FileData.billBarCode = value.billBarCode;
-
+                                FileData.totalPreFixedSubsidyAmount = value.totalPreFixedSubsidyAmount;
+                                FileData.fixedSubsidyAmount = value.fixedSubsidyAmount;
+                                FileData.networkFeesAmount = value.networkFeesAmount;
                                 AllFileBill.push(FileData);
                             }
 
@@ -1631,12 +1598,12 @@
                 }
             });
 
-            $(".changeFileData").click(function () {
+            $(document).on('click', '#changeFileData', function () {
                 AllFileBill = [];
                 ALLGraphdata = [];
                 $('#MyAllFiles').empty();
-                //var filename = $(this).data("filename");
-                var filename = $('.changeFileData').attr('data-filename');
+                var filename = $(this).data("filename");
+                /*var filename = $('.changeFileData').attr('data-filename');*/
                 console.log("hehe : ", filename)
                 GetFileNo = filename;
                 callFirstload();
@@ -1654,6 +1621,8 @@
             var index = event.target.attributes.getNamedItem('data-billNo').value;
             console.log(index)
             selectedInvoce = InvoceList[index];
+
+            console.log("index: ", selectedInvoce)
             // split Fils & Dinar
             var consumptionAmount_split = (selectedInvoce.consumptionAmount).split('.');
             var fuelAmount_split = (selectedInvoce.fuelAmount).split('.');
@@ -1666,6 +1635,12 @@
             var unClearingAmount_split = (selectedInvoce.unClearingAmount).split('.');
             var dateConcat = "";
             var actualMeterRead = (selectedInvoce.actualMeterReadDateTime).slice(0, -4);
+
+            var networkFeesAmount = selectedInvoce.networkFeesAmount.split(".");
+            console.log(networkFeesAmount)
+            var fixedSubsidyAmount = selectedInvoce.fixedSubsidyAmount.split(".");
+            var totalPreFixedSubsidyAmount = selectedInvoce.totalPreFixedSubsidyAmount.split(".");
+            
             for (let i = 0; i < actualMeterRead.length; i++) {
                 console.log(actualMeterRead[i])
                 if (i == 4) {
@@ -1709,14 +1684,18 @@
             $('#televisionAmount_dinar').text(televisionAmount_split[0]);
             $('#totalRubbishAmount_fils').text(totalRubbishAmount_split[1]);
             $('#totalRubbishAmount_dinar').text(totalRubbishAmount_split[0]);
-            $('#totalBillAmount_fils').text(totalBillAmount_split[1]);
-            $('#totalBillAmount_dinar').text(totalBillAmount_split[0]);
+            $('#totalBillAmount_fils').text(totalPreFixedSubsidyAmount[1]);
+            $('#totalBillAmount_dinar').text(totalPreFixedSubsidyAmount[0]);
             $('#clearingAmount_fils').text(clearingAmount_split[1]);
             $('#clearingAmount_dinar').text(clearingAmount_split[0]);
             $('#unClearingAmount_fils').text(unClearingAmount_split[1]);
             $('#unClearingAmount_dinar').text(unClearingAmount_split[0]);
+            $('#fixedSubsidyAmount1').text(fixedSubsidyAmount[1]);
+            $('#fixedSubsidyAmount2').text(fixedSubsidyAmount[0]);
+            $('#networkFeesAmount1').text(networkFeesAmount[1]);
+            $('#networkFeesAmount2').text(networkFeesAmount[0]);
             var barcode = selectedInvoce.billBarCode;
-            $("#barcode-img").attr("src", "https://barcode.tec-it.com/barcode.ashx?data=" + barcode + "&code=Code128&translate-esc=true");
+            $("#barcode-img").attr("src", "https://barcode.tec-it.com/barcode.ashx?data=" + barcode + "&code=Code128&translate-esc=true&hidehrt=True");
             console.log(selectedInvoce.unClearingAmount);
             if (selectedInvoce.unClearingAmount == "0.000") {
                 $("table#barcode-table").css("display", "none");

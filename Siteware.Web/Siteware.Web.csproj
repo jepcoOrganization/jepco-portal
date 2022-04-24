@@ -1623,6 +1623,12 @@
     <Content Include="Siteware\Siteware_File\image\JEPCO\menu-icon-6.png" />
     <Content Include="Siteware\Siteware_File\image\JEPCO\menu-icon-7.png" />
     <Content Include="Siteware\Siteware_File\image\JEPCO\menu-icon-8.png" />
+    <Content Include="Siteware\Siteware_File\image\JEPCO\Menu-Images\new idea-07.png" />
+    <Content Include="Siteware\Siteware_File\image\JEPCO\Menu-Images\new idea-08.png" />
+    <Content Include="Siteware\Siteware_File\image\JEPCO\Menu-Images\new idea-09.png" />
+    <Content Include="Siteware\Siteware_File\image\JEPCO\Menu-Images\new idea-10.png" />
+    <Content Include="Siteware\Siteware_File\image\JEPCO\Menu-Images\new idea-11.png" />
+    <Content Include="Siteware\Siteware_File\image\JEPCO\Menu-Images\new idea-12.png" />
     <Content Include="Siteware\Siteware_File\image\JEPCO\Menu-Images\pay1Log.png" />
     <Content Include="Siteware\Siteware_File\image\JEPCO\meter-1.png" />
     <Content Include="Siteware\Siteware_File\image\JEPCO\meter.png" />

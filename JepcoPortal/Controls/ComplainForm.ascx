@@ -330,27 +330,7 @@
                             </div>
 
 
-                            <div class="row" style="display: none">
-                                <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <div class="form-group">
-                                        <label>اختر المنطقة بالتحديد</label>
-
-                                        <div id="gmap" style="width: 100%; height: 450px;"></div>
-                                        <div class="scribmap">
-
-                                            <label>Latitude : </label>
-                                            <label id="latlbl" style="font-family: Poppins, sans-serif; margin-left: 33px;"></label>
-                                            <label>Longitude : </label>
-                                            <label id="lonlbl" style="font-family: Poppins, sans-serif;"></label>
-
-                                            <asp:HiddenField runat="server" ID="lblLatitude" />
-                                            <asp:HiddenField runat="server" ID="lblLongiude" />
-
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                           
 
                                <input type="button" name="next" class="next action-button next3" value="التالي" />
                             <input type="button" name="previous" class="previous action-button-previous" value="السابق" />
@@ -376,7 +356,31 @@
 
                             </div>
 
-                            <button class="btn action-button sendComplain next4" type="button" id="btbvalid" ">ارسال الطلب</button>
+                                                      <div class="row" style="">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="form-group">
+                            <label>اختر المنطقة بالتحديد</label>
+                            <div id="gmap" style="width: 100%; height: 450px;"></div>
+                                <input
+      id="pac-input"
+      class="controls "
+      type="text"
+      placeholder="البحث"
+    />
+
+                            <div class="scribmap">
+                                <label>Latitude : </label>
+                                <label id="latlbl" style="font-family: Poppins, sans-serif; margin-left: 33px;"></label>
+                                <label>Longitude : </label>
+                                <label id="lonlbl" style="font-family: Poppins, sans-serif;"></label>
+                                <asp:HiddenField runat="server" ID="lblLatitude" />
+                                <asp:HiddenField runat="server" ID="lblLongiude" />
+                            </div>
+                        </div>
+                    </div>
+</div>
+
+                       <button class="btn action-button sendComplain next4" type="button" id="btbvalid" ">ارسال الطلب</button>
                             <asp:Button ID="btnSubmit" OnClick="btnSubmit_Click" type="button" Style="display: none;" runat="server" Text="Button" />
                             <asp:HiddenField runat="server" ID="hdnSaveResultStatus" />
                             <asp:HiddenField runat="server" ID="hdnSaveResultVAlue" />
@@ -436,8 +440,89 @@
     </div>
 
 </asp:Panel>
+
+          <div id="loading">
+              <div id="loader"></div><br />
+              <h3 style="color:#007fc3;font-weight:bold">شركة الكهرباء الأردنية  </h3>
+  <%--<img id="loading-image" src="/App_Themes/ThemeAr/img/Dual Ring-1s-200px (3).gif" alt="Loading..." style="width:200px;height:200px" />--%>
+</div>
+        <style>
+            #loader {
+    display: block;
+    position: relative;
+
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #3498db;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+            #loader:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #e74c3c;
+    -webkit-animation: spin 3s linear infinite;
+    animation: spin 3s linear infinite;
+}
+#loader:after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #f9c922;
+    -webkit-animation: spin 1.5s linear infinite;
+    animation: spin 1.5s linear infinite;
+}
+            #loading {
+  position: fixed;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  text-align: center;
+  background-color: rgba(255, 255, 255,1);
+  z-index: 99;
+  justify-content:center;
+  align-items:center;
+      flex-direction: column;
+
+}
+
+#loading-image {
+
+  z-index: 99999;
+}
+@-webkit-keyframes spin {
+	0%   {-webkit-transform: rotate(0deg);}
+
+	100% {-webkit-transform: rotate(360deg);}
+}
+@keyframes spin {
+	0%   {transform: rotate(0deg);}
+
+	100% {transform: rotate(360deg);}
+}
+        </style>
+ <script>
+     $(window).load(function () {
+         $('#loading').hide();
+     });
+ </script> 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://maps.google.com/maps/api/js?key=AIzaSyDw7R6UWQg5NiY7uR6T-GKmwkscSaBmVtY"></script>
+<script src="https://maps.google.com/maps/api/js?key=AIzaSyA7f_t2Ccx3tdV_Mz2pT0zdVioGU6SiKS4&callback=initAutocomplete&libraries=places&v=weekly"></script>
 
 <%-- New Api For Complain  :  --%>
 <script>    
@@ -893,6 +978,7 @@
 
     
 </script>
+
 <script>
 
     var lati = $("#<%=lblLatitude.ClientID%>").val();
@@ -911,16 +997,88 @@
         }
         map = new google.maps.Map(document.getElementById("gmap"), myOptions);
         // marker refers to a global variable
-        marker = new google.maps.Marker({
-            position: myLatlng,
-            map: map
+        /*  marker = new google.maps.Marker({
+              position: myLatlng,
+              map: map
+  
+          });*/
+        const input = document.getElementById("pac-input");
+        const searchBox = new google.maps.places.SearchBox(input);
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+        map.addListener("bounds_changed", () => {
+            searchBox.setBounds(map.getBounds());
+        });
+        let markers = [];
+
+        searchBox.addListener("places_changed", () => {
+            const places = searchBox.getPlaces();
+
+            if (places.length == 0) {
+                return;
+            }
+
+            // Clear out the old markers.
+            markers.forEach((marker) => {
+                marker.setMap(null);
+            });
+
+
+            // For each place, get the icon, name and location.
+            const bounds = new google.maps.LatLngBounds();
+
+            places.forEach((place) => {
+
+                document.getElementById('latlbl').innerHTML = place.geometry.location.lat();
+                document.getElementById('lonlbl').innerHTML = place.geometry.location.lng();
+
+
+                $('#<%=lblLatitude.ClientID %>').val(place.geometry.location.lat());
+                $('#<%=lblLongiude.ClientID %>').val(place.geometry.location.lng());
+
+                if (!place.geometry || !place.geometry.location) {
+                    console.log("Returned place contains no geometry");
+                    return;
+                }
+
+                const icon = {
+                    url: place.icon,
+                    size: new google.maps.Size(71, 71),
+                    origin: new google.maps.Point(0, 0),
+                    anchor: new google.maps.Point(17, 34),
+                    scaledSize: new google.maps.Size(25, 25),
+                };
+
+                // Create a marker for each place.
+                markers.push(
+                    new google.maps.Marker({
+                        map,
+                        title: place.name,
+                        position: place.geometry.location,
+                    })
+                );
+                if (place.geometry.viewport) {
+                    // Only geocodes have viewport.
+                    bounds.union(place.geometry.viewport);
+                } else {
+                    bounds.extend(place.geometry.location);
+                }
+            });
+            map.fitBounds(bounds);
+
 
         });
+
+
 
         google.maps.event.addListener(map, "click", function (event) {
             // get lat/lon of click
             var clickLat = event.latLng.lat();
             var clickLon = event.latLng.lng();
+             
+            markers.forEach((marker) => {
+                marker.setMap(null);
+            });
 
             // show in input box
             //document.getElementById("lat").value = clickLat.toFixed(5);
@@ -933,19 +1091,23 @@
 
             $('#<%=lblLatitude.ClientID %>').val(clickLat.toFixed(5));
             $('#<%=lblLongiude.ClientID %>').val(clickLon.toFixed(5));
+            markers.push(
+                new google.maps.Marker({
+                    map,
+                    position: new google.maps.LatLng(clickLat, clickLon),
+                })
+            );
 
-
-            var marker = new google.maps.Marker({
-                position: new google.maps.LatLng(clickLat, clickLon),
-                map: map
-            });
+            /* var marker = new google.maps.Marker({
+                 position: new google.maps.LatLng(clickLat, clickLon),
+                 map: map
+             });*/
         });
     }
 
     window.onload = function () { initialize() };
 
 </script>
-
 
 <script type="text/javascript">
 <%--    function SendClick() {
@@ -1084,6 +1246,36 @@
         padding: 10px 15px;
         color: #007fc3;
         font-size: 18px;
+    }
+       @media(max-width:767px) {
+        #pac-input {
+                        z-index: 0 !important;
+    position: absolute !important;
+    left: 0 !important;
+    top:60px !important;
+    width: 300px !important;
+    height: 45px !important;
+        }
+    }
+    @media(max-width:375px){
+                #pac-input {
+                        z-index: 0 !important;
+    position: absolute !important;
+    left: 0 !important;
+    top:60px !important;
+    width: 300px !important;
+    height: 45px !important;
+        }
+    }
+    @media(min-width:768px){
+            #pac-input{
+            z-index: 0 !important;
+    position: absolute !important;
+    left: 200px !important;
+    width: 350px !important;
+    height: 45px !important;
+    top: 5px !important;
+    }
     }
 </style>
 
@@ -2502,7 +2694,10 @@
                 StreetName: StreetNameLast,
                 Address: AddrssDetails,
                 LanguageId: "AR",
-                Integrationtype : 1
+                Integrationtype: 1,
+                Long: $("#lonlbl").text(),
+                Latt: $("#latlbl").text(),
+
             }),
             contentType: "application/json; charset=utf-8",
             async: false,
