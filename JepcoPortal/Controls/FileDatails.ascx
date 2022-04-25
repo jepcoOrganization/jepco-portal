@@ -887,11 +887,7 @@
 	100% {transform: rotate(360deg);}
 }
         </style>
- <script>
-     $(window).load(function () {
-         $('#loading').hide();
-     });
- </script> 
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bwip-js/3.0.4/bwip-js-min.js"></script>
@@ -904,6 +900,10 @@
 
 
 <script>
+
+    $(window).on('load', function () {
+        $('#loading').hide();
+    });
     $("document").ready(function () {
 
      

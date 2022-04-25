@@ -166,12 +166,12 @@
 	100% {transform: rotate(360deg);}
 }
         </style>
- <script>
-     $(window).load(function () {
-         $('#loading').hide();
-     });
- </script> 
+
 <script>
+
+    $(window).on('load', function () {
+        $('#loading').hide();
+    });
     var APIUrl = '<%= System.Configuration.ConfigurationManager.AppSettings["APIurl"].ToString() %>';
     var userNameMiddlewareToken = '<%= System.Configuration.ConfigurationManager.AppSettings["usernameMiddleware"].ToString() %>';
     var passwordMiddlewareToken = '<%= System.Configuration.ConfigurationManager.AppSettings["passwordMiddleware"].ToString() %>';

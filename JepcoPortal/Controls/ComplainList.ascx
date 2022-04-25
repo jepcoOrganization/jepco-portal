@@ -282,14 +282,15 @@
 	100% {transform: rotate(360deg);}
 }
         </style>
- <script>
-     $(window).load(function () {
-         $('#loading').hide();
-     });
- </script> 
+ 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
  <script>
+
+     $(window).on('load', function () {
+         $('#loading').hide();
+     });
+
      var MobileNoURL = $("#hdnmobileno").val();
      var APIUrl = '<%= System.Configuration.ConfigurationManager.AppSettings["APIurl"].ToString() %>';
      var allCount = 0;

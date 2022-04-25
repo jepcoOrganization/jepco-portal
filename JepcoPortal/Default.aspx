@@ -1088,11 +1088,7 @@ Thank you for Subscription.
 	100% {transform: rotate(360deg);}
 }
         </style>
- <script>
-     $(window).load(function () {
-         $('#loading').hide();
-     });
- </script> 
+ 
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script type="text/javascript" src="/Scripts/bootstrap.min.js"></script>
         <script type="text/javascript" src="/Scripts/owl.carousel.min.js"></script>
@@ -1106,7 +1102,11 @@ Thank you for Subscription.
 
   
         <%-- Call Api Url And Token Middleware --%>
-
+        <script>
+            $(window).load(function () {
+                $('#loading').hide();
+            });
+        </script> 
         <script>
               // Global Varibale :
             var APIUrl = '<%= System.Configuration.ConfigurationManager.AppSettings["APIurl"].ToString() %>';

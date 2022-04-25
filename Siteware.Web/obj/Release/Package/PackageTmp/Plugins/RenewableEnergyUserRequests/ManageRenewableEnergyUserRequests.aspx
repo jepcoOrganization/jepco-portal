@@ -87,6 +87,7 @@
                                                 <col class="con5" />
                                                 <col class="con6" />
                                                 <col class="con7" />
+                                                <col class="con8" />
                                             </colgroup>
                                             <thead>
                                                 <tr>
@@ -94,6 +95,7 @@
                                                         <input type="checkbox" class="checkall" id="selectAll" />
                                                     </th>
                                                     <th class="head1">ID</th>
+                                                    <th class="head2">Energy ID</th>
                                                     <th class="head2">User ID</th>
                                                     <th class="head4">Company ID</th>
                                                     <th class="head8">Request Type</th>
@@ -118,6 +120,9 @@
                                                             </td>
                                                             <td>
                                                                 <asp:Label ID="lblServiceNoteID" runat="server" Text='<%# Bind("RenwableEnergyID") %>'></asp:Label>
+                                                            </td>
+                                                            <td>
+                                                                <asp:Label ID="lblTokenNo" runat="server" Text='<%# Bind("TokenNo") %>'></asp:Label>
                                                             </td>
                                                             <td>
                                                                 <asp:Label ID="lblUserID" runat="server" Text='<%# Bind("UserID") %>'></asp:Label>

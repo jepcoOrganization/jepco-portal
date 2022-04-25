@@ -132,12 +132,12 @@
 	100% {transform: rotate(360deg);}
 }
         </style>
- <script>
-     $(window).load(function () {
-         $('#loading').hide();
-     });
- </script> 
+
 <script>
+
+    $(window).on('load', function () {
+        $('#loading').hide();
+    });
     var MobileNoURL = $("#hdnmobileno").val();
     $("#lblUnpaidBills").text(MobileNoURL)
     var APIUrl = '<%= System.Configuration.ConfigurationManager.AppSettings["APIurl"].ToString() %>';

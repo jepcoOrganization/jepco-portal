@@ -318,7 +318,7 @@
 
             $(function () {
                 $(window).on('load', function () {
-                 //  $('#FB_frame23').attr('src', '/Siteware/FileBrowser/NewBros.aspx?caller=parent&fn=fileBrowserCallBack2&langCode=en');
+                 // $('#FB_frame23').attr('src', '/Siteware/FileBrowser/NewBros.aspx?caller=parent&fn=fileBrowserCallBack2&langCode=en');
                     $('#FB_frame23').attr('src', '/FileBrowser/NewBros.aspx?caller=parent&fn=fileBrowserCallBack2&langCode=en');
                     //$('#FB_frame23').attr('src', '/Applications/RIIFS/Admin/FileBrowser/NewBros.aspx?caller=parent&fn=fileBrowserCallBack2&langCode=en');
                 });

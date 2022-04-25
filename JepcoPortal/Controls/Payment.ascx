@@ -315,12 +315,12 @@
 	100% {transform: rotate(360deg);}
 }
         </style>
- <script>
-     $(window).load(function () {
-         $('#loading').hide();
-     });
- </script> 
+
 <script>
+
+    $(window).on('load', function () {
+        $('#loading').hide();
+    });
     // Global Variable : ---------------
     var GetFileNo = $("#ContentPlaceHolder1_ctl00_hdnFileNAme").val();
     var Language = "AR";

@@ -429,15 +429,16 @@
 	100% {transform: rotate(360deg);}
 }
         </style>
- <script>
-     $(window).load(function () {
-         $('#loading').hide();
-     });
- </script> 
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maps.google.com/maps/api/js?key=AIzaSyA7f_t2Ccx3tdV_Mz2pT0zdVioGU6SiKS4&callback=initAutocomplete&libraries=places&v=weekly"></script>
 
 <script>
+
+    $(window).on('load', function () {
+        $('#loading').hide();
+    });
+
      /* saddasdsadas */
     var lati = $("#<%=lblLatitude.ClientID%>").val();
     var lang = $("#<%=lblLongiude.ClientID%>").val();

@@ -208,7 +208,7 @@
 }
         </style>
  <script>
-     $(window).load(function () {
+     $(window).on('load', function () {
          $('#loading').hide();
      });
  </script> 
