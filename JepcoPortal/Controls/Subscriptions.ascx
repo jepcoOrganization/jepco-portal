@@ -2,11 +2,38 @@
 <%@ Register Src="~/Controls/AddFileNumber.ascx" TagPrefix="uc1" TagName="AddFileNumber" %>
 
 
+
+
+
+
+
 <aside>
         <h1><%--<small>الاستهلاك في ال 12 شهرا الأخيرة</small>--%>
            إدارة الإشتراكات</h1>
        <img src="/App_Themes/ThemeAr/img/ايقونة%20الاشتراكات-02.png" style="width: 75px;"/>
 </aside>
+
+<div class="modal fade welcome modal-delete" id="myModalerror2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 style="display: contents">شركة الكهرباء الأردنية</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span class="fa fa-close"></span>
+                </button>
+                
+            </div>
+            <div class="modal-body">
+                <h3 class="text text-danger">هل انت متأكد من حذف هذا الإشتراك ؟</h3> 
+                </div>
+            <div class="modal-footer">
+                <%--<button id="SubmitFillCall"  >Save</button>--%>
+                <a href="/ar/Home/Subscriptions" class="btn btn-primary conf-delete" id="" style="width: 100%;padding: 20px;font-size: 20px;" >تأكيد</a>
+
+            </div>
+        </div>
+    </div>
+</div>
 <div class="billlist" >
     <div class="detil_counter_rowone">
                 <div class="newcounterBox ReportMess5">
@@ -60,6 +87,8 @@
           <div id="loading">
               <div id="loader"></div><br />
               <h3 style="color:#007fc3;font-weight:bold">شركة الكهرباء الأردنية  </h3>
+                            <h4 style="color:#007fc3;font-weight:bold">الرجاء الأنتظار  </h4>
+
   <%--<img id="loading-image" src="/App_Themes/ThemeAr/img/Dual Ring-1s-200px (3).gif" alt="Loading..." style="width:200px;height:200px" />--%>
 </div>
         <style>
@@ -132,9 +161,8 @@
 	100% {transform: rotate(360deg);}
 }
         </style>
-
+ 
 <script>
-
     $(window).on('load', function () {
         $('#loading').hide();
     });
@@ -166,10 +194,10 @@
                 $.each(ArrayFile, function (key, value) {
                     console.log(key, " : ", value);
                     i++;
-                    var html1 = "<li><div class='row'><div class='col-xs-6 col-sm-6 col-md-4'><h4>التسمية : </h4><span class='LTR'>"+value.aliasName+"</span></div>";
-                    var html2 = "<div class='col-xs-6 col-sm-6 col-md-4'><h4> رقم الملف : </h4><span class='LTR'>"+value.fileNumber+"</span></div>";
-                    var html3 = "<div class='col-xs-6 col-sm-6 col-md-2'><a href='#' data-filename='"+ value.fileNumber +"' class='btn btn-primary update-link btn-update'>تعديل </a></div>";
-                    var html4 = "<div class='col-xs-6 col-sm-6 col-md-2'><button type='button' class='btn btn-danger btn-update'>حذف </button></div></div></li>";
+                    var html1 = "<li><div class='row'><div class='col-xs-6 col-sm-6 col-md-4'><h4>التسمية : </h4><span class='LTR'>" + value.aliasName + "</span></div>";
+                    var html2 = "<div class='col-xs-6 col-sm-6 col-md-4'><h4> رقم المرجعي : </h4><span class='LTR'>" + value.fileNumber + "</span></div>";
+                    var html3 = "<div class='col-xs-6 col-sm-6 col-md-2'><a href='#' data-filename='" + value.fileNumber + "' class='btn btn-primary update-link btn-update'>تعديل </a></div>";
+                    var html4 = "<div class='col-xs-6 col-sm-6 col-md-2'><button data-filename='" + value.fileNumber + "'  type='button' class='btn-delete btn btn-danger btn-update'>حذف </button></div></div></li>";
 
                     $(".list-bill").append(html1 + html2 + html3 + html4);
                 })
@@ -190,14 +218,50 @@
 
 
         })
+
+        $(".btn-delete").click(function () {
+            console.log("file : ", $(this).data("filename"))
+            var filePopup = $(this).data("filename");
+            $(".modal-delete").modal("show")
+
+            $(".conf-delete").click(function () {
+                $.ajax({
+                    type: "POST",
+                    url: APIUrl + "CustomerInformationDetails/RemoveCustomerInformationDetail",
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("MiddlewareToken"));
+                    },
+                    data: JSON.stringify({
+                        MobileNumber: MobileNoURL,
+                        LanguageId: "AR",
+                        fileNumber: filePopup
+
+                    }),
+                    contentType: "application/json; charset=utf-8",
+                    async: false,
+                    success: function (data) {
+                        console.log(data)
+                    },
+                    error: function (err) {
+                        console.log(err);
+                    }
+                })
+            })
+        })
+
+   
     })
 
 
- 
+
 </script>
 
 
 <style>
+    .modal-body {
+        background: #fff !important;
+        padding: 30px 0 !important;
+    }
     .newcounter1 {
         background: #007fc3;
     }

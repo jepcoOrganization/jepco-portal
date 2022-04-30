@@ -1016,6 +1016,7 @@ Thank you for Subscription.
           <div id="loading">
               <div id="loader"></div><br />
               <h3 style="color:#007fc3;font-weight:bold">شركة الكهرباء الأردنية  </h3>
+              <h4 style="color:#007fc3;font-weight:bold">الرجاء الأنتظار  </h4>
   <%--<img id="loading-image" src="/App_Themes/ThemeAr/img/Dual Ring-1s-200px (3).gif" alt="Loading..." style="width:200px;height:200px" />--%>
 </div>
         <style>
@@ -1609,7 +1610,7 @@ Thank you for Subscription.
                     var LiHtmlDatas = GetFileDetialList(value, DetialList);
                     var Countdata = parseFloat(LiHtmlDatas[1]) - 1;
 
-                    var Stringh5 = "<h5> متوفر لديك عدد " + Countdata + " عدادات في " + value + " مسجلة <a href='/*" + domainName+"*/ar/Home/addFile' class='aheffuncation addFile'>اضافة/ تعديل رقم عداد</a></h5>";
+                    var Stringh5 = "<h5> متوفر لديك عدد " + Countdata + " عدادات في " + value + " مسجلة <a href='/ar/Home/addFile' class='aheffuncation addFile'>اضافة/ تعديل رقم عداد</a></h5>";
                     // var Stringh5 = "<h5> " + value + " لديك عدد " + Countdata + " عدادات في   <a class='aheffuncation'>اضافة/ تعديل رقم عداد</a></h5>";
                     var HtmlScroolingdivHRD = "<div class='content demo-y'>";
                     var StringUI = "<ul class='list-unstyled'>";

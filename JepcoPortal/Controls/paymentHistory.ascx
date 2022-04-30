@@ -94,6 +94,8 @@
           <div id="loading">
               <div id="loader"></div><br />
               <h3 style="color:#007fc3;font-weight:bold">شركة الكهرباء الأردنية  </h3>
+                            <h4 style="color:#007fc3;font-weight:bold">الرجاء الأنتظار  </h4>
+
   <%--<img id="loading-image" src="/App_Themes/ThemeAr/img/Dual Ring-1s-200px (3).gif" alt="Loading..." style="width:200px;height:200px" />--%>
 </div>
         <style>
@@ -251,27 +253,27 @@
                     //var htmlContent4 = "<td><label  style='font-size: 15px;'> " + value.amount+" د.أ </label></td></tr></tbody></table>";
 
                     //var concat = htmlHeader + htmlContent + htmlContent2 + htmlContent3 + htmlContent4;
-                    
+
                 })
                 $.each(unique(arrayDate), function (index, value) {
                     var count = 1;
                     var htmlHeader = "<div class='col-lg-12 col-sm-12 col-md-12'><div class='billnum'><h2 class='billno'>" + value + "</h2></div></div>";
-                    var htmlContent = "<table class='table table-hover table-responsive table-success'><thead><tr><th></th><th> الإسم المختصر</th><th> تاريخ الدفع </th><th> رقم الحركة </th><th>القيمة</th><th></th></tr></thead><tbody class='inner-body"+i+"'>";
+                    var htmlContent = "<table class='table table-hover table-responsive table-success'><thead><tr><th></th><th> الإسم المختصر</th><th> تاريخ الدفع </th><th> رقم الحركة </th><th>القيمة</th><th></th></tr></thead><tbody class='inner-body" + i + "'>";
                     var htmlContent1 = "</tbody></table>"
                     $(".inner-js").append(htmlHeader + htmlContent + htmlContent1);
                     $.each(allArray, function (key, temp) {
                         if (value == temp.difDate) {
                             var x = temp.date.split("T");
-                            var htmlContent2 = "<tr class='btn-modal' data-billNo='"+ key +"'><td>" + count++ + "</td><td><label  style='font-size: 15px;'>" + temp.name + "</label></td>";
+                            var htmlContent2 = "<tr class='btn-modal' data-billNo='" + key + "'><td>" + count++ + "</td><td><label  style='font-size: 15px;'>" + temp.name + "</label></td>";
                             var htmlContent3 = "<td><label style='font-size: 15px'>" + x[0] + "/" + x[1].split(".")[0] + "</label></td><td><label style='font-size: 15px;'>" + temp.transaction + "</label></td>";
                             var htmlContent4 = "<td><label  style='font-size: 15px;'> " + temp.amount + " د.أ </label></td><td><button type='button' class='btn btn-primary det'> تفاصيل الدفعة</button></td></tr>";
 
                             var concatChild1 = htmlContent2 + htmlContent3 + htmlContent4;
-                            $(".inner-body" + i +"").append(concatChild1);
+                            $(".inner-body" + i + "").append(concatChild1);
 
                         }
                     })
-                    
+
                     i++;
 
                 })
@@ -308,7 +310,7 @@
             }
 
             $(".bill-parnet").empty()
-        
+
             $("#transaction").text(selctedArray.transaction)
             $("#fileNumberPopup").text(selctedArray.fileNumber)
             $("#amount").text(selctedArray.amount + " د.أ ")

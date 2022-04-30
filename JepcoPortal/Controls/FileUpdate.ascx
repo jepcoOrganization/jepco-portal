@@ -17,7 +17,7 @@
             </div>
             <div class="modal-footer">
                 <%--<button id="SubmitFillCall"  >Save</button>--%>
-                <a href="/ar/Home" class="btn btn-primary" id="" style="width: 100%;padding: 20px;font-size: 20px;" >موافق</a>
+                <a href="/ar/Home/Subscriptions" class="btn btn-primary" id="" style="width: 100%;padding: 20px;font-size: 20px;" >موافق</a>
 
             </div>
         </div>
@@ -292,7 +292,7 @@
                     </div>
 </div>
 
-                               <input type="button" name="next" class=" action-button submit submitAdd " value="أضافة" />
+                               <input type="button" name="next" class=" action-button submit submitAdd " value="تعديل" />
                             <input type="button" name="previous" class="previous action-button-previous" value="السابق" />
 
                           </fieldset>
@@ -357,6 +357,8 @@
           <div id="loading">
               <div id="loader"></div><br />
               <h3 style="color:#007fc3;font-weight:bold">شركة الكهرباء الأردنية  </h3>
+                            <h4 style="color:#007fc3;font-weight:bold">الرجاء الأنتظار  </h4>
+
   <%--<img id="loading-image" src="/App_Themes/ThemeAr/img/Dual Ring-1s-200px (3).gif" alt="Loading..." style="width:200px;height:200px" />--%>
 </div>
         <style>
@@ -429,144 +431,10 @@
 	100% {transform: rotate(360deg);}
 }
         </style>
-
+ 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maps.google.com/maps/api/js?key=AIzaSyA7f_t2Ccx3tdV_Mz2pT0zdVioGU6SiKS4&callback=initAutocomplete&libraries=places&v=weekly"></script>
 
-<script>
-
-    $(window).on('load', function () {
-        $('#loading').hide();
-    });
-
-     /* saddasdsadas */
-    var lati = $("#<%=lblLatitude.ClientID%>").val();
-    var lang = $("#<%=lblLongiude.ClientID%>").val();
-
-    document.getElementById('latlbl').innerHTML = lati;
-    document.getElementById('lonlbl').innerHTML = lang;
-
-    var map;
-    function initialize() {
-        var myLatlng = new google.maps.LatLng(lati, lang);
-        var myOptions = {
-            zoom: 7,
-            center: myLatlng,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        }
-        map = new google.maps.Map(document.getElementById("gmap"), myOptions);
-        // marker refers to a global variable
-        /*  marker = new google.maps.Marker({
-              position: myLatlng,
-              map: map
-  
-          });*/
-        const input = document.getElementById("pac-input");
-        const searchBox = new google.maps.places.SearchBox(input);
-        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-
-        map.addListener("bounds_changed", () => {
-            searchBox.setBounds(map.getBounds());
-        });
-        let markers = [];
-
-        searchBox.addListener("places_changed", () => {
-            const places = searchBox.getPlaces();
-
-            if (places.length == 0) {
-                return;
-            }
-
-            // Clear out the old markers.
-            markers.forEach((marker) => {
-                marker.setMap(null);
-            });
-
-
-            // For each place, get the icon, name and location.
-            const bounds = new google.maps.LatLngBounds();
-
-            places.forEach((place) => {
-
-                document.getElementById('latlbl').innerHTML = place.geometry.location.lat();
-                document.getElementById('lonlbl').innerHTML = place.geometry.location.lng();
-
-
-                $('#<%=lblLatitude.ClientID %>').val(place.geometry.location.lat());
-                $('#<%=lblLongiude.ClientID %>').val(place.geometry.location.lng());
-
-                if (!place.geometry || !place.geometry.location) {
-                    console.log("Returned place contains no geometry");
-                    return;
-                }
-
-                const icon = {
-                    url: place.icon,
-                    size: new google.maps.Size(71, 71),
-                    origin: new google.maps.Point(0, 0),
-                    anchor: new google.maps.Point(17, 34),
-                    scaledSize: new google.maps.Size(25, 25),
-                };
-
-                // Create a marker for each place.
-                markers.push(
-                    new google.maps.Marker({
-                        map,
-                        title: place.name,
-                        position: place.geometry.location,
-                    })
-                );
-                if (place.geometry.viewport) {
-                    // Only geocodes have viewport.
-                    bounds.union(place.geometry.viewport);
-                } else {
-                    bounds.extend(place.geometry.location);
-                }
-            });
-            map.fitBounds(bounds);
-
-
-        });
-
-
-
-        google.maps.event.addListener(map, "click", function (event) {
-            // get lat/lon of click
-            var clickLat = event.latLng.lat();
-            var clickLon = event.latLng.lng();
-             
-            markers.forEach((marker) => {
-                marker.setMap(null);
-            });
-
-            // show in input box
-            //document.getElementById("lat").value = clickLat.toFixed(5);
-            //document.getElementById("lon").value = clickLon.toFixed(5);
-
-            document.getElementById('latlbl').innerHTML = clickLat.toFixed(5);
-            document.getElementById('lonlbl').innerHTML = clickLon.toFixed(5);
-
-
-
-            $('#<%=lblLatitude.ClientID %>').val(clickLat.toFixed(5));
-            $('#<%=lblLongiude.ClientID %>').val(clickLon.toFixed(5));
-            markers.push(
-                new google.maps.Marker({
-                    map,
-                    position: new google.maps.LatLng(clickLat, clickLon),
-                })
-            );
-
-            /* var marker = new google.maps.Marker({
-                 position: new google.maps.LatLng(clickLat, clickLon),
-                 map: map
-             });*/
-        });
-    }
-
-    window.onload = function () { initialize() };
-
-</script>
 <%-- New Api For Complain  :  --%>
 <script>    
     var APIUrl = '<%= System.Configuration.ConfigurationManager.AppSettings["APIurl"].ToString() %>';
@@ -617,7 +485,8 @@
     var DisabledNeighbrhood = "";
     var DisabledStreat = "";
 
-
+    var lonFAPI = null;
+    var latFAPI = null;
 
     var BranchId;
     var AreaId;
@@ -654,9 +523,10 @@
     //} else {
 
     //}
+
     $(document).ready(function () {
 
-        
+
         /* Add disabled For input  */
         $('#<%= txtfirstName.ClientID %>').attr("disabled", "disabled");
         $('#<%= txtSecondNAme.ClientID %>').attr("disabled", "disabled");
@@ -757,14 +627,14 @@
                 console.log(data)
                 aliasNameFromApi = data.body.aliasName;
                 arrayAddressAPI = data.body.fileNumberAddressesDetail;
-                APIId = arrayAddressAPI.id;
+                APIId = data.id;
             },
             error: function (err) {
                 console.log(err);
             }
         })
 
-      
+
 
 
         $("#aliasName").val(aliasNameFromApi)
@@ -813,177 +683,177 @@
 
         if (arrayAddressAPI == undefined) {
 
-        $.ajax({
-            type: "POST",
-            url: APIUrl + "Complaints/GetCallCenterProviance",
-            beforeSend: function (xhr) {
-                xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("MiddlewareToken"));
-            },
-            //data: JSON.stringify({
-            //    MobileNumber: MobileNoURL,
-            //    LanguageId: "AR"
-            //}),
-            contentType: "application/json; charset=utf-8",
-            async: false,
-            success: function (data) {
-                $.each(data.body, function (key, value) {
-                    var htmlBox = "<option value='" + value.codeId + "'>" + value.codeName + "</option>"
-                    $(".city-select").append(htmlBox);
-                })
-            },
-            error: function (err) {
-                console.log(err);
-            }
-        })
+            $.ajax({
+                type: "POST",
+                url: APIUrl + "Complaints/GetCallCenterProviance",
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("MiddlewareToken"));
+                },
+                //data: JSON.stringify({
+                //    MobileNumber: MobileNoURL,
+                //    LanguageId: "AR"
+                //}),
+                contentType: "application/json; charset=utf-8",
+                async: false,
+                success: function (data) {
+                    $.each(data.body, function (key, value) {
+                        var htmlBox = "<option value='" + value.codeId + "'>" + value.codeName + "</option>"
+                        $(".city-select").append(htmlBox);
+                    })
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            })
 
-        $(".city-select").on("change", function () {
-            BranchId = Number(this.value);
-            ProvinceName = $(this).find('option:selected').text();
-            ProvinceId = this.value;
+            $(".city-select").on("change", function () {
+                BranchId = Number(this.value);
+                ProvinceName = $(this).find('option:selected').text();
+                ProvinceId = this.value;
 
-            if (this.value == 0) {
-                validationCity = false;
-            } else {
-                validationCity = true
-            }
+                if (this.value == 0) {
+                    validationCity = false;
+                } else {
+                    validationCity = true
+                }
 
-            if (BranchId != 0) {
-                $.ajax({
-                    type: "POST",
-                    url: APIUrl + "Complaints/GetCallCenterAreas",
-                    beforeSend: function (xhr) {
-                        xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("MiddlewareToken"));
-                    },
-                    data: JSON.stringify({
-                        BranchId: BranchId,
-                        LanguageId: "AR"
-                    }),
-                    contentType: "application/json; charset=utf-8",
-                    async: false,
-                    success: function (data) {
-                        $(".areas-select").empty()
-                        $(".areas-select").append("<option value='0'>أختيار المنطقة</option>");
+                if (BranchId != 0) {
+                    $.ajax({
+                        type: "POST",
+                        url: APIUrl + "Complaints/GetCallCenterAreas",
+                        beforeSend: function (xhr) {
+                            xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("MiddlewareToken"));
+                        },
+                        data: JSON.stringify({
+                            BranchId: BranchId,
+                            LanguageId: "AR"
+                        }),
+                        contentType: "application/json; charset=utf-8",
+                        async: false,
+                        success: function (data) {
+                            $(".areas-select").empty()
+                            $(".areas-select").append("<option value='0'>أختيار المنطقة</option>");
 
-                        $.each(data.body, function (key, value) {
-                            var htmlBox = "<option value='" + value.codeId + "' >" + value.codeName + "</option >"
-                            $(".areas-select").append(htmlBox);
-                        })
+                            $.each(data.body, function (key, value) {
+                                var htmlBox = "<option value='" + value.codeId + "' >" + value.codeName + "</option >"
+                                $(".areas-select").append(htmlBox);
+                            })
 
-                    },
-                    error: function (err) {
-                        console.log(err);
-                    }
-                })
-            }
-            if ($(".areas-select").val() == 0) {
-                validationArea = false
-            } else {
-                validationArea = true
-            }
-        })
-
-
-        $(".areas-select").on("change", function () {
-            AreaId = Number(this.value);
-            AreaIdLast = this.value;
-            AreaNameLast = $(this).find('option:selected').text();
+                        },
+                        error: function (err) {
+                            console.log(err);
+                        }
+                    })
+                }
+                if ($(".areas-select").val() == 0) {
+                    validationArea = false
+                } else {
+                    validationArea = true
+                }
+            })
 
 
-            if (this.value == 0) {
-                validationArea = false
-            } else {
-                validationArea = true
-            }
+            $(".areas-select").on("change", function () {
+                AreaId = Number(this.value);
+                AreaIdLast = this.value;
+                AreaNameLast = $(this).find('option:selected').text();
 
 
-            if (AreaId != 0) {
-                $.ajax({
-                    type: "POST",
-                    url: APIUrl + "Complaints/GetCallCenterNeighborhood",
-                    beforeSend: function (xhr) {
-                        xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("MiddlewareToken"));
-                    },
-                    data: JSON.stringify({
-                        BranchId: BranchId,
-                        AreaId: AreaId,
-                        LanguageId: "AR"
-                    }),
-                    contentType: "application/json; charset=utf-8",
-                    async: false,
-                    success: function (data) {
-                        $(".neighborhoods-select").empty()
-                        $(".neighborhoods-select").append("<option value='0'>أختيار الحي</option>");
-                        $.each(data.body, function (key, value) {
-                            var htmlBox = "<option value='" + value.codeId + "'>" + value.codeName + "</option>"
-                            $(".neighborhoods-select").append(htmlBox);
-                        })
-
-                    },
-                    error: function (err) {
-                        console.log(err);
-                    }
-                })
-            }
-
-            if ($(".neighborhoods-select").val() == 0) {
+                if (this.value == 0) {
+                    validationArea = false
+                } else {
+                    validationArea = true
+                }
 
 
-                validationNeigh = false
-            } else {
-                validationNeigh = true
-            }
-        })
+                if (AreaId != 0) {
+                    $.ajax({
+                        type: "POST",
+                        url: APIUrl + "Complaints/GetCallCenterNeighborhood",
+                        beforeSend: function (xhr) {
+                            xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("MiddlewareToken"));
+                        },
+                        data: JSON.stringify({
+                            BranchId: BranchId,
+                            AreaId: AreaId,
+                            LanguageId: "AR"
+                        }),
+                        contentType: "application/json; charset=utf-8",
+                        async: false,
+                        success: function (data) {
+                            $(".neighborhoods-select").empty()
+                            $(".neighborhoods-select").append("<option value='0'>أختيار الحي</option>");
+                            $.each(data.body, function (key, value) {
+                                var htmlBox = "<option value='" + value.codeId + "'>" + value.codeName + "</option>"
+                                $(".neighborhoods-select").append(htmlBox);
+                            })
+
+                        },
+                        error: function (err) {
+                            console.log(err);
+                        }
+                    })
+                }
+
+                if ($(".neighborhoods-select").val() == 0) {
 
 
-        $(".neighborhoods-select").on("change", function () {
-            NeighborhoodId = Number(this.value);
-            NeighborhoodNameLast = $(this).find('option:selected').text();
-            NeighborhoodIdLast = this.value;
-            if (this.value == 0) {
-                validationNeigh = false
-            } else {
-                validationNeigh = true
-            }
+                    validationNeigh = false
+                } else {
+                    validationNeigh = true
+                }
+            })
 
-            if (NeighborhoodId != 0) {
-                $.ajax({
-                    type: "POST",
-                    url: APIUrl + "Complaints/GetCallCenterStreets",
-                    beforeSend: function (xhr) {
-                        xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("MiddlewareToken"));
-                    },
-                    data: JSON.stringify({
-                        BranchId: BranchId,
-                        AreaId: AreaId,
-                        NeighborhoodId: NeighborhoodId,
-                        LanguageId: "AR"
-                    }),
-                    contentType: "application/json; charset=utf-8",
-                    async: false,
-                    success: function (data) {
-                        $(".street-select").empty()
-                        $(".street-select").append("<option value='0'>أختيار الشارع</option>");
-                        $.each(data.body, function (key, value) {
-                            var htmlBox = "<option value='" + value.codeId + "'>" + value.codeName + "</option>"
-                            $(".street-select").append(htmlBox);
-                        })
 
-                    },
-                    error: function (err) {
-                        console.log(err);
-                    }
-                })
-            }
+            $(".neighborhoods-select").on("change", function () {
+                NeighborhoodId = Number(this.value);
+                NeighborhoodNameLast = $(this).find('option:selected').text();
+                NeighborhoodIdLast = this.value;
+                if (this.value == 0) {
+                    validationNeigh = false
+                } else {
+                    validationNeigh = true
+                }
 
-        })
-        $(".street-select").on("change", function () {
-            StreetIdLast = this.value;
-            StreetNameLast = $(this).find('option:selected').text();
-        })
+                if (NeighborhoodId != 0) {
+                    $.ajax({
+                        type: "POST",
+                        url: APIUrl + "Complaints/GetCallCenterStreets",
+                        beforeSend: function (xhr) {
+                            xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("MiddlewareToken"));
+                        },
+                        data: JSON.stringify({
+                            BranchId: BranchId,
+                            AreaId: AreaId,
+                            NeighborhoodId: NeighborhoodId,
+                            LanguageId: "AR"
+                        }),
+                        contentType: "application/json; charset=utf-8",
+                        async: false,
+                        success: function (data) {
+                            $(".street-select").empty()
+                            $(".street-select").append("<option value='0'>أختيار الشارع</option>");
+                            $.each(data.body, function (key, value) {
+                                var htmlBox = "<option value='" + value.codeId + "'>" + value.codeName + "</option>"
+                                $(".street-select").append(htmlBox);
+                            })
+
+                        },
+                        error: function (err) {
+                            console.log(err);
+                        }
+                    })
+                }
+
+            })
+            $(".street-select").on("change", function () {
+                StreetIdLast = this.value;
+                StreetNameLast = $(this).find('option:selected').text();
+            })
         }
 
         console.log("arrat : ", arrayAddressAPI)
-       
+
         if (arrayAddressAPI != undefined) {
             ProvinceId = arrayAddressAPI.provinceId;
             ProvinceName = arrayAddressAPI.provinceName;
@@ -991,7 +861,9 @@
             AreaNameLast = arrayAddressAPI.areaName;
             NeighborhoodIdLast = arrayAddressAPI.neighborhoodId;
             NeighborhoodNameLast = arrayAddressAPI.neighborhoodName;
-
+            addressDetails = arrayAddressAPI.addressDetails;
+            latFAPI = arrayAddressAPI.latt;
+            lonFAPI = arrayAddressAPI.long;
             console.log("esss", ProvinceId)
             console.log("esss", AreaIdLast)
             console.log("esss", NeighborhoodIdLast)
@@ -1000,7 +872,7 @@
             validationArea = true;
             validationNeigh = true;
 
-
+            $('#<%= txtComplianTitle.ClientID %>').val(addressDetails)
 
             $.ajax({
                 type: "POST",
@@ -2061,6 +1933,174 @@ input::-webkit-inner-spin-button {
     margin-right: 0 !important;
 }
 </style>
+<script>
+
+    $(window).on('load', function () {
+        $('#loading').hide();
+    });
+    /* saddasdsadas */
+    $(document).ready(function () {
+
+        var lati = $("#<%=lblLatitude.ClientID%>").val();
+        var lang = $("#<%=lblLongiude.ClientID%>").val();
+        document.getElementById('latlbl').innerHTML = lati;
+        document.getElementById('lonlbl').innerHTML = lang;
+
+        if (lonFAPI != null && latFAPI != null) {
+            lati = latFAPI;
+            lang = lonFAPI;
+            console.log("s", lati)
+            console.log("s", lang)
+            document.getElementById('latlbl').innerHTML = latFAPI;
+            document.getElementById('lonlbl').innerHTML = lonFAPI;
+        }
+
+        var map;
+        var myOptions;
+        function initialize() {
+            let markers = [];
+
+            var myLatlng = null;
+            if (lonFAPI != null && latFAPI != null) {
+                console.log("true :")
+                myLatlng = new google.maps.LatLng(latFAPI, lonFAPI);
+                myOptions = {
+                    zoom: 15,
+                    center: myLatlng,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                }
+            } else {
+                console.log("false")
+                myLatlng = new google.maps.LatLng(lati, lang)
+                myOptions = {
+                    zoom: 7,
+                    center: myLatlng,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                }
+            }
+
+            map = new google.maps.Map(document.getElementById("gmap"), myOptions);
+            // Clear out the old markers.
+  
+            // marker refers to a global variable
+            markers.push(
+                new google.maps.Marker({
+                  position: myLatlng,
+                  map: map
+      
+            })
+            )
+            // Clear out the old markers.
+
+            const input = document.getElementById("pac-input");
+            const searchBox = new google.maps.places.SearchBox(input);
+            map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+            map.addListener("bounds_changed", () => {
+                searchBox.setBounds(map.getBounds());
+
+            });
+
+            searchBox.addListener("places_changed", () => {
+                const places = searchBox.getPlaces();
+
+                if (places.length == 0) {
+                    return;
+                }
+
+                // Clear out the old markers.
+                markers.forEach((marker) => {
+                    marker.setMap(null);
+                });
+
+
+                // For each place, get the icon, name and location.
+                const bounds = new google.maps.LatLngBounds();
+
+                places.forEach((place) => {
+
+                    document.getElementById('latlbl').innerHTML = place.geometry.location.lat();
+                    document.getElementById('lonlbl').innerHTML = place.geometry.location.lng();
+
+
+                    $('#<%=lblLatitude.ClientID %>').val(place.geometry.location.lat());
+                $('#<%=lblLongiude.ClientID %>').val(place.geometry.location.lng());
+
+                if (!place.geometry || !place.geometry.location) {
+                    console.log("Returned place contains no geometry");
+                    return;
+                }
+
+                const icon = {
+                    url: place.icon,
+                    size: new google.maps.Size(71, 71),
+                    origin: new google.maps.Point(0, 0),
+                    anchor: new google.maps.Point(17, 34),
+                    scaledSize: new google.maps.Size(25, 25),
+                };
+
+                // Create a marker for each place.
+                markers.push(
+                    new google.maps.Marker({
+                        map,
+                        title: place.name,
+                        position: place.geometry.location,
+                    })
+                );
+                if (place.geometry.viewport) {
+                    // Only geocodes have viewport.
+                    bounds.union(place.geometry.viewport);
+                } else {
+                    bounds.extend(place.geometry.location);
+                }
+            });
+            map.fitBounds(bounds);
+
+
+        });
+
+
+
+        google.maps.event.addListener(map, "click", function (event) {
+
+            var clickLat = event.latLng.lat();
+            var clickLon = event.latLng.lng();
+
+            markers.forEach((marker) => {
+                marker.setMap(null);
+            });
+
+            // show in input box
+            //document.getElementById("lat").value = clickLat.toFixed(5);
+            //document.getElementById("lon").value = clickLon.toFixed(5);
+
+            document.getElementById('latlbl').innerHTML = clickLat.toFixed(5);
+            document.getElementById('lonlbl').innerHTML = clickLon.toFixed(5);
+
+
+
+            $('#<%=lblLatitude.ClientID %>').val(clickLat.toFixed(5));
+            $('#<%=lblLongiude.ClientID %>').val(clickLon.toFixed(5));
+            markers.push(
+                new google.maps.Marker({
+                    map,
+                    position: new google.maps.LatLng(clickLat, clickLon),
+                })
+            );
+
+            /* var marker = new google.maps.Marker({
+                 position: new google.maps.LatLng(clickLat, clickLon),
+                 map: map
+             });*/
+        });
+        }
+
+        window.onload = function () { initialize() };
+    })
+
+
+
+</script>
 
 <script type="text/javascript">
     $("document").ready(function () {
@@ -2529,6 +2569,8 @@ input::-webkit-inner-spin-button {
              }
 
     });
+
+
 
     $("#refNumber").val(GetFileNo)
     $('#refNumber').css("background-color", "#eee");

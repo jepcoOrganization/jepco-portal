@@ -243,6 +243,8 @@
           <div id="loading">
               <div id="loader"></div><br />
               <h3 style="color:#007fc3;font-weight:bold">شركة الكهرباء الأردنية  </h3>
+                            <h4 style="color:#007fc3;font-weight:bold">الرجاء الأنتظار  </h4>
+
   <%--<img id="loading-image" src="/App_Themes/ThemeAr/img/Dual Ring-1s-200px (3).gif" alt="Loading..." style="width:200px;height:200px" />--%>
 </div>
         <style>
@@ -317,7 +319,6 @@
         </style>
 
 <script>
-
     $(window).on('load', function () {
         $('#loading').hide();
     });
@@ -443,6 +444,7 @@
             contentType: "application/json; charset=utf-8",
             async: false,
             success: function (data) {
+                
                 if (data.statusCode = "Success") {
 
                     receivablePaymentAmount = data.body.header.receivablePaymentAmount;
@@ -469,7 +471,7 @@
                     $("#fileNumber").text(fileNumber);
                     $("#contractNo").text(contractNo);
                     $("#advPayment").text(advPayment);
-                    $("#t-reciviable").text(totalReciviable);
+                    $("#t-reciviable").text(receivablePaymentAmount);
 
                     if ((arrayBill).length > 0) {
                         $.each(arrayBill, function (key, value) {
@@ -665,106 +667,106 @@
 
 
             }
-        
+
 
         })
-  
+
         $("#button-payment").click(function (e) {
-                e.preventDefault();
+            e.preventDefault();
 
 
-                //var allow = true;
+            //var allow = true;
 
-                //docArray.sort(function (a, b) {
-                //    return a.index - b.index;
-                //})
+            //docArray.sort(function (a, b) {
+            //    return a.index - b.index;
+            //})
 
-                //var current;
-                //var cnt = 0;
+            //var current;
+            //var cnt = 0;
 
-                //for (let k in docArray) {
+            //for (let k in docArray) {
 
-                //    if (cnt == 0) {
-                //        current = docArray[k].index;
-                //        console.log('t')
-                //        cnt++;
+            //    if (cnt == 0) {
+            //        current = docArray[k].index;
+            //        console.log('t')
+            //        cnt++;
 
-                //        continue;
-                //    }
-
-
-                //    if ((current + 1) == docArray[k].index) {
-                //        current = docArray[k].index;
-                //        cnt++;
-
-                //    } else {
-                //        //   alert('error');
-                //        allow = false
-                //        break;
-                //    }
-                //    console.log('2')
+            //        continue;
+            //    }
 
 
-                //}
-                //if (!allow) {
-                //    $(".err-box").show();
+            //    if ((current + 1) == docArray[k].index) {
+            //        current = docArray[k].index;
+            //        cnt++;
 
-                //} else {
-                //    var invoceList = '';
-                //    for (let k in docArray) {
-                //        if (docArray.length - 1 == k) {
-                //            invoceList += docArray[k].BillNumber;
-                //        } else {
-                //            invoceList += docArray[k].BillNumber + ',';
-                //        }
-
-                //    }
-                //    console.log(invoceList);
-                //    $('#txtEmail').val(invoceList)
-                //}
-
-                // get all selected invoce ids 
-                //in asp get all invoces and loop to get the aomount
+            //    } else {
+            //        //   alert('error');
+            //        allow = false
+            //        break;
+            //    }
+            //    console.log('2')
 
 
+            //}
+            //if (!allow) {
+            //    $(".err-box").show();
 
-                //    debugger;
-                $.ajax({
-                    url: APIUrl + 'PaymentOrderHeaders/ReturnPaymentSummary',
-                    type: 'POST',
-                    beforeSend: function (xhr) {
-                        xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("MiddlewareToken"));
-                    },
-                    data: JSON.stringify(
-                        {
-                            ReferenceNumber: fileNumber,
-                            ListOfDocument: docArray,
-                            PaymentSource: "1",
-                            Language: "AR",
-                            PaymentType: "bills",
-                            AllDocument: allDocumentSelected,
-                            PaymentGatewayId: "1",
-                            MobileNumber: phoneNumber
-                        }),
-                    dataType: "json",
-                    contentType: "application/json",
-                    async: false,
-                    success: function (res) {
+            //} else {
+            //    var invoceList = '';
+            //    for (let k in docArray) {
+            //        if (docArray.length - 1 == k) {
+            //            invoceList += docArray[k].BillNumber;
+            //        } else {
+            //            invoceList += docArray[k].BillNumber + ',';
+            //        }
 
-                            window.open(
-                                res.body.paymentWebPageURL,
-                                '_blank')
-                        //window.location.href = res.body.paymentWebPageURL;
+            //    }
+            //    console.log(invoceList);
+            //    $('#txtEmail').val(invoceList)
+            //}
 
-                    },
-                    error: function (err) {
-                        console.log(err);
-                    }
+            // get all selected invoce ids 
+            //in asp get all invoces and loop to get the aomount
 
-                })
-            });
+
+
+            //    debugger;
+            $.ajax({
+                url: APIUrl + 'PaymentOrderHeaders/ReturnPaymentSummary',
+                type: 'POST',
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("MiddlewareToken"));
+                },
+                data: JSON.stringify(
+                    {
+                        ReferenceNumber: fileNumber,
+                        ListOfDocument: docArray,
+                        PaymentSource: "1",
+                        Language: "AR",
+                        PaymentType: "bills",
+                        AllDocument: allDocumentSelected,
+                        PaymentGatewayId: "1",
+                        MobileNumber: phoneNumber
+                    }),
+                dataType: "json",
+                contentType: "application/json",
+                async: false,
+                success: function (res) {
+
+                    window.open(
+                        res.body.paymentWebPageURL,
+                        '_blank')
+                    //window.location.href = res.body.paymentWebPageURL;
+
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+
+            })
+        });
         //}
-        
+
         $("input[type='checkbox']").on("change", function () {
             if ($("input[type='checkbox']").is(":checked")) {
                 $("#paument-btn").removeAttr("disabled")

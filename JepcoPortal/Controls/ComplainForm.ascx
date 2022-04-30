@@ -324,7 +324,9 @@
                                  <div class="col-lg-12 col-md-12 col-sm-12">
                                     <div class="form-group">
                                         <label><span>*</span>تفاصيل العنوان ( رقم البناية رقم الشقة أقرب معلم ) </label>
-                                        <asp:TextBox ID="txtComplianTitle" runat="server" PlaceHolder="عنوان الشكوى "></asp:TextBox>
+                                        <asp:TextBox ID="txtComplianTitle" runat="server" PlaceHolder="عنوان الشكوى " CssClass="complain-address"></asp:TextBox>
+                                         <input type="text" class="complain-address-disabled" disabled>
+
                                     </div>
                                 </div>
                             </div>
@@ -444,6 +446,8 @@
           <div id="loading">
               <div id="loader"></div><br />
               <h3 style="color:#007fc3;font-weight:bold">شركة الكهرباء الأردنية  </h3>
+                            <h4 style="color:#007fc3;font-weight:bold">الرجاء الأنتظار  </h4>
+
   <%--<img id="loading-image" src="/App_Themes/ThemeAr/img/Dual Ring-1s-200px (3).gif" alt="Loading..." style="width:200px;height:200px" />--%>
 </div>
         <style>
@@ -516,7 +520,7 @@
 	100% {transform: rotate(360deg);}
 }
         </style>
-
+ 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maps.google.com/maps/api/js?key=AIzaSyA7f_t2Ccx3tdV_Mz2pT0zdVioGU6SiKS4&callback=initAutocomplete&libraries=places&v=weekly"></script>
 
@@ -566,27 +570,30 @@
     var meterNumberList = [];
     var arrayMeter = [];
 
+
+    var lonFAPI = null;
+    var latFAPI = null;
     /* ----------------------- Validation Variable ----------------------- */
     // section 1 : 
     var validComplainType = false;
     var valDamageType = false;
     var valMeterReq = false;
     // section 2 : 
-    var validationFname =true ;
-    var validationM1name = true ;
-    var validationM2name = true ;
-    var validationLname = true ;
-    var validationNatio =false ;
-    var validationTypeNatio =false ;
-    var validationDocNatio = true ;
-    var validationEmail = true ;
-    var validationPhone = true ;
-    var validationCity = false ;
-    var validationArea = false ;
-    var validationNeigh = false ;
-    var validationTrans = false ;
+    var validationFname = true;
+    var validationM1name = true;
+    var validationM2name = true;
+    var validationLname = true;
+    var validationNatio = false;
+    var validationTypeNatio = false;
+    var validationDocNatio = true;
+    var validationEmail = true;
+    var validationPhone = true;
+    var validationCity = false;
+    var validationArea = false;
+    var validationNeigh = false;
+    var validationTrans = false;
 
-
+    var addressPass = false;
     //if ($('#aioConceptName').find(":selected").text() == "0") {
 
     //} else {
@@ -607,7 +614,6 @@
             contentType: "application/json; charset=utf-8",
             async: false,
             success: function (data) {
-                console.log("data : ", data);
                 complainType = data.body.complanetTypeList;
                 damageType = data.body.failureTypesList;
                 meterNumberList = data.body.meterNumberList;
@@ -617,22 +623,22 @@
 
                 // for loop for complain type : 
                 $.each(complainType, function (key, value) {
-                                                        // value == codeId from API
+                    // value == codeId from API
                     var htmlComplainDropDown = "<option value='" + value.codeId + "'>" + value.codeName + "</option>";
                     $(".complain-type-select").append(htmlComplainDropDown);
                 })
 
                 // foor loop for damage type : 
                 $.each(damageType, function (key, value) {
-                                            // value == codeId from API
+                    // value == codeId from API
                     var htmlComplainDropDown = "<option value='" + value.codeId + "'>" + value.codeName + "</option>";
                     $(".damage-type-select").append(htmlComplainDropDown);
                 })
-                
+
                 // foor loop for meter Number List :
                 $.each(meterNumberList, function (key, value) {
-                                            // value == codeId from API
-                    var htmlComplainDropDown = "<option value='" + ++key + "' meter-num='"+value.meterNumber+"'>" + value.name + " : " + value.meterNumber +"</option>";
+                    // value == codeId from API
+                    var htmlComplainDropDown = "<option value='" + ++key + "' meter-num='" + value.meterNumber + "'>" + value.name + " : " + value.meterNumber + "</option>";
                     $(".meter-number-select").append(htmlComplainDropDown);
                 })
 
@@ -661,7 +667,7 @@
 
                         $(".damage-type").hide()
                         $(".meter-number-notreq").hide()
-   
+
                     }
 
                     if (this.value == 7) {
@@ -704,7 +710,7 @@
                     else if (this.value == 1) {
 
                         $(".nationalTypeDocument-select").empty()
-                        
+
                         $(".nationalTypeDocument-select").append("<option value='1'>هوية أحوال مدنية</option>");
                     } else {
                         $(".nationalTypeDocument-select").empty()
@@ -762,9 +768,9 @@
                     } else {
                         validationNatio = true;
                     }
-                })                    
+                })
                 $(".nationalTypeDocument-select").on("change", function () {
-                   // NationalityDoc = $(this).find('option:selected').text();
+                    // NationalityDoc = $(this).find('option:selected').text();
                     if (this.value == 0) {
                         validationTypeNatio = false;
                     } else {
@@ -799,7 +805,7 @@
             }
         });
 
-        
+
 
         $.ajax({
             type: "POST",
@@ -927,9 +933,9 @@
             NeighborhoodId = Number(this.value);
             NeighborhoodNameLast = $(this).find('option:selected').text();
             NeighborhoodIdLast = this.value;
-            if(this.value == 0){
+            if (this.value == 0) {
                 validationNeigh = false
-            }else {
+            } else {
                 validationNeigh = true
             }
 
@@ -974,138 +980,10 @@
     })
 
 
-    
-</script>
-
-<script>
-
-    var lati = $("#<%=lblLatitude.ClientID%>").val();
-    var lang = $("#<%=lblLongiude.ClientID%>").val();
-
-    document.getElementById('latlbl').innerHTML = lati;
-    document.getElementById('lonlbl').innerHTML = lang;
-
-    var map;
-    function initialize() {
-        var myLatlng = new google.maps.LatLng(lati, lang);
-        var myOptions = {
-            zoom: 7,
-            center: myLatlng,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        }
-        map = new google.maps.Map(document.getElementById("gmap"), myOptions);
-        // marker refers to a global variable
-        /*  marker = new google.maps.Marker({
-              position: myLatlng,
-              map: map
-  
-          });*/
-        const input = document.getElementById("pac-input");
-        const searchBox = new google.maps.places.SearchBox(input);
-        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-
-        map.addListener("bounds_changed", () => {
-            searchBox.setBounds(map.getBounds());
-        });
-        let markers = [];
-
-        searchBox.addListener("places_changed", () => {
-            const places = searchBox.getPlaces();
-
-            if (places.length == 0) {
-                return;
-            }
-
-            // Clear out the old markers.
-            markers.forEach((marker) => {
-                marker.setMap(null);
-            });
-
-
-            // For each place, get the icon, name and location.
-            const bounds = new google.maps.LatLngBounds();
-
-            places.forEach((place) => {
-
-                document.getElementById('latlbl').innerHTML = place.geometry.location.lat();
-                document.getElementById('lonlbl').innerHTML = place.geometry.location.lng();
-
-
-                $('#<%=lblLatitude.ClientID %>').val(place.geometry.location.lat());
-                $('#<%=lblLongiude.ClientID %>').val(place.geometry.location.lng());
-
-                if (!place.geometry || !place.geometry.location) {
-                    console.log("Returned place contains no geometry");
-                    return;
-                }
-
-                const icon = {
-                    url: place.icon,
-                    size: new google.maps.Size(71, 71),
-                    origin: new google.maps.Point(0, 0),
-                    anchor: new google.maps.Point(17, 34),
-                    scaledSize: new google.maps.Size(25, 25),
-                };
-
-                // Create a marker for each place.
-                markers.push(
-                    new google.maps.Marker({
-                        map,
-                        title: place.name,
-                        position: place.geometry.location,
-                    })
-                );
-                if (place.geometry.viewport) {
-                    // Only geocodes have viewport.
-                    bounds.union(place.geometry.viewport);
-                } else {
-                    bounds.extend(place.geometry.location);
-                }
-            });
-            map.fitBounds(bounds);
-
-
-        });
-
-
-
-        google.maps.event.addListener(map, "click", function (event) {
-            // get lat/lon of click
-            var clickLat = event.latLng.lat();
-            var clickLon = event.latLng.lng();
-             
-            markers.forEach((marker) => {
-                marker.setMap(null);
-            });
-
-            // show in input box
-            //document.getElementById("lat").value = clickLat.toFixed(5);
-            //document.getElementById("lon").value = clickLon.toFixed(5);
-
-            document.getElementById('latlbl').innerHTML = clickLat.toFixed(5);
-            document.getElementById('lonlbl').innerHTML = clickLon.toFixed(5);
-
-
-
-            $('#<%=lblLatitude.ClientID %>').val(clickLat.toFixed(5));
-            $('#<%=lblLongiude.ClientID %>').val(clickLon.toFixed(5));
-            markers.push(
-                new google.maps.Marker({
-                    map,
-                    position: new google.maps.LatLng(clickLat, clickLon),
-                })
-            );
-
-            /* var marker = new google.maps.Marker({
-                 position: new google.maps.LatLng(clickLat, clickLon),
-                 map: map
-             });*/
-        });
-    }
-
-    window.onload = function () { initialize() };
 
 </script>
+
+
 
 <script type="text/javascript">
 <%--    function SendClick() {
@@ -1283,7 +1161,7 @@
     $("#ddlAreas").append("<option value='0'>اختيار الجنسية</option>");
     $("#ddlAreas2").append("<option value='0'>اختيار الجنسية</option>");
     $("#ddlsteet").append("<option value='0'>اختيار الجنسية</option>");
-     
+
     $.ajax({
         type: "POST",
         contentType: "application/json; charset=utf-8",
@@ -1291,7 +1169,7 @@
         data: "{}",
         success: function (result) {
 
-             
+
             console.log(result);
             $("#ddlGeove").empty();
             $("#ddlGeove").append("<option value='0'>اختيار الجنسية</option>");
@@ -1322,7 +1200,7 @@
 
 
         var govidSelected = $('#ddlGeove').val();
-         
+
         $.ajax({
             //type: "POST",
             //contentType: "application/json; charset=utf-8",
@@ -1342,7 +1220,7 @@
 
             success: function (result) {
 
-                 
+
                 console.log(result);
 
 
@@ -1369,7 +1247,7 @@
 
         var areaidSelected = $('#ddlAreas').val();
         var govidSelected = $('#ddlGeove').val();
-         
+
         $.ajax({
 
             type: "POST",
@@ -1383,7 +1261,7 @@
 
             success: function (result) {
 
-                 
+
                 console.log(result);
 
 
@@ -1410,7 +1288,7 @@
 
         var area2idSelected = $('#ddlAreas2').val();
         var govidSelected = $('#ddlGeove').val();
-         
+
         $.ajax({
 
             type: "POST",
@@ -1424,7 +1302,7 @@
 
             success: function (result) {
 
-                 
+
                 console.log(result);
 
 
@@ -1448,7 +1326,9 @@
 </script>
 
 <style>
-
+    input.complain-address-disabled {
+    background: #eee !important;
+}
     /* new API Design  : */
     .damage-type{
         display:none 
@@ -2053,8 +1933,8 @@
                         $('#<%= transNumber.ClientID %>').css("border", "1px solid #e2e2e2");
                     }
                 }
-  
- 
+
+
                 //step1validResult = false;
                 //step1Valid();
 
@@ -2063,10 +1943,11 @@
                 //else {
                 //    return false;
                 //}
-                
+
                 $.each(arrayMeter, function (key, value) {
                     if (value.fileNumberAddressesData != undefined) {
                         if (value.meterNumber == MeterNumber) {
+                            
                             arrayAddress = value.fileNumberAddressesData;
                             ProvinceName = arrayAddress.provinceName;
                             ProvinceId = arrayAddress.provinceId;
@@ -2074,6 +1955,14 @@
                             AreaIdLast = arrayAddress.areaId;
                             NeighborhoodNameLast = arrayAddress.neighborhoodName;
                             NeighborhoodIdLast = arrayAddress.neighborhoodId;
+                            AddrssDetails = arrayAddress.addressDetails;
+
+
+                            lonFAPI = arrayAddress.long;
+                            latFAPI = arrayAddress.latt;
+
+                            console.log("s", lonFAPI)
+                            console.log("s1", latFAPI)
                             if (arrayAddress.streetName == undefined) {
                                 StreetNameLast = "";
                             } else {
@@ -2090,55 +1979,64 @@
                             $(".areas-select-disabled").show();
                             $(".neighborhoods-select-disabled").show();
                             $(".street-select-disabled").show();
+                            $(".complain-address-disabled").show();
 
                             $(".city-select-disabled").empty();
                             $(".areas-select-disabled").empty()
                             $(".neighborhoods-select-disabled").empty()
                             $(".street-select-disabled").empty();
+                            $(".complain-address-disabled").empty();
 
                             $(".city-select-disabled").append("<option value='" + value.provinceId + "'>" + ProvinceName + "</option>")
                             $(".areas-select-disabled").append("<option value='" + value.areaId + "'>" + AreaNameLast + "</option>");
                             $(".neighborhoods-select-disabled").append("<option value='" + value.neighborhoodId + "'>" + NeighborhoodNameLast + "</option>");
                             $(".street-select-disabled").append("<option>" + StreetNameLast + "</option>");
+                            $(".complain-address-disabled").val(AddrssDetails)
+
 
 
                             $(".city-select").hide()
                             $(".areas-select").hide();
                             $(".neighborhoods-select").hide();
                             $(".street-select").hide();
+                            $(".complain-address").hide();
 
-
+                          
+                            addressPass = true;
+                            return false;
                         } else {
                             $(".err-label").hide();
                             $(".city-select-disabled").hide()
                             $(".areas-select-disabled").hide();
                             $(".neighborhoods-select-disabled").hide();
                             $(".street-select-disabled").hide();
+                            $(".complain-address-disabled").hide();
 
                             $(".city-select").show()
                             $(".areas-select").show();
                             $(".neighborhoods-select").show();
                             $(".street-select").show();
+                            $(".complain-address").show();
 
                             $('.city-select').prop('selectedIndex', 0)
                             $('.areas-select').prop('selectedIndex', 0)
                             $('.neighborhoods-select').prop('selectedIndex', 0)
                             $('.street-select').prop('selectedIndex', 0)
                             arrayAddress = undefined
+                            addressPass = false;
 
                         }
                     } else {
                     }
                 })
 
-       
+
+
+
+
+
                 if ($(".complain-type-select").val() == "7" || $(".complain-type-select").val() == "8") {
-                    console.log("1 :", MobileNoURL)
-                    console.log("2 :", $(".complain-type-select").val())
-                    console.log("3 :", ProvinceId)
-                    console.log("4 :", AreaIdLast)
-                    console.log("5 :", NeighborhoodIdLast)
-                    console.log("6 :", MeterNumber)
+   
 
                     $.ajax({
                         type: "POST",
@@ -2158,7 +2056,7 @@
                         contentType: "application/json; charset=utf-8",
                         async: false,
                         success: function (data) {
-                            console.log("data 1 : ",data)
+                            console.log(data)
                         },
                         error: function (err) {
                             console.log("err2 : ", err.responseJSON.errors);
@@ -2168,6 +2066,22 @@
                         }
                     })
                 }
+                if ($('#<%= ddlNationality.ClientID %>').val() != null) {
+                    validationTypeNatio = true;
+                    validationNatio = true;
+                    $(".national-select").val($('#<%= ddlNationality.ClientID %>').val())
+                    $(".nationalTypeDocument-select").empty()
+                    $(".nationalTypeDocument-select").append("<option value='0'>يرجى اختيار الجنسية</option>");
+                    $(".nationalTypeDocument-select").append("<option value='1'>هوية أحوال مدنية</option>");
+                    $(".nationalTypeDocument-select").append("<option value='2'> جواز سفر</option><option value='3'>اقامة</option>");
+                    if ($('#<%= ddlNationality.ClientID %>').val() == 1) {
+
+                                        $(".nationalTypeDocument-select").val($('#<%= ddlNationality.ClientID %>').val());
+                                    } else {
+
+                                        $(".nationalTypeDocument-select").val(2);
+                                    }
+                                }
             }
 
             if (current == 2) {
@@ -2228,6 +2142,7 @@
                 }
 
 
+
                 requsterName = $('#<%= txtfirstName.ClientID %>').val() + " " + $('#<%= txtSecondNAme.ClientID %>').val() + " " +
                     $('#<%= txtThirdName.ClientID %>').val() + " " + $('#<%= txtFamilyName.ClientID %>').val();
                 NationalityNum = $('#<%= txtDocumnetNo.ClientID %>').val();
@@ -2267,16 +2182,18 @@
                     $('.neighborhoods-select').css("border", "1px solid #e2e2e2");
                 }
                 }
+                if (addressPass != true) {
+                    if ($('#<%= txtComplianTitle.ClientID %>').val().trim() != '') {
 
-                if ($('#<%= txtComplianTitle.ClientID %>').val().trim() != '') {
-
-                    $('#<%= txtComplianTitle.ClientID %>').css('border', 'none');
+                        $('#<%= txtComplianTitle.ClientID %>').css('border', 'none');
                 }
                 else {
                     $('#<%= txtComplianTitle.ClientID %>').css('border', '1px solid red');
                     return false;
-                    }
-                AddrssDetails = $('#<%= txtComplianTitle.ClientID %>').val();
+                }
+                    AddrssDetails = $('#<%= txtComplianTitle.ClientID %>').val();
+                }
+
 
 
                 if ($(".complain-type-select").val() == "1" || $(".complain-type-select").val() == "5") {
@@ -2301,7 +2218,7 @@
                         contentType: "application/json; charset=utf-8",
                         async: false,
                         success: function (data) {
-                            console.log("data 2 :",data)
+                            console.log(data)
                         },
                         error: function (err) {
                             console.log("err1 : ", err.responseJSON.errors);
@@ -2312,6 +2229,12 @@
                         }
                     })
                 }
+
+
+
+
+
+      
             }
 
 
@@ -2640,6 +2563,166 @@
              }
 
     });
+    $(".meter-number-select").on("change", function () {
+        $(document).ready(function () {
+            var lati = $("#<%=lblLatitude.ClientID%>").val();
+                var lang = $("#<%=lblLongiude.ClientID%>").val();
+
+                document.getElementById('latlbl').innerHTML = lati;
+                document.getElementById('lonlbl').innerHTML = lang;
+
+                if (lonFAPI != null && latFAPI != null) {
+                    lati = latFAPI;
+                    lang = lonFAPI;
+                    console.log("s", lati)
+                    console.log("s", lang)
+                    document.getElementById('latlbl').innerHTML = latFAPI;
+                    document.getElementById('lonlbl').innerHTML = lonFAPI;
+                }
+
+                var map;
+                var myOptions;
+                function initialize() {
+                    let markers = [];
+
+                    var myLatlng = null;
+                    if (lonFAPI != null && latFAPI != null) {
+                        console.log("true :")
+                        myLatlng = new google.maps.LatLng(latFAPI, lonFAPI);
+                        myOptions = {
+                            zoom: 15,
+                            center: myLatlng,
+                            mapTypeId: google.maps.MapTypeId.ROADMAP
+                        }
+                    } else {
+                        console.log("false")
+                        myLatlng = new google.maps.LatLng(lati, lang)
+                        myOptions = {
+                            zoom: 7,
+                            center: myLatlng,
+                            mapTypeId: google.maps.MapTypeId.ROADMAP
+                        }
+                    }
+
+                    map = new google.maps.Map(document.getElementById("gmap"), myOptions);
+                    // Clear out the old markers.
+
+                    // marker refers to a global variable
+                    markers.push(
+                        new google.maps.Marker({
+                            position: myLatlng,
+                            map: map
+
+                        })
+                    )
+                    // Clear out the old markers.
+
+                    const input = document.getElementById("pac-input");
+                    const searchBox = new google.maps.places.SearchBox(input);
+                    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+                    map.addListener("bounds_changed", () => {
+                        searchBox.setBounds(map.getBounds());
+
+                    });
+
+                    searchBox.addListener("places_changed", () => {
+                        const places = searchBox.getPlaces();
+
+                        if (places.length == 0) {
+                            return;
+                        }
+
+                        // Clear out the old markers.
+                        markers.forEach((marker) => {
+                            marker.setMap(null);
+                        });
+
+
+                        // For each place, get the icon, name and location.
+                        const bounds = new google.maps.LatLngBounds();
+
+                        places.forEach((place) => {
+
+                            document.getElementById('latlbl').innerHTML = place.geometry.location.lat();
+                            document.getElementById('lonlbl').innerHTML = place.geometry.location.lng();
+
+
+                            $('#<%=lblLatitude.ClientID %>').val(place.geometry.location.lat());
+                $('#<%=lblLongiude.ClientID %>').val(place.geometry.location.lng());
+
+                if (!place.geometry || !place.geometry.location) {
+                    console.log("Returned place contains no geometry");
+                    return;
+                }
+
+                const icon = {
+                    url: place.icon,
+                    size: new google.maps.Size(71, 71),
+                    origin: new google.maps.Point(0, 0),
+                    anchor: new google.maps.Point(17, 34),
+                    scaledSize: new google.maps.Size(25, 25),
+                };
+
+                // Create a marker for each place.
+                markers.push(
+                    new google.maps.Marker({
+                        map,
+                        title: place.name,
+                        position: place.geometry.location,
+                    })
+                );
+                if (place.geometry.viewport) {
+                    // Only geocodes have viewport.
+                    bounds.union(place.geometry.viewport);
+                } else {
+                    bounds.extend(place.geometry.location);
+                }
+            });
+            map.fitBounds(bounds);
+        });
+
+
+
+        google.maps.event.addListener(map, "click", function (event) {
+
+            var clickLat = event.latLng.lat();
+            var clickLon = event.latLng.lng();
+
+            markers.forEach((marker) => {
+                marker.setMap(null);
+            });
+
+            // show in input box
+            //document.getElementById("lat").value = clickLat.toFixed(5);
+            //document.getElementById("lon").value = clickLon.toFixed(5);
+
+            document.getElementById('latlbl').innerHTML = clickLat.toFixed(5);
+            document.getElementById('lonlbl').innerHTML = clickLon.toFixed(5);
+
+
+
+            $('#<%=lblLatitude.ClientID %>').val(clickLat.toFixed(5));
+            $('#<%=lblLongiude.ClientID %>').val(clickLon.toFixed(5));
+            markers.push(
+                new google.maps.Marker({
+                    map,
+                    position: new google.maps.LatLng(clickLat, clickLon),
+                })
+            );
+
+            /* var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(clickLat, clickLon),
+        map: map
+             });*/
+        });
+                }
+
+                window.onload = function () { initialize() };
+
+            })
+
+    })
 
 
     $(".sendComplain").click(function () {
@@ -2701,17 +2784,19 @@
             async: false,
             success: function (data) {
                 console.log(data);
-                
+
                 var htmlData = "<h3> تم تسجيل شكوى برقم " + data.body.complainRefrenceNumber.split(":")[1] + " سيتم التواصل بالقريب العاجل</h3>";
                 $(".err-app").append(htmlData);
                 $(".modal-done").modal("show")
-                $(".sendComplain").attr("disabled",true)
+                $(".sendComplain").attr("disabled", true)
             },
             error: function (err) {
                 console.log(err);
             }
         })
     })
+
+
 </script>
 
 

@@ -210,6 +210,8 @@
           <div id="loading">
               <div id="loader"></div><br />
               <h3 style="color:#007fc3;font-weight:bold">شركة الكهرباء الأردنية  </h3>
+                            <h4 style="color:#007fc3;font-weight:bold">الرجاء الأنتظار  </h4>
+
   <%--<img id="loading-image" src="/App_Themes/ThemeAr/img/Dual Ring-1s-200px (3).gif" alt="Loading..." style="width:200px;height:200px" />--%>
 </div>
         <style>
@@ -283,14 +285,12 @@
 }
         </style>
  
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
  <script>
-
      $(window).on('load', function () {
          $('#loading').hide();
      });
-
      var MobileNoURL = $("#hdnmobileno").val();
      var APIUrl = '<%= System.Configuration.ConfigurationManager.AppSettings["APIurl"].ToString() %>';
      var allCount = 0;
@@ -305,9 +305,11 @@
      var selectopencomplaints = [];
      var selectclosedcomplaints = [];
      var selectinProcesscomplaints = []
+
+         
             $("document").ready(function () {
 
-                /* ----------------- Refresh Api --------------------- */
+           /* ----------------- Refresh Api --------------------- */
                 $.ajax({
                     type: "POST",
                     url: APIUrl + "Complaints/UpdateComplaintStatus",
@@ -440,8 +442,7 @@
 
                                   
                                     debugger;
-                                    console.log(result);
-                                    console.log(result.d.length);
+                                 
                                     if (result.d.length <= 0) {
                                         
                                         isopenCount = 0;
@@ -722,16 +723,16 @@ h5#bill-order-type {
 
             var index = $(this).attr("index");
             seclectArray = allComplaint[index];
-            var arr =  seclectArray.complainDescribtion.split("\n")
+            var arr = seclectArray.complainDescribtion.split("\n")
             var result = arr.filter(word => word.trim().length > 0)
             $("#transaction").text(seclectArray.complainRefrenceNumber.split(":")[1])
             $("#fileNumberPopup").text(seclectArray.complainDate.split("T")[0])
             $("#date-bill").empty();
             $("#amount").text(seclectArray.complainTypeName)
-            for (let i = 0; i < result.length;i++) {
+            for (let i = 0; i < result.length; i++) {
                 var x = result[i] + "  " + result[++i] + "<br/><br/>"
                 $("#date-bill").append(x)
-                
+
             }
             /*$("#date-bill").text(seclectArray.complainDescribtion)*/
             $("#bill-type").text(seclectArray.meterNumber)
@@ -887,7 +888,7 @@ h5#bill-order-type {
             }
         })
 
-   
-      
+
+
     })
 </script>

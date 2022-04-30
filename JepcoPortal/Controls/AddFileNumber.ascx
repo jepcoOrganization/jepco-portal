@@ -25,9 +25,9 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h2 style="display: contents">شركة الكهرباء الأردنية</h2>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <%-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span class="fa fa-close"></span>
-                </button>
+                </button>--%>
 
             </div>
             <div class="modal-body">
@@ -35,7 +35,7 @@
             </div>
             <div class="modal-footer">
                 <%--<button id="SubmitFillCall"  >Save</button>--%>
-                <a href="/ar/Home" class="btn btn-primary" id="" style="width: 100%;padding: 20px;font-size: 20px;" >موافق</a>
+                <a href="/ar/Home/Subscriptions" class="btn btn-primary" id="" style="width: 100%;padding: 20px;font-size: 20px;" >موافق <span id="counter"></span></a>
 
             </div>
         </div>
@@ -429,6 +429,8 @@
           <div id="loading">
               <div id="loader"></div><br />
               <h3 style="color:#007fc3;font-weight:bold">شركة الكهرباء الأردنية  </h3>
+                            <h4 style="color:#007fc3;font-weight:bold">الرجاء الأنتظار  </h4>
+
   <%--<img id="loading-image" src="/App_Themes/ThemeAr/img/Dual Ring-1s-200px (3).gif" alt="Loading..." style="width:200px;height:200px" />--%>
 </div>
         <style>
@@ -556,7 +558,7 @@
     var DisabledNeighbrhood = "";
     var DisabledStreat = "";
 
-    
+
 
     var BranchId;
     var AreaId;
@@ -604,7 +606,7 @@
         $('#<%= txtMobileNo.ClientID %>').attr("disabled", "disabled");
         $(".ddlNationalityClass").attr("disabled", "disabled");
         /* Add Disabled color to Input  */
-        $('#<%= txtfirstName.ClientID %>').css("background-color","#eee");
+        $('#<%= txtfirstName.ClientID %>').css("background-color", "#eee");
         $('#<%= txtSecondNAme.ClientID %>').css("background-color", "#eee");
         $('#<%= txtThirdName.ClientID %>').css("background-color", "#eee");
         $('#<%= txtFamilyName.ClientID %>').css("background-color", "#eee");
@@ -625,8 +627,8 @@
                 $('#<%= txtfirstName.ClientID %>').css("background-color", "#eee");
                 $('#<%= txtSecondNAme.ClientID %>').css("background-color", "#eee");
                 $('#<%= txtThirdName.ClientID %>').css("background-color", "#eee");
-        $('#<%= txtFamilyName.ClientID %>').css("background-color", "#eee");
-        $('#<%= txtDocumnetNo.ClientID %>').css("background-color", "#eee");
+                $('#<%= txtFamilyName.ClientID %>').css("background-color", "#eee");
+                $('#<%= txtDocumnetNo.ClientID %>').css("background-color", "#eee");
                 $('#<%= txtMobileNo.ClientID %>').css("background-color", "#eee");
                 $(".ddlNationalityClass").css("background-color", "#eee");
             }
@@ -668,7 +670,7 @@
         })
 
         $(".ddlNationalityClass").on("change", function () {
-            
+
             if (this.value == 0) {
                 validationddlNationality = false;
             }
@@ -720,7 +722,7 @@
         })
 
 
-        
+
         $.ajax({
             type: "POST",
             url: APIUrl + "Complaints/GetCallCenterProviance",
@@ -914,11 +916,11 @@
         }
         map = new google.maps.Map(document.getElementById("gmap"), myOptions);
         // marker refers to a global variable
-      /*  marker = new google.maps.Marker({
-            position: myLatlng,
-            map: map
-
-        });*/
+        /*  marker = new google.maps.Marker({
+              position: myLatlng,
+              map: map
+  
+          });*/
         const input = document.getElementById("pac-input");
         const searchBox = new google.maps.places.SearchBox(input);
         map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
@@ -945,7 +947,7 @@
             const bounds = new google.maps.LatLngBounds();
 
             places.forEach((place) => {
-               
+
                 document.getElementById('latlbl').innerHTML = place.geometry.location.lat();
                 document.getElementById('lonlbl').innerHTML = place.geometry.location.lng();
 
@@ -992,7 +994,7 @@
             // get lat/lon of click
             var clickLat = event.latLng.lat();
             var clickLon = event.latLng.lng();
-             
+
             markers.forEach((marker) => {
                 marker.setMap(null);
             });
@@ -1015,10 +1017,10 @@
                 })
             );
 
-           /* var marker = new google.maps.Marker({
-                position: new google.maps.LatLng(clickLat, clickLon),
-                map: map
-            });*/
+            /* var marker = new google.maps.Marker({
+                 position: new google.maps.LatLng(clickLat, clickLon),
+                 map: map
+             });*/
         });
     }
 
@@ -1114,7 +1116,7 @@
 
 <script>
 
-  
+
 
 
     $("#ddlGeove").change(function () {
@@ -1833,9 +1835,7 @@ input::-webkit-inner-spin-button {
 
         $(".next").click(function () {
 
-            console.log("Rrrr")
             current_fs = $(this).parent();
-            console.log(current_fs)
 
             if (current == 1) {
 
@@ -2319,6 +2319,36 @@ input::-webkit-inner-spin-button {
         }
             AddrssDetails = $('#<%= txtComplianTitle.ClientID %>').val();
 
+        nearbyTypeApi = Number(nearbyTypeApi);
+        if (nearbyTypeApi == 0) {
+            nearbyTypeApi = null
+        }
+     
+       //console.log("MobileNoURL", MobileNoURL)
+       // console.log("FilenumApi", FilenumApi)
+       // console.log("aliasNameApi", aliasNameApi)
+       // console.log("Number(nearbyApi)", Number(nearbyApi))
+       // console.log("fnameApi", fnameApi)
+       // console.log("m1nameApi", m1nameApi)
+       // console.log("m2nameApi", m2nameApi)
+       // console.log("phneNumberApi", phneNumberApi)
+       // console.log("lnameApi", lnameApi)
+       // console.log("nationalNumApi", nationalNumApi)
+       // console.log("Number(ddlNationalApi)", Number(ddlNationalApi))
+       // console.log("nearbyTypeApi", nearbyTypeApi)
+       // console.log("ProvinceId", ProvinceId)
+       // console.log("ProvinceName", ProvinceName)
+       // console.log("AreaIdLast", AreaIdLast)
+       // console.log("AreaNameLast", AreaNameLast)
+       // console.log("NeighborhoodIdLast", NeighborhoodIdLast)
+       // console.log("NeighborhoodNameLast", NeighborhoodNameLast)
+       // console.log("StreetIdLast", StreetIdLast)
+       // console.log("StreetNameLast", StreetNameLast)
+       // console.log("AddrssDetails", AddrssDetails)
+       // console.log("$('#lonlbl').text()", $("#lonlbl").text())
+       // console.log("$('#latlbl').text()", $("#latlbl").text())
+
+
 
         $.ajax({
             type: "POST",
@@ -2339,7 +2369,7 @@ input::-webkit-inner-spin-button {
                 OwnerMobileNumber: phneNumberApi,
                 NationalId: nationalNumApi,
                 NationalityID: Number(ddlNationalApi),
-                MeterOwnerRelativesID: Number(nearbyTypeApi),
+                MeterOwnerRelativesID: nearbyTypeApi,
                 ProvinceId: ProvinceId,
                 ProvinceName: ProvinceName,
                 AreaId: AreaIdLast,
@@ -2356,7 +2386,20 @@ input::-webkit-inner-spin-button {
             async: false,
             success: function (data) {
                 $(".modal-text").text(data.message);
-                $(".m-done").modal("show")
+                $('.m-done').modal({
+                    backdrop: 'static',
+                    keyboard: false
+                })
+                $("").modal("show")
+                //var count = 10;
+                //$("#counter").text(count);
+                // setInterval(function () {
+                //    $("#counter").html(--count);
+                //    if (count == 0) {
+                //        clearInterval();
+                //        window.location.href = "ar/Home";
+                //     }
+                // }, 1000)
             },
             error: function (err) {
                 console.log(err);
@@ -2367,6 +2410,7 @@ input::-webkit-inner-spin-button {
 
     })
 
+    
 </script>
 
 

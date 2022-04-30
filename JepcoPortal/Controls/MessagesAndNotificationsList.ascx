@@ -386,6 +386,8 @@
           <div id="loading">
               <div id="loader"></div><br />
               <h3 style="color:#007fc3;font-weight:bold">شركة الكهرباء الأردنية  </h3>
+                            <h4 style="color:#007fc3;font-weight:bold">الرجاء الأنتظار  </h4>
+
   <%--<img id="loading-image" src="/App_Themes/ThemeAr/img/Dual Ring-1s-200px (3).gif" alt="Loading..." style="width:200px;height:200px" />--%>
 </div>
         <style>
@@ -462,17 +464,17 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <script>
-
     $(window).on('load', function () {
         $('#loading').hide();
     });
+
     $("document").ready(function () {
 
         var getcont = $("#ContentPlaceHolder1_ctl00_hdnCountRecord").val();
         debugger;
         for (var i = 0; i < getcont; i++) {
-           
-            $("#ContentPlaceHolder1_ctl00_lstNotificationDevice_ctrl"+i+"_lblforCheckbox_" + i).append("<label for='ContentPlaceHolder1_ctl00_lstNotificationDevice_ctrl"+i+"_CBID_" + i + "'></label>");
+
+            $("#ContentPlaceHolder1_ctl00_lstNotificationDevice_ctrl" + i + "_lblforCheckbox_" + i).append("<label for='ContentPlaceHolder1_ctl00_lstNotificationDevice_ctrl" + i + "_CBID_" + i + "'></label>");
             //ContentPlaceHolder1_ctl00_lstNotificationDevice_ctrl1_lblforCheckbox_1                              ContentPlaceHolder1_ctl00_lstNotificationDevice_ctrl1_CBID_1
         }
     });
