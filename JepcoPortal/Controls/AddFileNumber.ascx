@@ -188,24 +188,29 @@
 
 
                                                             <div class="meterNumberPanelBody" >
-                                                           
+
                                                                 <div class="protal_tabs">
-                                                                            <table class="table table-history   table-responsive table-success" id="tableid">
-                                                                                <thead>
-                                                                                    <tr>
-                                                                                        <th>الاسم</th>
-                                                                                        <th>رقم العداد</th>
-                                                                                        <th>الرقم المرجعي</th>
-                                                                                        <th>الفرع</th>
-                                                                                        <th></th>
-                                                                                    </tr>
-                                                                                </thead>
-                                                                                <tbody class="body-table-list" id="body-table-list">
-                                                                            </table>
-                                                                </div>
+                                                                     <div class="Cont-scroll" id="style-4">
+                                                                  
+                                                                        <table class="table table-history   table-responsive table-success" id="tableid">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th>الاسم</th>
+                                                                                    <th>رقم العداد</th>
+                                                                                    <th>الرقم المرجعي</th>
+                                                                                    <th>الفرع</th>
+                                                                                    <th></th>
+                                                                                </tr>
+                                                                            </thead>
+
+                                                                            <tbody class="body-table-list" id="body-table-list">
+                                                                        </table>
+                                                                    </div>
                                                             </div>
                                                     </div>
+
                                                 </div>
+                                            </div>
                                             </div>
                                         </div>
                                     </div>
@@ -765,69 +770,29 @@
 
 
 }
-    /*//RESPONSIVE*/
-    @media (max-width: 767px) {
-    .table-history {
-        display: block;
-        width: 100%;
-    }
-    .table-wrapper:before{
-        content: "Scroll horizontally >";
-        display: block;
-        text-align: right;
-        font-size: 11px;
-        color: white;
-        padding: 0 0 10px;
-    }
-    .table-history thead, .fl-table tbody, .fl-table thead th {
-        display: block;
-    }
-    .table-history thead th:last-child{
-        border-bottom: none;
-    }
-    .table-history thead {
-        float: left;
-    }
-    .table-history tbody {
-        width: auto;
-        position: relative;
-        overflow-x: auto;
-    }
-    .table-history td, .fl-table th {
-        padding: 20px .625em .625em .625em;
-        height: 60px;
-        vertical-align: middle;
-        box-sizing: border-box;
-        overflow-x: hidden;
-        overflow-y: auto;
-        width: 120px;
-        font-size: 13px;
-        text-overflow: ellipsis;
-    }
-    .table-history thead th {
-        text-align: left;
-        border-bottom: 1px solid #f7f7f9;
-    }
-    .table-history tbody tr {
-        display: table-cell;
-    }
-    .table-history tbody tr:nth-child(odd) {
-        background: none;
-    }
-    .table-history tr:nth-child(even) {
-        background: transparent;
-    }
-    .table-history tr td:nth-child(odd) {
-        background: #F8F8F8;
-        border-right: 1px solid #E6E4E4;
-    }
-    .table-history tr td:nth-child(even) {
-        border-right: 1px solid #E6E4E4;
-    }
-    .table-history tbody td {
-        display: block;
-        text-align: center;
-    }
+        #style-4::-webkit-scrollbar-track
+{
+	background-color: #eee;
+}
+@media only screen and (max-width: 500px) {
+ #style-4::-webkit-scrollbar
+{
+	width: 5px;
+	background-color: #F5F5F5;
+}
+
+#style-4::-webkit-scrollbar-thumb
+{
+	background-color: #dec84d;
+	border: 2px solid #dec84d;
+}
+.Cont-scroll {
+    padding: 15px;
+    max-height: 1425px;
+    overflow-y: auto;
+}
+}
+
 }
 </style>
 
