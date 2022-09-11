@@ -3042,7 +3042,7 @@
             error: function (err) {
                 console.log(err);
                 console.log(err.responseJSON.errors);
-                $(".modal-text").text(err.responseJSON.errors);
+                $(".modal-text").text("حدث خطأ أثناء معالجة هذا الطلب يرجى إعادة المحاولة لاحقاً،الرجاء التواصل من خلال مركز الاتصال أو  صفحة الفيسبوك لشركة الكهرباء للمساعدة");
                 $(".m-done").modal("show")
             }
         })
