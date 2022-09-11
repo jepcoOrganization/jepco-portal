@@ -90,3 +90,18 @@ C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\Siteware.Web\obj\Release\
 C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\Siteware.Web\obj\Release\Siteware.Web.csproj.CopyComplete
 C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\Siteware.Web\obj\Release\Siteware.Web.dll
 C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\Siteware.Web\obj\Release\Siteware.Web.pdb
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\Siteware.Web\bin\Siteware.Web.dll.config
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\Siteware.Web\bin\Siteware.Web.dll
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\Siteware.Web\bin\Siteware.Web.pdb
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\Siteware.Web\bin\IZ.WebFileManager.dll
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\Siteware.Web\bin\Newtonsoft.Json.dll
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\Siteware.Web\bin\SiteWare.DataAccess.dll
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\Siteware.Web\bin\SiteWare.Domain.dll
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\Siteware.Web\bin\SiteWare.Entity.dll
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\Siteware.Web\bin\SiteWare.DataAccess.pdb
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\Siteware.Web\bin\SiteWare.Domain.pdb
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\Siteware.Web\bin\SiteWare.Entity.pdb
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\Siteware.Web\obj\Release\Siteware.Web.csproj.AssemblyReference.cache
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\Siteware.Web\obj\Release\Siteware.Web.csproj.CoreCompileInputs.cache
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\Siteware.Web\obj\Release\Siteware.Web.dll
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\Siteware.Web\obj\Release\Siteware.Web.pdb

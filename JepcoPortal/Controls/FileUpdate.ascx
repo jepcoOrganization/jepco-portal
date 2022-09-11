@@ -63,6 +63,8 @@
 
                                     </div>
                                 </div>
+                                                                &nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;
+
                              <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="form-group">
                                         <label><span>*</span>الرقم المرجعي</label>
@@ -71,6 +73,13 @@
                                                                                                          <p class="text-danger err-refNum" style="color:#a94442 !important;margin:0" ></p>
 
                                     </div>
+                                      <div class="meternumber-div">
+                                                <label for="meterNumber"><span>*</span>الرقم العداد</label>
+                                                <asp:HiddenField runat="server" ID="HiddenField3" />
+                                                <input type="number" placeholder="رقم العداد" name="meterNumber" id="meterNumber" disabled style="background-color: #eee;" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="13" />
+                                                <p class="text-danger err-meterNum" style="color: #a94442 !important; margin: 0"></p>
+                                                <p class="text-danger err-notFoundmeterNum" style="color: #a94442 !important; margin: 0"></p>
+                                            </div>
 
                                 </div>
                                 </div>
@@ -435,14 +444,13 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maps.google.com/maps/api/js?key=AIzaSyA7f_t2Ccx3tdV_Mz2pT0zdVioGU6SiKS4&callback=initAutocomplete&libraries=places&v=weekly"></script>
 
-<%-- New Api For Complain  :  --%>
-<script>    
+ <script>    
     var APIUrl = '<%= System.Configuration.ConfigurationManager.AppSettings["APIurl"].ToString() %>';
     var MobileNoURL = $("#hdnmobileno").val();
     var GetFileNo = $("#ContentPlaceHolder1_ctl00_hdnFileNAme").val();
     var aliasNameFromApi = "";
     console.log("GetFileNo", GetFileNo)
-    /* ------------------- Add Complain API Variable ----------------------- */
+    /* ------------------- Update File API Variable ----------------------- */
     var ComplainantName = "";
     var ComplainantType = "";
     var ComplainTypeName = "";
@@ -469,7 +477,8 @@
     var arrayAddressAPI = undefined
     var APIId = 0;
     var aliasNameApi = "";
-    var FilenumApi = ""
+     var FilenumApi = "";
+     var MeternumApi = ""
     var nearbyApi = "";
     var fnameApi = "";
     var m1nameApi = "";
@@ -545,6 +554,9 @@
         $(".ddlNationalityClass").css("background-color", "#eee");
 
         $('input[name="nearby"]').on("change", function () {
+
+            var nearbyValue = $(this).filter(':checked').val();
+
             if ($('input[name="nearby"]:checked').val() == 1) {
                 $('#<%= txtfirstName.ClientID %>').attr("disabled", "disabled");
                 $('#<%= txtSecondNAme.ClientID %>').attr("disabled", "disabled");
@@ -596,6 +608,7 @@
                 $('#<%= txtDocumnetNo.ClientID %>').css("background-color", "#fff");
                 $('#<%= txtMobileNo.ClientID %>').css("background-color", "#fff");
                 $(".ddlNationalityClass").css("background-color", "#fff");
+
             }
         })
 
@@ -627,6 +640,18 @@
                 console.log(data)
                 aliasNameFromApi = data.body.aliasName;
                 arrayAddressAPI = data.body.fileNumberAddressesDetail;
+                fnameApi = data.body.ownerFirstName;
+                m1nameApi = data.body.ownerSecondName;
+                m2nameApi = data.body.ownerThirdName;
+                lnameApi = data.body.ownerLastName;
+                ddlNationalApi = data.body.nationalityID;
+                phneNumberApi = data.body.ownerMobileNumber;
+                nationalNumApi = data.body.nationalID;
+                radioNearby = data.body.relationToMeter;
+                nearbyTypeApi = data.body.meterOwnerRelativesID;
+                MeternumApi = data.body.meterNumber
+
+                console.log(MeternumApi)
                 APIId = data.id;
             },
             error: function (err) {
@@ -634,10 +659,6 @@
             }
         })
 
-
-
-
-        $("#aliasName").val(aliasNameFromApi)
         // Fill Nearby select in data from api : 
         $.ajax({
             type: "POST",
@@ -660,6 +681,92 @@
                 console.log(err);
             }
         })
+
+
+        $("#aliasName").val(aliasNameFromApi)
+
+
+        if (radioNearby == '1') {
+
+            $('#Owner').prop('checked', true);
+
+            $('#ContentPlaceHolder1_ctl00_txtfirstName').attr("disabled", "disabled");
+            $('#ContentPlaceHolder1_ctl00_txtSecondNAme').attr("disabled", "disabled");
+            $('#ContentPlaceHolder1_ctl00_txtThirdName').attr("disabled", "disabled");
+            $('#ContentPlaceHolder1_ctl00_txtFamilyName').attr("disabled", "disabled");
+            $('#ContentPlaceHolder1_ctl00_txtDocumnetNo').attr("disabled", "disabled");
+            $('#ContentPlaceHolder1_ctl00_txtMobileNo').attr("disabled", "disabled");
+            $(".ddlNationalityClass").attr("disabled", "disabled");
+
+            $('#ContentPlaceHolder1_ctl00_txtfirstName').css("background-color", "#eee");
+            $('#ContentPlaceHolder1_ctl00_txtSecondNAme').css("background-color", "#eee");
+            $('#ContentPlaceHolder1_ctl00_txtThirdName').css("background-color", "#eee");
+            $('#ContentPlaceHolder1_ctl00_txtFamilyName').css("background-color", "#eee");
+            $('#ContentPlaceHolder1_ctl00_txtDocumnetNo').css("background-color", "#eee");
+            $('#ContentPlaceHolder1_ctl00_txtMobileNo').css("background-color", "#eee");
+            $(".ddlNationalityClass").css("background-color", "#eee");
+
+        } else if (radioNearby == '2') {
+            $('#tenant').prop('checked', true);
+
+            $('#ContentPlaceHolder1_ctl00_txtfirstName').removeAttr("disabled");
+            $('#ContentPlaceHolder1_ctl00_txtSecondNAme').removeAttr("disabled");
+            $('#ContentPlaceHolder1_ctl00_txtThirdName').removeAttr("disabled");
+            $('#ContentPlaceHolder1_ctl00_txtFamilyName').removeAttr("disabled");
+            $('#ContentPlaceHolder1_ctl00_txtDocumnetNo').removeAttr("disabled");;
+            $('#ContentPlaceHolder1_ctl00_txtMobileNo').removeAttr("disabled");
+            $(".ddlNationalityClass").removeAttr("disabled");
+
+            $('#ContentPlaceHolder1_ctl00_txtfirstName').css("background-color", "#fff");
+            $('#ContentPlaceHolder1_ctl00_txtSecondNAme').css("background-color", "#fff");
+            $('#ContentPlaceHolder1_ctl00_txtThirdName').css("background-color", "#fff");
+            $('#ContentPlaceHolder1_ctl00_txtFamilyName').css("background-color", "#fff");
+            $('#ContentPlaceHolder1_ctl00_txtDocumnetNo').css("background-color", "#fff");
+            $('#ContentPlaceHolder1_ctl00_txtMobileNo').css("background-color", "#fff");
+            $(".ddlNationalityClass").css("background-color", "#fff");
+
+
+        } else if (radioNearby == '3') {
+            $('#nearby').prop('checked', true);
+            $('#ContentPlaceHolder1_ctl00_txtfirstName').removeAttr("disabled");
+            $('#ContentPlaceHolder1_ctl00_txtSecondNAme').removeAttr("disabled");
+            $('#ContentPlaceHolder1_ctl00_txtThirdName').removeAttr("disabled");
+            $('#ContentPlaceHolder1_ctl00_txtFamilyName').removeAttr("disabled");
+            $('#ContentPlaceHolder1_ctl00_txtDocumnetNo').removeAttr("disabled");;
+            $('#ContentPlaceHolder1_ctl00_txtMobileNo').removeAttr("disabled");
+            $(".ddlNationalityClass").removeAttr("disabled");
+
+            $('#ContentPlaceHolder1_ctl00_txtfirstName').css("background-color", "#fff");
+            $('#ContentPlaceHolder1_ctl00_txtSecondNAme').css("background-color", "#fff");
+            $('#ContentPlaceHolder1_ctl00_txtThirdName').css("background-color", "#fff");
+            $('#ContentPlaceHolder1_ctl00_txtFamilyName').css("background-color", "#fff");
+            $('#ContentPlaceHolder1_ctl00_txtDocumnetNo').css("background-color", "#fff");
+            $('#ContentPlaceHolder1_ctl00_txtMobileNo').css("background-color", "#fff");
+            $(".ddlNationalityClass").css("background-color", "#fff");
+
+            $(".nearby-div").show()
+
+            $("#nearby-select").val(nearbyTypeApi);
+
+           // $("#nearby-select").val(nearbyTypeApi).combobox('refresh');
+
+
+
+
+        }
+
+       // $('input[name="nearby"]:checked').val(radioNearby);
+        $('#<%= txtfirstName.ClientID %>').val(fnameApi);
+        $('#<%= txtSecondNAme.ClientID %>').val(m1nameApi);
+        $('#<%= txtThirdName.ClientID %>').val(m2nameApi);
+         $('#<%= txtFamilyName.ClientID %>').val(lnameApi);
+         $(".ddlNationalityClass").val(ddlNationalApi);
+         $('#<%= txtDocumnetNo.ClientID %>').val(nationalNumApi);
+        $('#<%= txtMobileNo.ClientID %>').val(phneNumberApi);
+        $("#meterNumber").val(MeternumApi)
+        $('#meterNumber').css("background-color", "#eee");
+
+    
 
         $(".r-input").on("change", function () {
             if (this.value == 3) {
@@ -1934,11 +2041,11 @@ input::-webkit-inner-spin-button {
 }
 </style>
 <script>
-
+    // Loading Spinner : 
     $(window).on('load', function () {
         $('#loading').hide();
     });
-    /* saddasdsadas */
+    /* Google Map Configuration */
     $(document).ready(function () {
 
         var lati = $("#<%=lblLatitude.ClientID%>").val();
@@ -2103,6 +2210,8 @@ input::-webkit-inner-spin-button {
 </script>
 
 <script type="text/javascript">
+
+    /* ----------- Validation For Input ----------- */
     $("document").ready(function () {
 
         var current_fs, next_fs, previous_fs; //fieldsets
@@ -2574,8 +2683,9 @@ input::-webkit-inner-spin-button {
 
     $("#refNumber").val(GetFileNo)
     $('#refNumber').css("background-color", "#eee");
-
-
+  
+    
+    // Send update to API
     $(".submitAdd").click(function () {
 
 
@@ -2651,6 +2761,7 @@ input::-webkit-inner-spin-button {
                 OwnerMobileNumber: phneNumberApi,
                 NationalId: nationalNumApi,
                 NationalityID: Number(ddlNationalApi),
+                MeterOwnerRelativesID: Number(nearbyTypeApi),
                 FileNumberAddressesDetail: FileNumberAddressesDetail
             }),
             contentType: "application/json; charset=utf-8",

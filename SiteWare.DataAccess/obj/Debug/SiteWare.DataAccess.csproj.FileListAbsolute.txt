@@ -82,3 +82,21 @@ C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\SiteWare.DataAccess\obj\D
 C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\SiteWare.DataAccess\obj\Debug\SiteWare.DataAccess.csproj.CopyComplete
 C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\SiteWare.DataAccess\obj\Debug\SiteWare.DataAccess.dll
 C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\SiteWare.DataAccess\obj\Debug\SiteWare.DataAccess.pdb
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\SiteWare.DataAccess\bin\Debug\SiteWare.DataAccess.dll
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\SiteWare.DataAccess\bin\Debug\SiteWare.DataAccess.pdb
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\SiteWare.DataAccess\bin\Debug\SiteWare.Entity.dll
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\SiteWare.DataAccess\bin\Debug\SiteWare.Entity.pdb
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\SiteWare.DataAccess\obj\Debug\SiteWare.DataAccess.csproj.AssemblyReference.cache
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\SiteWare.DataAccess\obj\Debug\SiteWare.DataAccess.csproj.CoreCompileInputs.cache
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\SiteWare.DataAccess\obj\Debug\SiteWare.DataAccess.dll
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\SiteWare.DataAccess\obj\Debug\SiteWare.DataAccess.pdb
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\SiteWare.DataAccess\obj\Debug\SiteWare.DataAccess.csproj.CopyComplete
+C:\Users\Maiada-Ibrahim\Desktop\jepco-portal\SiteWare.DataAccess\bin\Debug\SiteWare.DataAccess.dll
+C:\Users\Maiada-Ibrahim\Desktop\jepco-portal\SiteWare.DataAccess\bin\Debug\SiteWare.DataAccess.pdb
+C:\Users\Maiada-Ibrahim\Desktop\jepco-portal\SiteWare.DataAccess\bin\Debug\SiteWare.Entity.dll
+C:\Users\Maiada-Ibrahim\Desktop\jepco-portal\SiteWare.DataAccess\bin\Debug\SiteWare.Entity.pdb
+C:\Users\Maiada-Ibrahim\Desktop\jepco-portal\SiteWare.DataAccess\obj\Debug\SiteWare.DataAccess.csproj.AssemblyReference.cache
+C:\Users\Maiada-Ibrahim\Desktop\jepco-portal\SiteWare.DataAccess\obj\Debug\SiteWare.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\Maiada-Ibrahim\Desktop\jepco-portal\SiteWare.DataAccess\obj\Debug\SiteWare.DataAccess.csproj.CopyComplete
+C:\Users\Maiada-Ibrahim\Desktop\jepco-portal\SiteWare.DataAccess\obj\Debug\SiteWare.DataAccess.dll
+C:\Users\Maiada-Ibrahim\Desktop\jepco-portal\SiteWare.DataAccess\obj\Debug\SiteWare.DataAccess.pdb

@@ -56,6 +56,7 @@
     </Reference>
     <Reference Include="AspNet.ScriptManager.jQuery.UI.Combined">
       <HintPath>..\Orthosport_Jordan\packages\AspNet.ScriptManager.jQuery.UI.Combined.1.12.1\lib\net45\AspNet.ScriptManager.jQuery.UI.Combined.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="CKEditor.NET">
       <HintPath>E:\JFDA\EchoBusV3.0\bin\CKEditor.NET.dll</HintPath>
@@ -140,7 +141,9 @@
       <HintPath>..\..\..\..\Users\Alaa\Downloads\CMS_SiteWare\SiteWare.Web\bin\Microsoft.ScriptManager.WebForms.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
-    <Reference Include="Microsoft.VisualBasic.Compatibility.Data" />
+    <Reference Include="Microsoft.VisualBasic.Compatibility.Data">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Users\Alaa\Downloads\CMS_SiteWare\SiteWare.Web\bin\Microsoft.Web.Infrastructure.dll</HintPath>
@@ -153,13 +156,27 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Users\Alaa\Downloads\CMS_SiteWare\SiteWare.Web\bin\Owin.dll</HintPath>
     </Reference>
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Data.Linq" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Users\Alaa\Downloads\CMS_SiteWare\SiteWare.Web\bin\System.Web.Optimization.dll</HintPath>
@@ -168,13 +185,27 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Users\Alaa\Downloads\CMS_SiteWare\SiteWare.Web\bin\System.Web.Providers.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Services" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Web" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Configuration" />
-    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web.Services">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Users\Alaa\Downloads\CMS_SiteWare\SiteWare.Web\bin\WebGrease.dll</HintPath>

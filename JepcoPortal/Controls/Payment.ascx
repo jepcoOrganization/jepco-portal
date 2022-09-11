@@ -4,6 +4,32 @@
 <asp:HiddenField runat="server" ID="hdnFileNAme" />
 
 <asp:HiddenField runat="server" ID="hiddenArrayBills" OnValueChanged="hiddenArrayBills_ValueChanged" />
+
+
+<div class="modal fade welcome modal-data"  id="myModalFailedNoPayment" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 style="display: contents">شركة الكهرباء الأردنية</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span class="fa fa-close"></span>
+                </button>
+
+            </div>
+           <div class="modal-body">
+                <h4 class="modal-text" ></h4>
+            </div>
+            <div class="modal-footer">
+                <%--<button id="SubmitFillCall"  >Save</button>--%>
+                <a href="/ar/Home/Subscriptions" class="btn btn-primary" id="" style="width: 100%;padding: 20px;font-size: 20px;" >موافق</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 <div class="modal fade welcome modal-data" id="myModalFailed" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -152,6 +178,12 @@
         </div>
     </div>
 </div>
+
+
+
+
+
+
 
 <div class="protal_tabs">
     <div class="title-payment">
@@ -317,6 +349,11 @@
 	100% {transform: rotate(360deg);}
 }
         </style>
+
+ 
+ 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <script>
     $(window).on('load', function () {
@@ -613,8 +650,8 @@
 
                 $('#<%=hiddenArrayBills.ClientID %>').val(docArray);
 
-                /////////////////////////////////////////////
-
+                
+                // The logic of consecutive bill payments : 
                 var allow = true;
 
                 docArray.sort(function (a, b) {
@@ -675,62 +712,7 @@
             e.preventDefault();
 
 
-            //var allow = true;
-
-            //docArray.sort(function (a, b) {
-            //    return a.index - b.index;
-            //})
-
-            //var current;
-            //var cnt = 0;
-
-            //for (let k in docArray) {
-
-            //    if (cnt == 0) {
-            //        current = docArray[k].index;
-            //        console.log('t')
-            //        cnt++;
-
-            //        continue;
-            //    }
-
-
-            //    if ((current + 1) == docArray[k].index) {
-            //        current = docArray[k].index;
-            //        cnt++;
-
-            //    } else {
-            //        //   alert('error');
-            //        allow = false
-            //        break;
-            //    }
-            //    console.log('2')
-
-
-            //}
-            //if (!allow) {
-            //    $(".err-box").show();
-
-            //} else {
-            //    var invoceList = '';
-            //    for (let k in docArray) {
-            //        if (docArray.length - 1 == k) {
-            //            invoceList += docArray[k].BillNumber;
-            //        } else {
-            //            invoceList += docArray[k].BillNumber + ',';
-            //        }
-
-            //    }
-            //    console.log(invoceList);
-            //    $('#txtEmail').val(invoceList)
-            //}
-
-            // get all selected invoce ids 
-            //in asp get all invoces and loop to get the aomount
-
-
-
-            //    debugger;
+           // Send to payment  : ____________
             $.ajax({
                 url: APIUrl + 'PaymentOrderHeaders/ReturnPaymentSummary',
                 type: 'POST',
@@ -754,13 +736,19 @@
                 success: function (res) {
 
                     window.open(
-                        res.body.paymentWebPageURL,
-                        '_blank')
+                        res.body.paymentWebPageURL, "_blank").focus();
                     //window.location.href = res.body.paymentWebPageURL;
 
                 },
                 error: function (err) {
                     console.log(err);
+
+                    $(".modal-text").text(err.responseJSON.errors);
+
+                    $('#myModalFailedNoPayment').parent().append($('#myModalFailedNoPayment'));
+                    $("#myModalFailedNoPayment").modal("show")
+
+
                 }
 
             })

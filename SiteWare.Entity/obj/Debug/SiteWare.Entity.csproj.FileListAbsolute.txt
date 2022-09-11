@@ -52,3 +52,9 @@ C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\SiteWare.Entity\obj\Debug
 C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\SiteWare.Entity\obj\Debug\SiteWare.Entity.csproj.CoreCompileInputs.cache
 C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\SiteWare.Entity\obj\Debug\SiteWare.Entity.dll
 C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\SiteWare.Entity\obj\Debug\SiteWare.Entity.pdb
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\SiteWare.Entity\bin\Debug\SiteWare.Entity.dll
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\SiteWare.Entity\bin\Debug\SiteWare.Entity.pdb
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\SiteWare.Entity\obj\Debug\SiteWare.Entity.csproj.AssemblyReference.cache
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\SiteWare.Entity\obj\Debug\SiteWare.Entity.csproj.CoreCompileInputs.cache
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\SiteWare.Entity\obj\Debug\SiteWare.Entity.dll
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\SiteWare.Entity\obj\Debug\SiteWare.Entity.pdb

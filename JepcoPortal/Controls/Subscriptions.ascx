@@ -161,19 +161,30 @@
 	100% {transform: rotate(360deg);}
 }
         </style>
+
+
+
+ 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
  
 <script>
+    // Loading Spinner  : 
     $(window).on('load', function () {
         $('#loading').hide();
     });
+
+
     var MobileNoURL = $("#hdnmobileno").val();
     $("#lblUnpaidBills").text(MobileNoURL)
     var APIUrl = '<%= System.Configuration.ConfigurationManager.AppSettings["APIurl"].ToString() %>';
     var ArrayFile = [];
     var customerName = "";
+
+
     $(document).ready(function () {
 
-
+        // Get Data From API : ________
         $.ajax({
             type: "POST",
             url: APIUrl + "CustomerInfo/GetCustomerInfoData",
@@ -187,7 +198,6 @@
             contentType: "application/json; charset=utf-8",
             async: false,
             success: function (data) {
-                console.log(data)
                 var i = 0;
                 ArrayFile = data.body.customerInfoResult.customerInformationDetails;
                 customerName = data.body.customerInfoResult.firstName + " " + data.body.customerInfoResult.lastName

@@ -119,6 +119,7 @@
    </h3>
        
    </div>
+
 <div class="clearfix"></div>
 <div class="protal_tabs">
 
@@ -309,7 +310,7 @@
          
             $("document").ready(function () {
 
-           /* ----------------- Refresh Api --------------------- */
+           /* ----------------- Refresh Api for updated list complain --------------------- */
                 $.ajax({
                     type: "POST",
                     url: APIUrl + "Complaints/UpdateComplaintStatus",
@@ -330,7 +331,7 @@
                     }
                 })
   
-                /* ----------------- Get Compaints Api --------------------- */
+                /* ----------------- Get All API and Display it in List --------------------- */
                 $.ajax({
                     type: "POST",
                     url: APIUrl + "Complaints/ComplaintByID",
@@ -717,7 +718,7 @@ h5#bill-order-type {
 <script>
     $(document).ready(function () {
 
-
+        
         $(".fil1-row").click(function () {
 
 

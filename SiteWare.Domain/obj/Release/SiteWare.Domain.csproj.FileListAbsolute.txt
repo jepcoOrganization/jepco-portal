@@ -62,3 +62,13 @@ C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\SiteWare.Domain\obj\Relea
 C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\SiteWare.Domain\obj\Release\SiteWare.Domain.csproj.CopyComplete
 C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\SiteWare.Domain\obj\Release\SiteWare.Domain.dll
 C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\SiteWare.Domain\obj\Release\SiteWare.Domain.pdb
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\SiteWare.Domain\bin\Release\SiteWare.Domain.dll
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\SiteWare.Domain\bin\Release\SiteWare.Domain.pdb
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\SiteWare.Domain\bin\Release\SiteWare.DataAccess.dll
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\SiteWare.Domain\bin\Release\SiteWare.Entity.dll
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\SiteWare.Domain\bin\Release\SiteWare.DataAccess.pdb
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\SiteWare.Domain\bin\Release\SiteWare.Entity.pdb
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\SiteWare.Domain\obj\Release\SiteWare.Domain.csproj.AssemblyReference.cache
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\SiteWare.Domain\obj\Release\SiteWare.Domain.csproj.CoreCompileInputs.cache
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\SiteWare.Domain\obj\Release\SiteWare.Domain.dll
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\SiteWare.Domain\obj\Release\SiteWare.Domain.pdb

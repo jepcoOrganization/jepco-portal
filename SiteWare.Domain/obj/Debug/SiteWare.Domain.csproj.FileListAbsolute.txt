@@ -102,3 +102,25 @@ C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\SiteWare.Domain\obj\Debug
 C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\SiteWare.Domain\obj\Debug\SiteWare.Domain.csproj.CopyComplete
 C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\SiteWare.Domain\obj\Debug\SiteWare.Domain.dll
 C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\SiteWare.Domain\obj\Debug\SiteWare.Domain.pdb
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\SiteWare.Domain\bin\Debug\SiteWare.Domain.dll
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\SiteWare.Domain\bin\Debug\SiteWare.Domain.pdb
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\SiteWare.Domain\bin\Debug\SiteWare.DataAccess.dll
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\SiteWare.Domain\bin\Debug\SiteWare.Entity.dll
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\SiteWare.Domain\bin\Debug\SiteWare.DataAccess.pdb
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\SiteWare.Domain\bin\Debug\SiteWare.Entity.pdb
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\SiteWare.Domain\obj\Debug\SiteWare.Domain.csproj.AssemblyReference.cache
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\SiteWare.Domain\obj\Debug\SiteWare.Domain.csproj.CoreCompileInputs.cache
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\SiteWare.Domain\obj\Debug\SiteWare.Domain.csproj.CopyComplete
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\SiteWare.Domain\obj\Debug\SiteWare.Domain.dll
+C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\SiteWare.Domain\obj\Debug\SiteWare.Domain.pdb
+C:\Users\Maiada-Ibrahim\Desktop\jepco-portal\SiteWare.Domain\bin\Debug\SiteWare.Domain.dll
+C:\Users\Maiada-Ibrahim\Desktop\jepco-portal\SiteWare.Domain\bin\Debug\SiteWare.Domain.pdb
+C:\Users\Maiada-Ibrahim\Desktop\jepco-portal\SiteWare.Domain\bin\Debug\SiteWare.DataAccess.dll
+C:\Users\Maiada-Ibrahim\Desktop\jepco-portal\SiteWare.Domain\bin\Debug\SiteWare.Entity.dll
+C:\Users\Maiada-Ibrahim\Desktop\jepco-portal\SiteWare.Domain\bin\Debug\SiteWare.DataAccess.pdb
+C:\Users\Maiada-Ibrahim\Desktop\jepco-portal\SiteWare.Domain\bin\Debug\SiteWare.Entity.pdb
+C:\Users\Maiada-Ibrahim\Desktop\jepco-portal\SiteWare.Domain\obj\Debug\SiteWare.Domain.csproj.AssemblyReference.cache
+C:\Users\Maiada-Ibrahim\Desktop\jepco-portal\SiteWare.Domain\obj\Debug\SiteWare.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Maiada-Ibrahim\Desktop\jepco-portal\SiteWare.Domain\obj\Debug\SiteWare.Domain.csproj.CopyComplete
+C:\Users\Maiada-Ibrahim\Desktop\jepco-portal\SiteWare.Domain\obj\Debug\SiteWare.Domain.dll
+C:\Users\Maiada-Ibrahim\Desktop\jepco-portal\SiteWare.Domain\obj\Debug\SiteWare.Domain.pdb

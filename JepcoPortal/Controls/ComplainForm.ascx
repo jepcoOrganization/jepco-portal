@@ -1,23 +1,10 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="ComplainForm.ascx.cs" Inherits="Controls_ComplainForm" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
-<%--<div class="greybg subscribe_div">
-    <div class="step_form">
-        <div class="subscribe_div1">
-            <h3>تقديم شكوى الكترونية </h3>
-            <label>الرجاء ادخال البيانات المطلوبة وسنقدم لكم كل مساعدة ممكنة </label>
+<%--  Functionality For Add Complain Page --%>
 
-            <h3>الشكوى المقدم لها</h3>
-         
 
-            <h3>المعلومات الشخصية</h3>
 
-            <h3>تفاصيل الشكوى </h3>
-          
-        </div>
-    </div>
-</div>--%>
-<%------------------------------------------------------%>
 <div class="modal fade welcome modal-done" id="myModalerror2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -363,12 +350,7 @@
                         <div class="form-group">
                             <label>اختر المنطقة بالتحديد</label>
                             <div id="gmap" style="width: 100%; height: 450px;"></div>
-                                <input
-      id="pac-input"
-      class="controls "
-      type="text"
-      placeholder="البحث"
-    />
+                             
 
                             <div class="scribmap">
                                 <label>Latitude : </label>
@@ -680,7 +662,11 @@
                     } else {
                         $(".trans-number").hide()
                     }
+
+                    initializeMapData();
                 })
+
+                // Save Value From DropDown in Global Variable 
                 $(".damage-type-select").on("change", function () {
                     ComplainFailureType = this.value;
                     ComplainTypeName = $(this).find('option:selected').text();
@@ -806,6 +792,7 @@
         });
 
 
+                // Get City From API and on change select DropDown Get Area ,Neighborhood and Street. 
 
         $.ajax({
             type: "POST",
@@ -1882,6 +1869,9 @@
 </style>
 
 <script type="text/javascript">
+
+    /* --------------  Validation For Input  ------------------ */
+
     $("document").ready(function () {
 
         var current_fs, next_fs, previous_fs; //fieldsets
@@ -1944,6 +1934,153 @@
                 //    return false;
                 //}
 
+<%--                if (current == 1) {
+                    var myLatlng = null;
+                    let markers = [];
+
+                    myLatlng = new google.maps.LatLng(lati, lang)
+                    myOptions = {
+                        zoom: 7,
+                        center: myLatlng,
+                        mapTypeId: google.maps.MapTypeId.ROADMAP
+                    }
+
+                    map = new google.maps.Map(document.getElementById("gmap"), myOptions);
+
+                    // marker refers to a global variable
+                    markers.push(
+                        new google.maps.Marker({
+                            position: myLatlng,
+                            map: map
+
+                        }))
+
+
+
+
+
+
+
+
+                    document.getElementById('latlbl').innerHTML = lati;
+                    document.getElementById('lonlbl').innerHTML = lang;
+
+
+
+
+                    const input = document.getElementById("pac-input");
+                    const searchBox = new google.maps.places.SearchBox(input);
+                    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+                    map.addListener("bounds_changed", () => {
+                        searchBox.setBounds(map.getBounds());
+
+                    });
+
+                    searchBox.addListener("places_changed", () => {
+                        const places = searchBox.getPlaces();
+
+                        if (places.length == 0) {
+                            return;
+                        }
+
+                        // Clear out the old markers.
+                        markers.forEach((marker) => {
+                            marker.setMap(null);
+                        });
+
+
+                        // For each place, get the icon, name and location.
+                        const bounds = new google.maps.LatLngBounds();
+
+                        places.forEach((place) => {
+
+                            document.getElementById('latlbl').innerHTML = place.geometry.location.lat();
+                            document.getElementById('lonlbl').innerHTML = place.geometry.location.lng();
+
+
+                            $('#<%=lblLatitude.ClientID %>').val(place.geometry.location.lat());
+                        $('#<%=lblLongiude.ClientID %>').val(place.geometry.location.lng());
+
+                        if (!place.geometry || !place.geometry.location) {
+                            console.log("Returned place contains no geometry");
+                            return;
+                        }
+
+                        const icon = {
+                            url: place.icon,
+                            size: new google.maps.Size(71, 71),
+                            origin: new google.maps.Point(0, 0),
+                            anchor: new google.maps.Point(17, 34),
+                            scaledSize: new google.maps.Size(25, 25),
+                        };
+
+                        // Create a marker for each place.
+                        markers.push(
+                            new google.maps.Marker({
+                                map,
+                                title: place.name,
+                                position: place.geometry.location,
+                            })
+                        );
+                        if (place.geometry.viewport) {
+                            // Only geocodes have viewport.
+                            bounds.union(place.geometry.viewport);
+                        } else {
+                            bounds.extend(place.geometry.location);
+                        }
+                    });
+                    map.fitBounds(bounds);
+                });
+
+
+
+
+
+
+        google.maps.event.addListener(map, "click", function (event) {
+
+            var clickLat = event.latLng.lat();
+            var clickLon = event.latLng.lng();
+
+            markers.forEach((marker) => {
+                marker.setMap(null);
+            });
+
+            // show in input box
+            //document.getElementById("lat").value = clickLat.toFixed(5);
+            //document.getElementById("lon").value = clickLon.toFixed(5);
+
+            document.getElementById('latlbl').innerHTML = clickLat.toFixed(5);
+            document.getElementById('lonlbl').innerHTML = clickLon.toFixed(5);
+
+
+
+            $('#<%=lblLatitude.ClientID %>').val(clickLat.toFixed(5));
+            $('#<%=lblLongiude.ClientID %>').val(clickLon.toFixed(5));
+            markers.push(
+                new google.maps.Marker({
+                    map,
+                    position: new google.maps.LatLng(clickLat, clickLon),
+                })
+            );
+
+            /* var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(clickLat, clickLon),
+        map: map
+             });*/
+        });
+
+
+                }--%>
+
+
+               
+
+
+
+
+
                 $.each(arrayMeter, function (key, value) {
                     if (value.fileNumberAddressesData != undefined) {
                         if (value.meterNumber == MeterNumber) {
@@ -1957,12 +2094,220 @@
                             NeighborhoodIdLast = arrayAddress.neighborhoodId;
                             AddrssDetails = arrayAddress.addressDetails;
 
-
+                            debugger;
                             lonFAPI = arrayAddress.long;
                             latFAPI = arrayAddress.latt;
+                           // initialize();
+
+
+<%--                            var myLatlng = null;
+                            let markers = [];
+
+                            myLatlng = new google.maps.LatLng(latFAPI, lonFAPI);
+                            myOptions = {
+                                zoom: 15,
+                                center: myLatlng,
+                                mapTypeId: google.maps.MapTypeId.ROADMAP
+                            }
+
+                            map = new google.maps.Map(document.getElementById("gmap"), myOptions);
+
+                            // marker refers to a global variable
+                            markers.push(
+                                new google.maps.Marker({
+                                    position: myLatlng,
+                                    map: map
+
+                                }))
+
+
+
+
+
+
 
                             console.log("s", lonFAPI)
                             console.log("s1", latFAPI)
+
+
+                            document.getElementById('latlbl').innerHTML = latFAPI;
+                            document.getElementById('lonlbl').innerHTML = lonFAPI;
+
+
+
+
+                            const input = document.getElementById("pac-input");
+                            const searchBox = new google.maps.places.SearchBox(input);
+                            map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+                            map.addListener("bounds_changed", () => {
+                                searchBox.setBounds(map.getBounds());
+
+                            });
+
+                            searchBox.addListener("places_changed", () => {
+                                const places = searchBox.getPlaces();
+
+                                if (places.length == 0) {
+                                    return;
+                                }
+
+                                // Clear out the old markers.
+                                markers.forEach((marker) => {
+                                    marker.setMap(null);
+                                });
+
+
+                                // For each place, get the icon, name and location.
+                                const bounds = new google.maps.LatLngBounds();
+
+                                places.forEach((place) => {
+
+                                    document.getElementById('latlbl').innerHTML = place.geometry.location.lat();
+                                    document.getElementById('lonlbl').innerHTML = place.geometry.location.lng();
+
+
+                                    $('#<%=lblLatitude.ClientID %>').val(place.geometry.location.lat());
+                            $('#<%=lblLongiude.ClientID %>').val(place.geometry.location.lng());
+
+                            if (!place.geometry || !place.geometry.location) {
+                                console.log("Returned place contains no geometry");
+                                return;
+                            }
+
+                            const icon = {
+                                url: place.icon,
+                                size: new google.maps.Size(71, 71),
+                                origin: new google.maps.Point(0, 0),
+                                anchor: new google.maps.Point(17, 34),
+                                scaledSize: new google.maps.Size(25, 25),
+                            };
+
+                            // Create a marker for each place.
+                            markers.push(
+                                new google.maps.Marker({
+                                    map,
+                                    title: place.name,
+                                    position: place.geometry.location,
+                                })
+                            );
+                            if (place.geometry.viewport) {
+                                // Only geocodes have viewport.
+                                bounds.union(place.geometry.viewport);
+                            } else {
+                                bounds.extend(place.geometry.location);
+                            }
+                        });
+                        map.fitBounds(bounds);
+                    });
+
+
+
+                            searchBox.addListener("places_changed", () => {
+                                const places = searchBox.getPlaces();
+
+                                if (places.length == 0) {
+                                    return;
+                                }
+
+                                // Clear out the old markers.
+                                markers.forEach((marker) => {
+                                    marker.setMap(null);
+                                });
+
+
+                                // For each place, get the icon, name and location.
+                                const bounds = new google.maps.LatLngBounds();
+
+                                places.forEach((place) => {
+
+                                    document.getElementById('latlbl').innerHTML = place.geometry.location.lat();
+                                    document.getElementById('lonlbl').innerHTML = place.geometry.location.lng();
+
+
+                                    $('#<%=lblLatitude.ClientID %>').val(place.geometry.location.lat());
+                            $('#<%=lblLongiude.ClientID %>').val(place.geometry.location.lng());
+
+                if (!place.geometry || !place.geometry.location) {
+                    console.log("Returned place contains no geometry");
+                    return;
+                }
+
+                const icon = {
+                    url: place.icon,
+                    size: new google.maps.Size(71, 71),
+                    origin: new google.maps.Point(0, 0),
+                    anchor: new google.maps.Point(17, 34),
+                    scaledSize: new google.maps.Size(25, 25),
+                };
+
+                // Create a marker for each place.
+                markers.push(
+                    new google.maps.Marker({
+                        map,
+                        title: place.name,
+                        position: place.geometry.location,
+                    })
+                );
+                if (place.geometry.viewport) {
+                    // Only geocodes have viewport.
+                    bounds.union(place.geometry.viewport);
+                } else {
+                    bounds.extend(place.geometry.location);
+                }
+            });
+            map.fitBounds(bounds);
+        });
+
+
+
+        google.maps.event.addListener(map, "click", function (event) {
+
+            var clickLat = event.latLng.lat();
+            var clickLon = event.latLng.lng();
+
+            markers.forEach((marker) => {
+                marker.setMap(null);
+            });
+
+            // show in input box
+            //document.getElementById("lat").value = clickLat.toFixed(5);
+            //document.getElementById("lon").value = clickLon.toFixed(5);
+
+            document.getElementById('latlbl').innerHTML = clickLat.toFixed(5);
+            document.getElementById('lonlbl').innerHTML = clickLon.toFixed(5);
+
+
+
+            $('#<%=lblLatitude.ClientID %>').val(clickLat.toFixed(5));
+            $('#<%=lblLongiude.ClientID %>').val(clickLon.toFixed(5));
+            markers.push(
+                new google.maps.Marker({
+                    map,
+                    position: new google.maps.LatLng(clickLat, clickLon),
+                })
+            );
+
+            /* var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(clickLat, clickLon),
+        map: map
+             });*/
+        });--%>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                             if (arrayAddress.streetName == undefined) {
                                 StreetNameLast = "";
                             } else {
@@ -2024,6 +2369,20 @@
                             $('.street-select').prop('selectedIndex', 0)
                             arrayAddress = undefined
                             addressPass = false;
+
+
+
+                           
+
+
+
+
+
+
+
+
+
+
 
                         }
                     } else {
@@ -2552,7 +2911,7 @@
                      ValMetro2 == true
                  ) {
                       
-                     step3validResult = true;
+                     //step3validResult = true;
                  }
                  else {
 
@@ -2564,12 +2923,50 @@
 
     });
     $(".meter-number-select").on("change", function () {
+
+        MeterNumber = $(this).find('option:selected').attr("meter-num")
+
+
+
         $(document).ready(function () {
+            debugger;
             var lati = $("#<%=lblLatitude.ClientID%>").val();
                 var lang = $("#<%=lblLongiude.ClientID%>").val();
 
                 document.getElementById('latlbl').innerHTML = lati;
-                document.getElementById('lonlbl').innerHTML = lang;
+            document.getElementById('lonlbl').innerHTML = lang;
+
+
+            lonFAPI = null;
+            latFAPI = null;
+
+
+
+            $.each(arrayMeter, function (key, value) {
+                if (value.fileNumberAddressesData != undefined) {
+                    if (value.meterNumber == MeterNumber) {
+
+                        arrayAddress = value.fileNumberAddressesData;
+
+                        lonFAPI = arrayAddress.long;
+                        latFAPI = arrayAddress.latt;
+
+
+
+                        document.getElementById('latlbl').innerHTML = latFAPI;
+                        document.getElementById('lonlbl').innerHTML = lonFAPI;
+
+
+
+                    }
+                } else {
+                }
+            })
+
+
+
+
+
 
                 if (lonFAPI != null && latFAPI != null) {
                     lati = latFAPI;
@@ -2580,14 +2977,17 @@
                     document.getElementById('lonlbl').innerHTML = lonFAPI;
                 }
 
+
                 var map;
                 var myOptions;
-                function initialize() {
+                function initializeMap() {
                     let markers = [];
 
                     var myLatlng = null;
                     if (lonFAPI != null && latFAPI != null) {
                         console.log("true :")
+                        debugger;
+
                         myLatlng = new google.maps.LatLng(latFAPI, lonFAPI);
                         myOptions = {
                             zoom: 15,
@@ -2596,6 +2996,8 @@
                         }
                     } else {
                         console.log("false")
+                        debugger;
+
                         myLatlng = new google.maps.LatLng(lati, lang)
                         myOptions = {
                             zoom: 7,
@@ -2606,6 +3008,7 @@
 
                     map = new google.maps.Map(document.getElementById("gmap"), myOptions);
                     // Clear out the old markers.
+                    debugger;
 
                     // marker refers to a global variable
                     markers.push(
@@ -2616,17 +3019,28 @@
                         })
                     )
                     // Clear out the old markers.
+                    debugger;
 
+                   // google.maps.event.removeListener(autocompleteLsr);
+
+                    var pacinput = "<input id = 'pac-input' class='controls' type = 'text' placeholder = 'البحث'/><br /> <br />" ;
+                    $('#gmap').append(pacinput);
                     const input = document.getElementById("pac-input");
                     const searchBox = new google.maps.places.SearchBox(input);
-                    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+                    //searchBox.addListener('place_changed', function () {
+                    //    $('.pac-input').remove();
+                    //});
+
+                   
+                   map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
                     map.addListener("bounds_changed", () => {
                         searchBox.setBounds(map.getBounds());
 
                     });
 
-                    searchBox.addListener("places_changed", () => {
+                  searchBox.addListener("places_changed", () => {
                         const places = searchBox.getPlaces();
 
                         if (places.length == 0) {
@@ -2718,13 +3132,13 @@
         });
                 }
 
-                window.onload = function () { initialize() };
+            initializeMap() ;
 
-            })
+            });
 
     })
 
-
+    /* ---------------------  Send Complain API  --------------------- */
     $(".sendComplain").click(function () {
         ComplainDetails = $('#<%= txtComplainDetail.ClientID %>').val()
         if ($('#<%= txtComplainDetail.ClientID %>').val().trim() != '') {
@@ -2797,7 +3211,302 @@
     })
 
 
+    function initializeMapData() {
+
+
+        var lati = $("#<%=lblLatitude.ClientID%>").val();
+        var lang = $("#<%=lblLongiude.ClientID%>").val();
+
+        document.getElementById('latlbl').innerHTML = lati;
+        document.getElementById('lonlbl').innerHTML = lang;
+
+
+        let markers = [];
+
+        var myLatlng = null;
+        if (lonFAPI != null && latFAPI != null) {
+            console.log("true :")
+            debugger;
+
+            myLatlng = new google.maps.LatLng(latFAPI, lonFAPI);
+            myOptions = {
+                zoom: 15,
+                center: myLatlng,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            }
+        } else {
+            console.log("false")
+            debugger;
+
+            myLatlng = new google.maps.LatLng(lati, lang)
+            myOptions = {
+                zoom: 7,
+                center: myLatlng,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            }
+        }
+
+        map = new google.maps.Map(document.getElementById("gmap"), myOptions);
+        // Clear out the old markers.
+        debugger;
+
+        // marker refers to a global variable
+        markers.push(
+            new google.maps.Marker({
+                position: myLatlng,
+                map: map
+
+            })
+        )
+        // Clear out the old markers.
+        debugger;
+
+        // google.maps.event.removeListener(autocompleteLsr);
+
+        var pacinput = "<input id = 'pac-input' class='controls' type = 'text' placeholder = 'البحث'/><br /> <br />";
+        $('#gmap').append(pacinput);
+        const input = document.getElementById("pac-input");
+        const searchBox = new google.maps.places.SearchBox(input);
+
+        //searchBox.addListener('place_changed', function () {
+        //    $('.pac-input').remove();
+        //});
+
+
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+        map.addListener("bounds_changed", () => {
+            searchBox.setBounds(map.getBounds());
+
+        });
+
+        searchBox.addListener("places_changed", () => {
+            const places = searchBox.getPlaces();
+
+            if (places.length == 0) {
+                return;
+            }
+
+            // Clear out the old markers.
+            markers.forEach((marker) => {
+                marker.setMap(null);
+            });
+
+
+            // For each place, get the icon, name and location.
+            const bounds = new google.maps.LatLngBounds();
+
+            places.forEach((place) => {
+
+                document.getElementById('latlbl').innerHTML = place.geometry.location.lat();
+                document.getElementById('lonlbl').innerHTML = place.geometry.location.lng();
+
+
+                $('#<%=lblLatitude.ClientID %>').val(place.geometry.location.lat());
+                            $('#<%=lblLongiude.ClientID %>').val(place.geometry.location.lng());
+
+                if (!place.geometry || !place.geometry.location) {
+                    console.log("Returned place contains no geometry");
+                    return;
+                }
+
+                const icon = {
+                    url: place.icon,
+                    size: new google.maps.Size(71, 71),
+                    origin: new google.maps.Point(0, 0),
+                    anchor: new google.maps.Point(17, 34),
+                    scaledSize: new google.maps.Size(25, 25),
+                };
+
+                // Create a marker for each place.
+                markers.push(
+                    new google.maps.Marker({
+                        map,
+                        title: place.name,
+                        position: place.geometry.location,
+                    })
+                );
+                if (place.geometry.viewport) {
+                    // Only geocodes have viewport.
+                    bounds.union(place.geometry.viewport);
+                } else {
+                    bounds.extend(place.geometry.location);
+                }
+            });
+            map.fitBounds(bounds);
+        });
+
+
+
+        google.maps.event.addListener(map, "click", function (event) {
+
+            var clickLat = event.latLng.lat();
+            var clickLon = event.latLng.lng();
+
+            markers.forEach((marker) => {
+                marker.setMap(null);
+            });
+
+            // show in input box
+            //document.getElementById("lat").value = clickLat.toFixed(5);
+            //document.getElementById("lon").value = clickLon.toFixed(5);
+
+            document.getElementById('latlbl').innerHTML = clickLat.toFixed(5);
+            document.getElementById('lonlbl').innerHTML = clickLon.toFixed(5);
+
+
+
+            $('#<%=lblLatitude.ClientID %>').val(clickLat.toFixed(5));
+            $('#<%=lblLongiude.ClientID %>').val(clickLon.toFixed(5));
+            markers.push(
+                new google.maps.Marker({
+                    map,
+                    position: new google.maps.LatLng(clickLat, clickLon),
+                })
+            );
+
+            /* var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(clickLat, clickLon),
+        map: map
+             });*/
+        });
+    }
+
+
+
 </script>
+
+
+<script>
+
+    var lati = $("#<%=lblLatitude.ClientID%>").val();
+    var lang = $("#<%=lblLongiude.ClientID%>").val();
+
+    document.getElementById('latlbl').innerHTML = lati;
+    document.getElementById('lonlbl').innerHTML = lang;
+
+    var map;
+    function initialize() {
+        var myLatlng = new google.maps.LatLng(lati, lang);
+        var myOptions = {
+            zoom: 7,
+            center: myLatlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        map = new google.maps.Map(document.getElementById("gmap"), myOptions);
+        // marker refers to a global variable
+        /*  marker = new google.maps.Marker({
+              position: myLatlng,
+              map: map
+  
+          });*/
+        const input = document.getElementById("pac-input");
+        const searchBox = new google.maps.places.SearchBox(input);
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+        map.addListener("bounds_changed", () => {
+            searchBox.setBounds(map.getBounds());
+        });
+        let markers = [];
+
+        searchBox.addListener("places_changed", () => {
+            const places = searchBox.getPlaces();
+
+            if (places.length == 0) {
+                return;
+            }
+
+            // Clear out the old markers.
+            markers.forEach((marker) => {
+                marker.setMap(null);
+            });
+
+
+            // For each place, get the icon, name and location.
+            const bounds = new google.maps.LatLngBounds();
+
+            places.forEach((place) => {
+
+                document.getElementById('latlbl').innerHTML = place.geometry.location.lat();
+                document.getElementById('lonlbl').innerHTML = place.geometry.location.lng();
+
+
+                $('#<%=lblLatitude.ClientID %>').val(place.geometry.location.lat());
+                $('#<%=lblLongiude.ClientID %>').val(place.geometry.location.lng());
+
+                if (!place.geometry || !place.geometry.location) {
+                    console.log("Returned place contains no geometry");
+                    return;
+                }
+
+                const icon = {
+                    url: place.icon,
+                    size: new google.maps.Size(71, 71),
+                    origin: new google.maps.Point(0, 0),
+                    anchor: new google.maps.Point(17, 34),
+                    scaledSize: new google.maps.Size(25, 25),
+                };
+
+                // Create a marker for each place.
+                markers.push(
+                    new google.maps.Marker({
+                        map,
+                        title: place.name,
+                        position: place.geometry.location,
+                    })
+                );
+                if (place.geometry.viewport) {
+                    // Only geocodes have viewport.
+                    bounds.union(place.geometry.viewport);
+                } else {
+                    bounds.extend(place.geometry.location);
+                }
+            });
+            map.fitBounds(bounds);
+
+
+        });
+
+
+
+        google.maps.event.addListener(map, "click", function (event) {
+            // get lat/lon of click
+            var clickLat = event.latLng.lat();
+            var clickLon = event.latLng.lng();
+
+            markers.forEach((marker) => {
+                marker.setMap(null);
+            });
+
+            // show in input box
+            //document.getElementById("lat").value = clickLat.toFixed(5);
+            //document.getElementById("lon").value = clickLon.toFixed(5);
+
+            document.getElementById('latlbl').innerHTML = clickLat.toFixed(5);
+            document.getElementById('lonlbl').innerHTML = clickLon.toFixed(5);
+
+
+
+            $('#<%=lblLatitude.ClientID %>').val(clickLat.toFixed(5));
+            $('#<%=lblLongiude.ClientID %>').val(clickLon.toFixed(5));
+            markers.push(
+                new google.maps.Marker({
+                    map,
+                    position: new google.maps.LatLng(clickLat, clickLon),
+                })
+            );
+
+            /* var marker = new google.maps.Marker({
+                 position: new google.maps.LatLng(clickLat, clickLon),
+                 map: map
+             });*/
+        });
+    }
+
+    window.onload = function () { initialize() };
+
+</script>
+
 
 
 

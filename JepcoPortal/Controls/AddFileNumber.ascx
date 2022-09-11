@@ -2,47 +2,31 @@
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
-<%--<div class="greybg subscribe_div">
-    <div class="step_form">
-        <div class="subscribe_div1">
-            <h3>تقديم شكوى الكترونية </h3>
-            <label>الرجاء ادخال البيانات المطلوبة وسنقدم لكم كل مساعدة ممكنة </label>
+<asp:HiddenField runat="server" ID="showMeterNumModel" />
 
-            <h3>الشكوى المقدم لها</h3>
-         
 
-            <h3>المعلومات الشخصية</h3>
+<%-- Functionality For Add File Number Page    --%>
 
-            <h3>تفاصيل الشكوى </h3>
-          
-        </div><img src="" />
-    </div>
-</div>--%>
-<%------------------------------------------------------%>
-
-<div class="modal fade welcome m-done"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade welcome m-done" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h2 style="display: contents">شركة الكهرباء الأردنية</h2>
-               <%-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <%-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span class="fa fa-close"></span>
                 </button>--%>
-
             </div>
             <div class="modal-body">
-                <h4 class="modal-text" ></h4>
+                <h4 class="modal-text"></h4>
             </div>
             <div class="modal-footer">
                 <%--<button id="SubmitFillCall"  >Save</button>--%>
-                <a href="/ar/Home/Subscriptions" class="btn btn-primary" id="" style="width: 100%;padding: 20px;font-size: 20px;" >موافق <span id="counter"></span></a>
+                <a href="/ar/Home/Subscriptions" class="btn btn-primary" id="" style="width: 100%; padding: 20px; font-size: 20px;">موافق <span id="counter"></span></a>
 
             </div>
         </div>
     </div>
 </div>
-
-
 
 <div class="modal fade welcome modal-done" id="myModalerror2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
@@ -55,13 +39,12 @@
 
             </div>
             <div class="modal-body">
-                       <div class="err-box err-app alert alert-success">
-                    
+                <div class="err-box err-app alert alert-success">
                 </div>
             </div>
             <div class="modal-footer">
                 <%--<button id="SubmitFillCall"  >Save</button>--%>
-                <a href="/ar/Home/ComplainList" class="btn btn-primary" id="" style="width: 100%;padding: 20px;font-size: 20px;" >موافق</a>
+                <a href="/ar/Home/ComplainList" class="btn btn-primary" id="" style="width: 100%; padding: 20px; font-size: 20px;">موافق</a>
 
             </div>
         </div>
@@ -79,18 +62,22 @@
 
             </div>
             <div class="modal-body">
-                       <div class="err-box err-app alert alert-danger">
-                    
+                <div class="err-box err-app alert alert-danger">
                 </div>
             </div>
             <div class="modal-footer">
                 <%--<button id="SubmitFillCall"  >Save</button>--%>
-                <a href="/ar/Home/ComplainList" class="btn btn-primary" id="" style="width: 100%;padding: 20px;font-size: 20px;" >موافق</a>
+                <a href="/ar/Home/ComplainList" class="btn btn-primary" id="" style="width: 100%; padding: 20px; font-size: 20px;">موافق</a>
 
             </div>
         </div>
     </div>
 </div>
+
+
+
+
+
 
 <div class="greybg subscribe_div">
     <div class="step_form">
@@ -109,102 +96,260 @@
                     <div>
 
                         <ul class="list-unstyled steplist Compiansteps" id="progressbar2" style="margin-bottom: 30px;">
-                                <li class="active"><a href="javascript:void">معلومات الإشتراك</a></li>
-                                <li><a href="javascript:void">عنوان الإشتراك</a></li>
-         
+                            <li class="active"><a href="javascript:void">معلومات الإشتراك</a></li>
+                            <li><a href="javascript:void">عنوان الإشتراك</a></li>
 
-                            </ul>
+
+                        </ul>
                     </div>
 
 
                 </div>
 
                 <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12">
 
+
+                    <div class="col-lg-12 col-md-12 col-sm-12">
                         <fieldset>
                             <div class="row">
-                             <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="form-group">
                                         <label><span>*</span>الاسم المختصر</label>
                                         <asp:HiddenField runat="server" ID="HiddenField1" />
-                                        <input type="text" name="aliasName" id="aliasName" placeholder="الاسم المختصر" /> 
+                                        <input type="text" name="aliasName" id="aliasName" placeholder="الاسم المختصر" />
 
                                     </div>
                                 </div>
-                             <div class="col-lg-6 col-md-6 col-sm-6">
+
+                                &nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;
+
+                                <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="form-group">
-                                        <label><span>*</span>الرقم المرجعي</label>
-                                        <asp:HiddenField runat="server" ID="HiddenField2" />
-                                        <input type="number" placeholder="رقم المرجع" name="refNumber" id="refNumber" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="13" /> 
-                                                                                                         <p class="text-danger err-refNum" style="color:#a94442 !important;margin:0" ></p>
+                                        <h3>اختر الرقم المرجعي أو رقم العداد </h3>
 
+                                        <div class="row" style="margin-bottom: 20px;">
+                                            <div class ="radioBtnRef-Meter">
+                                                <input class="form-check-input ref-input" type="radio" name="nearby1" id="refnumber" value="1" checked="checked">
+                                                <label class="form-check-label" for="refnumber">
+                                                    رقم المرجعي
+                                                </label>
+                                                  &nbsp;	&nbsp;	&nbsp;	&nbsp;  &nbsp;	&nbsp;	&nbsp;	&nbsp;  &nbsp;	&nbsp;	&nbsp;	&nbsp;
+                                                <input class="form-check-input ref-input" type="radio" name="nearby1" id="meternumber" value="2">
+                                                <label class="form-check-label" for="meternumber">
+                                                    رقم العداد
+                                                </label>
+                                            </div>
+
+                                            <div class="meternumber-div">
+                                                <label for="meterNumber"><span>*</span>الرقم العداد</label>
+                                                <asp:HiddenField runat="server" ID="HiddenField3" />
+                                                <input type="number" placeholder="رقم العداد" name="meterNumber" id="meterNumber" disabled style="background-color: #eee;" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="13" />
+                                                <p class="text-danger err-meterNum" style="color: #a94442 !important; margin: 0"></p>
+                                                <p class="text-danger err-notFoundmeterNum" style="color: #a94442 !important; margin: 0"></p>
+                                            </div>
+
+
+                                            <div class="refnumber-div">
+                                                <label for="refnum"><span>*</span>الرقم المرجعي</label>
+                                                <asp:HiddenField runat="server" ID="HiddenField2" />
+                                                <input type="number" placeholder="رقم المرجع" name="refNumber" id="refNumber" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="13" />
+                                                <p class="text-danger err-refNum" style="color: #a94442 !important; margin: 0"></p>
+                                                <p class="text-danger err-notFoundNum" style="color: #a94442 !important; margin: 0"></p>
+                                            </div>
+                                            <input type="button" name="validateRefNumBtn" class="btn validateRefNumBtn validateRefNumBtn1 action-button" value="بحث" onclick="" />
+                                            <input type="button" name="EditeNum" class="btn EditeNum validateRefNumBtn1 action-button" value="إلغاء البحث" onclick="" />
+
+                                        </div>
                                     </div>
+                                </div>
+                            </div>
 
+
+
+
+                            <div class="modal fade welcome modal-data" id="meterNumModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h2 style="display: contents">شركة الكهرباء الأردنية</h2>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span class="fa fa-close"></span>
+                                            </button>
+
+                                        </div>
+                                        <div class="modal-body">
+
+                                            <h3 class="modal-text">اختر العداد الصحيح </h3>
+
+                                            <div class="container">
+                                                <div class="row">
+
+                                                    <div class="meterTableDiv">
+
+
+                                                            <div class="meterNumberPanelBody" >
+                                                           
+                                                                <div class="protal_tabs">
+                                                                            <table class="table table-history   table-responsive table-success" id="tableid">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>الاسم</th>
+                                                                                        <th>رقم العداد</th>
+                                                                                        <th>الرقم المرجعي</th>
+                                                                                        <th>الفرع</th>
+                                                                                        <th></th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody class="body-table-list" id="body-table-list">
+                                                                            </table>
+                                                                </div>
+                                                            </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                </div>
-                               <h3>العلاقة مع العداد</h3>
+                            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            <h3>العلاقة مع العداد</h3>
 
                             <div class="row" style="margin-bottom: 20px;">
 
-                             <div class="col-lg-12 col-md-12 col-sm-12">
-                                  <input class="form-check-input r-input" type="radio" name="nearby" id="Owner" value="1" checked="checked">
-                                     <label class="form-check-label" for="Owner">
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <input class="form-check-input r-input" type="radio" name="nearby" id="Owner" value="1" checked="checked">
+                                    <label class="form-check-label" for="Owner">
                                         مالك
-                                     </label>
-                                 <input class="form-check-input r-input" type="radio" name="nearby" id="tenant" value="2">
-                                     <label class="form-check-label" for="tenant">
+                                    </label>
+                                    <input class="form-check-input r-input" type="radio" name="nearby" id="tenant" value="2">
+                                    <label class="form-check-label" for="tenant">
                                         مستأجر
-                                     </label>
-                                 <input class="form-check-input r-input" type="radio" name="nearby" id="nearby" value="3">
-                                     <label class="form-check-label" for="nearby">
+                                    </label>
+                                    <input class="form-check-input r-input" type="radio" name="nearby" id="nearby" value="3">
+                                    <label class="form-check-label" for="nearby">
                                         قريب
-                                     </label>
-                             </div>    
-                       <div class="col-lg-6 col-md-6 col-sm-6 nearby-div">
-                           <label><span>*</span>صلة القرابة</label>
-                       <select id="nearby-select">
-                                <option value="0">الرجاء أختيار صلة القرابة</option>
-                       </select> 
-                       </div>
-                            </div>
-                                                        <h3>المعلومات الشخصية</h3>
+                                    </label>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 nearby-div">
+                                    <label><span>*</span>صلة القرابة</label>
+                                    <select id="nearby-select">
+                                        <option value="0">الرجاء أختيار صلة القرابة</option>
+                                    </select>
+                                </div>
 
-                                            <div class="row">
+
+                            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            <h3>المعلومات الشخصية</h3>
+
+                            <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="form-group">
                                         <label><span>*</span>الاسم الأول</label>
                                         <asp:HiddenField runat="server" ID="hdnServiceID" />
-                                        <asp:TextBox ID="txtfirstName" runat="server" PlaceHolder="الاسم الأول" ></asp:TextBox>
+                                        <asp:TextBox ID="txtfirstName" runat="server" PlaceHolder="الاسم الأول"></asp:TextBox>
 
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="form-group">
                                         <label><span>*</span>اسم الأب </label>
-                                        <asp:TextBox ID="txtSecondNAme" runat="server" PlaceHolder="اسم الأب" ></asp:TextBox>
+                                        <asp:TextBox ID="txtSecondNAme" runat="server" PlaceHolder="اسم الأب"></asp:TextBox>
 
                                     </div>
                                 </div>
                             </div>
 
-                                                        <div class="row">
+                            <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="form-group">
                                         <label><span>*</span>اسم الجد </label>
-                                        <asp:TextBox ID="txtThirdName" runat="server" PlaceHolder="اسم الجد " ></asp:TextBox>
+                                        <asp:TextBox ID="txtThirdName" runat="server" PlaceHolder="اسم الجد "></asp:TextBox>
 
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="form-group">
                                         <label><span>*</span>اسم العائلة </label>
-                                        <asp:TextBox ID="txtFamilyName" runat="server" PlaceHolder="اسم العائلة "  ></asp:TextBox>
+                                        <asp:TextBox ID="txtFamilyName" runat="server" PlaceHolder="اسم العائلة "></asp:TextBox>
 
                                     </div>
                                 </div>
                             </div>
-                            
+
 
                             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                 <ContentTemplate>
@@ -212,31 +357,31 @@
                                         <div class="col-lg-6 col-md-6 col-sm-6">
                                             <div class="form-group">
                                                 <label><span>*</span>  الجنسية</label>
-                               
-                                                <asp:DropDownList ID="ddlNationality" CssClass="ddlNationalityClass" runat="server" TabIndex="2" Width="100%"  >
+
+                                                <asp:DropDownList ID="ddlNationality" CssClass="ddlNationalityClass" runat="server" TabIndex="2" Width="100%">
                                                 </asp:DropDownList>
 
                                             </div>
                                         </div>
-                                           <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="col-lg-6 col-md-6 col-sm-6">
                                             <div class="form-group">
                                                 <label><span>*</span> رقم ( الوطني / الوثيقة ) </label>
-                                                <asp:TextBox ID="txtDocumnetNo" runat="server" PlaceHolder="رقم الوثيقة" ></asp:TextBox>
+                                                <asp:TextBox ID="txtDocumnetNo" runat="server" PlaceHolder="رقم الوثيقة"></asp:TextBox>
                                             </div>
                                         </div>
 
-                                        <div class="col-lg-6 col-md-6 col-sm-6" style="display:none">
+                                        <div class="col-lg-6 col-md-6 col-sm-6" style="display: none">
                                             <div class="form-group">
-                                                <label ><span>*</span>  نوع الوثيقة</label>
+                                                <label><span>*</span>  نوع الوثيقة</label>
                                                 <select class="nationalTypeDocument-select">
                                                     <option value="0">يرجى اختيار الجنسية</option>
                                                 </select>
-                                                <asp:DropDownList ID="ddlTypeDocument" runat="server" TabIndex="2" Width="100%" Style="display:none">
+                                                <asp:DropDownList ID="ddlTypeDocument" runat="server" TabIndex="2" Width="100%" Style="display: none">
                                                 </asp:DropDownList>
                                             </div>
                                         </div>
                                     </div>
-                                  
+
                                 </ContentTemplate>
                                 <Triggers>
                                     <asp:AsyncPostBackTrigger ControlID="ddlNationality" EventName="SelectedIndexChanged" />
@@ -244,29 +389,29 @@
                             </asp:UpdatePanel>
 
                             <div class="row">
-                                <div class="col-lg-6 col-md-6 col-sm-6" style="display:none">
+                                <div class="col-lg-6 col-md-6 col-sm-6" style="display: none">
                                     <div class="form-group">
                                         <label><span>*</span> البريد الالكتروني </label>
-                                        <asp:TextBox ID="txtEmail" runat="server" PlaceHolder=" البريد الالكتروني " ></asp:TextBox>
+                                        <asp:TextBox ID="txtEmail" runat="server" PlaceHolder=" البريد الالكتروني "></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="form-group">
                                         <label><span>*</span>رقم الهاتف </label>
-                                        <asp:TextBox ID="txtMobileNo" runat="server" PlaceHolder="رقم الهاتف "  ></asp:TextBox>
+                                        <asp:TextBox ID="txtMobileNo" runat="server" PlaceHolder="رقم الهاتف "></asp:TextBox>
                                     </div>
                                 </div>
                             </div>
-                            <input type="button" name="next" class="btn next next1 action-button" value="التالي" onclick=""/>
+                            <input type="button" name="next" class="btn next next1 action-button" value="التالي" onclick=""  />
                         </fieldset>
-                        
-                          <fieldset>
 
-                              <div class="alert alert-danger err-label" >لن تستطيع تعديل عنوان الشكوى, سيتم إعتماد عنوان العداد</div>
+                        <fieldset>
 
-                                <div class="row">
+                            <div class="alert alert-danger err-label">لن تستطيع تعديل عنوان الشكوى, سيتم إعتماد عنوان العداد</div>
 
-                                <div class="col-lg-6 col-md-6 col-sm-6" style="display:none" >
+                            <div class="row">
+
+                                <div class="col-lg-6 col-md-6 col-sm-6" style="display: none">
                                     <div class="form-group">
                                         <label>رقم العداد </label>
                                         <asp:TextBox ID="txtMeterNo" runat="server" PlaceHolder=" رقم العداد "></asp:TextBox>
@@ -283,8 +428,8 @@
                                         <select class="city-select">
                                             <option value="0">أختيار المحافظة</option>
                                         </select>
-                               
-                                        <select id="ddlGeove" name="ddlGeove" class="form-control" tabindex="2" style="display:none"></select>
+
+                                        <select id="ddlGeove" name="ddlGeove" class="form-control" tabindex="2" style="display: none"></select>
                                     </div>
 
                                 </div>
@@ -292,10 +437,10 @@
                                     <div class="form-group">
                                         <label><span>*</span>المنطقة </label>
                                         <select class="areas-select">
-                                             <option value="0">لعرض المناطق يرجى اختيار المحافظة</option>
+                                            <option value="0">لعرض المناطق يرجى اختيار المحافظة</option>
                                         </select>
-                                     
-                                        <select id="ddlAreas" name="ddlAreas" class="form-control" tabindex="2" style="display:none" ></select>
+
+                                        <select id="ddlAreas" name="ddlAreas" class="form-control" tabindex="2" style="display: none"></select>
 
                                     </div>
 
@@ -310,25 +455,25 @@
                                         <select class="neighborhoods-select">
                                             <option value="0">لعرض الاحياء يرجى اختيار المنطقة</option>
                                         </select>
-                                        
-                                        <select id="ddlAreas2" name="ddlAreas2" class="form-control" tabindex="2" style="display:none"></select>
+
+                                        <select id="ddlAreas2" name="ddlAreas2" class="form-control" tabindex="2" style="display: none"></select>
                                     </div>
 
                                 </div>
 
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="form-group">
-                                        <label style="margin-top:7px">الشارع</label>
+                                        <label style="margin-top: 7px">الشارع</label>
                                         <select class="street-select">
-                                           <option value="0">لعرض الشوارع يرجى اختيار الحي</option>
+                                            <option value="0">لعرض الشوارع يرجى اختيار الحي</option>
 
                                         </select>
-                                      
-                                        <select id="ddlsteet" name="ddlsteet" class="form-control" tabindex="2" style="display:none"></select>
+
+                                        <select id="ddlsteet" name="ddlsteet" class="form-control" tabindex="2" style="display: none"></select>
                                     </div>
 
                                 </div>
-                                 <div class="col-lg-12 col-md-12 col-sm-12">
+                                <div class="col-lg-12 col-md-12 col-sm-12">
                                     <div class="form-group">
                                         <label><span>*</span>تفاصيل العنوان ( رقم البناية رقم الشقة أقرب معلم ) </label>
                                         <asp:TextBox ID="txtComplianTitle" runat="server" PlaceHolder="عنوان العداد "></asp:TextBox>
@@ -338,46 +483,68 @@
 
 
                             <div class="row" style="">
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                        <div class="form-group">
-                            <label>اختر المنطقة بالتحديد</label>
-                            <div id="gmap" style="width: 100%; height: 450px;"></div>
-                                <input
-      id="pac-input"
-      class="controls "
-      type="text"
-      placeholder="البحث"
-    />
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div class="form-group">
+                                        <label>اختر المنطقة بالتحديد</label>
+                                        <div id="gmap" style="width: 100%; height: 450px;"></div>
+                                        <input
+                                            id="pac-input"
+                                            class="controls "
+                                            type="text"
+                                            placeholder="البحث" />
 
-                            <div class="scribmap">
-                                <label>Latitude : </label>
-                                <label id="latlbl" style="font-family: Poppins, sans-serif; margin-left: 33px;"></label>
-                                <label>Longitude : </label>
-                                <label id="lonlbl" style="font-family: Poppins, sans-serif;"></label>
-                                <asp:HiddenField runat="server" ID="lblLatitude" />
-                                <asp:HiddenField runat="server" ID="lblLongiude" />
+                                        <div class="scribmap">
+                                            <label>Latitude : </label>
+                                            <label id="latlbl" style="font-family: Poppins, sans-serif; margin-left: 33px;"></label>
+                                            <label>Longitude : </label>
+                                            <label id="lonlbl" style="font-family: Poppins, sans-serif;"></label>
+                                            <asp:HiddenField runat="server" ID="lblLatitude" />
+                                            <asp:HiddenField runat="server" ID="lblLongiude" />
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-</div>
 
 
-                            
 
-                               <input type="button" name="next" class=" action-button submit submitAdd " value="أضافة" />
+
+                            <input type="button" name="next" class=" action-button submit submitAdd " value="أضافة" />
                             <input type="button" name="previous" class="previous action-button-previous" value="السابق" />
 
-                          </fieldset>
+                        </fieldset>
 
 
 
                     </div>
+
                 </div>
             </section>
-
         </div>
     </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -426,96 +593,257 @@
 </asp:Panel>
 
 
-          <div id="loading">
-              <div id="loader"></div><br />
-              <h3 style="color:#007fc3;font-weight:bold">شركة الكهرباء الأردنية  </h3>
-                            <h4 style="color:#007fc3;font-weight:bold">الرجاء الأنتظار  </h4>
+<div id="loading">
+    <div id="loader"></div>
+    <br />
+    <h3 style="color: #007fc3; font-weight: bold">شركة الكهرباء الأردنية  </h3>
+    <h4 style="color: #007fc3; font-weight: bold">الرجاء الأنتظار  </h4>
 
-  <%--<img id="loading-image" src="/App_Themes/ThemeAr/img/Dual Ring-1s-200px (3).gif" alt="Loading..." style="width:200px;height:200px" />--%>
+    <%--<img id="loading-image" src="/App_Themes/ThemeAr/img/Dual Ring-1s-200px (3).gif" alt="Loading..." style="width:200px;height:200px" />--%>
 </div>
-        <style>
-            #loader {
-    display: block;
-    position: relative;
 
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 3px solid transparent;
-    border-top-color: #3498db;
-    -webkit-animation: spin 2s linear infinite;
-    animation: spin 2s linear infinite;
-}
-            #loader:before {
-    content: "";
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    right: 5px;
-    bottom: 5px;
-    border-radius: 50%;
-    border: 3px solid transparent;
-    border-top-color: #e74c3c;
-    -webkit-animation: spin 3s linear infinite;
-    animation: spin 3s linear infinite;
-}
-#loader:after {
-    content: "";
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    right: 15px;
-    bottom: 15px;
-    border-radius: 50%;
-    border: 3px solid transparent;
-    border-top-color: #f9c922;
-    -webkit-animation: spin 1.5s linear infinite;
-    animation: spin 1.5s linear infinite;
-}
-            #loading {
-  position: fixed;
-  display: flex;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  text-align: center;
-  background-color: rgba(255, 255, 255,1);
-  z-index: 99;
-  justify-content:center;
-  align-items:center;
-      flex-direction: column;
+<style>
+    #loader {
+        display: block;
+        position: relative;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border: 3px solid transparent;
+        border-top-color: #3498db;
+        -webkit-animation: spin 2s linear infinite;
+        animation: spin 2s linear infinite;
+    }
+
+        #loader:before {
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-top-color: #e74c3c;
+            -webkit-animation: spin 3s linear infinite;
+            animation: spin 3s linear infinite;
+        }
+
+        #loader:after {
+            content: "";
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-top-color: #f9c922;
+            -webkit-animation: spin 1.5s linear infinite;
+            animation: spin 1.5s linear infinite;
+        }
+
+    #loading {
+        position: fixed;
+        display: flex;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        text-align: center;
+        background-color: rgba(255, 255, 255,1);
+        z-index: 99;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    #loading-image {
+        z-index: 99999;
+    }
+
+    @-webkit-keyframes spin {
+        0% {
+            -webkit-transform: rotate(0deg);
+        }
+
+        100% {
+            -webkit-transform: rotate(360deg);
+        }
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+</style>
+<style>
+    .table-history thead {
+    background: #007fc3;
+  
+} 
+    #tableid  {
+    margin-bottom: 0px ;
+  
+} 
+    .table-history thead th{
+        padding: 15px 0 !important;
+        border : none !important;
+        text-align : center;
+              color:#fff;
+    }
+    .table-history tr td{
+        background : #f5f5f5 !important;
+        padding: 8px ;
+        line-height: 1.42857143;
+        border-top: 1px solid #ddd;
+       vertical-align:initial !important;
+    }
+ 
+  .table-history tr  td input {
+        background-color : #dec84d !important;
+        width:50px !important;
+        height:auto !important;
+        color:#fff !important;
+
+    }
+
+    .table-history thead th:first-child{
+        border-top-right-radius : 5px;
+    }
+    .table-history thead th:last-child{
+        border-top-left-radius : 5px;
+    }
+    .table-history tbody th ,.table-history tbody td{
+        padding : 15px 0 !important;
+        text-align: center;
+        background-color : #fff
+    } 
+    .table-history tbody th:first-child ,.table-history tbody td:first-child{
+        padding-right : 7px !important;
+    } 
+    .table-history tbody th ,.table-history tbody td{
+        padding-left : 7px !important;
+        vertical-align: middle !important;
+
+    }
+    .table-history tbody label {
+        display: contents;
+        margin: 0 !important
+    }
+    .meterTableDiv {
+        position: relative;
+        min-height: 1px;
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+      .welcome .modal-body{
+       padding : 40px;
+
+       }
+    
+    .welcome .modal-dialog {
+        max-width : 700px
+       
+    }
+    .modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2000;
+    display: none;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+
 
 }
-
-#loading-image {
-
-  z-index: 99999;
+    /*//RESPONSIVE*/
+    @media (max-width: 767px) {
+    .table-history {
+        display: block;
+        width: 100%;
+    }
+    .table-wrapper:before{
+        content: "Scroll horizontally >";
+        display: block;
+        text-align: right;
+        font-size: 11px;
+        color: white;
+        padding: 0 0 10px;
+    }
+    .table-history thead, .fl-table tbody, .fl-table thead th {
+        display: block;
+    }
+    .table-history thead th:last-child{
+        border-bottom: none;
+    }
+    .table-history thead {
+        float: left;
+    }
+    .table-history tbody {
+        width: auto;
+        position: relative;
+        overflow-x: auto;
+    }
+    .table-history td, .fl-table th {
+        padding: 20px .625em .625em .625em;
+        height: 60px;
+        vertical-align: middle;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        overflow-y: auto;
+        width: 120px;
+        font-size: 13px;
+        text-overflow: ellipsis;
+    }
+    .table-history thead th {
+        text-align: left;
+        border-bottom: 1px solid #f7f7f9;
+    }
+    .table-history tbody tr {
+        display: table-cell;
+    }
+    .table-history tbody tr:nth-child(odd) {
+        background: none;
+    }
+    .table-history tr:nth-child(even) {
+        background: transparent;
+    }
+    .table-history tr td:nth-child(odd) {
+        background: #F8F8F8;
+        border-right: 1px solid #E6E4E4;
+    }
+    .table-history tr td:nth-child(even) {
+        border-right: 1px solid #E6E4E4;
+    }
+    .table-history tbody td {
+        display: block;
+        text-align: center;
+    }
 }
-@-webkit-keyframes spin {
-	0%   {-webkit-transform: rotate(0deg);}
-
-	100% {-webkit-transform: rotate(360deg);}
-}
-@keyframes spin {
-	0%   {transform: rotate(0deg);}
-
-	100% {transform: rotate(360deg);}
-}
-        </style>
+</style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maps.google.com/maps/api/js?key=AIzaSyA7f_t2Ccx3tdV_Mz2pT0zdVioGU6SiKS4&callback=initAutocomplete&libraries=places&v=weekly"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 
-<%-- New Api For Complain  :  --%>
+
+
 <script>    
     $(window).on('load', function () {
         $('#loading').hide();
     });
     var APIUrl = '<%= System.Configuration.ConfigurationManager.AppSettings["APIurl"].ToString() %>';
 
-    /* ------------------- Add Complain API Variable ----------------------- */
+    /* ------------------- Add Add File API Variable ----------------------- */
     var MobileNoURL = $("#hdnmobileno").val();
     var ComplainantName = "";
     var ComplainantType = "";
@@ -541,8 +869,10 @@
     var arrayAddress = undefined;
     var radioNearby = "1";
 
+
     var aliasNameApi = "";
-    var FilenumApi = ""
+    var FilenumApi = "";
+    var MeternumApi = "";
     var nearbyApi = "";
     var fnameApi = "";
     var m1nameApi = "";
@@ -552,6 +882,7 @@
     var nationalNumApi = "";
     var phneNumberApi = "";
     var nearbyTypeApi = "";
+    var AddTypeApi=""
     /* --------------------- Disabled Global Variable For Address Section -----------------------   */
     var DisabledCity = "";
     var DisabledArea = "";
@@ -705,6 +1036,7 @@
         $(".r-input").on("change", function () {
             if (this.value == 3) {
                 $(".nearby-div").show()
+
             } else {
                 $(".nearby-div").hide()
             }
@@ -712,6 +1044,64 @@
 
             radioNearby = $('input[name="nearby"]:checked').val();
         })
+
+
+        $(".ref-input").on("change", function () {
+            $(".err-refNum").hide()
+            $('#refNumber').css("border", "1px solid #e2e2e2");
+            $(".err-notFoundNum").hide()
+            $('#refNumber').val(" ")
+
+            $(".err-meterNum").hide()
+            $('#meterNumber').css("border", "1px solid #e2e2e2");
+            $(".err-notFoundmeterNum").hide()
+            $('#meterNumber').val(" ")
+
+            if (this.value == 2) {
+                $("#refNumber").attr('disabled', 'disabled');
+                $("#refNumber").css("background-color", "#eee");
+                $("#meterNumber").removeAttr("disabled");
+                $("#meterNumber").css("background-color", "#fff");
+
+            }  
+        
+            
+
+
+
+            radioMeternumber = $('input[name="meternumber"]:checked').val();
+        })
+
+        $(".ref-input").on("change", function () {
+            $(".err-refNum").hide()
+            $('#refNumber').css("border", "1px solid #e2e2e2");
+            $(".err-notFoundNum").hide()
+            $('#refNumber').val(" ")
+
+
+            $(".err-meterNum").hide()
+            $('#meterNumber').css("border", "1px solid #e2e2e2");
+            $(".err-notFoundmeterNum").hide()
+            $('#meterNumber').val(" ")
+
+            if (this.value == 1) {
+                $("#meterNumber").attr('disabled', 'disabled');
+                $("#meterNumber").css("background-color", "#eee");
+                $("#refNumber").removeAttr("disabled");
+                $("#refNumber").css("background-color", "#fff");
+
+            }
+
+
+
+
+            radioRefnumber = $('input[name="refnumber"]:checked').val();
+        })
+
+
+
+
+
 
         $("#nearby-select").on("change", function () {
             if (this.value == 0) {
@@ -722,7 +1112,7 @@
         })
 
 
-
+        // Get City From API and on change select DropDown Get Area ,Neighborhood and Street. 
         $.ajax({
             type: "POST",
             url: APIUrl + "Complaints/GetCallCenterProviance",
@@ -872,12 +1262,15 @@
                     async: false,
                     success: function (data) {
                         $(".street-select").empty()
-                        $(".street-select").append("<option value='0'>أختيار الشارع</option>");
-                        $.each(data.body, function (key, value) {
-                            var htmlBox = "<option value='" + value.codeId + "'>" + value.codeName + "</option>"
-                            $(".street-select").append(htmlBox);
-                        })
-
+                        if (data.body.length >= 1) {
+                            $(".street-select").append("<option value='0'>أختيار الشارع</option>");
+                            $.each(data.body, function (key, value) {
+                                var htmlBox = "<option value='" + value.codeId + "'>" + value.codeName + "</option>"
+                                $(".street-select").append(htmlBox);
+                            })
+                        } else {
+                            $(".street-select").append("<option value='0'> لا يوجد شارع</option>");
+                        }
                     },
                     error: function (err) {
                         console.log(err);
@@ -898,6 +1291,7 @@
 
 
 </script>
+<%--  -----------------------  Google Map Configuration   --------------------------- --%>
 <script>
 
     var lati = $("#<%=lblLatitude.ClientID%>").val();
@@ -1057,9 +1451,16 @@
 </script>
 
 <style>
-    .nearby-div{
-        display:none
+    .nearby-div {
+        display: none
     }
+    .next{
+          display: none
+    }
+    .EditeNum{
+          display: none
+    }
+
     .action-button {
         /*min-height: 60px;
         border-radius: 0;
@@ -1081,37 +1482,39 @@
         color: #007fc3;
         font-size: 18px;
     }
+
     @media(max-width:767px) {
         #pac-input {
-                        z-index: 0 !important;
-    position: absolute !important;
-    left: 0 !important;
-    top:60px !important;
-    width: 300px !important;
-    height: 45px !important;
-        }
-    }
-    @media(max-width:375px){
-                #pac-input {
-                        z-index: 0 !important;
-    position: absolute !important;
-    left: 0 !important;
-    top:60px !important;
-    width: 300px !important;
-    height: 45px !important;
-        }
-    }
-    @media(min-width:768px){
-            #pac-input{
             z-index: 0 !important;
-    position: absolute !important;
-    left: 200px !important;
-    width: 350px !important;
-    height: 45px !important;
-    top: 5px !important;
-    }
+            position: absolute !important;
+            left: 0 !important;
+            top: 60px !important;
+            width: 300px !important;
+            height: 45px !important;
+        }
     }
 
+    @media(max-width:375px) {
+        #pac-input {
+            z-index: 0 !important;
+            position: absolute !important;
+            left: 0 !important;
+            top: 60px !important;
+            width: 300px !important;
+            height: 45px !important;
+        }
+    }
+
+    @media(min-width:768px) {
+        #pac-input {
+            z-index: 0 !important;
+            position: absolute !important;
+            left: 200px !important;
+            width: 350px !important;
+            height: 45px !important;
+            top: 5px !important;
+        }
+    }
 </style>
 
 <script>
@@ -1251,20 +1654,23 @@
 
 <style>
     input.action-button.submit.submitAdd {
-    margin-top: 10px;
-}
+        margin-top: 10px;
+    }
     /* new API Design  : */
-    .damage-type{
-        display:none 
-    }    
-    .meter-number-notreq{
-        display:none 
+    .damage-type {
+        display: none
     }
-    .meter-number-req{
-        display:none
+
+    .meter-number-notreq {
+        display: none
     }
-    .trans-number{
-        display:none
+
+    .meter-number-req {
+        display: none
+    }
+
+    .trans-number {
+        display: none
     }
     /* =================================================
 	 17-02-2020 form stepper new css :start
@@ -1752,73 +2158,83 @@
     }
 
     .menuuu {
-    padding: 0 0 0 15px;
-}
+        padding: 0 0 0 15px;
+    }
 
-    .steplist li a {  
-    font-size: 15px;  
-}
+    .steplist li a {
+        font-size: 15px;
+    }
 
     .steplist li:last-child.active::before {
         border-bottom: 60px solid #ffde23;
     }
 
     .steplist li::before {
-    border-bottom: 60px solid #ffde23;
-}
+        border-bottom: 60px solid #ffde23;
+    }
+
     .steplist li::after {
-    border-top: 60px solid #ffde23;
-}
+        border-top: 60px solid #ffde23;
+    }
+
     .steplist li:first-child::before {
-    border-bottom: 60px solid #007fc3;
-}
+        border-bottom: 60px solid #007fc3;
+    }
 
 
-@media only screen and (max-width: 1367px) and (min-width: 1300px) {
+    @media only screen and (max-width: 1367px) and (min-width: 1300px) {
 
-.steplist li::before {
-    border-bottom: 60px solid #ffde23;
-}
- .steplist li:first-child::before {
+        .steplist li::before {
+            border-bottom: 60px solid #ffde23;
+        }
+
+        .steplist li:first-child::before {
             border-bottom: 60px solid #007fc3;
         }
- .steplist li:last-child::before {
-    border-bottom: 60px solid #f2f2f2;
-}
 
-}
+        .steplist li:last-child::before {
+            border-bottom: 60px solid #f2f2f2;
+        }
+    }
 
-.modal-body {
-    padding: 42px !important;
-}
-.modal-body h4 {
-    font-size: 25px !important;
-}
-.err-label{
-    display:none
-}
-.err-box.err-app.alert.alert-danger {
-    font-size: 24px;
-}
-.err-box.err-app.alert.alert-success {
-    font-family: Tahoma, "Helvetica Neue", Arial, Helvetica, sans-serif;
-}
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
+    .modal-body {
+    padding:5px !important;
+    }
 
-.r-input {
-    margin-right: 45px !important;
-    margin-top: 20px !important;
-    margin-bottom: 25px !important;
-}
-.r-input:first-child {
-    margin-right: 0 !important;
-}
+        .modal-body h4 {
+            font-size: 25px !important;
+        }
+
+    .err-label {
+        display: none
+    }
+
+    .err-box.err-app.alert.alert-danger {
+        font-size: 24px;
+    }
+
+    .err-box.err-app.alert.alert-success {
+        font-family: Tahoma, "Helvetica Neue", Arial, Helvetica, sans-serif;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    .r-input {
+        margin-right: 45px !important;
+        margin-top: 20px !important;
+        margin-bottom: 25px !important;
+    }
+
+        .r-input:first-child {
+            margin-right: 0 !important;
+        }
 </style>
 
+<%-- Validation Configuration For Input In Form  --%>
 <script type="text/javascript">
     $("document").ready(function () {
 
@@ -1832,6 +2248,246 @@ input::-webkit-inner-spin-button {
         var step4validResult = false;
 
         setProgressBar(current);
+        //maiada
+
+        $(".EditeNum").click(function () {
+            $(".EditeNum").hide()
+            $(".next").hide()
+            $(".validateRefNumBtn").show()
+            $(".radioBtnRef-Meter").show()
+            if ($('input[name="nearby1"]:checked').val() == 1) {
+                $("#meterNumber").attr('disabled', 'disabled');
+                $("#meterNumber").css("background-color", "#eee");
+                $('#refNumber').css("background-color", "#fff");
+                $("#refNumber").removeAttr("disabled");
+            }
+            if ($('input[name="nearby1"]:checked').val() == 2) {
+                $("#refNumber").attr('disabled', 'disabled');
+                $("#refNumber").css("background-color", "#eee");
+                $('#meterNumber').css("background-color", "#fff");
+                $("#meterNumber").removeAttr("disabled");
+            }
+
+        });
+
+
+
+
+
+
+
+        $(".validateRefNumBtn").click(function () {
+            $(".err-refNum").hide()
+            $('#refNumber').css("border", "1px solid #e2e2e2");
+            $(".err-notFoundNum").hide()
+            
+            $(".err-meterNum").hide()
+            $('#meterNumber').css("border", "1px solid #e2e2e2");
+            $(".err-notFoundmeterNum").hide()
+
+
+            if ($('input[name="nearby1"]:checked').val() == 1) {
+
+                if ($('#refNumber').val().trim() == '') {
+                    $('#refNumber').css("border", "1px solid red");
+                    return false;
+                } else {
+                    $('#refNumber').css("border", "1px solid #e2e2e2");
+                    if ($('#refNumber').val().length < 13) {
+                        $(".err-refNum").text("الرقم المرجعي يجب ان يحتوي 13 رقم")
+                        $(".err-refNum").show()
+                        return false;
+                    } else {
+                        $(".err-refNum").hide()
+                        $('#refNumber').css("border", "1px solid #e2e2e2");
+                    }
+
+                }
+
+
+                $.ajax({
+                    type: "POST",
+                    url: APIUrl + "CustomerInformationDetails/CheckFileNumberinSAP",
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("MiddlewareToken"));
+                    },
+                    data: JSON.stringify({
+                        fileNumber: $('#refNumber').val(),
+                        LanguageId: "AR"
+                    }),
+                    contentType: "application/json; charset=utf-8",
+                    async: false,
+
+                    success: function (data) {
+                        if ($.trim(data.body.fileNumber == $('#refNumber').val())) {
+                            $(".err-notFoundNum").hide()
+                            $("#meterNumber").val(data.body[0].meterNumber);
+                            $("#meterNumber").attr('disabled', 'disabled');
+                            $("#meterNumber").css("background-color", "#eee");
+                            $("#refNumber").attr('disabled', 'disabled');
+                            $("#refNumber").css("background-color", "#eee");
+                            $(".EditeNum").show()
+                            $(".radioBtnRef-Meter").hide()
+                            $(".validateRefNumBtn").hide()
+                           
+                        }
+
+
+                    },
+                    error: function (err) {
+                        console.log(err);
+
+                        $(".err-notFoundNum").text("الرقم المرجعي غير موجود")
+                        $(".err-notFoundNum").show()
+                    }
+                })
+
+            }
+
+            // meternumber
+            if ($('input[name="nearby1"]:checked').val() == 2) {
+
+                if ($('#meterNumber').val().trim() == '') {
+                    $('#meterNumber').css("border", "1px solid red");
+                    return false;
+                
+                } else {
+                $('#meterNumber').css("border", "1px solid #e2e2e2");
+                $(".err-refNum").hide()
+                  
+
+                }
+
+
+                $.ajax({
+                    type: "POST",
+                    url: APIUrl + "CustomerInformationDetails/CheckMeterNumberinSAP",
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("MiddlewareToken"));
+                    },
+                    data: JSON.stringify({
+                        MeterNumber: $('#meterNumber').val(),
+                        LanguageId: "AR"
+                    }),
+
+                    contentType: "application/json; charset=utf-8",
+                    async: false,
+
+                    success: function (data) {
+                        $("#tableid").find("tr:gt(0)").remove();
+                        if (data.body.length == 1) {
+
+                            if ($.trim(data.body.meterNumber == $('#meterNumber').val())) {
+                                $(".err-notFoundmeterNum").hide()
+                                $("#refNumber").val(data.body[0].fileNumber);
+                                $("#meterNumber").attr('disabled', 'disabled');
+                                $("#meterNumber").css("background-color", "#eee");
+                                $("#fileNumber").attr('disabled', 'disabled');
+                                $("#fileNumber").css("background-color", "#eee");
+                                $(".EditeNum").show()
+                                $(".validateRefNumBtn").hide()
+                                $(".radioBtnRef-Meter").hide()
+                            }
+                        } else {
+                            $('#meterNumModel').modal('show');
+
+                            var tableEl = document.getElementById("tableid");
+
+
+                            for (var i = 1; i <= data.body.length; i++) {
+                                var row = tableEl.insertRow(i);
+                                var cell0 = row.insertCell(0);
+                                var cell1 = row.insertCell(1);
+                                var cell2 = row.insertCell(2);
+                                var cell3 = row.insertCell(3);
+                                var cell4 = row.insertCell(4);
+                                cell0.innerHTML = data.body[i - 1].firstName;
+                                cell1.innerHTML = data.body[i - 1].meterNumber;
+                                cell2.innerHTML = data.body[i - 1].fileNumber;
+                                cell3.innerHTML = data.body[i - 1].officeDescription;
+                                removeButton = document.createElement('input');
+                                removeButton.type = 'button';
+                                removeButton.value = 'اختر';
+                              
+                                removeButton.id = `c${i - 1}`;
+                             
+                                removeButton.addEventListener('click', handl);
+                            
+                                cell4.appendChild(removeButton);
+                              
+                            }
+
+                            function handl(event) {
+                                event.preventDefault();
+
+                                for (var i = 1; i <= data.body.length; i++) {
+                                    //to remove the selected item & remove it's price from the total
+
+                                    if (event.target.id === `c${i - 1}`) {
+                                        $("#refNumber").removeAttr("disabled");
+                                        $("#refNumber").val(data.body[i - 1].fileNumber);
+                                        $('#meterNumModel').modal('hide');
+                                        $("#meterNumber").attr('disabled', 'disabled');
+                                        $("#meterNumber").css("background-color", "#eee");
+                                        $("#refNumber").attr('disabled', 'disabled');
+                                        $("#refNumber").css("background-color", "#eee");
+                                        $(".validateRefNumBtn").hide()
+                                        $(".radioBtnRef-Meter").hide()
+                                        $(".EditeNum").show()
+                                      
+                                    }
+
+                                }
+
+                            }
+                        }
+
+                        if ($("#meterNumber").attr('disabled', 'disabled') && $("#refNumber").attr('disabled', 'disabled')) {
+                            $(".next").show()
+                        } 
+                           
+                       
+                            
+
+
+                    },
+                    error: function (err) {
+                        console.log(err);
+
+                        $(".err-notFoundmeterNum").text("الرقم العداد غير موجود")
+                        $(".err-notFoundmeterNum").show()
+                    }
+                })
+
+            }
+        
+
+        });
+
+
+
+
+       
+        //maiada
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         $(".next").click(function () {
 
@@ -1939,6 +2595,7 @@ input::-webkit-inner-spin-button {
 
                 aliasNameApi = $('#aliasName').val()
                 FilenumApi = $('#refNumber').val()
+                MeternumApi = $('#meterNumber').val()
                 nearbyApi = $('input[name="nearby"]:checked').val();
                 fnameApi = $('#<%= txtfirstName.ClientID %>').val()
                 m1nameApi = $('#<%= txtSecondNAme.ClientID %>').val()
@@ -1948,8 +2605,11 @@ input::-webkit-inner-spin-button {
                 nationalNumApi = $('#<%= txtDocumnetNo.ClientID %>').val()
                 phneNumberApi = $('#<%= txtMobileNo.ClientID %>').val();
                 nearbyTypeApi = $("#nearby-select").val();
-
-
+                if (parseInt($('input[name="nearby1"]:checked').val()) == 1) {
+                    AddTypeApi = 0;
+                } else if (parseInt($('input[name="nearby1"]:checked').val()) == 2) {
+                    AddTypeApi = 1;
+                }
             }
 
 
@@ -1958,13 +2618,13 @@ input::-webkit-inner-spin-button {
 
 
 
-            
+
 
             next_fs = $(this).parent().next();
 
             //Add Class Active
             //$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
-             
+
             $("#progressbar2 li").eq($("fieldset").index(next_fs)).addClass("active");
             $("#progressbar2 li").eq($("fieldset").index(current_fs)).removeClass("active");
             $("#progressbar2 li").eq($("fieldset").index(current_fs)).addClass("activebg");
@@ -1995,7 +2655,7 @@ input::-webkit-inner-spin-button {
             current_fs = $(this).parent();
             previous_fs = $(this).parent().prev();
             next_fs = $(this).parent().next();
-             
+
             //Remove class active
             //$("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
             $("#progressbar2 li").eq($("fieldset").index(current_fs)).removeClass("active");
@@ -2068,7 +2728,7 @@ input::-webkit-inner-spin-button {
             var ValNationality = false;
             var ValTypeDocument = false;
             var ValEmail = false;
-           
+
             if ($('#<%= txtfirstName.ClientID %>').val().trim() != '') {
 
                 $('#<%= txtfirstName.ClientID %>').css('border', 'none');
@@ -2156,7 +2816,7 @@ input::-webkit-inner-spin-button {
                 $('#<%= txtEmail.ClientID %>').css('border', '1px solid red');
 
             }
-            
+
             if (
                 ValfirstName == true &&
                 ValSecondNAme == true &&
@@ -2165,9 +2825,9 @@ input::-webkit-inner-spin-button {
                 ValDocumnetNo == true &&
                 ValNationality == true &&
                 ValTypeDocument == true &&
-                ValEmail == true               
+                ValEmail == true
             ) {
-                 
+
                 step2validResult = true;
             }
             else {
@@ -2179,45 +2839,45 @@ input::-webkit-inner-spin-button {
         }
         //-------------------------------------------------------------------------
 
-            function step3Valid() {
-
-               
-                var ValGovernate = false; 
-                var ValArea = false; 
-
-                var ValArea2 = false;
-               
-                var ValMetro1 = false; 
-                var ValMetro2 = false; 
-
-                 //------------------------------------- Str 
-
-                 if ($("[id$=ddlGeove]").val() == "0") {
-                     $("[id$=ddlGeove]").css('border', '1px solid red');
-                 }
-                 else {
-                     $("[id$=ddlGeove]").css('border', 'none');
-                     ValGovernate = true;
-                 }
+        function step3Valid() {
 
 
+            var ValGovernate = false;
+            var ValArea = false;
+
+            var ValArea2 = false;
+
+            var ValMetro1 = false;
+            var ValMetro2 = false;
+
+            //------------------------------------- Str 
+
+            if ($("[id$=ddlGeove]").val() == "0") {
+                $("[id$=ddlGeove]").css('border', '1px solid red');
+            }
+            else {
+                $("[id$=ddlGeove]").css('border', 'none');
+                ValGovernate = true;
+            }
 
 
-                 if ($("[id$=ddlAreas]").val() == "0") {
-                     $("[id$=ddlAreas]").css('border', '1px solid red');
-                 }
-                 else {
-                     $("[id$=ddlAreas]").css('border', 'none');
-                     ValArea = true;
-                 }
 
-                 if ($("[id$=ddlAreas2]").val() == "0") {
-                     $("[id$=ddlAreas2]").css('border', '1px solid red');
-                 }
-                 else {
-                     $("[id$=ddlAreas2]").css('border', 'none');
-                     ValArea2 = true;
-                 }
+
+            if ($("[id$=ddlAreas]").val() == "0") {
+                $("[id$=ddlAreas]").css('border', '1px solid red');
+            }
+            else {
+                $("[id$=ddlAreas]").css('border', 'none');
+                ValArea = true;
+            }
+
+            if ($("[id$=ddlAreas2]").val() == "0") {
+                $("[id$=ddlAreas2]").css('border', '1px solid red');
+            }
+            else {
+                $("[id$=ddlAreas2]").css('border', 'none');
+                ValArea2 = true;
+            }
 
 
        <%--         if ($('#<%= ddlComplainType.ClientID %> option:selected').val() == "1")
@@ -2265,25 +2925,25 @@ input::-webkit-inner-spin-button {
                 }--%>
 
 
-               
-
-                 if (
-                     ValGovernate == true &&
-                     ValArea == true &&
-                     ValArea2 == true &&
-                     ValMetro1 == true &&
-                     ValMetro2 == true
-                 ) {
-                      
-                     step3validResult = true;
-                 }
-                 else {
-
-                     step3validResult = false;
-                 }
 
 
-             }
+            if (
+                ValGovernate == true &&
+                ValArea == true &&
+                ValArea2 == true &&
+                ValMetro1 == true &&
+                ValMetro2 == true
+            ) {
+
+                step3validResult = true;
+            }
+            else {
+
+                step3validResult = false;
+            }
+
+
+        }
 
     });
 
@@ -2317,36 +2977,53 @@ input::-webkit-inner-spin-button {
             $('#<%= txtComplianTitle.ClientID %>').css('border', '1px solid red');
             return false;
         }
-            AddrssDetails = $('#<%= txtComplianTitle.ClientID %>').val();
+        AddrssDetails = $('#<%= txtComplianTitle.ClientID %>').val();
 
         nearbyTypeApi = Number(nearbyTypeApi);
         if (nearbyTypeApi == 0) {
             nearbyTypeApi = null
         }
-     
-       //console.log("MobileNoURL", MobileNoURL)
-       // console.log("FilenumApi", FilenumApi)
-       // console.log("aliasNameApi", aliasNameApi)
-       // console.log("Number(nearbyApi)", Number(nearbyApi))
-       // console.log("fnameApi", fnameApi)
-       // console.log("m1nameApi", m1nameApi)
-       // console.log("m2nameApi", m2nameApi)
-       // console.log("phneNumberApi", phneNumberApi)
-       // console.log("lnameApi", lnameApi)
-       // console.log("nationalNumApi", nationalNumApi)
-       // console.log("Number(ddlNationalApi)", Number(ddlNationalApi))
-       // console.log("nearbyTypeApi", nearbyTypeApi)
-       // console.log("ProvinceId", ProvinceId)
-       // console.log("ProvinceName", ProvinceName)
-       // console.log("AreaIdLast", AreaIdLast)
-       // console.log("AreaNameLast", AreaNameLast)
-       // console.log("NeighborhoodIdLast", NeighborhoodIdLast)
-       // console.log("NeighborhoodNameLast", NeighborhoodNameLast)
-       // console.log("StreetIdLast", StreetIdLast)
-       // console.log("StreetNameLast", StreetNameLast)
-       // console.log("AddrssDetails", AddrssDetails)
-       // console.log("$('#lonlbl').text()", $("#lonlbl").text())
-       // console.log("$('#latlbl').text()", $("#latlbl").text())
+
+        //console.log("MobileNoURL", MobileNoURL)
+        // console.log("FilenumApi", FilenumApi)
+        // console.log("aliasNameApi", aliasNameApi)
+        // console.log("Number(nearbyApi)", Number(nearbyApi))
+        // console.log("fnameApi", fnameApi)
+        // console.log("m1nameApi", m1nameApi)
+        // console.log("m2nameApi", m2nameApi)
+        // console.log("phneNumberApi", phneNumberApi)
+        // console.log("lnameApi", lnameApi)
+        // console.log("nationalNumApi", nationalNumApi)
+        // console.log("Number(ddlNationalApi)", Number(ddlNationalApi))
+        // console.log("nearbyTypeApi", nearbyTypeApi)
+        // console.log("ProvinceId", ProvinceId)
+        // console.log("ProvinceName", ProvinceName)
+        // console.log("AreaIdLast", AreaIdLast)
+        // console.log("AreaNameLast", AreaNameLast)
+        // console.log("NeighborhoodIdLast", NeighborhoodIdLast)
+        // console.log("NeighborhoodNameLast", NeighborhoodNameLast)
+        // console.log("StreetIdLast", StreetIdLast)
+        // console.log("StreetNameLast", StreetNameLast)
+        // console.log("AddrssDetails", AddrssDetails)
+        // console.log("$('#lonlbl').text()", $("#lonlbl").text())
+        // console.log("$('#latlbl').text()", $("#latlbl").text())
+
+
+        var FileNumberAddressesDetail = {
+            fileNumber: FilenumApi,
+            provinceId: ProvinceId,
+            provinceName: ProvinceName,
+            areaId: AreaIdLast,
+            areaName: AreaNameLast,
+            neighborhoodId: NeighborhoodIdLast,
+            neighborhoodName: NeighborhoodNameLast,
+            streetId: StreetIdLast,
+            streetName: StreetNameLast,
+            addressDetails: AddrssDetails,
+            long: $("#lonlbl").text(),
+            latt: $("#latlbl").text(),
+            languageId: "AR"
+        }
 
 
 
@@ -2359,6 +3036,7 @@ input::-webkit-inner-spin-button {
             data: JSON.stringify({
                 mobileNumber: MobileNoURL,
                 fileNumber: FilenumApi,
+                 MeterNumber: MeternumApi,
                 aliasName: aliasNameApi,
                 LanguageId: "AR",
                 RelationToMeter: Number(nearbyApi),
@@ -2370,21 +3048,16 @@ input::-webkit-inner-spin-button {
                 NationalId: nationalNumApi,
                 NationalityID: Number(ddlNationalApi),
                 MeterOwnerRelativesID: nearbyTypeApi,
-                ProvinceId: ProvinceId,
-                ProvinceName: ProvinceName,
-                AreaId: AreaIdLast,
-                AreaName: AreaNameLast,
-                NeighborhoodId: NeighborhoodIdLast,
-                NeighborhoodName: NeighborhoodNameLast,
-                StreetId: StreetIdLast,
-                StreetName: StreetNameLast,
-                AddressDetails: AddrssDetails,
-                Long: $("#lonlbl").text(),
-                Latt: $("#latlbl").text(),
+                IntegrationType: 1, 
+                AddType: AddTypeApi,  
+                FileNumberAddressesDetail: FileNumberAddressesDetail
+
             }),
             contentType: "application/json; charset=utf-8",
             async: false,
             success: function (data) {
+                console.log(MeternumApi)
+                console.log(AddTypeApi)
                 $(".modal-text").text(data.message);
                 $('.m-done').modal({
                     backdrop: 'static',
@@ -2403,6 +3076,7 @@ input::-webkit-inner-spin-button {
             },
             error: function (err) {
                 console.log(err);
+                console.log(err.responseJSON.errors);
                 $(".modal-text").text(err.responseJSON.errors);
                 $(".m-done").modal("show")
             }
@@ -2410,8 +3084,12 @@ input::-webkit-inner-spin-button {
 
     })
 
-    
+
 </script>
+
+
+
+
 
 
 

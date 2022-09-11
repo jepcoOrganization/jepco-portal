@@ -945,8 +945,7 @@
             $("#lblFileNo").text(GetFileNo);
 
 
-            console.log("file : ", GetFileNo)
-
+            // Get All Bills Depending on the file number
             $.ajax({
                 type: "POST",
                 url: APIUrl + "MobileBills/GetBills",
@@ -966,29 +965,31 @@
                         var CostsName = data.body.billsHeader.firstName;
 
                         var amount = 0
-                        //$("#lblUnpaidAmount").text(parseFloat(data.body.fileNumberInfo.mConBalance));
                         for (var i = 0; i < data.body.allBillsDetails.length; i++)
                             amount += parseFloat(data.body.allBillsDetails[i].unClearingAmount);
+
+                        // Send value from API to HTML 
                         $("#lblUnpaidAmount").text(parseFloat(data.body.allBillsDetails.totalBillAmount));
                         $("#lblUnpaidAmount").text(amount);
                         $("#lblUnpaidBills").text(parseFloat(data.body.unClearedBillsDetails.length));
 
                         $("#CostName").text(CostsName);
-                        //var FileSectionType = data.body.allBills[0].billHTMLData.values[3];
                         var FileSectionType = data.body.billsHeader.subscriptionDescription;
-                        //var FileArea = data.body.allBills[0].billHTMLData.values[1];
                         var FileArea = data.body.billsHeader.officeDescription;
                         $("#lblFileArea").text(FileArea); //Area
                         $("#lblfileSectiontype").text(FileSectionType); //Section
 
-                        //var AllBills = data.body.allBills;
                         var AllBills = data.body.allBillsDetails;
                         var AllPaidBill = data.body.clearedBillsDetails;
                         var AllUnPaidBill = data.body.unClearedBillsDetails;
-
+                        debugger;
                         if (data.body.billsHeader.numberOfRegisters == 1) {
                             $("#numberRegisters").hide()
                             $("#numberRegisters2").hide()
+                        } else {
+
+                            $("#numberRegisters").show()
+                            $("#numberRegisters2").show()
                         }
 
                         // Declering Varible For Billing ------------------------
@@ -1248,14 +1249,7 @@
                 }
             });
             $.ajax({
-                //type: "GET",
-                ////contentType: "application/json; charset=utf-8",
-                //url: callStatusURl,
-                //dataType: "json",
-                //async: false,
-                //success: function (data) {
-                //    console.log("now : ",data)
-                //    if (data.status == "success") {
+                 
                 type: "POST",
                 url: APIUrl + "MobileBills/GetBills",
                 beforeSend: function (xhr) {
@@ -1621,6 +1615,8 @@
         $(document).on('click', '.showBillModal', function (event) {
             var index = event.target.attributes.getNamedItem('data-billNo').value;
             console.log(index)
+
+            // When select show bill data save in ( selectedInvoce )
             selectedInvoce = InvoceList[index];
 
             console.log("index: ", selectedInvoce)
@@ -1657,7 +1653,11 @@
 
                 $("#subsidyFlag").hide();
                 $("#starFlag").hide();
+            } else {
+                $("#subsidyFlag").show();
+                $("#starFlag").show();
             }
+            // Send data to HTML 
             $('#BillName').text(selectedInvoce.billName);
             $('#BillInstallation').text(selectedInvoce.installation);
             $('#subscriptionNo').text(selectedInvoce.subscriptionNo);
@@ -1729,6 +1729,8 @@
 
 
     });
+
+    // Function for print bills
     var myApp = new function () {
         this.printTable = function () {
             var tab = document.getElementById('BillBodyId');

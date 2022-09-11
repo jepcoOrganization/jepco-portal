@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>JEPCO-Portal</title>
+
 </head>
 <body>
     <form id="form1" runat="server">
@@ -1099,17 +1100,19 @@ Thank you for Subscription.
 
         <%-- <script type="text/javascript" src="/Scripts/chartJs/Chart.min.js"></script>--%>
 
-        <%--For Chart--  
+        <%--For Chart--%>
 
   
-        <%-- Call Api Url And Token Middleware --%>
         <script>
+            // Loading Spinner : ____________
             $(window).load(function () {
                 $('#loading').hide();
             });
         </script> 
         <script>
-              // Global Varibale :
+
+        <%-- Call Api Url And Token Middleware --%>
+
             var APIUrl = '<%= System.Configuration.ConfigurationManager.AppSettings["APIurl"].ToString() %>';
             var domainName = '<%= System.Configuration.ConfigurationManager.AppSettings["domainName"].ToString() %>';
 
@@ -1177,6 +1180,7 @@ Thank you for Subscription.
                         //alert("Error");
                     }
                 });
+                  // Global Varibale :
 
                 var MobileNoURL = $("#hdnmobileno").val();
                 var AllcustomerSubAccountList = [];
@@ -1195,6 +1199,8 @@ Thank you for Subscription.
                 //var apiConfiguUrl = '@System.Configuration.ConfigurationManager.AppSettings["MobileAPIurl"]';
                 var apiConfiguUrl = '<%= System.Configuration.ConfigurationManager.AppSettings["MobileAPIurl"].ToString() %>';
                 console.log("mob : ", MobileNoURL)
+
+                // API to get complain count and display it in top :
                 $.ajax({
                     type: "POST",
                     url: APIUrl + "Complaints/ComplaintByID",
@@ -1217,6 +1223,8 @@ Thank you for Subscription.
 
                 })
                 //debugger;
+
+                // API get all customer data ( files )  : 
                 $.ajax({
                     type: "POST",
                     //contentType: "application/json; charset=utf-8",
