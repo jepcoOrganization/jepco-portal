@@ -520,6 +520,7 @@
     var ComplainTypeName = "";
     var ComplainFailureType = "";
     var MeterNumber = "";
+    var FileNumber = "";
     var requsterName = ""
     var Nationality = "";
     var NationalityDoc = "";
@@ -687,6 +688,12 @@
                 })
                 $("select.meter-number-select").on("change", function () {
                     MeterNumber = $(this).find('option:selected').attr("meter-num")
+                    for (var i = 0; i < meterNumberList.length; i++) {
+                        if (MeterNumber == meterNumberList[i].meterNumber) {
+                            FileNumber = meterNumberList[i].fileNumber
+                        }
+                    }
+                    console.log(FileNumber)
                 })
                 $(".national-select").on("change", function () {
                     if (this.value == 0) {
@@ -792,7 +799,7 @@
         });
 
 
-                // Get City From API and on change select DropDown Get Area ,Neighborhood and Street. 
+        // Get City From API and on change select DropDown Get Area ,Neighborhood and Street. 
 
         $.ajax({
             type: "POST",
@@ -2075,7 +2082,7 @@
                 }--%>
 
 
-               
+
 
 
 
@@ -2084,7 +2091,7 @@
                 $.each(arrayMeter, function (key, value) {
                     if (value.fileNumberAddressesData != undefined) {
                         if (value.meterNumber == MeterNumber) {
-                            
+
                             arrayAddress = value.fileNumberAddressesData;
                             ProvinceName = arrayAddress.provinceName;
                             ProvinceId = arrayAddress.provinceId;
@@ -2346,7 +2353,7 @@
                             $(".street-select").hide();
                             $(".complain-address").hide();
 
-                          
+
                             addressPass = true;
                             return false;
                         } else {
@@ -2372,7 +2379,7 @@
 
 
 
-                           
+
 
 
 
@@ -2395,7 +2402,7 @@
 
 
                 if ($(".complain-type-select").val() == "7" || $(".complain-type-select").val() == "8") {
-   
+
 
                     $.ajax({
                         type: "POST",
@@ -2435,12 +2442,12 @@
                     $(".nationalTypeDocument-select").append("<option value='2'> جواز سفر</option><option value='3'>اقامة</option>");
                     if ($('#<%= ddlNationality.ClientID %>').val() == 1) {
 
-                                        $(".nationalTypeDocument-select").val($('#<%= ddlNationality.ClientID %>').val());
-                                    } else {
+                        $(".nationalTypeDocument-select").val($('#<%= ddlNationality.ClientID %>').val());
+                    } else {
 
-                                        $(".nationalTypeDocument-select").val(2);
-                                    }
-                                }
+                        $(".nationalTypeDocument-select").val(2);
+                    }
+                }
             }
 
             if (current == 2) {
@@ -2521,35 +2528,35 @@
             if (current == 3) {
                 if (arrayAddress == undefined) {
 
-                
-                if (validationCity == false) {
-                    $('.city-select').css("border", "1px solid red");
-                    return false;
-                } else {
-                    $('.city-select').css("border", "1px solid #e2e2e2");
-                }
-                if (validationArea == false) {
-                    $('.areas-select').css("border", "1px solid red");
-                    return false;
-                } else {
-                    $('.areas-select').css("border", "1px solid #e2e2e2");
-                }
-                if (validationNeigh == false) {
-                    $('.neighborhoods-select').css("border", "1px solid red");
-                    return false;
-                } else {
-                    $('.neighborhoods-select').css("border", "1px solid #e2e2e2");
-                }
+
+                    if (validationCity == false) {
+                        $('.city-select').css("border", "1px solid red");
+                        return false;
+                    } else {
+                        $('.city-select').css("border", "1px solid #e2e2e2");
+                    }
+                    if (validationArea == false) {
+                        $('.areas-select').css("border", "1px solid red");
+                        return false;
+                    } else {
+                        $('.areas-select').css("border", "1px solid #e2e2e2");
+                    }
+                    if (validationNeigh == false) {
+                        $('.neighborhoods-select').css("border", "1px solid red");
+                        return false;
+                    } else {
+                        $('.neighborhoods-select').css("border", "1px solid #e2e2e2");
+                    }
                 }
                 if (addressPass != true) {
                     if ($('#<%= txtComplianTitle.ClientID %>').val().trim() != '') {
 
                         $('#<%= txtComplianTitle.ClientID %>').css('border', 'none');
-                }
-                else {
-                    $('#<%= txtComplianTitle.ClientID %>').css('border', '1px solid red');
-                    return false;
-                }
+                    }
+                    else {
+                        $('#<%= txtComplianTitle.ClientID %>').css('border', '1px solid red');
+                        return false;
+                    }
                     AddrssDetails = $('#<%= txtComplianTitle.ClientID %>').val();
                 }
 
@@ -2557,8 +2564,8 @@
 
                 if ($(".complain-type-select").val() == "1" || $(".complain-type-select").val() == "5") {
 
-       
-                  
+
+
                     $.ajax({
                         type: "POST",
                         url: APIUrl + "Complaints/ValidateComplaint",
@@ -2593,14 +2600,14 @@
 
 
 
-      
+
             }
 
 
             next_fs = $(this).parent().next();
             //Add Class Active
             //$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
-             
+
             $("#progressbar2 li").eq($("fieldset").index(next_fs)).addClass("active");
             $("#progressbar2 li").eq($("fieldset").index(current_fs)).removeClass("active");
             $("#progressbar2 li").eq($("fieldset").index(current_fs)).addClass("activebg");
@@ -2631,7 +2638,7 @@
             current_fs = $(this).parent();
             previous_fs = $(this).parent().prev();
             next_fs = $(this).parent().next();
-             
+
             //Remove class active
             //$("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
             $("#progressbar2 li").eq($("fieldset").index(current_fs)).removeClass("active");
@@ -2704,7 +2711,7 @@
             var ValNationality = false;
             var ValTypeDocument = false;
             var ValEmail = false;
-           
+
             if ($('#<%= txtfirstName.ClientID %>').val().trim() != '') {
 
                 $('#<%= txtfirstName.ClientID %>').css('border', 'none');
@@ -3166,18 +3173,18 @@
                 xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("MiddlewareToken"));
             },
             data: JSON.stringify({
-                MobileNumber: MobileNoURL,
-                RequesterName: requsterName,
+                MobileNumber: "+962798184166",
+                RequesterName: "حمزة لطفي محمد السرابي",
                 ComplainantName: ComplainantName,
                 ComplainType: ComplainantType,
                 ComplainTypeName: ComplainantName,
                 ComplainFailureType: ComplainFailureType,
                 MeterNumber: MeterNumber,
-                ComplainEmail: ComplainEmail,
-                ComplainPhoneNumber: ComplainPhoneNumber,
+                ComplainEmail: "hsarabi82@hotmail.com",
+                ComplainPhoneNumber: "+962798184166",
                 Nationality: Nationality,
                 DocumentType: NationalityDoc,
-                DocumentNumber: NationalityNum,
+                DocumentNumber: "9821015727",
                 ProvinceId: ProvinceId,
                 ProvinceName: ProvinceName,
                 AreaId: AreaIdLast,
@@ -3192,13 +3199,14 @@
                 Integrationtype: 1,
                 Long: $("#lonlbl").text(),
                 Latt: $("#latlbl").text(),
+                FileNumber: FileNumber
 
             }),
             contentType: "application/json; charset=utf-8",
             async: false,
             success: function (data) {
                 console.log(data);
-
+                console.log(FileNumber)
                 var htmlData = "<h3> تم تسجيل شكوى برقم " + data.body.complainRefrenceNumber.split(":")[1] + " سيتم التواصل بالقريب العاجل</h3>";
                 $(".err-app").append(htmlData);
                 $(".modal-done").modal("show")

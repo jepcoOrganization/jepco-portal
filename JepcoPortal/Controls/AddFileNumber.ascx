@@ -2292,12 +2292,14 @@
                             $("#refNumber").attr('disabled', 'disabled');
                             $("#refNumber").css("background-color", "#eee");
                             $(".EditeNum").show()
-                            $(".radioBtnRef-Meter").hide()
                             $(".validateRefNumBtn").hide()
+                            $(".radioBtnRef-Meter").hide()
                            
                         }
 
-
+                        if ($("#meterNumber").attr('disabled', 'disabled') && $("#refNumber").attr('disabled', 'disabled')) {
+                            $(".next").show()
+                        } 
                     },
                     error: function (err) {
                         console.log(err);
