@@ -3166,6 +3166,30 @@
             ComplainFailureType = "-1";
         }
 
+        console.log("MobileNoURL" + MobileNoURL );
+        console.log("requsterName" + requsterName);
+        console.log("ComplainantName" + ComplainantName);
+        console.log("ComplainantType" + ComplainantType);
+        console.log("ComplainantName" + ComplainantName);
+        console.log("ComplainFailureType" + ComplainFailureType);
+        console.log("ComplainEmail" + ComplainEmail);
+        console.log("ComplainPhoneNumber" + ComplainPhoneNumber);
+        console.log("Nationality" + Nationality);
+        console.log("NationalityDoc" + NationalityDoc);
+        console.log("NationalityNum" + NationalityNum);
+        console.log("ProvinceId" + ProvinceId);
+        console.log("ProvinceName" + ProvinceName);
+        console.log("AreaIdLast"+AreaIdLast);
+        console.log("AreaNameLast" + AreaNameLast);
+        console.log("NeighborhoodIdLast" + NeighborhoodIdLast);
+        console.log("NeighborhoodNameLast" + NeighborhoodNameLast);
+        console.log("NeighborhoodNameLast" + NeighborhoodNameLast);
+        console.log("StreetIdLast" + StreetIdLast);
+        console.log("StreetNameLast" + StreetNameLast);
+        console.log("AddrssDetails" + AddrssDetails);
+        console.log("long" +$("#lonlbl").text());
+        console.log("lat" +$("#latlbl").text());
+
         $.ajax({
             type: "POST",
             url: APIUrl + "Complaints/AddComplaint",
