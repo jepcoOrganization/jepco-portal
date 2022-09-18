@@ -82,7 +82,7 @@
 
 
 
-<div class="detil_counter_rowone">
+<%--<div class="detil_counter_rowone">
     <div class="newcounter newcounter1">
         <p>جميع الشكاوى </p>
         <h1><asp:Label runat="server" ID="ComplainCount" Style="display:none"></asp:Label><label id="ComplainCount1" ></label></h1>
@@ -101,15 +101,15 @@
         <p>الشكاوى قيد التنفيذ</p>
         <h1><label id="CountInProglbl1" ></label></h1>
         
-    </div>
-</div>
+    </div>--%>
+<%--</div>--%>
 <div class="clearfix"></div>
 <div class="delsearch_delfilter">
     <div class="delfilter">
 
         <a style="background: #e46a6a;" class="ShowOpn fil1" >جميع الشكاوى</a>
                 <a style="background: #4db6c9;" class="Showcls fil4" >الشكاوى المغلقة</a>
-                <a style="background: #e89973;" class="ShowOpn fil3" >الشكاوى المفتوحة</a>
+               <%-- <a style="background: #e89973;" class="ShowOpn fil3" >الشكاوى المفتوحة</a>--%>
 
                 <a style="background: #dec84d;" class="Showcls fil2" >الشكاوى قيد التنفيذ</a>
 

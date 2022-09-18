@@ -1269,7 +1269,8 @@
     function initialize() {
         var myLatlng = new google.maps.LatLng(lati, lang);
         var myOptions = {
-            zoom: 7,
+            zoom: 9,
+            componentRestrictions: { country: "jo" },
             center: myLatlng,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         }
@@ -1280,21 +1281,30 @@
               map: map
   
           });*/
+        const options = {
+           /* bounds: defaultBounds,*/
+            componentRestrictions: { country: "jo" },
+            //fields: ["address_components", "geometry", "icon", "name"],
+            //strictBounds: false,
+            //types: ["establishment"],
+        };
         const input = document.getElementById("pac-input");
-        const searchBox = new google.maps.places.SearchBox(input);
+        /*const searchBox = new google.maps.places.SearchBox(input);*/
+        const autocomplete = new google.maps.places.Autocomplete(input, options);
         map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
         map.addListener("bounds_changed", () => {
-            searchBox.setBounds(map.getBounds());
+            autocomplete.setBounds(map.getBounds());
         });
         let markers = [];
 
-        searchBox.addListener("places_changed", () => {
-            const places = searchBox.getPlaces();
-
-            if (places.length == 0) {
-                return;
-            }
+           autocomplete.addListener("place_changed", () => {
+              
+          const place = autocomplete.getPlace();
+           
+            //if (places.length == 0) {
+            //    return;
+            //}
 
             // Clear out the old markers.
             markers.forEach((marker) => {
@@ -1305,7 +1315,7 @@
             // For each place, get the icon, name and location.
             const bounds = new google.maps.LatLngBounds();
 
-            places.forEach((place) => {
+           /* places.forEach((place) => {*/
 
                 document.getElementById('latlbl').innerHTML = place.geometry.location.lat();
                 document.getElementById('lonlbl').innerHTML = place.geometry.location.lng();
@@ -1341,13 +1351,11 @@
                 } else {
                     bounds.extend(place.geometry.location);
                 }
-            });
+           /* });*/
             map.fitBounds(bounds);
 
 
         });
-
-
 
         google.maps.event.addListener(map, "click", function (event) {
             // get lat/lon of click
