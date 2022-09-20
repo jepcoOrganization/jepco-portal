@@ -793,7 +793,7 @@
 }
 }
 
-}
+
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -891,7 +891,13 @@
     //} else {
 
     //}
+    $(document).on('keypress', function (e) {
+        if (e.which == 13) {
+            return false;
+        }
+    });
     $(document).ready(function () {
+      
 
         /* Add disabled For input  */
         $('#<%= txtfirstName.ClientID %>').attr("disabled", "disabled");
@@ -1267,9 +1273,10 @@
 
     var map;
     function initialize() {
-        var myLatlng = new google.maps.LatLng(lati, lang);
+     
+        var myLatlng = new google.maps.LatLng(31.963158, 35.930359);
         var myOptions = {
-            zoom: 9,
+            zoom: 12,
             componentRestrictions: { country: "jo" },
             center: myLatlng,
             mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -1296,6 +1303,7 @@
         map.addListener("bounds_changed", () => {
             autocomplete.setBounds(map.getBounds());
         });
+     
         let markers = [];
 
            autocomplete.addListener("place_changed", () => {
