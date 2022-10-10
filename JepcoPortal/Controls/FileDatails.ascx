@@ -1737,12 +1737,18 @@
 
             var style = "<style>";
             style = style + "body {position: absolute; transform: scale(1); transform-origin:top;}";
+
+            style = style + "body {-webkit-print-color-adjust: exact !important; }";
+            style = style + "body {color-adjust: exact !important; }";
+            style = style + "body {  print-color-adjust: exact !important; }";
+
             style = style + "table {width: 100%;} .bor td{font-size:2.1vw}";
             style = style + " th, td {border: none; border-collapse: unset;";
             style = style + "padding: 2px 3px;} td#BillName{font-size:2.2vw !important}";
             style = style + "</style>";
             
             var win = window.open();
+
             win.document.write(style);          //  add the style.
             win.document.write(tab.outerHTML);
             win.document.close();
