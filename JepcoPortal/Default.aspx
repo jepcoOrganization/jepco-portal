@@ -1654,10 +1654,10 @@ Thank you for Subscription.
                                 var HTMLDiv3 = "<div><strong>القيمة المطلوبة</strong><p class='totalbillamount'>اجمالي المبلغ المطلوب " + SubAccountListValue.UnpaidBillvalue + "</p></div>"
                                 var HTMLPayment = "<a href='#' data-filename=" + SubAccountListValue.fileNumber + " class='GoPaymentDetials btn-pay' >الدفع </a >";
                                 var HTMLa = "<a href='#' data-filename=" + SubAccountListValue.fileNumber + " class='GoFileDetails btn-det' >التفاصيل </a >";
-                                var HTMLConncetion = "<a href='#' data-filename=" + SubAccountListValue.fileNumber + " class='GoConncetionFees btn-Conncetion' >وصل التيار </a >";
+                                //var HTMLConncetion = "<a href='#' data-filename=" + SubAccountListValue.fileNumber + " class='GoConncetionFees btn-Conncetion' >وصل التيار </a >";
                                 var EndHTMLLI = "</li>";
 
-                                AllLiHTML = HTMLLI + HTMLDiv1 + HTMLDiv2 + HTMLDiv3 + HTMLPayment + HTMLa + HTMLConncetion + EndHTMLLI
+                                AllLiHTML = HTMLLI + HTMLDiv1 + HTMLDiv2 + HTMLDiv3 + HTMLPayment + HTMLa  + EndHTMLLI
                                 AllLiContalt = AllLiContalt + AllLiHTML;
 
                                 countAllSubList++;
