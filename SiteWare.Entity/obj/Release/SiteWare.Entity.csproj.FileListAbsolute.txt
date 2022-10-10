@@ -32,3 +32,9 @@ C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\SiteWare.Entity\obj\Relea
 C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\SiteWare.Entity\obj\Release\SiteWare.Entity.csproj.CoreCompileInputs.cache
 C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\SiteWare.Entity\obj\Release\SiteWare.Entity.dll
 C:\Users\Owner\Desktop\Jepco\jepco-portal\jepco-portal\SiteWare.Entity\obj\Release\SiteWare.Entity.pdb
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\SiteWare.Entity\bin\Release\SiteWare.Entity.dll
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\SiteWare.Entity\bin\Release\SiteWare.Entity.pdb
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\SiteWare.Entity\obj\Release\SiteWare.Entity.csproj.AssemblyReference.cache
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\SiteWare.Entity\obj\Release\SiteWare.Entity.csproj.CoreCompileInputs.cache
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\SiteWare.Entity\obj\Release\SiteWare.Entity.dll
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\SiteWare.Entity\obj\Release\SiteWare.Entity.pdb

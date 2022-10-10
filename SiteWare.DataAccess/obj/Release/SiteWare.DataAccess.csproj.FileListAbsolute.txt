@@ -58,3 +58,12 @@ C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-por
 C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\SiteWare.DataAccess\obj\Release\SiteWare.DataAccess.csproj.CoreCompileInputs.cache
 C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\SiteWare.DataAccess\obj\Release\SiteWare.DataAccess.dll
 C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\SiteWare.DataAccess\obj\Release\SiteWare.DataAccess.pdb
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\SiteWare.DataAccess\bin\Release\SiteWare.DataAccess.dll
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\SiteWare.DataAccess\bin\Release\SiteWare.DataAccess.pdb
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\SiteWare.DataAccess\bin\Release\SiteWare.Entity.dll
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\SiteWare.DataAccess\bin\Release\SiteWare.Entity.pdb
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\SiteWare.DataAccess\obj\Release\SiteWare.DataAccess.csproj.AssemblyReference.cache
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\SiteWare.DataAccess\obj\Release\SiteWare.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\SiteWare.DataAccess\obj\Release\SiteWare.DataAccess.csproj.CopyComplete
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\SiteWare.DataAccess\obj\Release\SiteWare.DataAccess.dll
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\SiteWare.DataAccess\obj\Release\SiteWare.DataAccess.pdb
