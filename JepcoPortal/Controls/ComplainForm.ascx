@@ -520,7 +520,6 @@
     var ComplainTypeName = "";
     var ComplainFailureType = "";
     var MeterNumber = "";
-    var FileNumber = "";
     var requsterName = ""
     var Nationality = "";
     var NationalityDoc = "";
@@ -688,12 +687,6 @@
                 })
                 $("select.meter-number-select").on("change", function () {
                     MeterNumber = $(this).find('option:selected').attr("meter-num")
-                    for (var i = 0; i < meterNumberList.length; i++) {
-                        if (MeterNumber == meterNumberList[i].meterNumber) {
-                            FileNumber = meterNumberList[i].fileNumber
-                        }
-                    }
-                    console.log(FileNumber)
                 })
                 $(".national-select").on("change", function () {
                     if (this.value == 0) {
@@ -1873,12 +1866,31 @@
 .err-box.err-app.alert.alert-success {
     font-family: Tahoma, "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
+.neighborhoods-select-disabled,city-select-disabled{
+    display:none
+}
+.city-select-disabled{
+    display:none
+}
+.areas-select-disabled{
+    display:none
+}
+.street-select-disabled{
+    display:none
+}
+.complain-address-disabled{
+    display:none
+}
 </style>
 
 <script type="text/javascript">
 
     /* --------------  Validation For Input  ------------------ */
-
+    $(document).on('keypress', function (e) {
+        if (e.which == 13) {
+            return false;
+        }
+    });
     $("document").ready(function () {
 
         var current_fs, next_fs, previous_fs; //fieldsets
@@ -3166,30 +3178,6 @@
             ComplainFailureType = "-1";
         }
 
-        console.log("MobileNoURL" + MobileNoURL );
-        console.log("requsterName" + requsterName);
-        console.log("ComplainantName" + ComplainantName);
-        console.log("ComplainantType" + ComplainantType);
-        console.log("ComplainantName" + ComplainantName);
-        console.log("ComplainFailureType" + ComplainFailureType);
-        console.log("ComplainEmail" + ComplainEmail);
-        console.log("ComplainPhoneNumber" + ComplainPhoneNumber);
-        console.log("Nationality" + Nationality);
-        console.log("NationalityDoc" + NationalityDoc);
-        console.log("NationalityNum" + NationalityNum);
-        console.log("ProvinceId" + ProvinceId);
-        console.log("ProvinceName" + ProvinceName);
-        console.log("AreaIdLast"+AreaIdLast);
-        console.log("AreaNameLast" + AreaNameLast);
-        console.log("NeighborhoodIdLast" + NeighborhoodIdLast);
-        console.log("NeighborhoodNameLast" + NeighborhoodNameLast);
-        console.log("NeighborhoodNameLast" + NeighborhoodNameLast);
-        console.log("StreetIdLast" + StreetIdLast);
-        console.log("StreetNameLast" + StreetNameLast);
-        console.log("AddrssDetails" + AddrssDetails);
-        console.log("long" +$("#lonlbl").text());
-        console.log("lat" +$("#latlbl").text());
-
         $.ajax({
             type: "POST",
             url: APIUrl + "Complaints/AddComplaint",
@@ -3223,14 +3211,13 @@
                 Integrationtype: 1,
                 Long: $("#lonlbl").text(),
                 Latt: $("#latlbl").text(),
-                FileNumber: FileNumber
 
             }),
             contentType: "application/json; charset=utf-8",
             async: false,
             success: function (data) {
                 console.log(data);
-                console.log(FileNumber)
+
                 var htmlData = "<h3> تم تسجيل شكوى برقم " + data.body.complainRefrenceNumber.split(":")[1] + " سيتم التواصل بالقريب العاجل</h3>";
                 $(".err-app").append(htmlData);
                 $(".modal-done").modal("show")
@@ -3297,9 +3284,12 @@
 
         var pacinput = "<input id = 'pac-input' class='controls' type = 'text' placeholder = 'البحث'/><br /> <br />";
         $('#gmap').append(pacinput);
+        const options = {
+            componentRestrictions: { country: "jo" }, 
+        };
         const input = document.getElementById("pac-input");
-        const searchBox = new google.maps.places.SearchBox(input);
-
+        //const searchBox = new google.maps.places.SearchBox(input);
+        const autocomplete = new google.maps.places.Autocomplete(input, options);
         //searchBox.addListener('place_changed', function () {
         //    $('.pac-input').remove();
         //});
@@ -3308,16 +3298,16 @@
         map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
         map.addListener("bounds_changed", () => {
-            searchBox.setBounds(map.getBounds());
+            autocomplete.setBounds(map.getBounds());
 
         });
 
-        searchBox.addListener("places_changed", () => {
-            const places = searchBox.getPlaces();
+        autocomplete.addListener("place_changed", () => {
+            const place = autocomplete.getPlace();
 
-            if (places.length == 0) {
-                return;
-            }
+            //if (places.length == 0) {
+            //    return;
+            //}
 
             // Clear out the old markers.
             markers.forEach((marker) => {
@@ -3328,7 +3318,7 @@
             // For each place, get the icon, name and location.
             const bounds = new google.maps.LatLngBounds();
 
-            places.forEach((place) => {
+           /* places.forEach((place) => {*/
 
                 document.getElementById('latlbl').innerHTML = place.geometry.location.lat();
                 document.getElementById('lonlbl').innerHTML = place.geometry.location.lng();
@@ -3364,7 +3354,7 @@
                 } else {
                     bounds.extend(place.geometry.location);
                 }
-            });
+            /*});*/
             map.fitBounds(bounds);
         });
 
