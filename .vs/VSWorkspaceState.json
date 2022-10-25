@@ -1,7 +1,13 @@
 {
   "ExpandedNodes": [
+<<<<<<< HEAD
     "\\ConsoleApp1",
     "\\JepcoPortal"
   ],
+=======
+    ""
+  ],
+  "SelectedNode": "\\JepcoPortal.sln",
+>>>>>>> 111040c007d28699185fbffc9265ccc18b16b724
   "PreviewInSolutionExplorer": false
 }
