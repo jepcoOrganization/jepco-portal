@@ -124,6 +124,19 @@ C:\Users\Maiada-Ibrahim\Desktop\jepco-portal\SiteWare.Domain\obj\Debug\SiteWare.
 C:\Users\Maiada-Ibrahim\Desktop\jepco-portal\SiteWare.Domain\obj\Debug\SiteWare.Domain.csproj.CopyComplete
 C:\Users\Maiada-Ibrahim\Desktop\jepco-portal\SiteWare.Domain\obj\Debug\SiteWare.Domain.dll
 C:\Users\Maiada-Ibrahim\Desktop\jepco-portal\SiteWare.Domain\obj\Debug\SiteWare.Domain.pdb
+<<<<<<< HEAD
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\SiteWare.Domain\bin\Debug\SiteWare.Domain.dll
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\SiteWare.Domain\bin\Debug\SiteWare.Domain.pdb
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\SiteWare.Domain\bin\Debug\SiteWare.DataAccess.dll
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\SiteWare.Domain\bin\Debug\SiteWare.Entity.dll
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\SiteWare.Domain\bin\Debug\SiteWare.DataAccess.pdb
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\SiteWare.Domain\bin\Debug\SiteWare.Entity.pdb
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\SiteWare.Domain\obj\Debug\SiteWare.Domain.csproj.AssemblyReference.cache
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\SiteWare.Domain\obj\Debug\SiteWare.Domain.csproj.CoreCompileInputs.cache
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\SiteWare.Domain\obj\Debug\SiteWare.Domain.csproj.CopyComplete
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\SiteWare.Domain\obj\Debug\SiteWare.Domain.dll
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\SiteWare.Domain\obj\Debug\SiteWare.Domain.pdb
+=======
 C:\projects\jepco-portal\SiteWare.Domain\bin\Debug\SiteWare.Domain.dll
 C:\projects\jepco-portal\SiteWare.Domain\bin\Debug\SiteWare.Domain.pdb
 C:\projects\jepco-portal\SiteWare.Domain\bin\Debug\SiteWare.DataAccess.dll
@@ -135,3 +148,4 @@ C:\projects\jepco-portal\SiteWare.Domain\obj\Debug\SiteWare.Domain.csproj.CoreCo
 C:\projects\jepco-portal\SiteWare.Domain\obj\Debug\SiteWare.Domain.csproj.CopyComplete
 C:\projects\jepco-portal\SiteWare.Domain\obj\Debug\SiteWare.Domain.dll
 C:\projects\jepco-portal\SiteWare.Domain\obj\Debug\SiteWare.Domain.pdb
+>>>>>>> 111040c007d28699185fbffc9265ccc18b16b724

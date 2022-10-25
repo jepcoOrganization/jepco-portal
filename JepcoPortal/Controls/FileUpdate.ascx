@@ -648,6 +648,7 @@
                 phneNumberApi = data.body.ownerMobileNumber;
                 nationalNumApi = data.body.nationalID;
                 radioNearby = data.body.relationToMeter;
+                nearbyApi = data.body.relationToMeter;
                 nearbyTypeApi = data.body.meterOwnerRelativesID;
                 MeternumApi = data.body.meterNumber
 
@@ -1248,7 +1249,7 @@
 
 
 
-</script>
+ </script>
 
 
 
@@ -2761,7 +2762,7 @@ input::-webkit-inner-spin-button {
                 OwnerMobileNumber: phneNumberApi,
                 NationalId: nationalNumApi,
                 NationalityID: Number(ddlNationalApi),
-                MeterOwnerRelativesID: Number(nearbyTypeApi),
+                MeterOwnerRelativesID: nearbyTypeApi == "0"?  null : Number(nearbyTypeApi),
                 FileNumberAddressesDetail: FileNumberAddressesDetail
             }),
             contentType: "application/json; charset=utf-8",

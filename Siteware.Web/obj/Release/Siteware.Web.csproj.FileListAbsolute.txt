@@ -105,3 +105,34 @@ C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-por
 C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\Siteware.Web\obj\Release\Siteware.Web.csproj.CoreCompileInputs.cache
 C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\Siteware.Web\obj\Release\Siteware.Web.dll
 C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\Siteware.Web\obj\Release\Siteware.Web.pdb
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\Siteware.Web\bin\Siteware.Web.dll.config
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\Siteware.Web\bin\Siteware.Web.dll
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\Siteware.Web\bin\Siteware.Web.pdb
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\Siteware.Web\bin\IZ.WebFileManager.dll
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\Siteware.Web\bin\Microsoft.VisualBasic.Compatibility.Data.dll
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\Siteware.Web\bin\Newtonsoft.Json.dll
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\Siteware.Web\bin\SiteWare.DataAccess.dll
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\Siteware.Web\bin\SiteWare.Domain.dll
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\Siteware.Web\bin\SiteWare.Entity.dll
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\Siteware.Web\bin\System.ComponentModel.DataAnnotations.dll
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\Siteware.Web\bin\System.Configuration.dll
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\Siteware.Web\bin\System.Data.DataSetExtensions.dll
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\Siteware.Web\bin\System.Data.dll
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\Siteware.Web\bin\System.Data.Linq.dll
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\Siteware.Web\bin\System.dll
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\Siteware.Web\bin\System.Drawing.dll
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\Siteware.Web\bin\System.Runtime.Serialization.dll
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\Siteware.Web\bin\System.Web.dll
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\Siteware.Web\bin\System.Web.Extensions.dll
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\Siteware.Web\bin\System.Web.Services.dll
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\Siteware.Web\bin\System.Windows.Forms.dll
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\Siteware.Web\bin\System.Xml.dll
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\Siteware.Web\bin\System.Xml.Linq.dll
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\Siteware.Web\bin\SiteWare.DataAccess.pdb
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\Siteware.Web\bin\SiteWare.Domain.pdb
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\Siteware.Web\bin\SiteWare.Entity.pdb
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\Siteware.Web\obj\Release\Siteware.Web.csproj.AssemblyReference.cache
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\Siteware.Web\obj\Release\Siteware.Web.csproj.CoreCompileInputs.cache
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\Siteware.Web\obj\Release\Siteware.Web.csproj.CopyComplete
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\Siteware.Web\obj\Release\Siteware.Web.dll
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\Siteware.Web\obj\Release\Siteware.Web.pdb

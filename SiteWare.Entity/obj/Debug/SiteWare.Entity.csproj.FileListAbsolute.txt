@@ -58,9 +58,18 @@ C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-por
 C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\SiteWare.Entity\obj\Debug\SiteWare.Entity.csproj.CoreCompileInputs.cache
 C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\SiteWare.Entity\obj\Debug\SiteWare.Entity.dll
 C:\projects\JepcoNetProjects\Jepco with comment (1)\Jepco with comment\jepco-portal\jepco-portal\SiteWare.Entity\obj\Debug\SiteWare.Entity.pdb
+<<<<<<< HEAD
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\SiteWare.Entity\bin\Debug\SiteWare.Entity.dll
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\SiteWare.Entity\bin\Debug\SiteWare.Entity.pdb
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\SiteWare.Entity\obj\Debug\SiteWare.Entity.csproj.AssemblyReference.cache
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\SiteWare.Entity\obj\Debug\SiteWare.Entity.csproj.CoreCompileInputs.cache
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\SiteWare.Entity\obj\Debug\SiteWare.Entity.dll
+C:\Users\LG-Halsarabi\source\repos\jepcoOrganization\jepco-portal\SiteWare.Entity\obj\Debug\SiteWare.Entity.pdb
+=======
 C:\Users\Maiada-Ibrahim\Desktop\jepco-portal\SiteWare.Entity\bin\Debug\SiteWare.Entity.dll
 C:\Users\Maiada-Ibrahim\Desktop\jepco-portal\SiteWare.Entity\bin\Debug\SiteWare.Entity.pdb
 C:\Users\Maiada-Ibrahim\Desktop\jepco-portal\SiteWare.Entity\obj\Debug\SiteWare.Entity.csproj.AssemblyReference.cache
 C:\Users\Maiada-Ibrahim\Desktop\jepco-portal\SiteWare.Entity\obj\Debug\SiteWare.Entity.csproj.CoreCompileInputs.cache
 C:\Users\Maiada-Ibrahim\Desktop\jepco-portal\SiteWare.Entity\obj\Debug\SiteWare.Entity.dll
 C:\Users\Maiada-Ibrahim\Desktop\jepco-portal\SiteWare.Entity\obj\Debug\SiteWare.Entity.pdb
+>>>>>>> 111040c007d28699185fbffc9265ccc18b16b724
