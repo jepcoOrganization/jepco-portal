@@ -751,6 +751,8 @@
         <asp:HiddenField runat="server" ID="htdFilenameDetais" OnValueChanged="htdFilenameDetais_ValueChanged" />
         <asp:Button ID="lnkFileDetails" runat="server" Text="تصويت" OnClick="lnkFileDetails_Click" Style="display: none;" />
         <asp:Button ID="LnkPaymentDetails" runat="server" Text="تصويت" OnClick="LnkPaymentDetails_Click" Style="display: none;" />
+        <asp:Button ID="LnkConnectionFees" runat="server" Text="تصويت" OnClick="LnkConnectionFees_Click" Style="display: none;" />
+
 
         <%-- <asp:HyperLink runat="server" ID="lnkFileDetails" onclick="ShowFileDetails" style="display:none"></asp:HyperLink>--%>
         <%-- <asp:LinkButton ID="lnkSubscribe" runat="server"></asp:LinkButton>
@@ -1654,7 +1656,7 @@ Thank you for Subscription.
                                 var HTMLDiv3 = "<div><strong>القيمة المطلوبة</strong><p class='totalbillamount'>اجمالي المبلغ المطلوب " + SubAccountListValue.UnpaidBillvalue + "</p></div>"
                                 var HTMLPayment = "<a href='#' data-filename=" + SubAccountListValue.fileNumber + " class='GoPaymentDetials btn-pay' >الدفع </a >";
                                 var HTMLa = "<a href='#' data-filename=" + SubAccountListValue.fileNumber + " class='GoFileDetails btn-det' >التفاصيل </a >";
-                                var HTMLConncetion = "<a href='#' data-filename=" + SubAccountListValue.fileNumber + " class='GoConncetionFees btn-Conncetion' >وصل التيار </a >";
+                                var HTMLConncetion = "<a href='#' data-filename=" + SubAccountListValue.fileNumber + " class='GoConncetionFees btn-Connection' >وصل التيار </a >";
                                 var EndHTMLLI = "</li>";
 
                                 AllLiHTML = HTMLLI + HTMLDiv1 + HTMLDiv2 + HTMLDiv3 + HTMLPayment + HTMLa + HTMLConncetion + EndHTMLLI
@@ -2009,6 +2011,43 @@ Thank you for Subscription.
                 });
 
 
+                $(".btn-Connection").click(function () {
+                    var filename = $(this).data("filename");
+                    $.ajax({
+                      
+                        type: "POST",
+                        url: APIUrl + "MobileBills/PaymentWithDisconncetionFees",
+                        beforeSend: function (xhr) {
+                            xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("MiddlewareToken"));
+                        },
+                        data: JSON.stringify({
+                            FileNumber: filename,
+                            LanguageId: "AR"
+                        }),
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data) {
+
+                            if (data.statusCode == "Success") {
+
+                                $('#<%=htdFilenameDetais.ClientID %>').val(filename);
+
+                                $("[id*=<%=LnkConnectionFees.ClientID %>]").click();
+                              
+                            }
+                        
+                        },
+                        error: function (err) {
+                            
+                            console.log(err);
+                            errorModal = err.responseJSON.errors;
+                            $('#myModalFailed').modal('show');
+                            $('.errorRef').append(errorModal);
+                        }
+                    });
+
+            
+
+                });
             });
 
 
