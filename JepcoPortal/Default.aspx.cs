@@ -3148,6 +3148,12 @@ public partial class _Default : SiteBasePage
         Session["PaymentDetails"] = htdFilenameDetais.Value.ToString();
         Response.Redirect(lang + "/Home/Payment", false);
     }
+    protected void LnkConnectionFees_Click(object sender, EventArgs e)
+
+    {
+        Session["ConncetionFees"] = htdFilenameDetais.Value.ToString();
+        Response.Redirect(lang + "/Home/ConnectionFees", false);
+    }
     protected async void btn_ok_Click(object sender, EventArgs e)
     {
 
