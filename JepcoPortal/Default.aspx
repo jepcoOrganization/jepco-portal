@@ -2012,6 +2012,8 @@ Thank you for Subscription.
 
 
                 $(".btn-Connection").click(function () {
+                    $('#loading').show();
+
                     var filename = $(this).data("filename");
                     $.ajax({
                       
@@ -2026,7 +2028,7 @@ Thank you for Subscription.
                         }),
                         contentType: "application/json; charset=utf-8",
                         success: function (data) {
-
+                            $('#loading').hide();
                             if (data.statusCode == "Success") {
 
                                 $('#<%=htdFilenameDetais.ClientID %>').val(filename);
@@ -2037,7 +2039,7 @@ Thank you for Subscription.
                         
                         },
                         error: function (err) {
-                            
+                            $('#loading').hide();
                             console.log(err);
                             errorModal = err.responseJSON.errors;
                             $('#myModalFailed').modal('show');
