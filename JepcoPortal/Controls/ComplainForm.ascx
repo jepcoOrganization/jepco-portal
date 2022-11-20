@@ -130,6 +130,30 @@
                                 </div>
                             </div>
 
+                        <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="form-group billingSubselect">
+                                        <label><span>*</span>  نوع الجباية </label>
+                                        <select class="billingSub-select">
+                                            <option value="0">أختيار الجباية</option>
+                                        </select>
+
+                                        <select id="billingSub-select" name="billingSub-select" class="form-control" tabindex="2" style="display: none"></select>
+                                    </div>
+                                     </div> 
+                            </div> 
+                               <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="form-group subscribtionSubselect">
+                                        <label><span>*</span>  نوع الشكوى على الاشتراك </label>
+                                        <select class="subscribtionSub-select">
+                                            <option value="0">أختيار الشكوى</option>
+                                        </select>
+
+                                        <select id="subscribtionSub-select" name="subscribtionSub-select" class="form-control" tabindex="2" style="display: none"></select>
+                                    </div>
+                                     </div> 
+                        </div>
                             <input type="button" name="next" class="btn next next1 action-button" value="التالي" onclick=""/>
                         </fieldset>
                         <fieldset>
@@ -508,6 +532,8 @@
 
 <%-- New Api For Complain  :  --%>
 <script>    
+    $(".billingSubselect").hide()
+    $(".subscribtionSubselect").hide()
     $(window).on('load', function () {
         $('#loading').hide();
     });
@@ -520,6 +546,8 @@
     var ComplainTypeName = "";
     var ComplainFailureType = "";
     var MeterNumber = "";
+    var FileNumber = "";
+
     var requsterName = ""
     var Nationality = "";
     var NationalityDoc = "";
@@ -537,6 +565,9 @@
     var AddrssDetails = "";
     var ComplainDetails = "";
     var arrayAddress = undefined;
+ 
+
+
     /* --------------------- Disabled Global Variable For Address Section -----------------------   */
     var DisabledCity = "";
     var DisabledArea = "";
@@ -623,6 +654,18 @@
                     var htmlComplainDropDown = "<option value='" + ++key + "' meter-num='" + value.meterNumber + "'>" + value.name + " : " + value.meterNumber + "</option>";
                     $(".meter-number-select").append(htmlComplainDropDown);
                 })
+                // foor loop for meter Number List :
+                $.each(data.body.billingSubLookupList, function (key, value) {
+                    // value == codeId from API
+                    var htmlComplainDropDown = "<option value='" + value.fieldValue + "'>" + value.fieldDesc + "</option>";
+                    $(".billingSub-select").append(htmlComplainDropDown);
+                })
+                // foor loop for meter Number List :
+                $.each(data.body.subscribtionSubLookupList, function (key, value) {
+                    // value == codeId from API
+                    var htmlComplainDropDown = "<option value='" + value.fieldValue + "'>" + value.fieldDesc + "</option>";
+                    $(".subscribtionSub-select").append(htmlComplainDropDown);
+                })
 
                 $(".complain-type-select").on('change', function () {
 
@@ -654,15 +697,23 @@
 
                     if (this.value == 7) {
                         $(".meter-number-req").show()
+                        $(".billingSubselect").show()
+
                     } else {
                         $(".meter-number-req").hide()
+                        $(".billingSubselect").hide()
+
                     }
                     if (this.value == 8) {
                         $(".trans-number").show()
+                        $(".subscribtionSubselect").show()
+
                     } else {
                         $(".trans-number").hide()
-                    }
+                        $(".subscribtionSubselect").hide()
 
+                    }
+              
                     initializeMapData();
                 })
 
@@ -677,8 +728,21 @@
                         valDamageType = true;
                     }
                 })
+                $(".subscribtionSub-select").on("change", function () {
+                    ComplainFailureType = this.value;
+                   
+                })
+                $(".billingSub-select").on("change", function () {
+                    ComplainFailureType = this.value;
+
+                })
                 $("select.meter-number-select.req").on("change", function () {
                     MeterNumber = $(this).find('option:selected').attr("meter-num")
+                    data.body.meterNumberList.forEach(function (item) {
+                        if (item.meterNumber == MeterNumber) {
+                            FileNumber = item.fileNumber
+                        }
+                    });
                     if (this.value == 0) {
                         valMeterReq = false;
                     } else {
@@ -687,6 +751,11 @@
                 })
                 $("select.meter-number-select").on("change", function () {
                     MeterNumber = $(this).find('option:selected').attr("meter-num")
+                    data.body.meterNumberList.forEach(function (item) {
+                        if (item.meterNumber == MeterNumber) {
+                            FileNumber = item.fileNumber
+                        }
+                    });
                 })
                 $(".national-select").on("change", function () {
                     if (this.value == 0) {
@@ -787,7 +856,7 @@
                 })
             },
             error: function (result) {
-                console.log(result)
+              /*  console.log(result)*/
             }
         });
 
@@ -1157,7 +1226,7 @@
         success: function (result) {
 
 
-            console.log(result);
+           /* console.log(result);*/
             $("#ddlGeove").empty();
             $("#ddlGeove").append("<option value='0'>اختيار الجنسية</option>");
             $.each(result.d, function (key, value) {
@@ -1208,7 +1277,7 @@
             success: function (result) {
 
 
-                console.log(result);
+             /*   console.log(result);*/
 
 
                 $("#ddlAreas").empty();
@@ -1249,7 +1318,7 @@
             success: function (result) {
 
 
-                console.log(result);
+            /*    console.log(result);*/
 
 
                 $("#ddlAreas2").empty();
@@ -1290,7 +1359,7 @@
             success: function (result) {
 
 
-                console.log(result);
+          /*      console.log(result);*/
 
 
                 $("#ddlsteet").empty();
@@ -3170,7 +3239,6 @@
         }
 
 
-
         if (StreetIdLast == "") {
             StreetIdLast = "-1";
         }
@@ -3192,6 +3260,7 @@
                 ComplainTypeName: ComplainantName,
                 ComplainFailureType: ComplainFailureType,
                 MeterNumber: MeterNumber,
+                FileNumber: FileNumber,
                 ComplainEmail: ComplainEmail,
                 ComplainPhoneNumber: ComplainPhoneNumber,
                 Nationality: Nationality,
@@ -3208,9 +3277,10 @@
                 StreetName: StreetNameLast,
                 Address: AddrssDetails,
                 LanguageId: "AR",
-                Integrationtype: 1,
+                Integrationtype: 0,
                 Long: $("#lonlbl").text(),
                 Latt: $("#latlbl").text(),
+                
 
             }),
             contentType: "application/json; charset=utf-8",

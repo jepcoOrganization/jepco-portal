@@ -4,3 +4,9 @@ C:\Users\Maiada-Ibrahim\Desktop\jepco-portal\SiteWare.Entity\obj\Debug\SiteWare.
 C:\Users\Maiada-Ibrahim\Desktop\jepco-portal\SiteWare.Entity\obj\Debug\SiteWare.Entity.csproj.CoreCompileInputs.cache
 C:\Users\Maiada-Ibrahim\Desktop\jepco-portal\SiteWare.Entity\obj\Debug\SiteWare.Entity.dll
 C:\Users\Maiada-Ibrahim\Desktop\jepco-portal\SiteWare.Entity\obj\Debug\SiteWare.Entity.pdb
+C:\projects\jepco-portal\SiteWare.Entity\bin\Debug\SiteWare.Entity.dll
+C:\projects\jepco-portal\SiteWare.Entity\bin\Debug\SiteWare.Entity.pdb
+C:\projects\jepco-portal\SiteWare.Entity\obj\Debug\SiteWare.Entity.csproj.AssemblyReference.cache
+C:\projects\jepco-portal\SiteWare.Entity\obj\Debug\SiteWare.Entity.csproj.CoreCompileInputs.cache
+C:\projects\jepco-portal\SiteWare.Entity\obj\Debug\SiteWare.Entity.dll
+C:\projects\jepco-portal\SiteWare.Entity\obj\Debug\SiteWare.Entity.pdb

@@ -9,3 +9,14 @@ C:\Users\Maiada-Ibrahim\Desktop\jepco-portal\SiteWare.Domain\obj\Debug\SiteWare.
 C:\Users\Maiada-Ibrahim\Desktop\jepco-portal\SiteWare.Domain\obj\Debug\SiteWare.Domain.csproj.CopyComplete
 C:\Users\Maiada-Ibrahim\Desktop\jepco-portal\SiteWare.Domain\obj\Debug\SiteWare.Domain.dll
 C:\Users\Maiada-Ibrahim\Desktop\jepco-portal\SiteWare.Domain\obj\Debug\SiteWare.Domain.pdb
+C:\projects\jepco-portal\SiteWare.Domain\bin\Debug\SiteWare.Domain.dll
+C:\projects\jepco-portal\SiteWare.Domain\bin\Debug\SiteWare.Domain.pdb
+C:\projects\jepco-portal\SiteWare.Domain\bin\Debug\SiteWare.DataAccess.dll
+C:\projects\jepco-portal\SiteWare.Domain\bin\Debug\SiteWare.Entity.dll
+C:\projects\jepco-portal\SiteWare.Domain\bin\Debug\SiteWare.DataAccess.pdb
+C:\projects\jepco-portal\SiteWare.Domain\bin\Debug\SiteWare.Entity.pdb
+C:\projects\jepco-portal\SiteWare.Domain\obj\Debug\SiteWare.Domain.csproj.AssemblyReference.cache
+C:\projects\jepco-portal\SiteWare.Domain\obj\Debug\SiteWare.Domain.csproj.CoreCompileInputs.cache
+C:\projects\jepco-portal\SiteWare.Domain\obj\Debug\SiteWare.Domain.csproj.CopyComplete
+C:\projects\jepco-portal\SiteWare.Domain\obj\Debug\SiteWare.Domain.dll
+C:\projects\jepco-portal\SiteWare.Domain\obj\Debug\SiteWare.Domain.pdb
