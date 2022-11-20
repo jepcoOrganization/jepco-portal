@@ -133,9 +133,9 @@
                         <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="form-group billingSubselect">
-                                        <label><span>*</span>  نوع الجباية </label>
+                                        <label><span>*</span>  وصف الملاحظة </label>
                                         <select class="billingSub-select">
-                                            <option value="0">أختيار الجباية</option>
+                                            <option value="0">أختيار الوصف</option>
                                         </select>
 
                                         <select id="billingSub-select" name="billingSub-select" class="form-control" tabindex="2" style="display: none"></select>
@@ -145,9 +145,9 @@
                                <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="form-group subscribtionSubselect">
-                                        <label><span>*</span>  نوع الشكوى على الاشتراك </label>
+                                        <label><span>*</span>  وصف الملاحظة على الاشتراك </label>
                                         <select class="subscribtionSub-select">
-                                            <option value="0">أختيار الشكوى</option>
+                                            <option value="0">أختيار الوصف</option>
                                         </select>
 
                                         <select id="subscribtionSub-select" name="subscribtionSub-select" class="form-control" tabindex="2" style="display: none"></select>
