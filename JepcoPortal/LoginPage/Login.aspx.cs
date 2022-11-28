@@ -152,7 +152,7 @@ public partial class LoginPage_Login : SiteBasePage
                                                     phone_numbers = MobileNumber.ToArray(),
                                                     // content = "JepcoPortal Send : " + dyna_otp,
                                                     content = "اهلا وسهلا بكم في البوابة الالكترونية لشركة الكهرباء رقم التعريف الخاص بك هو " + dyna_otp,
-                                                    sender_id = "JEPCO"
+                                                    sender_id = "jepco"
 
                                                 };
                                                 Page.Response.Write("<script>console.log('Mobile No 1: " + Result.Entity.MobileNumber + "');</script>");
@@ -235,7 +235,7 @@ public partial class LoginPage_Login : SiteBasePage
                                                 phone_numbers = MobileNumber.ToArray(),
                                                 // content = "JepcoPortal Send : " + dyna_otp,
                                                 content = "اهلا وسهلا بكم في البوابة الالكترونية لشركة الكهرباء رقم التعريف الخاص بك هو " + dyna_otp,
-                                                sender_id = "JEPCO"
+                                                sender_id = "jepco"
 
                                             };
                                             Page.Response.Write("<script>console.log('Mobile No 2: " + Result.Entity.MobileNumber + "');</script>");
@@ -351,7 +351,7 @@ public partial class LoginPage_Login : SiteBasePage
                                             phone_numbers = MobileNumber.ToArray(),
                                             // content = "JepcoPortal Send : " + dyna_otp,
                                             content = "اهلا وسهلا بكم في البوابة الالكترونية لشركة الكهرباء رقم التعريف الخاص بك هو " + dyna_otp,
-                                            sender_id = "JEPCO"
+                                            sender_id = "jepco"
 
                                         };
                                         Page.Response.Write("<script>console.log('Mobile No 1: " + Result.Entity.MobileNumber + "');</script>");
@@ -434,7 +434,7 @@ public partial class LoginPage_Login : SiteBasePage
                                         phone_numbers = MobileNumber.ToArray(),
                                         // content = "JepcoPortal Send : " + dyna_otp,
                                         content = "اهلا وسهلا بكم في البوابة الالكترونية لشركة الكهرباء رقم التعريف الخاص بك هو " + dyna_otp,
-                                        sender_id = "JEPCO"
+                                        sender_id = "jepco"
 
                                     };
                                     Page.Response.Write("<script>console.log('Mobile No 2: " + Result.Entity.MobileNumber + "');</script>");
