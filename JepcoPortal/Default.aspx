@@ -2300,8 +2300,15 @@ Thank you for Subscription.
                 display: inherit;
             }
             .protal_tabs .tab-content li .btn-pay {
+                background: #e36a6a;
+                margin-left: 4px;
+                margin-inline-start: 30px;
+              
+            }
+                .protal_tabs .tab-content li .btn-Connection {
                 background: #dec84d;
-
+                 margin-right: 4px;
+                
             }
             .protal_tabs .tab-content li a{
                 min-width: 135px;
