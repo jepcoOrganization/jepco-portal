@@ -103,6 +103,18 @@
                                         <asp:DropDownList ID="ddlComplainType" runat="server" TabIndex="2" Width="100%" Style="display:none">
                                         </asp:DropDownList>
                                     </div>
+
+
+                                      <div class="form-group damage-type">
+
+                                        <label><span>*</span>تصنيف العطل</label>
+                                          <select TabIndex="2" class="damage-classfication-select">
+                                                <option value="0">الرجاء اختيار تصنيف العطل</option>
+                                          </select>
+
+                                    </div>
+
+
                                     <div class="form-group damage-type">
 
                                         <label><span>*</span>نوع العطل</label>
@@ -117,6 +129,9 @@
                                                 <option value="0">الرجاء اختيار رقم العداد</option>
                                           </select>
                                     </div>
+
+
+
                                     <div class="form-group meter-number-notreq">
                                         <label>رقم العداد ( اختياري )</label>
                                           <select TabIndex="2" class="meter-number-select">
@@ -547,6 +562,9 @@
     var ComplainFailureType = "";
     var MeterNumber = "";
     var FileNumber = "";
+ 
+    var ChoosefailureTypeClassfication = "";
+
 
     var requsterName = ""
     var Nationality = "";
@@ -582,7 +600,7 @@
     var damageType = [];
     var meterNumberList = [];
     var arrayMeter = [];
-
+    var failureTypeClassficationList =[];
 
     var lonFAPI = null;
     var latFAPI = null;
@@ -631,7 +649,7 @@
                 damageType = data.body.failureTypesList;
                 meterNumberList = data.body.meterNumberList;
                 arrayMeter = data.body.meterNumberList;
-
+                failureTypeClassficationList = data.body.failureTypeClassficationList
 
 
                 // for loop for complain type : 
@@ -642,11 +660,13 @@
                 })
 
                 // foor loop for damage type : 
-                $.each(damageType, function (key, value) {
+                $.each(failureTypeClassficationList, function (key, value) {
                     // value == codeId from API
-                    var htmlComplainDropDown = "<option value='" + value.codeId + "'>" + value.codeName + "</option>";
-                    $(".damage-type-select").append(htmlComplainDropDown);
+                    var htmlComplainDropDown = "<option value='" + value.id + "'>" + value.failureTypeClassfication + "</option>";
+                    $(".damage-classfication-select").append(htmlComplainDropDown);
                 })
+
+            
 
                 // foor loop for meter Number List :
                 $.each(meterNumberList, function (key, value) {
@@ -668,14 +688,16 @@
                 })
 
                 $(".complain-type-select").on('change', function () {
-
+                    
                     ComplainFailureType = "";
                     ComplainTypeName = "";
                     MeterNumber = "";
+                    ChoosefailureTypeClassfication = "";
+
 
                     ComplainantName = $(this).find('option:selected').text();
                     ComplainantType = this.value;
-
+                  
                     /* *********** -- Validation For Input -- *********** */
                     if (this.value == 0) {
                         validComplainType = false;
@@ -687,11 +709,11 @@
                     if (this.value == 1) {
 
                         $(".damage-type").show()
-                        $(".meter-number-notreq").show()
+         
                     } else {
 
                         $(".damage-type").hide()
-                        $(".meter-number-notreq").hide()
+                      
 
                     }
 
@@ -717,7 +739,26 @@
                     initializeMapData();
                 })
 
-                // Save Value From DropDown in Global Variable 
+                // Save Value From DropDown in Global Variable
+
+                $(".damage-classfication-select").on("change", function () {
+                    ChoosefailureTypeClassfication = this.value;
+                    //ComplainTypeName = $(this).find('option:selected').text();
+                   
+                    $.each(damageType, function (key, value) {
+                        // value == codeId from API
+                        if (value.failureTypeClassfication == ChoosefailureTypeClassfication)
+                        var htmlComplainDropDown = "<option value='" + value.codeId + "'>" + value.codeName + "</option>";
+                        $(".damage-type-select").append(htmlComplainDropDown);
+                    })
+
+               
+
+               
+                })
+
+
+
                 $(".damage-type-select").on("change", function () {
                     ComplainFailureType = this.value;
                     ComplainTypeName = $(this).find('option:selected').text();
@@ -727,7 +768,22 @@
                     } else {
                         valDamageType = true;
                     }
+                    debugger;
+
+                    $.each(damageType, function (key, value) {
+                        // value == codeId from API
+                        if (value.codeId == ComplainFailureType) {
+                            if (value.meterNumberRequired == 0) {
+                                $(".meter-number-notreq").show();
+                                 $(".meter-number-req").hide();
+                            } else {
+                                $(".meter-number-req").show();
+                                $(".meter-number-notreq").hide();
+                            }
+                        }
+                    })
                 })
+                debugger;
                 $(".subscribtionSub-select").on("change", function () {
                     ComplainFailureType = this.value;
                    
@@ -3246,6 +3302,14 @@
             ComplainFailureType = "-1";
         }
 
+        if (ChoosefailureTypeClassfication == "") {
+            ChoosefailureTypeClassfication = "-1";
+            ChoosefailureTypeClassfication = parseInt(ChoosefailureTypeClassfication);
+        } else {
+
+            ChoosefailureTypeClassfication = parseInt(ChoosefailureTypeClassfication);
+        }
+
         $.ajax({
             type: "POST",
             url: APIUrl + "Complaints/AddComplaint",
@@ -3256,6 +3320,7 @@
                 MobileNumber: MobileNoURL,
                 RequesterName: requsterName,
                 ComplainantName: ComplainantName,
+                ComplainFailureTypeClassfication: ChoosefailureTypeClassfication,
                 ComplainType: ComplainantType,
                 ComplainTypeName: ComplainantName,
                 ComplainFailureType: ComplainFailureType,
