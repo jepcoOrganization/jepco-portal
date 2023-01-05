@@ -3342,7 +3342,7 @@
                 StreetName: StreetNameLast,
                 Address: AddrssDetails,
                 LanguageId: "AR",
-                Integrationtype: 0,
+                Integrationtype: 1,
                 Long: $("#lonlbl").text(),
                 Latt: $("#latlbl").text(),
                 
