@@ -245,9 +245,9 @@
                     <input class="form-check-input" type="checkbox" value="" id="checkAll">
                     <label class="form-check-label" for="checkAll">تحديد الجميع   </label>
                 </div>--%>
-                   <div class="d3">
+               <%--    <div class="d3">
                     <p class="p-amount">المبلغ الأجمالي : <strong id="bill-amount">00.00</strong></p>
-                </div>
+                </div>--%>
                 <button type="button" class="btn btn-primary" id="paument-btn" >تسديد الذمم ورسم التيار</button>
 
             </h5>
@@ -380,7 +380,7 @@
     var totalSelectedAmount = 0;
     var arrayBill = []
     var receivablePaymentAmount;
-
+    
 
     $(document).ready(function () {
 
@@ -480,7 +480,7 @@
             contentType: "application/json; charset=utf-8",
             async: false,
             success: function (data) {
-                
+                console.log(data)
                 if (data.statusCode = "Success") {
 
                     receivablePaymentAmount = data.body.header.receivablePaymentAmount;
@@ -551,12 +551,12 @@
                         docArray = [];
 
                         for (let i = 0; i < arrayBill.length; i++) {
-                            totalAmount += Number(arrayBill[i].billAmount);
+                            totalAmount = data.body.header.receivablePaymentAmount ;
 
                         }
-                        $("#bill-amount").text(totalAmount.toFixed(3))
+                      /*  $("#bill-amount").text(totalAmount)*/
 
-                  
+                    var key1 = 0;
 
                         $.each(arrayBill, function (key, value) {
 
@@ -570,9 +570,21 @@
                                     "index": key
                                 }
                             )
+                            key1=key
                         })
 
-                    
+
+                    if (advPayment != "0.000") {
+                        var htmlbill = "<div class=''> " + "ذمم سابقة" + " --> " + advPayment + " د.أ </div>";
+                        $("#bill-sammury").append(htmlbill);
+                        docArray.push(
+                            {
+                                "BillNumber": "ذمم سايقة",
+                                "BillAmount": advPayment.toString(),
+                                "index": key1 + 1
+                            }
+                        )
+                    }
                 }
             },
             error: function (err) {
@@ -590,7 +602,7 @@
                 $("#CostName1").text(nameCustomer);
                 $("#fileNumber1").text(fileNumber);
                 $("#bill-no1").text(billNo)
-                $("#totalAmount1").text(totalAmount.toFixed(3))
+                $("#totalAmount1").text(totalAmount)
 
 
                 //////////////////////////////////////////////
